@@ -1,0 +1,1 @@
+(()=>{window.PAINTFALL_CHARACTER_ANIMATIONS={states:['idle','walk','run','jump','shoot','hit','victory'],blendTime:.12,update(character,state,t){if(!character)return;const bob=state==='run'?Math.sin(t*.018)*.06:state==='walk'?Math.sin(t*.01)*.025:Math.sin(t*.002)*.008;character.position.y=bob;character.rotation.y=state==='run'?Math.sin(t*.009)*.08:Math.sin(t*.001)*.025}};})();
