@@ -1,54 +1,16 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const WebSocket = require('ws');
-
-const PORT = process.env.PORT || 10000;
-const publicDir = path.join(__dirname, 'public');
-const players = new Map();
-const rooms = new Map();
-
-const server = http.createServer((req, res) => {
-  let pathname = req.url.split('?')[0];
-  if (pathname === '/') pathname = '/index.html';
-  const file = path.join(publicDir, pathname);
-  if (!file.startsWith(publicDir)) return res.writeHead(403).end();
-  fs.readFile(file, (err, data) => {
-    if (err) return res.writeHead(404).end('Not found');
-    const ext = path.extname(file);
-    const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'};
-    res.writeHead(200, {'Content-Type': types[ext] || 'application/octet-stream'}); res.end(data);
-  });
-});
-const wss = new WebSocket.Server({server});
-function send(ws, data){ if(ws.readyState===WebSocket.OPEN) ws.send(JSON.stringify(data)); }
-function broadcast(room, data){ for(const p of room.players.values()) send(p.ws,data); }
-function state(room){ return {type:'state',players:[...room.players.values()].map(p=>({id:p.id,name:p.name,x:p.x,y:p.y,hp:p.hp,color:p.color,alive:p.alive})),mode:room.mode,started:room.started,boss:room.boss}; }
-function roomState(room){ broadcast(room,state(room)); }
-function makeRoomCode(){ let c; do { c=Math.random().toString(36).slice(2,6).toUpperCase(); } while(rooms.has(c)); return c; }
-function resetRoom(room){
-  let i=0; for(const p of room.players.values()){ p.x=160+(i%4)*180; p.y=160+Math.floor(i/4)*180; p.hp=100; p.alive=true; i++; }
-  room.started=true; room.boss=room.mode==='zombies'?{hp:1000,x:600,y:350,fire:0,lava:[]}:null; roomState(room);
-}
-wss.on('connection', ws => {
-  const id = Math.random().toString(36).slice(2,9);
-  ws.on('message', raw => {
-    let m; try{m=JSON.parse(raw)}catch{return}
-    if(m.type==='create'){
-      const code=makeRoomCode(); const room={code,mode:m.mode||'paintball',started:false,players:new Map(),boss:null}; rooms.set(code,room);
-      const p={id,name:m.name||'Player',x:160,y:160,hp:100,color:'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0'),alive:true,ws}; room.players.set(id,p); players.set(id,p); ws.room=room; ws.pid=id;
-      send(ws,{type:'joined',code,id}); roomState(room);
-    } else if(m.type==='join'){
-      const room=rooms.get((m.code||'').toUpperCase()); if(!room||room.players.size>=8) return send(ws,{type:'error',message:'Room unavailable'});
-      const p={id,name:m.name||'Player',x:160+(room.players.size%4)*180,y:160+Math.floor(room.players.size/4)*180,hp:100,color:'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0'),alive:true,ws}; room.players.set(id,p); players.set(id,p); ws.room=room; ws.pid=id;
-      send(ws,{type:'joined',code:room.code,id}); roomState(room);
-    } else if(m.type==='start' && ws.room){ resetRoom(ws.room); }
-    else if(m.type==='move' && ws.room){ const p=ws.room.players.get(ws.pid); if(!p||!p.alive)return; p.x=Math.max(30,Math.min(1170,Number(m.x)||p.x)); p.y=Math.max(30,Math.min(670,Number(m.y)||p.y)); roomState(ws.room); }
-    else if(m.type==='shoot' && ws.room){
-      const room=ws.room, shooter=room.players.get(ws.pid); if(!shooter||!shooter.alive)return;
-      const hit=room.players.get(m.target); if(hit&&hit.alive&&hit.id!==shooter.id){ hit.hp-=m.damage||20; if(hit.hp<=0){hit.hp=0;hit.alive=false;} roomState(room); }
-    } else if(m.type==='bossHit' && ws.room && ws.room.boss){ ws.room.boss.hp=Math.max(0,ws.room.boss.hp-(m.damage||20)); if(ws.room.boss.hp===0) ws.room.boss.defeated=true; roomState(ws.room); }
-  });
-  ws.on('close',()=>{ const room=ws.room; if(room){room.players.delete(ws.pid); if(!room.players.size) rooms.delete(room.code); else roomState(room);} players.delete(id); });
-});
-server.listen(PORT,'0.0.0.0',()=>console.log(`PAINTFALL listening on ${PORT}`));
+const http=require('http');const fs=require('fs');const path=require('path');const WebSocket=require('ws');const PORT=process.env.PORT||10000;const publicDir=path.join(__dirname,'public');const rooms=new Map();
+const WEAPONS={paint:{name:'Paint Blaster',damage:20,rate:1},ak:{name:'AK-Style Blaster',damage:28,rate:1.7},tommy:{name:'Tommy Blaster',damage:16,rate:3},hellfire:{name:'HELLFIRE',damage:45,rate:1.4}};
+const server=http.createServer((req,res)=>{let pathname=(req.url||'/').split('?')[0];if(pathname==='/')pathname='/index.html';const file=path.join(publicDir,pathname);if(!file.startsWith(publicDir))return res.writeHead(403).end();fs.readFile(file,(err,data)=>{if(err)return res.writeHead(404).end('Not found');const ext=path.extname(file);const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'};res.writeHead(200,{'Content-Type':types[ext]||'application/octet-stream'});res.end(data);});});
+const wss=new WebSocket.Server({server});function send(ws,d){if(ws.readyState===WebSocket.OPEN)ws.send(JSON.stringify(d));}function broadcast(r,d){for(const p of r.players.values())send(p.ws,d);}function state(r){return{type:'state',players:[...r.players.values()].map(p=>({id:p.id,name:p.name,x:p.x,y:p.y,hp:p.hp,color:p.color,alive:p.alive,weapon:p.weapon,kills:p.kills,paintHits:p.paintHits,hellfire:p.hellfire,dragonRider:p.dragonRider})),mode:r.mode,started:r.started,round:r.round,boss:r.boss,prep:r.prep};}function roomState(r){broadcast(r,state(r));}function code(){let c;do c=Math.random().toString(36).slice(2,6).toUpperCase();while(rooms.has(c));return c;}
+function reset(r){let i=0;r.round++;for(const p of r.players.values()){p.x=160+(i%4)*180;p.y=160+Math.floor(i/4)*180;p.hp=100;p.alive=true;p.dragonRider=false;if(r.mode==='zombies'&&r.round>=3)p.hellfire=true;i++;}r.started=true;r.prep=r.mode==='zombies'&&r.round<4;r.boss=r.mode==='zombies'&&!r.prep?{hp:1400,x:600,y:350,defeated:false,lava:[]}:null;roomState(r);}
+function makePlayer(id,m,ws,x,y){return{id,name:m.name||'Player',x,y,hp:100,color:'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0'),alive:true,ws,weapon:'paint',kills:0,paintHits:0,hellfire:false,dragonRider:false};}
+wss.on('connection',ws=>{const id=Math.random().toString(36).slice(2,9);ws.on('message',raw=>{let m;try{m=JSON.parse(raw)}catch{return}
+if(m.type==='create'){const r={code:code(),mode:m.mode||'paintball',started:false,round:0,prep:false,players:new Map(),boss:null};rooms.set(r.code,r);const p=makePlayer(id,m,ws,160,160);r.players.set(id,p);ws.room=r;ws.pid=id;send(ws,{type:'joined',code:r.code,id});roomState(r);}
+else if(m.type==='join'){const r=rooms.get((m.code||'').toUpperCase());if(!r||r.players.size>=8)return send(ws,{type:'error',message:'Room unavailable'});const n=r.players.size;const p=makePlayer(id,m,ws,160+(n%4)*180,160+Math.floor(n/4)*180);r.players.set(id,p);ws.room=r;ws.pid=id;send(ws,{type:'joined',code:r.code,id});roomState(r);}
+else if(m.type==='start'&&ws.room)reset(ws.room);
+else if(m.type==='weapon'&&ws.room){const p=ws.room.players.get(ws.pid);if(!p)return;const w=m.weapon;if(w==='hellfire'&&!p.hellfire)return;if(WEAPONS[w])p.weapon=w;roomState(ws.room);}
+else if(m.type==='move'&&ws.room){const p=ws.room.players.get(ws.pid);if(!p||!p.alive)return;p.x=Math.max(35,Math.min(1165,Number(m.x)||p.x));p.y=Math.max(35,Math.min(665,Number(m.y)||p.y));roomState(ws.room);}
+else if(m.type==='shoot'&&ws.room){const r=ws.room,sh=r.players.get(ws.pid);if(!sh||!sh.alive)return;const w=WEAPONS[sh.weapon]||WEAPONS.paint;const hit=r.players.get(m.target);if(hit&&hit.alive&&hit.id!==sh.id){hit.hp-=w.damage;if(sh.weapon==='paint')sh.paintHits++;if(hit.hp<=0){hit.hp=0;hit.alive=false;sh.kills++;if(r.mode==='paintball'&&sh.paintHits>=10)sh.dragonRider=true;}roomState(r);}}
+else if(m.type==='bossHit'&&ws.room&&ws.room.boss){const r=ws.room,p=r.players.get(ws.pid);if(!p||!p.alive)return;const w=WEAPONS[p.weapon]||WEAPONS.paint;r.boss.hp=Math.max(0,r.boss.hp-w.damage);if(r.boss.hp===0)r.boss.defeated=true;roomState(r);}
+else if(m.type==='rideDragon'&&ws.room){const r=ws.room,p=r.players.get(ws.pid);if(p&&r.mode==='paintball'&&p.dragonRider)p.dragonRider=!p.dragonRider;roomState(r);}
+});ws.on('close',()=>{const r=ws.room;if(r){r.players.delete(ws.pid);if(!r.players.size)rooms.delete(r.code);else roomState(r);}});});server.listen(PORT,'0.0.0.0',()=>console.log(`PAINTFALL listening on ${PORT}`));
