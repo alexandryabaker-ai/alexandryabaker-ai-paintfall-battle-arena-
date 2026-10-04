@@ -2,67 +2,38 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
 
 const state={players:[],started:false};
 const OriginalWebSocket=window.WebSocket;
-function WrappedWebSocket(...args){
-  const ws=new OriginalWebSocket(...args);
-  ws.addEventListener("message",event=>{try{const m=JSON.parse(event.data);if(m.type==="state"){state.players=m.players||[];state.started=!!m.started;}}catch{}});
-  return ws;
-}
-WrappedWebSocket.prototype=OriginalWebSocket.prototype;
-window.WebSocket=WrappedWebSocket;
+function WrappedWebSocket(...args){const ws=new OriginalWebSocket(...args);ws.addEventListener("message",event=>{try{const m=JSON.parse(event.data);if(m.type==="state"){state.players=m.players||[];state.started=!!m.started;}}catch{}});return ws;}
+WrappedWebSocket.prototype=OriginalWebSocket.prototype;window.WebSocket=WrappedWebSocket;
 
-const threeCanvas=document.createElement("canvas");
-threeCanvas.id="paintfall3d";
-threeCanvas.style.cssText="position:fixed;left:0;top:0;z-index:30;pointer-events:none;display:none;";
-document.body.appendChild(threeCanvas);
-
-const renderer=new THREE.WebGLRenderer({canvas:threeCanvas,alpha:true,antialias:true,powerPreference:"high-performance"});
-renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-renderer.shadowMap.enabled=true;
-renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-const scene=new THREE.Scene();
-scene.add(new THREE.AmbientLight(0xffffff,2.2));
-const key=new THREE.DirectionalLight(0xffffff,3.2);key.position.set(4,8,6);key.castShadow=true;scene.add(key);
-const rim=new THREE.PointLight(0x7c4dff,3,20);rim.position.set(-4,4,5);scene.add(rim);
-const camera=new THREE.OrthographicCamera(0,1200,700,0,-100,100);camera.position.set(0,0,20);camera.lookAt(0,0,0);
-
-const mayaMat={skin:new THREE.MeshStandardMaterial({color:0xb97852,roughness:.62,metalness:.02}),hair:new THREE.MeshStandardMaterial({color:0x2a1712,roughness:.75}),suit:new THREE.MeshStandardMaterial({color:0x26233f,roughness:.4,metalness:.12}),accent:new THREE.MeshStandardMaterial({color:0x31e8ff,roughness:.28,metalness:.25}),nigeria:new THREE.MeshStandardMaterial({color:0xd5a52a,roughness:.55,metalness:.08}),shoe:new THREE.MeshStandardMaterial({color:0x111522,roughness:.5,metalness:.2})};
-const otherMats={skin:new THREE.MeshStandardMaterial({color:0x9a6b50}),suit:new THREE.MeshStandardMaterial({color:0x4b61c8}),accent:new THREE.MeshStandardMaterial({color:0x35e6ff}),hair:new THREE.MeshStandardMaterial({color:0x21140f})};
-function mesh(g,m){const o=new THREE.Mesh(g,m);o.castShadow=true;o.receiveShadow=true;return o;}
-function limb(material,r=.09,len=.55){return mesh(new THREE.CapsuleGeometry(r,r*2,len,6,10),material);}
-function makeCharacter(p){
- const isMaya=p.character==="Maya",mat=isMaya?mayaMat:otherMats,root=new THREE.Group();root.userData.id=p.id;
- const body=mesh(new THREE.CapsuleGeometry(isMaya?.27:.24,.55,8,16),mat.suit);body.position.y=.7;root.add(body);
- const head=mesh(new THREE.SphereGeometry(isMaya?.25:.23,20,16),mat.skin);head.position.y=1.55;root.add(head);
- const hair=mesh(new THREE.SphereGeometry(isMaya?.28:.25,18,14),mat.hair);hair.scale.set(1,1.05,.9);hair.position.set(0,1.68,0);root.add(hair);
- if(isMaya){
-  const bun=mesh(new THREE.SphereGeometry(.23,18,14),mat.hair);bun.scale.set(1.1,.82,1);bun.position.set(0,1.98,-.02);root.add(bun);
-  const edge=mesh(new THREE.TorusGeometry(.2,.025,6,18),mat.hair);edge.rotation.x=Math.PI/2;edge.position.set(0,1.63,.22);root.add(edge);
-  const eyeL=mesh(new THREE.SphereGeometry(.026,8,8),new THREE.MeshStandardMaterial({color:0x8a6a28}));eyeL.position.set(-.085,1.57,.235);root.add(eyeL);const eyeR=eyeL.clone();eyeR.position.x=.085;root.add(eyeR);
-  const mark=mesh(new THREE.SphereGeometry(.018,8,8),new THREE.MeshStandardMaterial({color:0x3a1710}));mark.position.set(.16,1.48,.245);root.add(mark);
-  const panel=mesh(new THREE.BoxGeometry(.38,.09,.04),mat.nigeria);panel.position.set(0,.83,.27);root.add(panel);
-  const tech=mesh(new THREE.BoxGeometry(.44,.045,.035),mat.accent);tech.position.set(0,.62,.27);root.add(tech);
- }
- const armL=limb(mat.suit,isMaya?.075:.08,.55);armL.position.set(-.34,.83,0);armL.rotation.z=-.15;root.add(armL);
- const armR=limb(mat.suit,isMaya?.075:.08,.55);armR.position.set(.34,.83,0);armR.rotation.z=.15;root.add(armR);
- const legL=limb(mat.suit,isMaya?.09:.1,.68);legL.position.set(-.13,.05,0);root.add(legL);
- const legR=limb(mat.suit,isMaya?.09:.1,.68);legR.position.set(.13,.05,0);root.add(legR);
- const shoeL=mesh(new THREE.SphereGeometry(.13,12,8),mat.shoe);shoeL.scale.set(1.25,.55,1.8);shoeL.position.set(-.14,-.36,.08);root.add(shoeL);const shoeR=shoeL.clone();shoeR.position.x=.14;root.add(shoeR);
- root.scale.setScalar(isMaya?1.35:.95);return root;
-}
-const models=new Map();
-function hairStage(p){const hits=p.paintHits||0;if(hits>=9)return 4;if(hits>=7)return 3;if(hits>=5)return 2;if(hits>=3)return 1;return 0;}
-function updateHair(root,p){
- if(p.character!=="Maya")return;const stage=hairStage(p),existing=root.userData.hairExtras||[];existing.forEach(o=>root.remove(o));const color=mayaMat.hair;
- if(stage>=1){const curl=mesh(new THREE.TorusGeometry(.13,.055,8,16),color);curl.position.set(-.18,1.86,.02);curl.rotation.x=Math.PI/2;root.add(curl);existing.push(curl);}
- if(stage>=2){const pony=mesh(new THREE.SphereGeometry(.34,16,12),color);pony.scale.set(.75,1.7,.75);pony.position.set(0,1.65,-.2);root.add(pony);existing.push(pony);}
- if(stage>=3){for(let i=0;i<6;i++){const c=mesh(new THREE.SphereGeometry(.18,12,10),color);c.position.set((i-2.5)*.13,1.55+(i%2)*.12,-.2-Math.abs(i-2.5)*.02);root.add(c);existing.push(c);}}
- if(stage>=4){for(let i=0;i<14;i++){const a=i/14*Math.PI*2,c=mesh(new THREE.SphereGeometry(.17,10,8),color);c.position.set(Math.cos(a)*.32,1.65+Math.sin(a)*.28,-.08);root.add(c);existing.push(c);}}
- root.userData.hairExtras=existing;
-}
-function sync(){
- const arena=document.getElementById("arena");if(!arena)return;const r=arena.getBoundingClientRect();const visible=state.started&&r.width>0&&r.height>0;threeCanvas.style.display=visible?"block":"none";if(!visible)return;
- threeCanvas.style.left=r.left+"px";threeCanvas.style.top=r.top+"px";threeCanvas.style.width=r.width+"px";threeCanvas.style.height=r.height+"px";renderer.setSize(Math.max(1,Math.round(r.width)),Math.max(1,Math.round(r.height)),false);camera.left=0;camera.right=1200;camera.top=700;camera.bottom=0;camera.updateProjectionMatrix();
- const live=new Set();state.players.forEach(p=>{live.add(p.id);let root=models.get(p.id);if(!root){root=makeCharacter(p);scene.add(root);models.set(p.id,root);}root.position.set(p.x,700-p.y,0);root.visible=!!p.alive;root.rotation.y=Math.sin(performance.now()/900)*.06;updateHair(root,p);});
- for(const [id,root] of models){if(!live.has(id)){scene.remove(root);models.delete(id);}}renderer.render(scene,camera);
-}
+const canvas=document.createElement("canvas");canvas.id="paintfall3d";canvas.style.cssText="position:fixed;z-index:30;pointer-events:none;display:none;";document.body.appendChild(canvas);
+const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"high-performance"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.shadowMap.enabled=true;
+const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xf8fbff,0x101525,2.2));
+const key=new THREE.DirectionalLight(0xffffff,3.2);key.position.set(2,6,5);key.castShadow=true;scene.add(key);
+const rim=new THREE.PointLight(0x7d62ff,4,18);rim.position.set(-3,3,4);scene.add(rim);const fill=new THREE.PointLight(0x2de7ff,2.5,14);fill.position.set(4,2,2);scene.add(fill);
+const camera=new THREE.PerspectiveCamera(34,1,.1,100);camera.position.set(0,2.6,8.2);camera.lookAt(0,1.1,0);
+const M={skin:new THREE.MeshStandardMaterial({color:0xc88763,roughness:.64}),hair:new THREE.MeshStandardMaterial({color:0x2b1710,roughness:.82}),suit:new THREE.MeshStandardMaterial({color:0x25243b,roughness:.42,metalness:.12}),fabric:new THREE.MeshStandardMaterial({color:0x7b245e,roughness:.55}),accent:new THREE.MeshStandardMaterial({color:0x32e6ff,roughness:.25,metalness:.28}),gold:new THREE.MeshStandardMaterial({color:0xd6aa3a,roughness:.48,metalness:.12}),shoe:new THREE.MeshStandardMaterial({color:0x111522,roughness:.42,metalness:.2}),eye:new THREE.MeshStandardMaterial({color:0x927342,roughness:.28}),beauty:new THREE.MeshStandardMaterial({color:0x3b1710,roughness:.6}),aura:new THREE.MeshBasicMaterial({color:0xff65d7,transparent:true,opacity:.12,side:THREE.DoubleSide})};
+const OTHER={skin:new THREE.MeshStandardMaterial({color:0x9a6b50}),hair:new THREE.MeshStandardMaterial({color:0x21140f}),suit:new THREE.MeshStandardMaterial({color:0x4b61c8}),shoe:M.shoe};
+function mesh(g,m){const o=new THREE.Mesh(g,m);o.castShadow=true;o.receiveShadow=true;return o;}function capsule(r,len,m){return mesh(new THREE.CapsuleGeometry(r,len,8,16),m);}function sphere(r,m){return mesh(new THREE.SphereGeometry(r,20,16),m);}function addPart(root,obj,pos,scale){obj.position.set(...pos);if(scale)obj.scale.set(...scale);root.add(obj);return obj;}
+function makeMaya(p){const root=new THREE.Group();root.userData.id=p.id;root.userData.character="Maya";
+const pelvis=addPart(root,sphere(.42,M.fabric),[0,.93,0],[1.02,.75,.9]);const torso=addPart(root,capsule(.34,.7,M.suit),[0,1.48,0],[1.05,1.02,.78]);
+addPart(root,mesh(new THREE.BoxGeometry(.48,.045,.035),M.gold),[0,1.48,.31]);addPart(root,mesh(new THREE.BoxGeometry(.54,.035,.04),M.accent),[0,1.18,.31]);addPart(root,capsule(.12,.18,M.skin),[0,1.99,0]);
+const head=addPart(root,sphere(.31,M.skin),[0,2.28,0],[.98,1.08,.9]);const hairCap=addPart(root,sphere(.34,M.hair),[0,2.40,-.015],[1.02,.92,.94]);const bun=addPart(root,sphere(.27,M.hair),[0,2.66,-.02],[1.08,.78,1]);
+const edgeL=addPart(root,capsule(.018,.20,M.hair),[-.25,2.32,.285]);edgeL.rotation.z=.65;const edgeR=addPart(root,capsule(.018,.20,M.hair),[.25,2.32,.285]);edgeR.rotation.z=-.65;
+addPart(root,sphere(.035,M.eye),[-.105,2.30,.292],[1,.72,.5]);addPart(root,sphere(.035,M.eye),[.105,2.30,.292],[1,.72,.5]);addPart(root,sphere(.012,M.beauty),[.205,2.23,.304]);
+const thighL=addPart(root,capsule(.125,.72,M.suit),[-.18,.43,0],[1.18,1,1]);const thighR=addPart(root,capsule(.125,.72,M.suit),[.18,.43,0],[1.18,1,1]);const calfL=addPart(root,capsule(.10,.60,M.suit),[-.18,-.16,0],[1.12,1,1]);const calfR=addPart(root,capsule(.10,.60,M.suit),[.18,-.16,0],[1.12,1,1]);
+const shoeL=addPart(root,sphere(.14,M.shoe),[-.19,-.56,.07],[1.1,.52,1.65]);const shoeR=addPart(root,sphere(.14,M.shoe),[.19,-.56,.07],[1.1,.52,1.65]);
+const shoulderL=addPart(root,sphere(.12,M.suit),[-.38,1.70,0],[1,.9,.9]);const shoulderR=addPart(root,sphere(.12,M.suit),[.38,1.70,0],[1,.9,.9]);const armL=addPart(root,capsule(.075,.47,M.skin),[-.45,1.36,0]);const armR=addPart(root,capsule(.075,.47,M.skin),[.45,1.36,0]);
+addPart(root,sphere(.085,M.skin),[-.45,1.05,0],[.9,1.15,.9]);addPart(root,sphere(.085,M.skin),[.45,1.05,0],[.9,1.15,.9]);
+const aura=addPart(root,new THREE.Mesh(new THREE.SphereGeometry(1.02,24,18),M.aura),[0,1.18,-.02],[.7,1.18,.34]);const hiddenPony=addPart(root,capsule(.13,.95,M.hair),[0,2.12,-.27]);hiddenPony.rotation.x=.15;hiddenPony.visible=false;
+root.userData.parts={pelvis,torso,head,armL,armR,thighL,thighR,calfL,calfR,shoulderL,shoulderR,bun,hairCap,shoeL,shoeR};root.userData.aura=aura;root.userData.hiddenPony=hiddenPony;return root;}
+function makeOther(p){const root=new THREE.Group();root.userData.id=p.id;root.userData.character=p.character;addPart(root,capsule(.28,.62,OTHER.suit),[0,1.25,0]);addPart(root,sphere(.27,OTHER.skin),[0,2.05,0]);addPart(root,sphere(.29,OTHER.hair),[0,2.18,0]);addPart(root,capsule(.09,.55,OTHER.suit),[-.34,1.25,0]);addPart(root,capsule(.09,.55,OTHER.suit),[.34,1.25,0]);addPart(root,capsule(.11,.75,OTHER.suit),[-.14,.43,0]);addPart(root,capsule(.11,.75,OTHER.suit),[.14,.43,0]);addPart(root,sphere(.13,OTHER.shoe),[-.14,-.10,.06],[1,.5,1.6]);addPart(root,sphere(.13,OTHER.shoe),[.14,-.10,.06],[1,.5,1.6]);return root;}
+const models=new Map();function stageFor(p){const h=p.paintHits||0;if(h>=9)return 4;if(h>=7)return 3;if(h>=5)return 2;if(h>=3)return 1;return 0;}
+function rebuildHair(root,stage){const old=root.userData.hairStages||[];old.forEach(o=>root.remove(o));const made=[];const hair=M.hair;root.userData.hiddenPony.visible=stage<2;
+if(stage>=1){for(let i=0;i<5;i++){const c=addPart(root,sphere(.09,hair),[-.22+i*.11,2.53-(i%2)*.08,-.02],[.8,1.3,.8]);made.push(c);}}
+if(stage>=2){const pony=addPart(root,capsule(.14,.98,hair),[0,2.02,-.30],[1.1,1,1]);pony.rotation.z=.06;made.push(pony);for(let i=0;i<7;i++)made.push(addPart(root,sphere(.09,hair),[(i-3)*.07,1.65-(i%3)*.08,-.30]));}
+if(stage>=3){for(let i=0;i<11;i++){const a=i/11*Math.PI*2;made.push(addPart(root,sphere(.13,hair),[Math.cos(a)*.22,1.85+Math.sin(a)*.20,-.10+Math.sin(a)*.10]));}}
+if(stage>=4){for(let i=0;i<22;i++){const a=i/22*Math.PI*2,r=.31+.045*Math.sin(i*2.1);made.push(addPart(root,sphere(.14,hair),[Math.cos(a)*r,2.18+Math.sin(a)*.32,-.05+Math.sin(a)*.16]));}}
+root.userData.hairStages=made;}
+function animateModel(root,p,now){if(p.character!=="Maya")return;const t=now*.001,confidence=Math.min(1,(p.paintHits||0)/10),stage=stageFor(p),q=root.userData.parts;root.userData.aura.material.opacity=.04+confidence*.20;root.userData.aura.scale.set(.7+confidence*.18,1.15+confidence*.22,.34+confidence*.12);const idle=Math.sin(t*2.1),walk=Math.sin(t*1.25);q.shoulderL.rotation.z=-.035-idle*.035;q.shoulderR.rotation.z=.035+idle*.035;q.armL.rotation.z=-.06-idle*.08;q.armR.rotation.z=.06+idle*.08;q.head.rotation.z=Math.sin(t*.75)*.018;q.torso.rotation.z=Math.sin(t*.9)*.018;q.pelvis.rotation.z=-Math.sin(t*.9)*.014;q.thighL.rotation.z=walk*.035;q.thighR.rotation.z=-walk*.035;q.calfL.rotation.z=-walk*.025;q.calfR.rotation.z=walk*.025;root.rotation.y=Math.sin(t*.55)*.035;root.scale.setScalar(1.25+(confidence>.9?.05:0));if(stage!==root.userData.lastStage){rebuildHair(root,stage);root.userData.lastStage=stage;}}
+function sync(){const arena=document.getElementById("arena");if(!arena)return;const r=arena.getBoundingClientRect();const visible=state.started&&r.width>0&&r.height>0;canvas.style.display=visible?"block":"none";if(!visible)return;canvas.style.left=r.left+"px";canvas.style.top=r.top+"px";canvas.style.width=r.width+"px";canvas.style.height=r.height+"px";renderer.setSize(Math.max(1,Math.round(r.width)),Math.max(1,Math.round(r.height)),false);camera.aspect=Math.max(.1,r.width/r.height);camera.updateProjectionMatrix();const live=new Set();state.players.forEach(p=>{live.add(p.id);let root=models.get(p.id);if(!root){root=p.character==="Maya"?makeMaya(p):makeOther(p);scene.add(root);models.set(p.id,root);if(p.character==="Maya")rebuildHair(root,stageFor(p));}root.position.set((p.x-600)/120,(700-p.y)/120,0);root.visible=!!p.alive;animateModel(root,p,performance.now());});for(const [id,root] of models){if(!live.has(id)){scene.remove(root);models.delete(id);}}renderer.render(scene,camera);}
 window.addEventListener("resize",sync);setInterval(sync,50);
