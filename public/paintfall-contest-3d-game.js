@@ -22,7 +22,8 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   viewport.appendChild(hud);
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x87b7d9);
+  scene.background = new THREE.Color(0x9fc9df);
+  scene.fog = new THREE.Fog(0x9fc9df, 18, 48);
   const camera = new THREE.PerspectiveCamera(42, 1200 / 700, 0.1, 1000);
   camera.position.set(0, 9.5, 15.5);
   camera.lookAt(0, 1.2, 0);
@@ -30,6 +31,8 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   const renderer = new THREE.WebGLRenderer({canvas: renderCanvas, antialias:true, powerPreference:"high-performance"});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.08;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -37,19 +40,38 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   const sun = new THREE.DirectionalLight(0xffffff, 3.2);
   sun.position.set(-7, 14, 10);
   sun.castShadow = true;
+  sun.shadow.mapSize.set(2048,2048);
+  sun.shadow.camera.near = 1;
+  sun.shadow.camera.far = 45;
+  sun.shadow.camera.left = -22;
+  sun.shadow.camera.right = 22;
+  sun.shadow.camera.top = 22;
+  sun.shadow.camera.bottom = -22;
   scene.add(sun);
   const rim = new THREE.PointLight(0x7d62ff, 4, 28);
   rim.position.set(5, 6, 8);
   scene.add(rim);
 
   const mat = (color, roughness=.72, metalness=.03) => new THREE.MeshStandardMaterial({color, roughness, metalness});
-  const floor = new THREE.Mesh(new THREE.CylinderGeometry(18,18,.5,64), mat(0x3f7547,.92));
+  const floor = new THREE.Mesh(new THREE.CylinderGeometry(18,18,.5,96), mat(0x4b7650,.96));
   floor.position.y = -.35;
   floor.receiveShadow = true;
   scene.add(floor);
 
+  const floorAccent = new THREE.Mesh(new THREE.RingGeometry(8.5,8.62,96), new THREE.MeshStandardMaterial({color:0x78b6c8,roughness:.55,metalness:.08}));
+  floorAccent.rotation.x=-Math.PI/2;
+  floorAccent.position.y=-.08;
+  floorAccent.receiveShadow=true;
+  scene.add(floorAccent);
+
+  const grid = new THREE.GridHelper(32,32,0x86a99a,0x5b8067);
+  grid.position.y=-.08;
+  grid.material.transparent=true;
+  grid.material.opacity=.16;
+  scene.add(grid);
+
   function box(x,y,z,sx,sy,sz,color){
-    const m = new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz), mat(color,.78));
+    const m = new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz), mat(color,.68,.05));
     m.position.set(x,y,z);
     m.castShadow = true;
     m.receiveShadow = true;
@@ -60,6 +82,19 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   box(9,1,0,.8,2,18,0x35415c);
   [[-5,.7,-3],[5,.7,-2],[-2,.7,5],[4,.7,6]].forEach(p=>box(p[0],p[1],p[2],3,1.4,1.6,0xe76f51));
   [-7,7].forEach(x=>box(x,1.5,3,2,3,2,0x59677d));
+
+  [[-6,1.8,-6],[6,1.8,-6],[-6,1.8,6],[6,1.8,6]].forEach(p=>{
+    const pillar=new THREE.Mesh(new THREE.CylinderGeometry(.28,.42,3.6,18),mat(0x74889a,.42,.16));
+    pillar.position.set(...p); pillar.castShadow=true; pillar.receiveShadow=true; scene.add(pillar);
+    const cap=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,.12,18),mat(0x35d4d8,.35,.28));
+    cap.position.set(p[0],3.62,p[2]); cap.castShadow=true; scene.add(cap);
+  });
+
+  const paintPuddles=[[-4,-5,0xff5aa5],[3,-4,0x45d7ff],[-5,3,0xffd43b],[5,4,0x9b7cff]];
+  paintPuddles.forEach(([x,z,color])=>{
+    const puddle=new THREE.Mesh(new THREE.CircleGeometry(.9,32),new THREE.MeshStandardMaterial({color,roughness:.35,metalness:.02,transparent:true,opacity:.72}));
+    puddle.rotation.x=-Math.PI/2; puddle.scale.set(1.45,.72,1); puddle.position.set(x,.015,z); puddle.receiveShadow=true; scene.add(puddle);
+  });
 
   for(let i=0;i<8;i++){
     const a=i*Math.PI/4;
@@ -121,6 +156,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
 
     group.userData={id:p.id,character:p.character||"Maya",body,left,right,ll,lr,ring};
     group.scale.setScalar(1.35);
+    group.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});
     scene.add(group);
     return group;
   }
@@ -163,7 +199,11 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   resize();
 
   function animate(){
-    actors.forEach(actor=>{actor.rotation.y += .0015;});
+    actors.forEach(actor=>{
+      actor.rotation.y += .0015;
+      const pulse=1+Math.sin(performance.now()*.003+actor.position.x)*.012;
+      actor.userData.ring.scale.setScalar(pulse);
+    });
     renderer.render(scene,camera);
     requestAnimationFrame(animate);
   }
