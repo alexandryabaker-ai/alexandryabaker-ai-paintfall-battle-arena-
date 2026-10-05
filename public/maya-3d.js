@@ -27,6 +27,17 @@ addPart(root,sphere(.085,M.skin),[-.45,1.05,0],[.9,1.15,.9]);addPart(root,sphere
 const aura=addPart(root,new THREE.Mesh(new THREE.SphereGeometry(1.02,24,18),M.aura),[0,1.18,-.02],[.7,1.18,.34]);const hiddenPony=addPart(root,capsule(.13,.95,M.hair),[0,2.12,-.27]);hiddenPony.rotation.x=.15;hiddenPony.visible=false;
 root.userData.parts={pelvis,torso,head,armL,armR,thighL,thighR,calfL,calfR,shoulderL,shoulderR,bun,hairCap,shoeL,shoeR};root.userData.aura=aura;root.userData.hiddenPony=hiddenPony;return root;}
 function makeOther(p){const root=new THREE.Group();root.userData.id=p.id;root.userData.character=p.character;addPart(root,capsule(.28,.62,OTHER.suit),[0,1.25,0]);addPart(root,sphere(.27,OTHER.skin),[0,2.05,0]);addPart(root,sphere(.29,OTHER.hair),[0,2.18,0]);addPart(root,capsule(.09,.55,OTHER.suit),[-.34,1.25,0]);addPart(root,capsule(.09,.55,OTHER.suit),[.34,1.25,0]);addPart(root,capsule(.11,.75,OTHER.suit),[-.14,.43,0]);addPart(root,capsule(.11,.75,OTHER.suit),[.14,.43,0]);addPart(root,sphere(.13,OTHER.shoe),[-.14,-.10,.06],[1,.5,1.6]);addPart(root,sphere(.13,OTHER.shoe),[.14,-.10,.06],[1,.5,1.6]);return root;}
+
+const world=new THREE.Group();scene.add(world);
+const floor=mesh(new THREE.BoxGeometry(10.8,.18,6.2),new THREE.MeshStandardMaterial({color:0x252b36,roughness:.78,metalness:.08}));floor.position.set(0,-.12,0);floor.receiveShadow=true;world.add(floor);
+const borderMat=new THREE.MeshStandardMaterial({color:0x151922,roughness:.55,metalness:.18});
+function wall(x,y,z,sx,sy,sz){const o=mesh(new THREE.BoxGeometry(sx,sy,sz),borderMat);o.position.set(x,y,z);world.add(o);return o;}
+wall(0,.65,-3.08,10.8,1.5,.16);wall(0,.65,3.08,10.8,1.5,.16);wall(-5.38,.65,0,.16,1.5,6.2);wall(5.38,.65,0,.16,1.5,6.2);
+const stripeMat=new THREE.MeshStandardMaterial({color:0x344154,roughness:.65});
+for(let i=-4;i<=4;i+=2){const stripe=mesh(new THREE.BoxGeometry(.035,.012,5.9),stripeMat);stripe.position.set(i,0,-0.02);world.add(stripe);}
+for(let i=-2;i<=2;i+=2){const stripe=mesh(new THREE.BoxGeometry(10.6,.012,.035),stripeMat);stripe.position.set(0,0,i);world.add(stripe);}
+function crate(x,z,s=1){const o=mesh(new THREE.BoxGeometry(.9*s,.75*s,.9*s),new THREE.MeshStandardMaterial({color:0x5b4634,roughness:.82}));o.position.set(x,.375,z);world.add(o);return o;}
+crate(-3.5,-1.5,.9);crate(3.4,1.5,.9);crate(0,-2.0,.75);
 const models=new Map();function stageFor(p){const h=p.paintHits||0;if(h>=9)return 4;if(h>=7)return 3;if(h>=5)return 2;if(h>=3)return 1;return 0;}
 function rebuildHair(root,stage){const old=root.userData.hairStages||[];old.forEach(o=>root.remove(o));const made=[];const hair=M.hair;root.userData.hiddenPony.visible=stage<2;
 if(stage>=1){for(let i=0;i<5;i++){const c=addPart(root,sphere(.09,hair),[-.22+i*.11,2.53-(i%2)*.08,-.02],[.8,1.3,.8]);made.push(c);}}
