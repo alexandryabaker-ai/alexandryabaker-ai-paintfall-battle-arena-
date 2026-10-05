@@ -7,7 +7,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
 
   const viewport = document.createElement("div");
   viewport.id = "paintfallContest3D";
-  viewport.style.cssText = "position:relative;width:100%;height:auto;aspect-ratio:1200/700;border-radius:18px;overflow:hidden;background:#101827;border:1px solid #3b4968;touch-action:none;";
+  viewport.style.cssText = "position:relative;width:100%;height:auto;aspect-ratio:1020/720;border-radius:18px;overflow:hidden;background:#101827;border:1px solid #3b4968;touch-action:none;";
   sourceCanvas.parentNode.insertBefore(viewport, sourceCanvas);
   sourceCanvas.style.display = "none";
   sourceCanvas.setAttribute("aria-hidden", "true");
@@ -24,7 +24,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x9fc9df);
   scene.fog = new THREE.Fog(0x9fc9df, 18, 48);
-  const camera = new THREE.PerspectiveCamera(42, 1200 / 700, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(42, 1020 / 720, 0.1, 1000);
   camera.position.set(0, 9.5, 15.5);
   camera.lookAt(0, 1.2, 0);
 
