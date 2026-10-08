@@ -170,8 +170,8 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
       actor.visible=!!p.alive;
 
       const parts=actor.userData.parts;
-      const dx=Math.abs((p.x||0)-(actor.userData.lastX??p.x||0));
-      const dy=Math.abs((p.y||0)-(actor.userData.lastY??p.y||0));
+      const dx=Math.abs((p.x||0)-((actor.userData.lastX??p.x)||0));
+      const dy=Math.abs((p.y||0)-((actor.userData.lastY??p.y)||0));
       const moving=dx>.2||dy>.2;
       const t=performance.now()*.010;
       parts.body.position.y=moving?Math.abs(Math.sin(t))*.06:Math.sin(t*.5)*.015;
