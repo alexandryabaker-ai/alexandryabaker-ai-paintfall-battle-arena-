@@ -157,6 +157,12 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   }
   wrapSocket();
 
+  window.addEventListener('paintfall-3d-state',e=>{
+    const data=e.detail||{};
+    state.me=data.id||null;
+    state.players=data.players||[];
+  });
+
   function sync(){
     const list=state.players,seen=new Set(),rect=canvas.getBoundingClientRect();
     const sx=rect.width/1200,sy=rect.height/700;
