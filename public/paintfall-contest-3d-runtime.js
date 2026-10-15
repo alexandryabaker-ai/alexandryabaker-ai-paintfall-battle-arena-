@@ -61,7 +61,7 @@
     host.addEventListener('keydown', event => { if (event.key.toLowerCase() === 'c') toggleCamera(); });
 
     let world = null;
-    let latest = { players: [], id: null };
+    let latest = window.__paintfallLatest3DState || { players: [], id: null };
     window.addEventListener('paintfall-3d-state', event => {
       const state = event.detail;
       if (!state) return;
@@ -69,7 +69,8 @@
       if (state.id) latest.id = state.id;
     });
     function playerWorld() {
-      const player = latest.players.find(item => item.id === latest.id) || latest.players.find(item => item.id);
+      const localId = latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID;
+      const player = latest.players.find(item => item.id === localId) || latest.players.find(item => item.id);
       if (!player) return { x: 0, z: 5 };
       return {
         x: (Math.max(0, Math.min(1200, player.x)) - 600) / 40,
@@ -81,18 +82,21 @@
       if (!world) return;
       const rect = host.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) { requestAnimationFrame(render); return; }
-      const player = playerWorld(), targetY = 1.1;
+      const localId = latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID;
+      world.players.update(latest.players, localId, cameraMode, performance.now());
+      const actor = world.players.actors.get(localId);
+      const player = playerWorld(), targetY = actor ? actor.position.y + actor.userData.height * .55 : 1.1;
       let ex, ey, ez, cx, cy, cz;
       const cp = Math.cos(camPitch), sp = Math.sin(camPitch), sy = Math.sin(camYaw), cyaw = Math.cos(camYaw);
       if (cameraMode === 'first') {
-        ex = player.x; ey = targetY + 1.15; ez = player.z;
+        ex = player.x; ey = actor ? actor.position.y + actor.userData.eyeHeight : targetY + 1.15; ez = player.z;
         cx = ex + sy * cp * 10; cy = ey + sp * 10; cz = ez - cyaw * cp * 10;
       } else {
-        const orbitDistance = 18;
-        ex = player.x - sy * cp * orbitDistance; ey = 1.5 + sp * 7.5; ez = player.z + cyaw * cp * orbitDistance;
+        const orbitDistance = actor ? Math.max(4.5, actor.userData.renderHeight * 2.6) : 4.8;
+        ex = player.x - sy * cp * orbitDistance; ey = targetY + .4 + sp * orbitDistance; ez = player.z + cyaw * cp * orbitDistance;
         cx = player.x; cy = targetY; cz = player.z;
       }
-      world.setCameraPose({ ex, ey, ez, cx, cy, cz, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
+      world.setCameraPose({ ex, ey, ez, cx, cy, cz, mode: cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
       world.render();
       status.textContent = '🌲 OUTDOOR WORLD • ' + (cameraMode === 'third' ? 'THIRD-PERSON' : 'FIRST-PERSON');
       requestAnimationFrame(render);
@@ -100,6 +104,21 @@
 
     import('./paintfall-contest-3d-world.js').then(module => {
       world = module.createWorld(host);
+      window.PAINTFALL_3D_SCENE_HOST = host;
+      host.__paintfallScene = world.scene;
+      host.__paintfallCamera = world.camera;
+      host.__pf3dPlayers = world.players.actors;
+      window.paintfall3DPlayerInit = () => world.players.update(latest.players, latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID, cameraMode, performance.now());
+      window.paintfall3DPlayerJump = () => world.players.jump(latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID);
+      window.paintfall3DPlayerFire = detail => world.players.fire(detail);
+      window.addEventListener('paintfall-maya-gymnast-jump', window.paintfall3DPlayerJump);
+      window.addEventListener('paintfall-fire', event => world.players.fire(event.detail));
+      window.paintfall3DPlayerInit();
+      for (const action of window.__paintfallPending3DActions || []) {
+        if (action.type === 'jump') window.paintfall3DPlayerJump();
+        if (action.type === 'fire') window.paintfall3DPlayerFire(action.detail);
+      }
+      window.__paintfallPending3DActions = [];
       window.PAINTFALL_CONTEST_3D_ACTIVE = true;
       window.dispatchEvent(new Event('paintfall-3d-ready'));
       render();

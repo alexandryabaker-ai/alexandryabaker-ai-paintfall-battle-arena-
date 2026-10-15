@@ -1,4 +1,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
+import { constrainThirdPersonCamera } from './paintfall-camera-obstruction.js';
+import { createCharacterFactory } from './paintfall-outdoor-character-factory.js';
+import { createOutdoorPlayers } from './paintfall-outdoor-players.js';
 
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 function seeded(seed) {
@@ -28,6 +31,7 @@ function makeSurfaceTexture(base, colors, seed, repeat = 1) {
 
 export function createWorld(host) {
   const scene = new THREE.Scene();
+  const players = createOutdoorPlayers(THREE, scene, createCharacterFactory(THREE));
   scene.background = new THREE.Color(0xb5cbd2);
   scene.fog = new THREE.Fog(0xb5cbd2, 92, 230);
   const camera = new THREE.PerspectiveCamera(55, 1, .1, 180);
@@ -579,6 +583,7 @@ export function createWorld(host) {
     Object.assign(pose, next);
     pose.ey = Math.max(pose.ey, terrainHeight(pose.ex, pose.ez) + .7);
     pose.cy = Math.max(pose.cy, terrainHeight(pose.cx, pose.cz) + .1);
+    if (next.mode === 'third') Object.assign(pose, constrainThirdPersonCamera(pose, outline, colliders));
   }
   function render() {
     camera.fov = THREE.MathUtils.radToDeg(pose.fov);
@@ -587,5 +592,5 @@ export function createWorld(host) {
     camera.lookAt(pose.cx, pose.cy, pose.cz); camera.updateProjectionMatrix(); camera.updateMatrixWorld();
     updateLod(); renderer.render(scene, camera);
   }
-  return { scene, camera, renderer, setCameraPose, render, dispose() { resizeObserver?.disconnect(); window.removeEventListener('resize', resize); renderer.dispose(); } };
+  return { scene, camera, renderer, players, setCameraPose, render, dispose() { resizeObserver?.disconnect(); window.removeEventListener('resize', resize); renderer.dispose(); } };
 }
