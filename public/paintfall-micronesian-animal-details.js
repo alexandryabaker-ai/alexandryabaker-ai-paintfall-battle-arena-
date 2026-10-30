@@ -1,0 +1,13 @@
+export function addMicronesianAnimalDetails(T,{root,head,legs,wings,spec,coat,sphere,rod}){
+ const mat=c=>new T.MeshStandardMaterial({color:c,roughness:.95}),cream=mat(0xe5dac1),dark=mat(0x3e474b),red=mat(0xbe7466),gold=mat(0xc5b37b);
+ if(spec.model==='rail'){root.traverse(o=>o.geometry?.dispose());root.clear();head.clear();root.add(head);legs.length=0;wings.length=0;sphere(root,0,.42,0,.23,.25,.42,coat);head.position.set(0,.65,.31);sphere(head,0,0,0,.12,.15,.17,coat);rod(head,new T.Vector3(0,-.01,.12),new T.Vector3(0,-.03,.36),.035,dark);for(const side of [-1,1]){sphere(head,side*.09,.04,.12,.025,.025,.025,red);sphere(root,side*.18,.45,-.03,.06,.18,.3,coat).name='Folded ko-ko wing';const l=new T.Group();l.position.set(side*.13,.2,0);root.add(l);rod(l,new T.Vector3(),new T.Vector3(0,-.2,0),.025,dark);sphere(l,0,-.2,.09,.06,.02,.13,dark);legs.push(l);}for(let j=0;j<6;j++)sphere(root,0,.3+j*.045,.32,.16,.012,.035,cream).name='Rail pale belly bar';root.userData.flightless=true;}
+ else if(spec.model==='bird'){const v=spec.variant;if(v.includes('fantail')){root.children.filter(o=>o.name==='Bird tail feather').forEach(o=>{o.geometry.dispose();root.remove(o);});for(let j=0;j<9;j++){const angle=(j-4)*.14,feather=sphere(root,Math.sin(angle)*.45,.45,-.55-Math.cos(angle)*.25,.035,.045,.35,coat);feather.rotation.y=-angle;feather.name='Fanned fantail feather';}sphere(root,0,.39,.28,.16,.17,.08,cream);}
+  if(v==='pohnpei-lorikeet'){sphere(head,0,-.02,.23,.055,.065,.075,gold);for(const w of wings)w.children.forEach(o=>o.material=mat(0x718a64));}
+  if(v==='caroline-dove'||v==='palau-ground-dove')sphere(head,0,-.02,.04,.125,.14,.18,mat(0xabb1b0));
+  if(v==='pohnpei-flycatcher')sphere(root,0,.42,.3,.16,.16,.08,cream);
+  if(v==='palau-fruit-dove'){sphere(head,0,.1,.01,.125,.08,.14,red);sphere(root,0,.38,.28,.16,.15,.1,mat(0xc6aa79));}
+  if(v==='palau-owl'){head.traverse(o=>o.geometry?.dispose());head.clear();head.position.y+=.08;for(const side of [-1,1]){sphere(head,side*.08,0,.09,.1,.14,.07,cream);sphere(head,side*.08,.03,.15,.045,.05,.025,gold);sphere(head,side*.08,.03,.175,.025,.035,.01,dark);}sphere(head,0,-.06,.17,.035,.055,.055,dark);for(let j=0;j<5;j++)sphere(root,0,.31+j*.05,.34,.14,.013,.025,cream);}
+  if(v==='yellow-bittern'){head.position.y+=.4;sphere(root,0,.72,.3,.07,.27,.07,cream);rod(head,new T.Vector3(0,-.03,.13),new T.Vector3(0,-.06,.42),.025,gold);for(const l of legs){l.position.y+=.2;l.children.forEach(o=>{o.scale.y*=1.8;o.position.y*=1.8;});}}
+  if(v==='moorhen'){sphere(head,0,.04,.15,.07,.1,.07,red);sphere(head,0,-.02,.25,.04,.045,.06,gold);for(const l of legs)l.children.forEach(o=>o.material=gold);for(const side of [-1,1])sphere(root,side*.2,.4,-.12,.015,.035,.22,cream);}
+ }
+}

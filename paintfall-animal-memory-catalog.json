@@ -1,0 +1,4966 @@
+{
+  "country:Cambodia|Asian elephant|0": {
+    "region": "country:Cambodia",
+    "kind": "Asian elephant"
+  },
+  "country:Cambodia|Banteng|0": {
+    "region": "country:Cambodia",
+    "kind": "Banteng"
+  },
+  "country:Cambodia|Pileated gibbon|0": {
+    "region": "country:Cambodia",
+    "kind": "Pileated gibbon"
+  },
+  "country:Cambodia|Siamese crocodile|0": {
+    "region": "country:Cambodia",
+    "kind": "Siamese crocodile"
+  },
+  "country:Cambodia|Giant ibis|0": {
+    "region": "country:Cambodia",
+    "kind": "Giant ibis"
+  },
+  "country:Myanmar|Water buffalo|0": {
+    "region": "country:Myanmar",
+    "kind": "Water buffalo"
+  },
+  "country:Myanmar|Eld's deer|0": {
+    "region": "country:Myanmar",
+    "kind": "Eld's deer"
+  },
+  "country:Myanmar|Burmese star tortoise|0": {
+    "region": "country:Myanmar",
+    "kind": "Burmese star tortoise"
+  },
+  "country:Myanmar|Asian black bear|0": {
+    "region": "country:Myanmar",
+    "kind": "Asian black bear"
+  },
+  "country:Myanmar|Oriental pied hornbill|0": {
+    "region": "country:Myanmar",
+    "kind": "Oriental pied hornbill"
+  },
+  "country:Malaysia|Malayan tapir|0": {
+    "region": "country:Malaysia",
+    "kind": "Malayan tapir"
+  },
+  "country:Malaysia|Sun bear|0": {
+    "region": "country:Malaysia",
+    "kind": "Sun bear"
+  },
+  "country:Malaysia|Bornean orangutan|0": {
+    "region": "country:Malaysia",
+    "kind": "Bornean orangutan"
+  },
+  "country:Malaysia|Proboscis monkey|0": {
+    "region": "country:Malaysia",
+    "kind": "Proboscis monkey"
+  },
+  "country:Malaysia|Rhinoceros hornbill|0": {
+    "region": "country:Malaysia",
+    "kind": "Rhinoceros hornbill"
+  },
+  "country:Singapore|Smooth-coated otter|0": {
+    "region": "country:Singapore",
+    "kind": "Smooth-coated otter"
+  },
+  "country:Singapore|Long-tailed macaque|0": {
+    "region": "country:Singapore",
+    "kind": "Long-tailed macaque"
+  },
+  "country:Singapore|Wild boar|0": {
+    "region": "country:Singapore",
+    "kind": "Wild boar"
+  },
+  "country:Singapore|Malayan water monitor|0": {
+    "region": "country:Singapore",
+    "kind": "Malayan water monitor"
+  },
+  "country:Singapore|Oriental pied hornbill|0": {
+    "region": "country:Singapore",
+    "kind": "Oriental pied hornbill"
+  },
+  "country:Indonesia|Komodo dragon|0": {
+    "region": "country:Indonesia",
+    "kind": "Komodo dragon"
+  },
+  "country:Indonesia|North Sulawesi babirusa|0": {
+    "region": "country:Indonesia",
+    "kind": "North Sulawesi babirusa"
+  },
+  "country:Indonesia|Lowland anoa|0": {
+    "region": "country:Indonesia",
+    "kind": "Lowland anoa"
+  },
+  "country:Indonesia|Celebes crested macaque|0": {
+    "region": "country:Indonesia",
+    "kind": "Celebes crested macaque"
+  },
+  "country:Indonesia|Bali myna|0": {
+    "region": "country:Indonesia",
+    "kind": "Bali myna"
+  },
+  "country:Philippines|Philippine tarsier|0": {
+    "region": "country:Philippines",
+    "kind": "Philippine tarsier"
+  },
+  "country:Philippines|Visayan spotted deer|0": {
+    "region": "country:Philippines",
+    "kind": "Visayan spotted deer"
+  },
+  "country:Philippines|Visayan warty pig|0": {
+    "region": "country:Philippines",
+    "kind": "Visayan warty pig"
+  },
+  "country:Philippines|Philippine crocodile|0": {
+    "region": "country:Philippines",
+    "kind": "Philippine crocodile"
+  },
+  "country:Philippines|Palawan peacock-pheasant|0": {
+    "region": "country:Philippines",
+    "kind": "Palawan peacock-pheasant"
+  },
+  "country:Brunei|Proboscis monkey|0": {
+    "region": "country:Brunei",
+    "kind": "Proboscis monkey"
+  },
+  "country:Brunei|Bearded pig|0": {
+    "region": "country:Brunei",
+    "kind": "Bearded pig"
+  },
+  "country:Brunei|Sun bear|0": {
+    "region": "country:Brunei",
+    "kind": "Sun bear"
+  },
+  "country:Brunei|Sambar deer|0": {
+    "region": "country:Brunei",
+    "kind": "Sambar deer"
+  },
+  "country:Brunei|Rhinoceros hornbill|0": {
+    "region": "country:Brunei",
+    "kind": "Rhinoceros hornbill"
+  },
+  "country:Timor-Leste|Saltwater crocodile|0": {
+    "region": "country:Timor-Leste",
+    "kind": "Saltwater crocodile"
+  },
+  "country:Timor-Leste|Yellow-crested cockatoo|0": {
+    "region": "country:Timor-Leste",
+    "kind": "Yellow-crested cockatoo"
+  },
+  "country:Timor-Leste|Timor sparrow|0": {
+    "region": "country:Timor-Leste",
+    "kind": "Timor sparrow"
+  },
+  "country:Timor-Leste|Timor imperial pigeon|0": {
+    "region": "country:Timor-Leste",
+    "kind": "Timor imperial pigeon"
+  },
+  "country:Timor-Leste|Olive-headed lorikeet|0": {
+    "region": "country:Timor-Leste",
+    "kind": "Olive-headed lorikeet"
+  },
+  "country:Papua New Guinea|Matschie's tree-kangaroo|0": {
+    "region": "country:Papua New Guinea",
+    "kind": "Matschie's tree-kangaroo"
+  },
+  "country:Papua New Guinea|Northern cassowary|0": {
+    "region": "country:Papua New Guinea",
+    "kind": "Northern cassowary"
+  },
+  "country:Papua New Guinea|Victoria crowned pigeon|0": {
+    "region": "country:Papua New Guinea",
+    "kind": "Victoria crowned pigeon"
+  },
+  "country:Papua New Guinea|Raggiana bird-of-paradise|0": {
+    "region": "country:Papua New Guinea",
+    "kind": "Raggiana bird-of-paradise"
+  },
+  "country:Papua New Guinea|New Guinea freshwater crocodile|0": {
+    "region": "country:Papua New Guinea",
+    "kind": "New Guinea freshwater crocodile"
+  },
+  "country:Australia|Red kangaroo|0": {
+    "region": "country:Australia",
+    "kind": "Red kangaroo"
+  },
+  "country:Australia|Koala|0": {
+    "region": "country:Australia",
+    "kind": "Koala"
+  },
+  "country:Australia|Bare-nosed wombat|0": {
+    "region": "country:Australia",
+    "kind": "Bare-nosed wombat"
+  },
+  "country:Australia|Emu|0": {
+    "region": "country:Australia",
+    "kind": "Emu"
+  },
+  "country:Australia|Laughing kookaburra|0": {
+    "region": "country:Australia",
+    "kind": "Laughing kookaburra"
+  },
+  "country:New Zealand|North Island brown kiwi|0": {
+    "region": "country:New Zealand",
+    "kind": "North Island brown kiwi"
+  },
+  "country:New Zealand|Kea|0": {
+    "region": "country:New Zealand",
+    "kind": "Kea"
+  },
+  "country:New Zealand|Tuatara|0": {
+    "region": "country:New Zealand",
+    "kind": "Tuatara"
+  },
+  "country:New Zealand|Takahe|0": {
+    "region": "country:New Zealand",
+    "kind": "Takahe"
+  },
+  "country:New Zealand|New Zealand fur seal|0": {
+    "region": "country:New Zealand",
+    "kind": "New Zealand fur seal"
+  },
+  "country:Fiji|Fiji banded iguana|0": {
+    "region": "country:Fiji",
+    "kind": "Fiji banded iguana"
+  },
+  "country:Fiji|Fiji crested iguana|0": {
+    "region": "country:Fiji",
+    "kind": "Fiji crested iguana"
+  },
+  "country:Fiji|Fiji parrotfinch|0": {
+    "region": "country:Fiji",
+    "kind": "Fiji parrotfinch"
+  },
+  "country:Fiji|Orange dove|0": {
+    "region": "country:Fiji",
+    "kind": "Orange dove"
+  },
+  "country:Fiji|Fiji goshawk|0": {
+    "region": "country:Fiji",
+    "kind": "Fiji goshawk"
+  },
+  "country:Samoa|Mao|0": {
+    "region": "country:Samoa",
+    "kind": "Mao"
+  },
+  "country:Samoa|Samoan flying fox|0": {
+    "region": "country:Samoa",
+    "kind": "Samoan flying fox"
+  },
+  "country:Samoa|Blue-crowned lorikeet|0": {
+    "region": "country:Samoa",
+    "kind": "Blue-crowned lorikeet"
+  },
+  "country:Samoa|Flat-billed kingfisher|0": {
+    "region": "country:Samoa",
+    "kind": "Flat-billed kingfisher"
+  },
+  "country:Samoa|Samoan whistler|0": {
+    "region": "country:Samoa",
+    "kind": "Samoan whistler"
+  },
+  "country:Tonga|Pacific imperial pigeon|0": {
+    "region": "country:Tonga",
+    "kind": "Pacific imperial pigeon"
+  },
+  "country:Tonga|Tongan whistler|0": {
+    "region": "country:Tonga",
+    "kind": "Tongan whistler"
+  },
+  "country:Tonga|Tongan large skink|0": {
+    "region": "country:Tonga",
+    "kind": "Tongan large skink"
+  },
+  "country:Tonga|White tern|0": {
+    "region": "country:Tonga",
+    "kind": "White tern"
+  },
+  "country:Tonga|Pacific reef heron|0": {
+    "region": "country:Tonga",
+    "kind": "Pacific reef heron"
+  },
+  "country:Vanuatu|Vanuatu megapode|0": {
+    "region": "country:Vanuatu",
+    "kind": "Vanuatu megapode"
+  },
+  "country:Vanuatu|Sanford's tree skink|0": {
+    "region": "country:Vanuatu",
+    "kind": "Sanford's tree skink"
+  },
+  "country:Vanuatu|Vanuatu kingfisher|0": {
+    "region": "country:Vanuatu",
+    "kind": "Vanuatu kingfisher"
+  },
+  "country:Vanuatu|Royal parrotfinch|0": {
+    "region": "country:Vanuatu",
+    "kind": "Royal parrotfinch"
+  },
+  "country:Vanuatu|Santo mountain starling|0": {
+    "region": "country:Vanuatu",
+    "kind": "Santo mountain starling"
+  },
+  "country:Solomon Is.|Solomon Islands leaf frog|0": {
+    "region": "country:Solomon Is.",
+    "kind": "Solomon Islands leaf frog"
+  },
+  "country:Solomon Is.|Solomon Islands skink|0": {
+    "region": "country:Solomon Is.",
+    "kind": "Solomon Islands skink"
+  },
+  "country:Solomon Is.|Cardinal lory|0": {
+    "region": "country:Solomon Is.",
+    "kind": "Cardinal lory"
+  },
+  "country:Solomon Is.|Ultramarine kingfisher|0": {
+    "region": "country:Solomon Is.",
+    "kind": "Ultramarine kingfisher"
+  },
+  "country:Solomon Is.|White-billed crow|0": {
+    "region": "country:Solomon Is.",
+    "kind": "White-billed crow"
+  },
+  "country:New Caledonia|Kagu|0": {
+    "region": "country:New Caledonia",
+    "kind": "Kagu"
+  },
+  "country:New Caledonia|New Caledonian giant gecko|0": {
+    "region": "country:New Caledonia",
+    "kind": "New Caledonian giant gecko"
+  },
+  "country:New Caledonia|New Caledonian crow|0": {
+    "region": "country:New Caledonia",
+    "kind": "New Caledonian crow"
+  },
+  "country:New Caledonia|Ouvea parakeet|0": {
+    "region": "country:New Caledonia",
+    "kind": "Ouvea parakeet"
+  },
+  "country:New Caledonia|Ornate flying fox|0": {
+    "region": "country:New Caledonia",
+    "kind": "Ornate flying fox"
+  },
+  "country:Tuvalu|Coconut crab|0": {
+    "region": "country:Tuvalu",
+    "kind": "Coconut crab"
+  },
+  "country:Tuvalu|Brown noddy|0": {
+    "region": "country:Tuvalu",
+    "kind": "Brown noddy"
+  },
+  "country:Tuvalu|Brown booby|0": {
+    "region": "country:Tuvalu",
+    "kind": "Brown booby"
+  },
+  "country:Tuvalu|Great frigatebird|0": {
+    "region": "country:Tuvalu",
+    "kind": "Great frigatebird"
+  },
+  "country:Tuvalu|Ruddy turnstone|0": {
+    "region": "country:Tuvalu",
+    "kind": "Ruddy turnstone"
+  },
+  "country:Kiribati|Kiritimati reed warbler|0": {
+    "region": "country:Kiribati",
+    "kind": "Kiritimati reed warbler"
+  },
+  "country:Kiribati|Sooty tern|0": {
+    "region": "country:Kiribati",
+    "kind": "Sooty tern"
+  },
+  "country:Kiribati|Wedge-tailed shearwater|0": {
+    "region": "country:Kiribati",
+    "kind": "Wedge-tailed shearwater"
+  },
+  "country:Kiribati|Lesser frigatebird|0": {
+    "region": "country:Kiribati",
+    "kind": "Lesser frigatebird"
+  },
+  "country:Kiribati|Land hermit crab|0": {
+    "region": "country:Kiribati",
+    "kind": "Land hermit crab"
+  },
+  "country:Nauru|Nauru reed warbler|0": {
+    "region": "country:Nauru",
+    "kind": "Nauru reed warbler"
+  },
+  "country:Nauru|Black noddy|0": {
+    "region": "country:Nauru",
+    "kind": "Black noddy"
+  },
+  "country:Nauru|Pacific golden plover|0": {
+    "region": "country:Nauru",
+    "kind": "Pacific golden plover"
+  },
+  "country:Nauru|Mourning gecko|0": {
+    "region": "country:Nauru",
+    "kind": "Mourning gecko"
+  },
+  "country:Nauru|Copper-striped skink|0": {
+    "region": "country:Nauru",
+    "kind": "Copper-striped skink"
+  },
+  "country:Marshall Is.|Red-footed booby|0": {
+    "region": "country:Marshall Is.",
+    "kind": "Red-footed booby"
+  },
+  "country:Marshall Is.|Red-tailed tropicbird|0": {
+    "region": "country:Marshall Is.",
+    "kind": "Red-tailed tropicbird"
+  },
+  "country:Marshall Is.|Masked booby|0": {
+    "region": "country:Marshall Is.",
+    "kind": "Masked booby"
+  },
+  "country:Marshall Is.|Arno skink|0": {
+    "region": "country:Marshall Is.",
+    "kind": "Arno skink"
+  },
+  "country:Marshall Is.|Micronesian speckle-bellied gecko|0": {
+    "region": "country:Marshall Is.",
+    "kind": "Micronesian speckle-bellied gecko"
+  },
+  "country:Micronesia|Pohnpei lorikeet|0": {
+    "region": "country:Micronesia",
+    "kind": "Pohnpei lorikeet"
+  },
+  "country:Micronesia|Pohnpei fantail|0": {
+    "region": "country:Micronesia",
+    "kind": "Pohnpei fantail"
+  },
+  "country:Micronesia|Caroline ground dove|0": {
+    "region": "country:Micronesia",
+    "kind": "Caroline ground dove"
+  },
+  "country:Micronesia|Pohnpei flycatcher|0": {
+    "region": "country:Micronesia",
+    "kind": "Pohnpei flycatcher"
+  },
+  "country:Micronesia|Green tree skink|0": {
+    "region": "country:Micronesia",
+    "kind": "Green tree skink"
+  },
+  "country:Palau|Palau fruit dove|0": {
+    "region": "country:Palau",
+    "kind": "Palau fruit dove"
+  },
+  "country:Palau|Palau scops owl|0": {
+    "region": "country:Palau",
+    "kind": "Palau scops owl"
+  },
+  "country:Palau|Palau fantail|0": {
+    "region": "country:Palau",
+    "kind": "Palau fantail"
+  },
+  "country:Palau|Palau ground dove|0": {
+    "region": "country:Palau",
+    "kind": "Palau ground dove"
+  },
+  "country:Palau|Littoral skink|0": {
+    "region": "country:Palau",
+    "kind": "Littoral skink"
+  },
+  "country:Guam|Guam rail (ko’ko’)|0": {
+    "region": "country:Guam",
+    "kind": "Guam rail (ko’ko’)"
+  },
+  "country:Guam|Mariana fruit bat|0": {
+    "region": "country:Guam",
+    "kind": "Mariana fruit bat"
+  },
+  "country:Guam|Yellow bittern|0": {
+    "region": "country:Guam",
+    "kind": "Yellow bittern"
+  },
+  "country:Guam|Mariana common moorhen|0": {
+    "region": "country:Guam",
+    "kind": "Mariana common moorhen"
+  },
+  "country:Guam|Pacific blue-tailed skink|0": {
+    "region": "country:Guam",
+    "kind": "Pacific blue-tailed skink"
+  },
+  "country:N. Mariana Is.|Tinian monarch|0": {
+    "region": "country:N. Mariana Is.",
+    "kind": "Tinian monarch"
+  },
+  "country:N. Mariana Is.|Golden white-eye|0": {
+    "region": "country:N. Mariana Is.",
+    "kind": "Golden white-eye"
+  },
+  "country:N. Mariana Is.|Micronesian myzomela|0": {
+    "region": "country:N. Mariana Is.",
+    "kind": "Micronesian myzomela"
+  },
+  "country:N. Mariana Is.|Rufous fantail|0": {
+    "region": "country:N. Mariana Is.",
+    "kind": "Rufous fantail"
+  },
+  "country:N. Mariana Is.|Slevin's skink|0": {
+    "region": "country:N. Mariana Is.",
+    "kind": "Slevin's skink"
+  },
+  "country:American Samoa|Samoan starling|0": {
+    "region": "country:American Samoa",
+    "kind": "Samoan starling"
+  },
+  "country:American Samoa|Black-naped tern|0": {
+    "region": "country:American Samoa",
+    "kind": "Black-naped tern"
+  },
+  "country:American Samoa|White-tailed tropicbird|0": {
+    "region": "country:American Samoa",
+    "kind": "White-tailed tropicbird"
+  },
+  "country:American Samoa|Pacific flying fox|0": {
+    "region": "country:American Samoa",
+    "kind": "Pacific flying fox"
+  },
+  "country:American Samoa|Oceanic gecko|0": {
+    "region": "country:American Samoa",
+    "kind": "Oceanic gecko"
+  },
+  "country:Cook Is.|Rarotonga flycatcher (kakerori)|0": {
+    "region": "country:Cook Is.",
+    "kind": "Rarotonga flycatcher (kakerori)"
+  },
+  "country:Cook Is.|Rarotonga starling|0": {
+    "region": "country:Cook Is.",
+    "kind": "Rarotonga starling"
+  },
+  "country:Cook Is.|Rimatara lorikeet (kura)|0": {
+    "region": "country:Cook Is.",
+    "kind": "Rimatara lorikeet (kura)"
+  },
+  "country:Cook Is.|Cook Islands reed warbler|0": {
+    "region": "country:Cook Is.",
+    "kind": "Cook Islands reed warbler"
+  },
+  "country:Cook Is.|Moth skink|0": {
+    "region": "country:Cook Is.",
+    "kind": "Moth skink"
+  },
+  "country:Niue|Polynesian triller|0": {
+    "region": "country:Niue",
+    "kind": "Polynesian triller"
+  },
+  "country:Niue|Buff-banded rail|0": {
+    "region": "country:Niue",
+    "kind": "Buff-banded rail"
+  },
+  "country:Niue|Bridled tern|0": {
+    "region": "country:Niue",
+    "kind": "Bridled tern"
+  },
+  "country:Niue|Long-tailed cuckoo|0": {
+    "region": "country:Niue",
+    "kind": "Long-tailed cuckoo"
+  },
+  "country:Niue|Snake-eyed skink|0": {
+    "region": "country:Niue",
+    "kind": "Snake-eyed skink"
+  },
+  "country:Wallis and Futuna Is.|Wattled honeyeater|0": {
+    "region": "country:Wallis and Futuna Is.",
+    "kind": "Wattled honeyeater"
+  },
+  "country:Wallis and Futuna Is.|Fiji shrikebill (Futuna)|0": {
+    "region": "country:Wallis and Futuna Is.",
+    "kind": "Fiji shrikebill (Futuna)"
+  },
+  "country:Wallis and Futuna Is.|Spotless crake|0": {
+    "region": "country:Wallis and Futuna Is.",
+    "kind": "Spotless crake"
+  },
+  "country:Wallis and Futuna Is.|Wandering tattler|0": {
+    "region": "country:Wallis and Futuna Is.",
+    "kind": "Wandering tattler"
+  },
+  "country:Wallis and Futuna Is.|Dark-sided skink|0": {
+    "region": "country:Wallis and Futuna Is.",
+    "kind": "Dark-sided skink"
+  },
+  "country:Fr. Polynesia|Blue lorikeet|0": {
+    "region": "country:Fr. Polynesia",
+    "kind": "Blue lorikeet"
+  },
+  "country:Fr. Polynesia|Tahiti monarch|0": {
+    "region": "country:Fr. Polynesia",
+    "kind": "Tahiti monarch"
+  },
+  "country:Fr. Polynesia|Tahiti petrel|0": {
+    "region": "country:Fr. Polynesia",
+    "kind": "Tahiti petrel"
+  },
+  "country:Fr. Polynesia|Tahiti reed warbler|0": {
+    "region": "country:Fr. Polynesia",
+    "kind": "Tahiti reed warbler"
+  },
+  "country:Fr. Polynesia|Tuamotu sandpiper|0": {
+    "region": "country:Fr. Polynesia",
+    "kind": "Tuamotu sandpiper"
+  },
+  "country:Taiwan|Formosan serow|0": {
+    "region": "country:Taiwan",
+    "kind": "Formosan serow"
+  },
+  "country:Taiwan|Formosan rock macaque|0": {
+    "region": "country:Taiwan",
+    "kind": "Formosan rock macaque"
+  },
+  "country:Taiwan|Taiwan blue magpie|0": {
+    "region": "country:Taiwan",
+    "kind": "Taiwan blue magpie"
+  },
+  "country:Taiwan|Mikado pheasant|0": {
+    "region": "country:Taiwan",
+    "kind": "Mikado pheasant"
+  },
+  "country:Taiwan|Taiwan whistling thrush|0": {
+    "region": "country:Taiwan",
+    "kind": "Taiwan whistling thrush"
+  },
+  "country:Hong Kong|Red muntjac|0": {
+    "region": "country:Hong Kong",
+    "kind": "Red muntjac"
+  },
+  "country:Hong Kong|Masked palm civet|0": {
+    "region": "country:Hong Kong",
+    "kind": "Masked palm civet"
+  },
+  "country:Hong Kong|East Asian porcupine|0": {
+    "region": "country:Hong Kong",
+    "kind": "East Asian porcupine"
+  },
+  "country:Hong Kong|Red-whiskered bulbul|0": {
+    "region": "country:Hong Kong",
+    "kind": "Red-whiskered bulbul"
+  },
+  "country:Hong Kong|Oriental magpie-robin|0": {
+    "region": "country:Hong Kong",
+    "kind": "Oriental magpie-robin"
+  },
+  "country:Macao|Black-faced spoonbill|0": {
+    "region": "country:Macao",
+    "kind": "Black-faced spoonbill"
+  },
+  "country:Macao|Little egret|0": {
+    "region": "country:Macao",
+    "kind": "Little egret"
+  },
+  "country:Macao|Black kite|0": {
+    "region": "country:Macao",
+    "kind": "Black kite"
+  },
+  "country:Macao|Whimbrel|0": {
+    "region": "country:Macao",
+    "kind": "Whimbrel"
+  },
+  "country:Macao|White-breasted waterhen|0": {
+    "region": "country:Macao",
+    "kind": "White-breasted waterhen"
+  },
+  "country:Nepal|Himalayan tahr|0": {
+    "region": "country:Nepal",
+    "kind": "Himalayan tahr"
+  },
+  "country:Nepal|Red panda|0": {
+    "region": "country:Nepal",
+    "kind": "Red panda"
+  },
+  "country:Nepal|Long-eared pika|0": {
+    "region": "country:Nepal",
+    "kind": "Long-eared pika"
+  },
+  "country:Nepal|Himalayan monal|0": {
+    "region": "country:Nepal",
+    "kind": "Himalayan monal"
+  },
+  "country:Nepal|Spiny babbler|0": {
+    "region": "country:Nepal",
+    "kind": "Spiny babbler"
+  },
+  "country:Bhutan|Bhutan takin|0": {
+    "region": "country:Bhutan",
+    "kind": "Bhutan takin"
+  },
+  "country:Bhutan|Blue sheep|0": {
+    "region": "country:Bhutan",
+    "kind": "Blue sheep"
+  },
+  "country:Bhutan|Blood pheasant|0": {
+    "region": "country:Bhutan",
+    "kind": "Blood pheasant"
+  },
+  "country:Bhutan|Black-necked crane|0": {
+    "region": "country:Bhutan",
+    "kind": "Black-necked crane"
+  },
+  "country:Bhutan|Rufous-necked hornbill|0": {
+    "region": "country:Bhutan",
+    "kind": "Rufous-necked hornbill"
+  },
+  "country:Bangladesh|Fishing cat|0": {
+    "region": "country:Bangladesh",
+    "kind": "Fishing cat"
+  },
+  "country:Bangladesh|Spotted deer|0": {
+    "region": "country:Bangladesh",
+    "kind": "Spotted deer"
+  },
+  "country:Bangladesh|Small Indian mongoose|0": {
+    "region": "country:Bangladesh",
+    "kind": "Small Indian mongoose"
+  },
+  "country:Bangladesh|Pied kingfisher|0": {
+    "region": "country:Bangladesh",
+    "kind": "Pied kingfisher"
+  },
+  "country:Bangladesh|Bronze-winged jacana|0": {
+    "region": "country:Bangladesh",
+    "kind": "Bronze-winged jacana"
+  },
+  "country:India|Blackbuck|0": {
+    "region": "country:India",
+    "kind": "Blackbuck"
+  },
+  "country:India|Chinkara|0": {
+    "region": "country:India",
+    "kind": "Chinkara"
+  },
+  "country:India|Indian desert fox|0": {
+    "region": "country:India",
+    "kind": "Indian desert fox"
+  },
+  "country:India|Nilgai|0": {
+    "region": "country:India",
+    "kind": "Nilgai"
+  },
+  "country:India|Indian peafowl|0": {
+    "region": "country:India",
+    "kind": "Indian peafowl"
+  },
+  "country:Pakistan|Markhor|0": {
+    "region": "country:Pakistan",
+    "kind": "Markhor"
+  },
+  "country:Pakistan|Urial|0": {
+    "region": "country:Pakistan",
+    "kind": "Urial"
+  },
+  "country:Pakistan|Himalayan lynx|0": {
+    "region": "country:Pakistan",
+    "kind": "Himalayan lynx"
+  },
+  "country:Pakistan|Himalayan brown bear|0": {
+    "region": "country:Pakistan",
+    "kind": "Himalayan brown bear"
+  },
+  "country:Pakistan|Chukar partridge|0": {
+    "region": "country:Pakistan",
+    "kind": "Chukar partridge"
+  },
+  "country:Sri Lanka|Sri Lankan giant squirrel|0": {
+    "region": "country:Sri Lanka",
+    "kind": "Sri Lankan giant squirrel"
+  },
+  "country:Sri Lanka|Toque macaque|0": {
+    "region": "country:Sri Lanka",
+    "kind": "Toque macaque"
+  },
+  "country:Sri Lanka|Purple-faced langur|0": {
+    "region": "country:Sri Lanka",
+    "kind": "Purple-faced langur"
+  },
+  "country:Sri Lanka|Sri Lanka junglefowl|0": {
+    "region": "country:Sri Lanka",
+    "kind": "Sri Lanka junglefowl"
+  },
+  "country:Sri Lanka|Sri Lanka blue magpie|0": {
+    "region": "country:Sri Lanka",
+    "kind": "Sri Lanka blue magpie"
+  },
+  "country:Afghanistan|Blanford’s fox|0": {
+    "region": "country:Afghanistan",
+    "kind": "Blanford’s fox"
+  },
+  "country:Afghanistan|Striped hyena|0": {
+    "region": "country:Afghanistan",
+    "kind": "Striped hyena"
+  },
+  "country:Afghanistan|Afghan tortoise|0": {
+    "region": "country:Afghanistan",
+    "kind": "Afghan tortoise"
+  },
+  "country:Afghanistan|Leopard gecko|0": {
+    "region": "country:Afghanistan",
+    "kind": "Leopard gecko"
+  },
+  "country:Afghanistan|Afghan pika|0": {
+    "region": "country:Afghanistan",
+    "kind": "Afghan pika"
+  },
+  "country:Tajikistan|Marco Polo sheep|0": {
+    "region": "country:Tajikistan",
+    "kind": "Marco Polo sheep"
+  },
+  "country:Tajikistan|Long-tailed marmot|0": {
+    "region": "country:Tajikistan",
+    "kind": "Long-tailed marmot"
+  },
+  "country:Tajikistan|Yellow ground squirrel|0": {
+    "region": "country:Tajikistan",
+    "kind": "Yellow ground squirrel"
+  },
+  "country:Tajikistan|Mountain weasel|0": {
+    "region": "country:Tajikistan",
+    "kind": "Mountain weasel"
+  },
+  "country:Tajikistan|Tibetan snowcock|0": {
+    "region": "country:Tajikistan",
+    "kind": "Tibetan snowcock"
+  },
+  "country:Uzbekistan|Bukhara deer|0": {
+    "region": "country:Uzbekistan",
+    "kind": "Bukhara deer"
+  },
+  "country:Uzbekistan|Goitered gazelle|0": {
+    "region": "country:Uzbekistan",
+    "kind": "Goitered gazelle"
+  },
+  "country:Uzbekistan|Kulan|0": {
+    "region": "country:Uzbekistan",
+    "kind": "Kulan"
+  },
+  "country:Uzbekistan|Blue-cheeked bee-eater|0": {
+    "region": "country:Uzbekistan",
+    "kind": "Blue-cheeked bee-eater"
+  },
+  "country:Uzbekistan|Egyptian vulture|0": {
+    "region": "country:Uzbekistan",
+    "kind": "Egyptian vulture"
+  },
+  "country:Kyrgyzstan|Siberian roe deer|0": {
+    "region": "country:Kyrgyzstan",
+    "kind": "Siberian roe deer"
+  },
+  "country:Kyrgyzstan|Siberian ibex|0": {
+    "region": "country:Kyrgyzstan",
+    "kind": "Siberian ibex"
+  },
+  "country:Kyrgyzstan|Pallas’s cat|0": {
+    "region": "country:Kyrgyzstan",
+    "kind": "Pallas’s cat"
+  },
+  "country:Kyrgyzstan|Snow leopard|0": {
+    "region": "country:Kyrgyzstan",
+    "kind": "Snow leopard"
+  },
+  "country:Kyrgyzstan|Golden eagle|0": {
+    "region": "country:Kyrgyzstan",
+    "kind": "Golden eagle"
+  },
+  "country:Kazakhstan|Saiga|0": {
+    "region": "country:Kazakhstan",
+    "kind": "Saiga"
+  },
+  "country:Kazakhstan|Bobak marmot|0": {
+    "region": "country:Kazakhstan",
+    "kind": "Bobak marmot"
+  },
+  "country:Kazakhstan|Corsac fox|0": {
+    "region": "country:Kazakhstan",
+    "kind": "Corsac fox"
+  },
+  "country:Kazakhstan|Steppe eagle|0": {
+    "region": "country:Kazakhstan",
+    "kind": "Steppe eagle"
+  },
+  "country:Kazakhstan|Demoiselle crane|0": {
+    "region": "country:Kazakhstan",
+    "kind": "Demoiselle crane"
+  },
+  "country:Turkmenistan|Sand cat|0": {
+    "region": "country:Turkmenistan",
+    "kind": "Sand cat"
+  },
+  "country:Turkmenistan|Marbled polecat|0": {
+    "region": "country:Turkmenistan",
+    "kind": "Marbled polecat"
+  },
+  "country:Turkmenistan|Long-eared hedgehog|0": {
+    "region": "country:Turkmenistan",
+    "kind": "Long-eared hedgehog"
+  },
+  "country:Turkmenistan|Desert monitor|0": {
+    "region": "country:Turkmenistan",
+    "kind": "Desert monitor"
+  },
+  "country:Turkmenistan|Tolai hare|0": {
+    "region": "country:Turkmenistan",
+    "kind": "Tolai hare"
+  },
+  "country:Iran|Persian fallow deer|0": {
+    "region": "country:Iran",
+    "kind": "Persian fallow deer"
+  },
+  "country:Iran|Caracal|0": {
+    "region": "country:Iran",
+    "kind": "Caracal"
+  },
+  "country:Iran|Persian onager|0": {
+    "region": "country:Iran",
+    "kind": "Persian onager"
+  },
+  "country:Iran|Persian squirrel|0": {
+    "region": "country:Iran",
+    "kind": "Persian squirrel"
+  },
+  "country:Iran|Indian crested porcupine|0": {
+    "region": "country:Iran",
+    "kind": "Indian crested porcupine"
+  },
+  "country:Azerbaijan|East Caucasian tur|0": {
+    "region": "country:Azerbaijan",
+    "kind": "East Caucasian tur"
+  },
+  "country:Azerbaijan|Caucasian red deer|0": {
+    "region": "country:Azerbaijan",
+    "kind": "Caucasian red deer"
+  },
+  "country:Azerbaijan|Caucasian squirrel|0": {
+    "region": "country:Azerbaijan",
+    "kind": "Caucasian squirrel"
+  },
+  "country:Azerbaijan|Caucasian snow vole|0": {
+    "region": "country:Azerbaijan",
+    "kind": "Caucasian snow vole"
+  },
+  "country:Azerbaijan|Caspian snowcock|0": {
+    "region": "country:Azerbaijan",
+    "kind": "Caspian snowcock"
+  },
+  "country:Armenia|Armenian mouflon|0": {
+    "region": "country:Armenia",
+    "kind": "Armenian mouflon"
+  },
+  "country:Armenia|Bezoar goat|0": {
+    "region": "country:Armenia",
+    "kind": "Bezoar goat"
+  },
+  "country:Armenia|Caucasian agama|0": {
+    "region": "country:Armenia",
+    "kind": "Caucasian agama"
+  },
+  "country:Armenia|Armenian gull|0": {
+    "region": "country:Armenia",
+    "kind": "Armenian gull"
+  },
+  "country:Armenia|Black stork|0": {
+    "region": "country:Armenia",
+    "kind": "Black stork"
+  },
+  "country:Georgia|West Caucasian tur|0": {
+    "region": "country:Georgia",
+    "kind": "West Caucasian tur"
+  },
+  "country:Georgia|Eurasian badger|0": {
+    "region": "country:Georgia",
+    "kind": "Eurasian badger"
+  },
+  "country:Georgia|Caucasian salamander|0": {
+    "region": "country:Georgia",
+    "kind": "Caucasian salamander"
+  },
+  "country:Georgia|Caucasian black grouse|0": {
+    "region": "country:Georgia",
+    "kind": "Caucasian black grouse"
+  },
+  "country:Georgia|Eurasian otter|0": {
+    "region": "country:Georgia",
+    "kind": "Eurasian otter"
+  },
+  "country:Turkey|Anatolian ground squirrel|0": {
+    "region": "country:Turkey",
+    "kind": "Anatolian ground squirrel"
+  },
+  "country:Turkey|European brown hare|0": {
+    "region": "country:Turkey",
+    "kind": "European brown hare"
+  },
+  "country:Turkey|Anatolian wild sheep|0": {
+    "region": "country:Turkey",
+    "kind": "Anatolian wild sheep"
+  },
+  "country:Turkey|Red-billed chough|0": {
+    "region": "country:Turkey",
+    "kind": "Red-billed chough"
+  },
+  "country:Turkey|Northern bald ibis|0": {
+    "region": "country:Turkey",
+    "kind": "Northern bald ibis"
+  },
+  "country:Iraq|Marbled teal|0": {
+    "region": "country:Iraq",
+    "kind": "Marbled teal"
+  },
+  "country:Iraq|Iraq babbler|0": {
+    "region": "country:Iraq",
+    "kind": "Iraq babbler"
+  },
+  "country:Iraq|Basra reed warbler|0": {
+    "region": "country:Iraq",
+    "kind": "Basra reed warbler"
+  },
+  "country:Iraq|Dalmatian pelican|0": {
+    "region": "country:Iraq",
+    "kind": "Dalmatian pelican"
+  },
+  "country:Iraq|Maxwell’s smooth-coated otter|0": {
+    "region": "country:Iraq",
+    "kind": "Maxwell’s smooth-coated otter"
+  },
+  "country:Syria|Syrian golden hamster|0": {
+    "region": "country:Syria",
+    "kind": "Syrian golden hamster"
+  },
+  "country:Syria|Syrian woodpecker|0": {
+    "region": "country:Syria",
+    "kind": "Syrian woodpecker"
+  },
+  "country:Syria|Common chameleon|0": {
+    "region": "country:Syria",
+    "kind": "Common chameleon"
+  },
+  "country:Syria|Spur-thighed tortoise|0": {
+    "region": "country:Syria",
+    "kind": "Spur-thighed tortoise"
+  },
+  "country:Syria|Golden jackal|0": {
+    "region": "country:Syria",
+    "kind": "Golden jackal"
+  },
+  "country:Lebanon|Rock hyrax|0": {
+    "region": "country:Lebanon",
+    "kind": "Rock hyrax"
+  },
+  "country:Lebanon|Eurasian jay|0": {
+    "region": "country:Lebanon",
+    "kind": "Eurasian jay"
+  },
+  "country:Lebanon|Near Eastern fire salamander|0": {
+    "region": "country:Lebanon",
+    "kind": "Near Eastern fire salamander"
+  },
+  "country:Lebanon|Eurasian woodcock|0": {
+    "region": "country:Lebanon",
+    "kind": "Eurasian woodcock"
+  },
+  "country:Lebanon|European badger|0": {
+    "region": "country:Lebanon",
+    "kind": "European badger"
+  },
+  "country:Jordan|Nubian ibex|0": {
+    "region": "country:Jordan",
+    "kind": "Nubian ibex"
+  },
+  "country:Jordan|Arabian oryx|0": {
+    "region": "country:Jordan",
+    "kind": "Arabian oryx"
+  },
+  "country:Jordan|Sand partridge|0": {
+    "region": "country:Jordan",
+    "kind": "Sand partridge"
+  },
+  "country:Jordan|Sinai rosefinch|0": {
+    "region": "country:Jordan",
+    "kind": "Sinai rosefinch"
+  },
+  "country:Jordan|Desert hedgehog|0": {
+    "region": "country:Jordan",
+    "kind": "Desert hedgehog"
+  },
+  "country:Cyprus|Cyprus mouflon|0": {
+    "region": "country:Cyprus",
+    "kind": "Cyprus mouflon"
+  },
+  "country:Cyprus|Red fox|0": {
+    "region": "country:Cyprus",
+    "kind": "Red fox"
+  },
+  "country:Cyprus|Cypriot long-eared hedgehog|0": {
+    "region": "country:Cyprus",
+    "kind": "Cypriot long-eared hedgehog"
+  },
+  "country:Cyprus|Eurasian hoopoe|0": {
+    "region": "country:Cyprus",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Cyprus|Chukar|0": {
+    "region": "country:Cyprus",
+    "kind": "Chukar"
+  },
+  "country:Israel|Mountain gazelle|0": {
+    "region": "country:Israel",
+    "kind": "Mountain gazelle"
+  },
+  "country:Israel|Rock hyrax|0": {
+    "region": "country:Israel",
+    "kind": "Rock hyrax"
+  },
+  "country:Israel|Caracal|0": {
+    "region": "country:Israel",
+    "kind": "Caracal"
+  },
+  "country:Israel|Eurasian hoopoe|0": {
+    "region": "country:Israel",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Israel|Common chameleon|0": {
+    "region": "country:Israel",
+    "kind": "Common chameleon"
+  },
+  "country:Palestine|Mountain gazelle|0": {
+    "region": "country:Palestine",
+    "kind": "Mountain gazelle"
+  },
+  "country:Palestine|Rock hyrax|0": {
+    "region": "country:Palestine",
+    "kind": "Rock hyrax"
+  },
+  "country:Palestine|Indian crested porcupine|0": {
+    "region": "country:Palestine",
+    "kind": "Indian crested porcupine"
+  },
+  "country:Palestine|Palestine sunbird|0": {
+    "region": "country:Palestine",
+    "kind": "Palestine sunbird"
+  },
+  "country:Palestine|Chukar|0": {
+    "region": "country:Palestine",
+    "kind": "Chukar"
+  },
+  "country:Saudi Arabia|Arabian oryx|0": {
+    "region": "country:Saudi Arabia",
+    "kind": "Arabian oryx"
+  },
+  "country:Saudi Arabia|Arabian sand gazelle|0": {
+    "region": "country:Saudi Arabia",
+    "kind": "Arabian sand gazelle"
+  },
+  "country:Saudi Arabia|Rüppell’s fox|0": {
+    "region": "country:Saudi Arabia",
+    "kind": "Rüppell’s fox"
+  },
+  "country:Saudi Arabia|Desert hedgehog|0": {
+    "region": "country:Saudi Arabia",
+    "kind": "Desert hedgehog"
+  },
+  "country:Saudi Arabia|Sand partridge|0": {
+    "region": "country:Saudi Arabia",
+    "kind": "Sand partridge"
+  },
+  "country:Kuwait|Rüppell’s fox|0": {
+    "region": "country:Kuwait",
+    "kind": "Rüppell’s fox"
+  },
+  "country:Kuwait|Arabian jerboa|0": {
+    "region": "country:Kuwait",
+    "kind": "Arabian jerboa"
+  },
+  "country:Kuwait|Desert hedgehog|0": {
+    "region": "country:Kuwait",
+    "kind": "Desert hedgehog"
+  },
+  "country:Kuwait|Eurasian hoopoe|0": {
+    "region": "country:Kuwait",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Kuwait|Greater flamingo|0": {
+    "region": "country:Kuwait",
+    "kind": "Greater flamingo"
+  },
+  "country:Bahrain|Arabian jerboa|0": {
+    "region": "country:Bahrain",
+    "kind": "Arabian jerboa"
+  },
+  "country:Bahrain|Arabian sand gazelle|0": {
+    "region": "country:Bahrain",
+    "kind": "Arabian sand gazelle"
+  },
+  "country:Bahrain|Desert hedgehog|0": {
+    "region": "country:Bahrain",
+    "kind": "Desert hedgehog"
+  },
+  "country:Bahrain|Grey heron|0": {
+    "region": "country:Bahrain",
+    "kind": "Grey heron"
+  },
+  "country:Bahrain|Greater flamingo|0": {
+    "region": "country:Bahrain",
+    "kind": "Greater flamingo"
+  },
+  "country:Qatar|Arabian oryx|0": {
+    "region": "country:Qatar",
+    "kind": "Arabian oryx"
+  },
+  "country:Qatar|Arabian sand gazelle|0": {
+    "region": "country:Qatar",
+    "kind": "Arabian sand gazelle"
+  },
+  "country:Qatar|Rüppell’s fox|0": {
+    "region": "country:Qatar",
+    "kind": "Rüppell’s fox"
+  },
+  "country:Qatar|Eurasian hoopoe|0": {
+    "region": "country:Qatar",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Qatar|Desert hedgehog|0": {
+    "region": "country:Qatar",
+    "kind": "Desert hedgehog"
+  },
+  "country:United Arab Emirates|Arabian oryx|0": {
+    "region": "country:United Arab Emirates",
+    "kind": "Arabian oryx"
+  },
+  "country:United Arab Emirates|Arabian gazelle|0": {
+    "region": "country:United Arab Emirates",
+    "kind": "Arabian gazelle"
+  },
+  "country:United Arab Emirates|Caracal|0": {
+    "region": "country:United Arab Emirates",
+    "kind": "Caracal"
+  },
+  "country:United Arab Emirates|Arabian green bee-eater|0": {
+    "region": "country:United Arab Emirates",
+    "kind": "Arabian green bee-eater"
+  },
+  "country:United Arab Emirates|Desert hedgehog|0": {
+    "region": "country:United Arab Emirates",
+    "kind": "Desert hedgehog"
+  },
+  "country:Oman|Nubian ibex|0": {
+    "region": "country:Oman",
+    "kind": "Nubian ibex"
+  },
+  "country:Oman|Caracal|0": {
+    "region": "country:Oman",
+    "kind": "Caracal"
+  },
+  "country:Oman|Rüppell’s fox|0": {
+    "region": "country:Oman",
+    "kind": "Rüppell’s fox"
+  },
+  "country:Oman|Egyptian vulture|0": {
+    "region": "country:Oman",
+    "kind": "Egyptian vulture"
+  },
+  "country:Oman|Sand partridge|0": {
+    "region": "country:Oman",
+    "kind": "Sand partridge"
+  },
+  "country:Yemen|Nubian ibex|0": {
+    "region": "country:Yemen",
+    "kind": "Nubian ibex"
+  },
+  "country:Yemen|Rock hyrax|0": {
+    "region": "country:Yemen",
+    "kind": "Rock hyrax"
+  },
+  "country:Yemen|Common genet|0": {
+    "region": "country:Yemen",
+    "kind": "Common genet"
+  },
+  "country:Yemen|Eurasian hoopoe|0": {
+    "region": "country:Yemen",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Yemen|Hamadryas baboon|0": {
+    "region": "country:Yemen",
+    "kind": "Hamadryas baboon"
+  },
+  "country:Egypt|Fennec fox|0": {
+    "region": "country:Egypt",
+    "kind": "Fennec fox"
+  },
+  "country:Egypt|Dorcas gazelle|0": {
+    "region": "country:Egypt",
+    "kind": "Dorcas gazelle"
+  },
+  "country:Egypt|Egyptian mongoose|0": {
+    "region": "country:Egypt",
+    "kind": "Egyptian mongoose"
+  },
+  "country:Egypt|Eurasian hoopoe|0": {
+    "region": "country:Egypt",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Egypt|Egyptian tortoise|0": {
+    "region": "country:Egypt",
+    "kind": "Egyptian tortoise"
+  },
+  "country:Libya|Fennec fox|0": {
+    "region": "country:Libya",
+    "kind": "Fennec fox"
+  },
+  "country:Libya|Dorcas gazelle|0": {
+    "region": "country:Libya",
+    "kind": "Dorcas gazelle"
+  },
+  "country:Libya|Common gundi|0": {
+    "region": "country:Libya",
+    "kind": "Common gundi"
+  },
+  "country:Libya|Lesser Egyptian jerboa|0": {
+    "region": "country:Libya",
+    "kind": "Lesser Egyptian jerboa"
+  },
+  "country:Libya|Eurasian hoopoe|0": {
+    "region": "country:Libya",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Tunisia|Fennec fox|0": {
+    "region": "country:Tunisia",
+    "kind": "Fennec fox"
+  },
+  "country:Tunisia|Cuvier’s gazelle|0": {
+    "region": "country:Tunisia",
+    "kind": "Cuvier’s gazelle"
+  },
+  "country:Tunisia|Common gundi|0": {
+    "region": "country:Tunisia",
+    "kind": "Common gundi"
+  },
+  "country:Tunisia|Spur-thighed tortoise|0": {
+    "region": "country:Tunisia",
+    "kind": "Spur-thighed tortoise"
+  },
+  "country:Tunisia|Eurasian hoopoe|0": {
+    "region": "country:Tunisia",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Algeria|Fennec fox|0": {
+    "region": "country:Algeria",
+    "kind": "Fennec fox"
+  },
+  "country:Algeria|Barbary sheep|0": {
+    "region": "country:Algeria",
+    "kind": "Barbary sheep"
+  },
+  "country:Algeria|Cuvier’s gazelle|0": {
+    "region": "country:Algeria",
+    "kind": "Cuvier’s gazelle"
+  },
+  "country:Algeria|Common gundi|0": {
+    "region": "country:Algeria",
+    "kind": "Common gundi"
+  },
+  "country:Algeria|Egyptian vulture|0": {
+    "region": "country:Algeria",
+    "kind": "Egyptian vulture"
+  },
+  "country:Morocco|Barbary sheep|0": {
+    "region": "country:Morocco",
+    "kind": "Barbary sheep"
+  },
+  "country:Morocco|Red fox|0": {
+    "region": "country:Morocco",
+    "kind": "Red fox"
+  },
+  "country:Morocco|Crested porcupine|0": {
+    "region": "country:Morocco",
+    "kind": "Crested porcupine"
+  },
+  "country:Morocco|Spur-thighed tortoise|0": {
+    "region": "country:Morocco",
+    "kind": "Spur-thighed tortoise"
+  },
+  "country:Morocco|Northern bald ibis|0": {
+    "region": "country:Morocco",
+    "kind": "Northern bald ibis"
+  },
+  "country:W. Sahara|Fennec fox|0": {
+    "region": "country:W. Sahara",
+    "kind": "Fennec fox"
+  },
+  "country:W. Sahara|Dorcas gazelle|0": {
+    "region": "country:W. Sahara",
+    "kind": "Dorcas gazelle"
+  },
+  "country:W. Sahara|Rüppell’s fox|0": {
+    "region": "country:W. Sahara",
+    "kind": "Rüppell’s fox"
+  },
+  "country:W. Sahara|Lesser Egyptian jerboa|0": {
+    "region": "country:W. Sahara",
+    "kind": "Lesser Egyptian jerboa"
+  },
+  "country:W. Sahara|Eurasian hoopoe|0": {
+    "region": "country:W. Sahara",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Mauritania|Fennec fox|0": {
+    "region": "country:Mauritania",
+    "kind": "Fennec fox"
+  },
+  "country:Mauritania|Dorcas gazelle|0": {
+    "region": "country:Mauritania",
+    "kind": "Dorcas gazelle"
+  },
+  "country:Mauritania|Pale fox|0": {
+    "region": "country:Mauritania",
+    "kind": "Pale fox"
+  },
+  "country:Mauritania|Lesser Egyptian jerboa|0": {
+    "region": "country:Mauritania",
+    "kind": "Lesser Egyptian jerboa"
+  },
+  "country:Mauritania|Eurasian hoopoe|0": {
+    "region": "country:Mauritania",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Mali|Roan antelope|0": {
+    "region": "country:Mali",
+    "kind": "Roan antelope"
+  },
+  "country:Mali|Common warthog|0": {
+    "region": "country:Mali",
+    "kind": "Common warthog"
+  },
+  "country:Mali|Patas monkey|0": {
+    "region": "country:Mali",
+    "kind": "Patas monkey"
+  },
+  "country:Mali|Helmeted guineafowl|0": {
+    "region": "country:Mali",
+    "kind": "Helmeted guineafowl"
+  },
+  "country:Mali|Abyssinian roller|0": {
+    "region": "country:Mali",
+    "kind": "Abyssinian roller"
+  },
+  "country:Niger|Dorcas gazelle|0": {
+    "region": "country:Niger",
+    "kind": "Dorcas gazelle"
+  },
+  "country:Niger|Addax|0": {
+    "region": "country:Niger",
+    "kind": "Addax"
+  },
+  "country:Niger|Pale fox|0": {
+    "region": "country:Niger",
+    "kind": "Pale fox"
+  },
+  "country:Niger|Lesser Egyptian jerboa|0": {
+    "region": "country:Niger",
+    "kind": "Lesser Egyptian jerboa"
+  },
+  "country:Niger|Helmeted guineafowl|0": {
+    "region": "country:Niger",
+    "kind": "Helmeted guineafowl"
+  },
+  "country:Chad|Scimitar-horned oryx|0": {
+    "region": "country:Chad",
+    "kind": "Scimitar-horned oryx"
+  },
+  "country:Chad|Roan antelope|0": {
+    "region": "country:Chad",
+    "kind": "Roan antelope"
+  },
+  "country:Chad|Common warthog|0": {
+    "region": "country:Chad",
+    "kind": "Common warthog"
+  },
+  "country:Chad|Helmeted guineafowl|0": {
+    "region": "country:Chad",
+    "kind": "Helmeted guineafowl"
+  },
+  "country:Chad|Abyssinian roller|0": {
+    "region": "country:Chad",
+    "kind": "Abyssinian roller"
+  },
+  "country:Sudan|Dorcas gazelle|0": {
+    "region": "country:Sudan",
+    "kind": "Dorcas gazelle"
+  },
+  "country:Sudan|Rock hyrax|0": {
+    "region": "country:Sudan",
+    "kind": "Rock hyrax"
+  },
+  "country:Sudan|Common genet|0": {
+    "region": "country:Sudan",
+    "kind": "Common genet"
+  },
+  "country:Sudan|Grey heron|0": {
+    "region": "country:Sudan",
+    "kind": "Grey heron"
+  },
+  "country:Sudan|Little bee-eater|0": {
+    "region": "country:Sudan",
+    "kind": "Little bee-eater"
+  },
+  "country:S. Sudan|Kob|0": {
+    "region": "country:S. Sudan",
+    "kind": "Kob"
+  },
+  "country:S. Sudan|Roan antelope|0": {
+    "region": "country:S. Sudan",
+    "kind": "Roan antelope"
+  },
+  "country:S. Sudan|Common warthog|0": {
+    "region": "country:S. Sudan",
+    "kind": "Common warthog"
+  },
+  "country:S. Sudan|Grey crowned crane|0": {
+    "region": "country:S. Sudan",
+    "kind": "Grey crowned crane"
+  },
+  "country:S. Sudan|Helmeted guineafowl|0": {
+    "region": "country:S. Sudan",
+    "kind": "Helmeted guineafowl"
+  },
+  "country:Eritrea|Soemmerring’s gazelle|0": {
+    "region": "country:Eritrea",
+    "kind": "Soemmerring’s gazelle"
+  },
+  "country:Eritrea|Salt’s dik-dik|0": {
+    "region": "country:Eritrea",
+    "kind": "Salt’s dik-dik"
+  },
+  "country:Eritrea|Rock hyrax|0": {
+    "region": "country:Eritrea",
+    "kind": "Rock hyrax"
+  },
+  "country:Eritrea|Hamadryas baboon|0": {
+    "region": "country:Eritrea",
+    "kind": "Hamadryas baboon"
+  },
+  "country:Eritrea|Little bee-eater|0": {
+    "region": "country:Eritrea",
+    "kind": "Little bee-eater"
+  },
+  "country:Djibouti|Soemmerring’s gazelle|0": {
+    "region": "country:Djibouti",
+    "kind": "Soemmerring’s gazelle"
+  },
+  "country:Djibouti|Salt’s dik-dik|0": {
+    "region": "country:Djibouti",
+    "kind": "Salt’s dik-dik"
+  },
+  "country:Djibouti|Somali sengi|0": {
+    "region": "country:Djibouti",
+    "kind": "Somali sengi"
+  },
+  "country:Djibouti|Hamadryas baboon|0": {
+    "region": "country:Djibouti",
+    "kind": "Hamadryas baboon"
+  },
+  "country:Djibouti|Somali starling|0": {
+    "region": "country:Djibouti",
+    "kind": "Somali starling"
+  },
+  "country:Ethiopia|Mountain nyala|0": {
+    "region": "country:Ethiopia",
+    "kind": "Mountain nyala"
+  },
+  "country:Ethiopia|Gelada|0": {
+    "region": "country:Ethiopia",
+    "kind": "Gelada"
+  },
+  "country:Ethiopia|Common warthog|0": {
+    "region": "country:Ethiopia",
+    "kind": "Common warthog"
+  },
+  "country:Ethiopia|Rouget’s rail|0": {
+    "region": "country:Ethiopia",
+    "kind": "Rouget’s rail"
+  },
+  "country:Ethiopia|White-cheeked turaco|0": {
+    "region": "country:Ethiopia",
+    "kind": "White-cheeked turaco"
+  },
+  "country:Somalia|Gerenuk|0": {
+    "region": "country:Somalia",
+    "kind": "Gerenuk"
+  },
+  "country:Somalia|Salt’s dik-dik|0": {
+    "region": "country:Somalia",
+    "kind": "Salt’s dik-dik"
+  },
+  "country:Somalia|Soemmerring’s gazelle|0": {
+    "region": "country:Somalia",
+    "kind": "Soemmerring’s gazelle"
+  },
+  "country:Somalia|Somali sengi|0": {
+    "region": "country:Somalia",
+    "kind": "Somali sengi"
+  },
+  "country:Somalia|Little bee-eater|0": {
+    "region": "country:Somalia",
+    "kind": "Little bee-eater"
+  },
+  "country:Kenya|Impala|0": {
+    "region": "country:Kenya",
+    "kind": "Impala"
+  },
+  "country:Kenya|Plains zebra|0": {
+    "region": "country:Kenya",
+    "kind": "Plains zebra"
+  },
+  "country:Kenya|Common warthog|0": {
+    "region": "country:Kenya",
+    "kind": "Common warthog"
+  },
+  "country:Kenya|Helmeted guineafowl|0": {
+    "region": "country:Kenya",
+    "kind": "Helmeted guineafowl"
+  },
+  "country:Kenya|Lilac-breasted roller|0": {
+    "region": "country:Kenya",
+    "kind": "Lilac-breasted roller"
+  },
+  "country:Uganda|Kob|0": {
+    "region": "country:Uganda",
+    "kind": "Kob"
+  },
+  "country:Uganda|Waterbuck|0": {
+    "region": "country:Uganda",
+    "kind": "Waterbuck"
+  },
+  "country:Uganda|Common genet|0": {
+    "region": "country:Uganda",
+    "kind": "Common genet"
+  },
+  "country:Uganda|Grey crowned crane|0": {
+    "region": "country:Uganda",
+    "kind": "Grey crowned crane"
+  },
+  "country:Uganda|Shoebill|0": {
+    "region": "country:Uganda",
+    "kind": "Shoebill"
+  },
+  "country:Rwanda|Topi|0": {
+    "region": "country:Rwanda",
+    "kind": "Topi"
+  },
+  "country:Rwanda|Cape bushbuck (imbabala)|0": {
+    "region": "country:Rwanda",
+    "kind": "Cape bushbuck (imbabala)"
+  },
+  "country:Rwanda|Plains zebra|0": {
+    "region": "country:Rwanda",
+    "kind": "Plains zebra"
+  },
+  "country:Rwanda|Serval|0": {
+    "region": "country:Rwanda",
+    "kind": "Serval"
+  },
+  "country:Rwanda|Village weaver|0": {
+    "region": "country:Rwanda",
+    "kind": "Village weaver"
+  },
+  "country:Burundi|Sitatunga|0": {
+    "region": "country:Burundi",
+    "kind": "Sitatunga"
+  },
+  "country:Burundi|Bohor reedbuck|0": {
+    "region": "country:Burundi",
+    "kind": "Bohor reedbuck"
+  },
+  "country:Burundi|Serval|0": {
+    "region": "country:Burundi",
+    "kind": "Serval"
+  },
+  "country:Burundi|Rusty-spotted genet|0": {
+    "region": "country:Burundi",
+    "kind": "Rusty-spotted genet"
+  },
+  "country:Burundi|Great blue turaco|0": {
+    "region": "country:Burundi",
+    "kind": "Great blue turaco"
+  },
+  "country:Tanzania|Masai giraffe|0": {
+    "region": "country:Tanzania",
+    "kind": "Masai giraffe"
+  },
+  "country:Tanzania|Impala|0": {
+    "region": "country:Tanzania",
+    "kind": "Impala"
+  },
+  "country:Tanzania|African clawless otter|0": {
+    "region": "country:Tanzania",
+    "kind": "African clawless otter"
+  },
+  "country:Tanzania|African grey hornbill|0": {
+    "region": "country:Tanzania",
+    "kind": "African grey hornbill"
+  },
+  "country:Tanzania|Variable sunbird|0": {
+    "region": "country:Tanzania",
+    "kind": "Variable sunbird"
+  },
+  "country:Malawi|Puku|0": {
+    "region": "country:Malawi",
+    "kind": "Puku"
+  },
+  "country:Malawi|Cape bushbuck (imbabala)|0": {
+    "region": "country:Malawi",
+    "kind": "Cape bushbuck (imbabala)"
+  },
+  "country:Malawi|Serval|0": {
+    "region": "country:Malawi",
+    "kind": "Serval"
+  },
+  "country:Malawi|African fish eagle|0": {
+    "region": "country:Malawi",
+    "kind": "African fish eagle"
+  },
+  "country:Malawi|Boehm’s bee-eater|0": {
+    "region": "country:Malawi",
+    "kind": "Boehm’s bee-eater"
+  },
+  "country:Zambia|Southern lechwe|0": {
+    "region": "country:Zambia",
+    "kind": "Southern lechwe"
+  },
+  "country:Zambia|Sable antelope|0": {
+    "region": "country:Zambia",
+    "kind": "Sable antelope"
+  },
+  "country:Zambia|Temminck’s pangolin|0": {
+    "region": "country:Zambia",
+    "kind": "Temminck’s pangolin"
+  },
+  "country:Zambia|Grey crowned crane|0": {
+    "region": "country:Zambia",
+    "kind": "Grey crowned crane"
+  },
+  "country:Zambia|Black-cheeked lovebird|0": {
+    "region": "country:Zambia",
+    "kind": "Black-cheeked lovebird"
+  },
+  "country:Zimbabwe|Greater kudu|0": {
+    "region": "country:Zimbabwe",
+    "kind": "Greater kudu"
+  },
+  "country:Zimbabwe|Klipspringer|0": {
+    "region": "country:Zimbabwe",
+    "kind": "Klipspringer"
+  },
+  "country:Zimbabwe|Rock hyrax|0": {
+    "region": "country:Zimbabwe",
+    "kind": "Rock hyrax"
+  },
+  "country:Zimbabwe|Secretarybird|0": {
+    "region": "country:Zimbabwe",
+    "kind": "Secretarybird"
+  },
+  "country:Zimbabwe|Lilac-breasted roller|0": {
+    "region": "country:Zimbabwe",
+    "kind": "Lilac-breasted roller"
+  },
+  "country:Mozambique|Suni|0": {
+    "region": "country:Mozambique",
+    "kind": "Suni"
+  },
+  "country:Mozambique|Nyala|0": {
+    "region": "country:Mozambique",
+    "kind": "Nyala"
+  },
+  "country:Mozambique|African clawless otter|0": {
+    "region": "country:Mozambique",
+    "kind": "African clawless otter"
+  },
+  "country:Mozambique|Livingstone’s turaco|0": {
+    "region": "country:Mozambique",
+    "kind": "Livingstone’s turaco"
+  },
+  "country:Mozambique|Giant mud crab|0": {
+    "region": "country:Mozambique",
+    "kind": "Giant mud crab"
+  },
+  "country:Madagascar|Ring-tailed lemur|0": {
+    "region": "country:Madagascar",
+    "kind": "Ring-tailed lemur"
+  },
+  "country:Madagascar|Fossa|0": {
+    "region": "country:Madagascar",
+    "kind": "Fossa"
+  },
+  "country:Madagascar|Lowland streaked tenrec|0": {
+    "region": "country:Madagascar",
+    "kind": "Lowland streaked tenrec"
+  },
+  "country:Madagascar|Red fody|0": {
+    "region": "country:Madagascar",
+    "kind": "Red fody"
+  },
+  "country:Madagascar|Madagascar giant day gecko|0": {
+    "region": "country:Madagascar",
+    "kind": "Madagascar giant day gecko"
+  },
+  "country:Comoros|Livingstone’s fruit bat|0": {
+    "region": "country:Comoros",
+    "kind": "Livingstone’s fruit bat"
+  },
+  "country:Comoros|Comoro blue pigeon|0": {
+    "region": "country:Comoros",
+    "kind": "Comoro blue pigeon"
+  },
+  "country:Comoros|Comoros fody|0": {
+    "region": "country:Comoros",
+    "kind": "Comoros fody"
+  },
+  "country:Comoros|Comoros bulbul|0": {
+    "region": "country:Comoros",
+    "kind": "Comoros bulbul"
+  },
+  "country:Comoros|Comoros day gecko|0": {
+    "region": "country:Comoros",
+    "kind": "Comoros day gecko"
+  },
+  "country:Mauritius|Pink pigeon|0": {
+    "region": "country:Mauritius",
+    "kind": "Pink pigeon"
+  },
+  "country:Mauritius|Echo parakeet|0": {
+    "region": "country:Mauritius",
+    "kind": "Echo parakeet"
+  },
+  "country:Mauritius|Mauritius kestrel|0": {
+    "region": "country:Mauritius",
+    "kind": "Mauritius kestrel"
+  },
+  "country:Mauritius|Mauritius fody|0": {
+    "region": "country:Mauritius",
+    "kind": "Mauritius fody"
+  },
+  "country:Mauritius|Telfair’s skink|0": {
+    "region": "country:Mauritius",
+    "kind": "Telfair’s skink"
+  },
+  "country:Seychelles|Aldabra giant tortoise|0": {
+    "region": "country:Seychelles",
+    "kind": "Aldabra giant tortoise"
+  },
+  "country:Seychelles|Seychelles magpie-robin|0": {
+    "region": "country:Seychelles",
+    "kind": "Seychelles magpie-robin"
+  },
+  "country:Seychelles|Seychelles paradise flycatcher|0": {
+    "region": "country:Seychelles",
+    "kind": "Seychelles paradise flycatcher"
+  },
+  "country:Seychelles|Seychelles blue pigeon|0": {
+    "region": "country:Seychelles",
+    "kind": "Seychelles blue pigeon"
+  },
+  "country:Seychelles|Seychelles bronze gecko|0": {
+    "region": "country:Seychelles",
+    "kind": "Seychelles bronze gecko"
+  },
+  "country:South Africa|Bontebok|0": {
+    "region": "country:South Africa",
+    "kind": "Bontebok"
+  },
+  "country:South Africa|Springbok|0": {
+    "region": "country:South Africa",
+    "kind": "Springbok"
+  },
+  "country:South Africa|Meerkat|0": {
+    "region": "country:South Africa",
+    "kind": "Meerkat"
+  },
+  "country:South Africa|Blue crane|0": {
+    "region": "country:South Africa",
+    "kind": "Blue crane"
+  },
+  "country:South Africa|Cape sugarbird|0": {
+    "region": "country:South Africa",
+    "kind": "Cape sugarbird"
+  },
+  "country:Lesotho|Grey rhebok|0": {
+    "region": "country:Lesotho",
+    "kind": "Grey rhebok"
+  },
+  "country:Lesotho|Klipspringer|0": {
+    "region": "country:Lesotho",
+    "kind": "Klipspringer"
+  },
+  "country:Lesotho|Cape hare|0": {
+    "region": "country:Lesotho",
+    "kind": "Cape hare"
+  },
+  "country:Lesotho|Bearded vulture|0": {
+    "region": "country:Lesotho",
+    "kind": "Bearded vulture"
+  },
+  "country:Lesotho|Drakensberg rockjumper|0": {
+    "region": "country:Lesotho",
+    "kind": "Drakensberg rockjumper"
+  },
+  "country:eSwatini|Nyala|0": {
+    "region": "country:eSwatini",
+    "kind": "Nyala"
+  },
+  "country:eSwatini|Suni|0": {
+    "region": "country:eSwatini",
+    "kind": "Suni"
+  },
+  "country:eSwatini|Serval|0": {
+    "region": "country:eSwatini",
+    "kind": "Serval"
+  },
+  "country:eSwatini|Purple-crested turaco|0": {
+    "region": "country:eSwatini",
+    "kind": "Purple-crested turaco"
+  },
+  "country:eSwatini|African jacana|0": {
+    "region": "country:eSwatini",
+    "kind": "African jacana"
+  },
+  "country:Botswana|Southern lechwe|0": {
+    "region": "country:Botswana",
+    "kind": "Southern lechwe"
+  },
+  "country:Botswana|Meerkat|0": {
+    "region": "country:Botswana",
+    "kind": "Meerkat"
+  },
+  "country:Botswana|Bat-eared fox|0": {
+    "region": "country:Botswana",
+    "kind": "Bat-eared fox"
+  },
+  "country:Botswana|African fish eagle|0": {
+    "region": "country:Botswana",
+    "kind": "African fish eagle"
+  },
+  "country:Botswana|Pel’s fishing owl|0": {
+    "region": "country:Botswana",
+    "kind": "Pel’s fishing owl"
+  },
+  "country:Namibia|Black rhinoceros|0": {
+    "region": "country:Namibia",
+    "kind": "Black rhinoceros"
+  },
+  "country:Namibia|Gemsbok|0": {
+    "region": "country:Namibia",
+    "kind": "Gemsbok"
+  },
+  "country:Namibia|Steenbok|0": {
+    "region": "country:Namibia",
+    "kind": "Steenbok"
+  },
+  "country:Namibia|Cape ground squirrel|0": {
+    "region": "country:Namibia",
+    "kind": "Cape ground squirrel"
+  },
+  "country:Namibia|Rosy-faced lovebird|0": {
+    "region": "country:Namibia",
+    "kind": "Rosy-faced lovebird"
+  },
+  "country:Angola|Giant sable antelope|0": {
+    "region": "country:Angola",
+    "kind": "Giant sable antelope"
+  },
+  "country:Angola|Red river hog|0": {
+    "region": "country:Angola",
+    "kind": "Red river hog"
+  },
+  "country:Angola|African civet|0": {
+    "region": "country:Angola",
+    "kind": "African civet"
+  },
+  "country:Angola|Red-crested turaco|0": {
+    "region": "country:Angola",
+    "kind": "Red-crested turaco"
+  },
+  "country:Angola|Amethyst sunbird|0": {
+    "region": "country:Angola",
+    "kind": "Amethyst sunbird"
+  },
+  "country:Dem. Rep. Congo|Bongo|0": {
+    "region": "country:Dem. Rep. Congo",
+    "kind": "Bongo"
+  },
+  "country:Dem. Rep. Congo|Yellow-backed duiker|0": {
+    "region": "country:Dem. Rep. Congo",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Dem. Rep. Congo|White-bellied pangolin|0": {
+    "region": "country:Dem. Rep. Congo",
+    "kind": "White-bellied pangolin"
+  },
+  "country:Dem. Rep. Congo|Congo peafowl|0": {
+    "region": "country:Dem. Rep. Congo",
+    "kind": "Congo peafowl"
+  },
+  "country:Dem. Rep. Congo|Grey parrot|0": {
+    "region": "country:Dem. Rep. Congo",
+    "kind": "Grey parrot"
+  },
+  "country:Congo|Red river hog|0": {
+    "region": "country:Congo",
+    "kind": "Red river hog"
+  },
+  "country:Congo|Bongo|0": {
+    "region": "country:Congo",
+    "kind": "Bongo"
+  },
+  "country:Congo|Central potto|0": {
+    "region": "country:Congo",
+    "kind": "Central potto"
+  },
+  "country:Congo|Great blue turaco|0": {
+    "region": "country:Congo",
+    "kind": "Great blue turaco"
+  },
+  "country:Congo|Grey parrot|0": {
+    "region": "country:Congo",
+    "kind": "Grey parrot"
+  },
+  "country:Gabon|Blue duiker|0": {
+    "region": "country:Gabon",
+    "kind": "Blue duiker"
+  },
+  "country:Gabon|African civet|0": {
+    "region": "country:Gabon",
+    "kind": "African civet"
+  },
+  "country:Gabon|White-bellied pangolin|0": {
+    "region": "country:Gabon",
+    "kind": "White-bellied pangolin"
+  },
+  "country:Gabon|Black-casqued hornbill|0": {
+    "region": "country:Gabon",
+    "kind": "Black-casqued hornbill"
+  },
+  "country:Gabon|Red river hog|0": {
+    "region": "country:Gabon",
+    "kind": "Red river hog"
+  },
+  "country:Eq. Guinea|Blue duiker|0": {
+    "region": "country:Eq. Guinea",
+    "kind": "Blue duiker"
+  },
+  "country:Eq. Guinea|Central potto|0": {
+    "region": "country:Eq. Guinea",
+    "kind": "Central potto"
+  },
+  "country:Eq. Guinea|African civet|0": {
+    "region": "country:Eq. Guinea",
+    "kind": "African civet"
+  },
+  "country:Eq. Guinea|Grey parrot|0": {
+    "region": "country:Eq. Guinea",
+    "kind": "Grey parrot"
+  },
+  "country:Eq. Guinea|Green turaco|0": {
+    "region": "country:Eq. Guinea",
+    "kind": "Green turaco"
+  },
+  "country:Cameroon|Bongo|0": {
+    "region": "country:Cameroon",
+    "kind": "Bongo"
+  },
+  "country:Cameroon|Red river hog|0": {
+    "region": "country:Cameroon",
+    "kind": "Red river hog"
+  },
+  "country:Cameroon|Yellow-backed duiker|0": {
+    "region": "country:Cameroon",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Cameroon|Bannerman’s turaco|0": {
+    "region": "country:Cameroon",
+    "kind": "Bannerman’s turaco"
+  },
+  "country:Cameroon|Grey parrot|0": {
+    "region": "country:Cameroon",
+    "kind": "Grey parrot"
+  },
+  "country:Central African Rep.|Bongo|0": {
+    "region": "country:Central African Rep.",
+    "kind": "Bongo"
+  },
+  "country:Central African Rep.|Giant eland|0": {
+    "region": "country:Central African Rep.",
+    "kind": "Giant eland"
+  },
+  "country:Central African Rep.|Yellow-backed duiker|0": {
+    "region": "country:Central African Rep.",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Central African Rep.|Red river hog|0": {
+    "region": "country:Central African Rep.",
+    "kind": "Red river hog"
+  },
+  "country:Central African Rep.|Violet turaco|0": {
+    "region": "country:Central African Rep.",
+    "kind": "Violet turaco"
+  },
+  "country:Nigeria|Bushbuck|0": {
+    "region": "country:Nigeria",
+    "kind": "Bushbuck"
+  },
+  "country:Nigeria|African civet|0": {
+    "region": "country:Nigeria",
+    "kind": "African civet"
+  },
+  "country:Nigeria|Patas monkey|0": {
+    "region": "country:Nigeria",
+    "kind": "Patas monkey"
+  },
+  "country:Nigeria|Grey parrot|0": {
+    "region": "country:Nigeria",
+    "kind": "Grey parrot"
+  },
+  "country:Nigeria|Red-throated bee-eater|0": {
+    "region": "country:Nigeria",
+    "kind": "Red-throated bee-eater"
+  },
+  "country:Benin|Roan antelope|0": {
+    "region": "country:Benin",
+    "kind": "Roan antelope"
+  },
+  "country:Benin|Common warthog|0": {
+    "region": "country:Benin",
+    "kind": "Common warthog"
+  },
+  "country:Benin|Yellow-backed duiker|0": {
+    "region": "country:Benin",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Benin|Senegal parrot|0": {
+    "region": "country:Benin",
+    "kind": "Senegal parrot"
+  },
+  "country:Benin|Violet turaco|0": {
+    "region": "country:Benin",
+    "kind": "Violet turaco"
+  },
+  "country:Togo|Roan antelope|0": {
+    "region": "country:Togo",
+    "kind": "Roan antelope"
+  },
+  "country:Togo|African civet|0": {
+    "region": "country:Togo",
+    "kind": "African civet"
+  },
+  "country:Togo|Patas monkey|0": {
+    "region": "country:Togo",
+    "kind": "Patas monkey"
+  },
+  "country:Togo|Red-throated bee-eater|0": {
+    "region": "country:Togo",
+    "kind": "Red-throated bee-eater"
+  },
+  "country:Togo|Senegal parrot|0": {
+    "region": "country:Togo",
+    "kind": "Senegal parrot"
+  },
+  "country:Ghana|Bushbuck|0": {
+    "region": "country:Ghana",
+    "kind": "Bushbuck"
+  },
+  "country:Ghana|African civet|0": {
+    "region": "country:Ghana",
+    "kind": "African civet"
+  },
+  "country:Ghana|White-bellied pangolin|0": {
+    "region": "country:Ghana",
+    "kind": "White-bellied pangolin"
+  },
+  "country:Ghana|Violet turaco|0": {
+    "region": "country:Ghana",
+    "kind": "Violet turaco"
+  },
+  "country:Ghana|Senegal parrot|0": {
+    "region": "country:Ghana",
+    "kind": "Senegal parrot"
+  },
+  "country:Côte d'Ivoire|Yellow-backed duiker|0": {
+    "region": "country:Côte d'Ivoire",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Côte d'Ivoire|Red river hog|0": {
+    "region": "country:Côte d'Ivoire",
+    "kind": "Red river hog"
+  },
+  "country:Côte d'Ivoire|African civet|0": {
+    "region": "country:Côte d'Ivoire",
+    "kind": "African civet"
+  },
+  "country:Côte d'Ivoire|Yellow-casqued hornbill|0": {
+    "region": "country:Côte d'Ivoire",
+    "kind": "Yellow-casqued hornbill"
+  },
+  "country:Côte d'Ivoire|Green turaco|0": {
+    "region": "country:Côte d'Ivoire",
+    "kind": "Green turaco"
+  },
+  "country:Burkina Faso|Roan antelope|0": {
+    "region": "country:Burkina Faso",
+    "kind": "Roan antelope"
+  },
+  "country:Burkina Faso|Common warthog|0": {
+    "region": "country:Burkina Faso",
+    "kind": "Common warthog"
+  },
+  "country:Burkina Faso|Patas monkey|0": {
+    "region": "country:Burkina Faso",
+    "kind": "Patas monkey"
+  },
+  "country:Burkina Faso|Abyssinian roller|0": {
+    "region": "country:Burkina Faso",
+    "kind": "Abyssinian roller"
+  },
+  "country:Burkina Faso|Senegal parrot|0": {
+    "region": "country:Burkina Faso",
+    "kind": "Senegal parrot"
+  },
+  "country:Guinea|Yellow-backed duiker|0": {
+    "region": "country:Guinea",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Guinea|African civet|0": {
+    "region": "country:Guinea",
+    "kind": "African civet"
+  },
+  "country:Guinea|White-bellied pangolin|0": {
+    "region": "country:Guinea",
+    "kind": "White-bellied pangolin"
+  },
+  "country:Guinea|Violet turaco|0": {
+    "region": "country:Guinea",
+    "kind": "Violet turaco"
+  },
+  "country:Guinea|Yellow-casqued hornbill|0": {
+    "region": "country:Guinea",
+    "kind": "Yellow-casqued hornbill"
+  },
+  "country:Guinea-Bissau|Bushbuck|0": {
+    "region": "country:Guinea-Bissau",
+    "kind": "Bushbuck"
+  },
+  "country:Guinea-Bissau|African civet|0": {
+    "region": "country:Guinea-Bissau",
+    "kind": "African civet"
+  },
+  "country:Guinea-Bissau|Common warthog|0": {
+    "region": "country:Guinea-Bissau",
+    "kind": "Common warthog"
+  },
+  "country:Guinea-Bissau|Senegal parrot|0": {
+    "region": "country:Guinea-Bissau",
+    "kind": "Senegal parrot"
+  },
+  "country:Guinea-Bissau|Violet-backed starling|0": {
+    "region": "country:Guinea-Bissau",
+    "kind": "Violet-backed starling"
+  },
+  "country:Senegal|Roan antelope|0": {
+    "region": "country:Senegal",
+    "kind": "Roan antelope"
+  },
+  "country:Senegal|Patas monkey|0": {
+    "region": "country:Senegal",
+    "kind": "Patas monkey"
+  },
+  "country:Senegal|African civet|0": {
+    "region": "country:Senegal",
+    "kind": "African civet"
+  },
+  "country:Senegal|Abyssinian roller|0": {
+    "region": "country:Senegal",
+    "kind": "Abyssinian roller"
+  },
+  "country:Senegal|Violet-backed starling|0": {
+    "region": "country:Senegal",
+    "kind": "Violet-backed starling"
+  },
+  "country:Gambia|Patas monkey|0": {
+    "region": "country:Gambia",
+    "kind": "Patas monkey"
+  },
+  "country:Gambia|Bushbuck|0": {
+    "region": "country:Gambia",
+    "kind": "Bushbuck"
+  },
+  "country:Gambia|Common warthog|0": {
+    "region": "country:Gambia",
+    "kind": "Common warthog"
+  },
+  "country:Gambia|Senegal parrot|0": {
+    "region": "country:Gambia",
+    "kind": "Senegal parrot"
+  },
+  "country:Gambia|Abyssinian roller|0": {
+    "region": "country:Gambia",
+    "kind": "Abyssinian roller"
+  },
+  "country:Sierra Leone|Yellow-backed duiker|0": {
+    "region": "country:Sierra Leone",
+    "kind": "Yellow-backed duiker"
+  },
+  "country:Sierra Leone|Red river hog|0": {
+    "region": "country:Sierra Leone",
+    "kind": "Red river hog"
+  },
+  "country:Sierra Leone|White-bellied pangolin|0": {
+    "region": "country:Sierra Leone",
+    "kind": "White-bellied pangolin"
+  },
+  "country:Sierra Leone|Yellow-casqued hornbill|0": {
+    "region": "country:Sierra Leone",
+    "kind": "Yellow-casqued hornbill"
+  },
+  "country:Sierra Leone|Great blue turaco|0": {
+    "region": "country:Sierra Leone",
+    "kind": "Great blue turaco"
+  },
+  "country:Liberia|Bongo|0": {
+    "region": "country:Liberia",
+    "kind": "Bongo"
+  },
+  "country:Liberia|Red river hog|0": {
+    "region": "country:Liberia",
+    "kind": "Red river hog"
+  },
+  "country:Liberia|Maxwell’s duiker|0": {
+    "region": "country:Liberia",
+    "kind": "Maxwell’s duiker"
+  },
+  "country:Liberia|Yellow-casqued hornbill|0": {
+    "region": "country:Liberia",
+    "kind": "Yellow-casqued hornbill"
+  },
+  "country:Liberia|Green turaco|0": {
+    "region": "country:Liberia",
+    "kind": "Green turaco"
+  },
+  "country:Cabo Verde|Cape Verde warbler|0": {
+    "region": "country:Cabo Verde",
+    "kind": "Cape Verde warbler"
+  },
+  "country:Cabo Verde|Iago sparrow|0": {
+    "region": "country:Cabo Verde",
+    "kind": "Iago sparrow"
+  },
+  "country:Cabo Verde|Cape Verde swift|0": {
+    "region": "country:Cabo Verde",
+    "kind": "Cape Verde swift"
+  },
+  "country:Cabo Verde|Raso lark|0": {
+    "region": "country:Cabo Verde",
+    "kind": "Raso lark"
+  },
+  "country:Cabo Verde|Cape Verde buzzard|0": {
+    "region": "country:Cabo Verde",
+    "kind": "Cape Verde buzzard"
+  },
+  "country:São Tomé and Principe|São Tomé sunbird|0": {
+    "region": "country:São Tomé and Principe",
+    "kind": "São Tomé sunbird"
+  },
+  "country:São Tomé and Principe|São Tomé paradise flycatcher|0": {
+    "region": "country:São Tomé and Principe",
+    "kind": "São Tomé paradise flycatcher"
+  },
+  "country:São Tomé and Principe|São Tomé grosbeak|0": {
+    "region": "country:São Tomé and Principe",
+    "kind": "São Tomé grosbeak"
+  },
+  "country:São Tomé and Principe|São Tomé green pigeon|0": {
+    "region": "country:São Tomé and Principe",
+    "kind": "São Tomé green pigeon"
+  },
+  "country:São Tomé and Principe|Príncipe kingfisher|0": {
+    "region": "country:São Tomé and Principe",
+    "kind": "Príncipe kingfisher"
+  },
+  "country:Saint Helena|Saint Helena plover (wirebird)|0": {
+    "region": "country:Saint Helena",
+    "kind": "Saint Helena plover (wirebird)"
+  },
+  "country:Saint Helena|Red-billed tropicbird|0": {
+    "region": "country:Saint Helena",
+    "kind": "Red-billed tropicbird"
+  },
+  "country:Saint Helena|Saint Helena white tern|0": {
+    "region": "country:Saint Helena",
+    "kind": "Saint Helena white tern"
+  },
+  "country:Saint Helena|Brown noddy|0": {
+    "region": "country:Saint Helena",
+    "kind": "Brown noddy"
+  },
+  "country:Saint Helena|Masked booby|0": {
+    "region": "country:Saint Helena",
+    "kind": "Masked booby"
+  },
+  "country:Somaliland|Gerenuk|0": {
+    "region": "country:Somaliland",
+    "kind": "Gerenuk"
+  },
+  "country:Somaliland|Salt’s dik-dik|0": {
+    "region": "country:Somaliland",
+    "kind": "Salt’s dik-dik"
+  },
+  "country:Somaliland|Somali sengi|0": {
+    "region": "country:Somaliland",
+    "kind": "Somali sengi"
+  },
+  "country:Somaliland|Somali starling|0": {
+    "region": "country:Somaliland",
+    "kind": "Somali starling"
+  },
+  "country:Somaliland|Little bee-eater|0": {
+    "region": "country:Somaliland",
+    "kind": "Little bee-eater"
+  },
+  "country:Albania|European wildcat|0": {
+    "region": "country:Albania",
+    "kind": "European wildcat"
+  },
+  "country:Albania|Hazel dormouse|0": {
+    "region": "country:Albania",
+    "kind": "Hazel dormouse"
+  },
+  "country:Albania|Alpine chamois|0": {
+    "region": "country:Albania",
+    "kind": "Alpine chamois"
+  },
+  "country:Albania|Eurasian golden oriole|0": {
+    "region": "country:Albania",
+    "kind": "Eurasian golden oriole"
+  },
+  "country:Albania|European bee-eater|0": {
+    "region": "country:Albania",
+    "kind": "European bee-eater"
+  },
+  "country:Andorra|Alpine accentor|0": {
+    "region": "country:Andorra",
+    "kind": "Alpine accentor"
+  },
+  "country:Andorra|Red-billed chough|0": {
+    "region": "country:Andorra",
+    "kind": "Red-billed chough"
+  },
+  "country:Andorra|Great tit|0": {
+    "region": "country:Andorra",
+    "kind": "Great tit"
+  },
+  "country:Andorra|White wagtail|0": {
+    "region": "country:Andorra",
+    "kind": "White wagtail"
+  },
+  "country:Andorra|European robin|0": {
+    "region": "country:Andorra",
+    "kind": "European robin"
+  },
+  "country:Austria|Stoat|0": {
+    "region": "country:Austria",
+    "kind": "Stoat"
+  },
+  "country:Austria|Edible dormouse|0": {
+    "region": "country:Austria",
+    "kind": "Edible dormouse"
+  },
+  "country:Austria|European roe deer|0": {
+    "region": "country:Austria",
+    "kind": "European roe deer"
+  },
+  "country:Austria|Spotted nutcracker|0": {
+    "region": "country:Austria",
+    "kind": "Spotted nutcracker"
+  },
+  "country:Austria|Black woodpecker|0": {
+    "region": "country:Austria",
+    "kind": "Black woodpecker"
+  },
+  "country:Belgium|Least weasel|0": {
+    "region": "country:Belgium",
+    "kind": "Least weasel"
+  },
+  "country:Belgium|Garden dormouse|0": {
+    "region": "country:Belgium",
+    "kind": "Garden dormouse"
+  },
+  "country:Belgium|Red deer|0": {
+    "region": "country:Belgium",
+    "kind": "Red deer"
+  },
+  "country:Belgium|Eurasian blue tit|0": {
+    "region": "country:Belgium",
+    "kind": "Eurasian blue tit"
+  },
+  "country:Belgium|Common kingfisher|0": {
+    "region": "country:Belgium",
+    "kind": "Common kingfisher"
+  },
+  "country:Bosnia and Herz.|European polecat|0": {
+    "region": "country:Bosnia and Herz.",
+    "kind": "European polecat"
+  },
+  "country:Bosnia and Herz.|European water vole|0": {
+    "region": "country:Bosnia and Herz.",
+    "kind": "European water vole"
+  },
+  "country:Bosnia and Herz.|European mole|0": {
+    "region": "country:Bosnia and Herz.",
+    "kind": "European mole"
+  },
+  "country:Bosnia and Herz.|White-throated dipper|0": {
+    "region": "country:Bosnia and Herz.",
+    "kind": "White-throated dipper"
+  },
+  "country:Bosnia and Herz.|European green woodpecker|0": {
+    "region": "country:Bosnia and Herz.",
+    "kind": "European green woodpecker"
+  },
+  "country:Bulgaria|Beech marten|0": {
+    "region": "country:Bulgaria",
+    "kind": "Beech marten"
+  },
+  "country:Bulgaria|European hamster|0": {
+    "region": "country:Bulgaria",
+    "kind": "European hamster"
+  },
+  "country:Bulgaria|European ground squirrel|0": {
+    "region": "country:Bulgaria",
+    "kind": "European ground squirrel"
+  },
+  "country:Bulgaria|Red-backed shrike|0": {
+    "region": "country:Bulgaria",
+    "kind": "Red-backed shrike"
+  },
+  "country:Bulgaria|Eurasian golden oriole|0": {
+    "region": "country:Bulgaria",
+    "kind": "Eurasian golden oriole"
+  },
+  "country:Croatia|European snow vole|0": {
+    "region": "country:Croatia",
+    "kind": "European snow vole"
+  },
+  "country:Croatia|European pine marten|0": {
+    "region": "country:Croatia",
+    "kind": "European pine marten"
+  },
+  "country:Croatia|Brown bear|0": {
+    "region": "country:Croatia",
+    "kind": "Brown bear"
+  },
+  "country:Croatia|Eurasian hoopoe|0": {
+    "region": "country:Croatia",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Croatia|Little owl|0": {
+    "region": "country:Croatia",
+    "kind": "Little owl"
+  },
+  "country:Czechia|Grey wolf|0": {
+    "region": "country:Czechia",
+    "kind": "Grey wolf"
+  },
+  "country:Czechia|Eurasian beaver|0": {
+    "region": "country:Czechia",
+    "kind": "Eurasian beaver"
+  },
+  "country:Czechia|Eurasian lynx|0": {
+    "region": "country:Czechia",
+    "kind": "Eurasian lynx"
+  },
+  "country:Czechia|Black woodpecker|0": {
+    "region": "country:Czechia",
+    "kind": "Black woodpecker"
+  },
+  "country:Czechia|Eurasian nuthatch|0": {
+    "region": "country:Czechia",
+    "kind": "Eurasian nuthatch"
+  },
+  "country:France|Pyrenean chamois|0": {
+    "region": "country:France",
+    "kind": "Pyrenean chamois"
+  },
+  "country:France|European mink|0": {
+    "region": "country:France",
+    "kind": "European mink"
+  },
+  "country:France|Alpine marmot|0": {
+    "region": "country:France",
+    "kind": "Alpine marmot"
+  },
+  "country:France|European green woodpecker|0": {
+    "region": "country:France",
+    "kind": "European green woodpecker"
+  },
+  "country:France|Western barn owl|0": {
+    "region": "country:France",
+    "kind": "Western barn owl"
+  },
+  "country:Germany|European wildcat|0": {
+    "region": "country:Germany",
+    "kind": "European wildcat"
+  },
+  "country:Germany|Hazel dormouse|0": {
+    "region": "country:Germany",
+    "kind": "Hazel dormouse"
+  },
+  "country:Germany|Alpine chamois|0": {
+    "region": "country:Germany",
+    "kind": "Alpine chamois"
+  },
+  "country:Germany|Eurasian jay|0": {
+    "region": "country:Germany",
+    "kind": "Eurasian jay"
+  },
+  "country:Germany|Eurasian blue tit|0": {
+    "region": "country:Germany",
+    "kind": "Eurasian blue tit"
+  },
+  "country:Greece|Least weasel|0": {
+    "region": "country:Greece",
+    "kind": "Least weasel"
+  },
+  "country:Greece|Edible dormouse|0": {
+    "region": "country:Greece",
+    "kind": "Edible dormouse"
+  },
+  "country:Greece|European roe deer|0": {
+    "region": "country:Greece",
+    "kind": "European roe deer"
+  },
+  "country:Greece|Blue rock thrush|0": {
+    "region": "country:Greece",
+    "kind": "Blue rock thrush"
+  },
+  "country:Greece|Little owl|0": {
+    "region": "country:Greece",
+    "kind": "Little owl"
+  },
+  "country:Hungary|Stoat|0": {
+    "region": "country:Hungary",
+    "kind": "Stoat"
+  },
+  "country:Hungary|Garden dormouse|0": {
+    "region": "country:Hungary",
+    "kind": "Garden dormouse"
+  },
+  "country:Hungary|Red deer|0": {
+    "region": "country:Hungary",
+    "kind": "Red deer"
+  },
+  "country:Hungary|European bee-eater|0": {
+    "region": "country:Hungary",
+    "kind": "European bee-eater"
+  },
+  "country:Hungary|European roller|0": {
+    "region": "country:Hungary",
+    "kind": "European roller"
+  },
+  "country:Italy|European polecat|0": {
+    "region": "country:Italy",
+    "kind": "European polecat"
+  },
+  "country:Italy|European water vole|0": {
+    "region": "country:Italy",
+    "kind": "European water vole"
+  },
+  "country:Italy|Pyrenean chamois|0": {
+    "region": "country:Italy",
+    "kind": "Pyrenean chamois"
+  },
+  "country:Italy|Italian sparrow|0": {
+    "region": "country:Italy",
+    "kind": "Italian sparrow"
+  },
+  "country:Italy|Eurasian hoopoe|0": {
+    "region": "country:Italy",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Kosovo|Beech marten|0": {
+    "region": "country:Kosovo",
+    "kind": "Beech marten"
+  },
+  "country:Kosovo|European mole|0": {
+    "region": "country:Kosovo",
+    "kind": "European mole"
+  },
+  "country:Kosovo|European snow vole|0": {
+    "region": "country:Kosovo",
+    "kind": "European snow vole"
+  },
+  "country:Kosovo|White-throated dipper|0": {
+    "region": "country:Kosovo",
+    "kind": "White-throated dipper"
+  },
+  "country:Kosovo|Red-backed shrike|0": {
+    "region": "country:Kosovo",
+    "kind": "Red-backed shrike"
+  },
+  "country:Liechtenstein|European pine marten|0": {
+    "region": "country:Liechtenstein",
+    "kind": "European pine marten"
+  },
+  "country:Liechtenstein|Alpine marmot|0": {
+    "region": "country:Liechtenstein",
+    "kind": "Alpine marmot"
+  },
+  "country:Liechtenstein|European hedgehog|0": {
+    "region": "country:Liechtenstein",
+    "kind": "European hedgehog"
+  },
+  "country:Liechtenstein|Spotted nutcracker|0": {
+    "region": "country:Liechtenstein",
+    "kind": "Spotted nutcracker"
+  },
+  "country:Liechtenstein|Alpine accentor|0": {
+    "region": "country:Liechtenstein",
+    "kind": "Alpine accentor"
+  },
+  "country:Luxembourg|Grey wolf|0": {
+    "region": "country:Luxembourg",
+    "kind": "Grey wolf"
+  },
+  "country:Luxembourg|Eurasian beaver|0": {
+    "region": "country:Luxembourg",
+    "kind": "Eurasian beaver"
+  },
+  "country:Luxembourg|Red squirrel|0": {
+    "region": "country:Luxembourg",
+    "kind": "Red squirrel"
+  },
+  "country:Luxembourg|Common kingfisher|0": {
+    "region": "country:Luxembourg",
+    "kind": "Common kingfisher"
+  },
+  "country:Luxembourg|Eurasian nuthatch|0": {
+    "region": "country:Luxembourg",
+    "kind": "Eurasian nuthatch"
+  },
+  "country:Macedonia|European ground squirrel|0": {
+    "region": "country:Macedonia",
+    "kind": "European ground squirrel"
+  },
+  "country:Macedonia|Brown bear|0": {
+    "region": "country:Macedonia",
+    "kind": "Brown bear"
+  },
+  "country:Macedonia|Alpine chamois|0": {
+    "region": "country:Macedonia",
+    "kind": "Alpine chamois"
+  },
+  "country:Macedonia|Blue rock thrush|0": {
+    "region": "country:Macedonia",
+    "kind": "Blue rock thrush"
+  },
+  "country:Macedonia|Little owl|0": {
+    "region": "country:Macedonia",
+    "kind": "Little owl"
+  },
+  "country:Malta|European rabbit|0": {
+    "region": "country:Malta",
+    "kind": "European rabbit"
+  },
+  "country:Malta|Blue rock thrush|0": {
+    "region": "country:Malta",
+    "kind": "Blue rock thrush"
+  },
+  "country:Malta|Spanish sparrow|0": {
+    "region": "country:Malta",
+    "kind": "Spanish sparrow"
+  },
+  "country:Malta|Common swift|0": {
+    "region": "country:Malta",
+    "kind": "Common swift"
+  },
+  "country:Malta|Common kestrel|0": {
+    "region": "country:Malta",
+    "kind": "Common kestrel"
+  },
+  "country:Monaco|European serin|0": {
+    "region": "country:Monaco",
+    "kind": "European serin"
+  },
+  "country:Monaco|Blue rock thrush|0": {
+    "region": "country:Monaco",
+    "kind": "Blue rock thrush"
+  },
+  "country:Monaco|Common swift|0": {
+    "region": "country:Monaco",
+    "kind": "Common swift"
+  },
+  "country:Monaco|Black redstart|0": {
+    "region": "country:Monaco",
+    "kind": "Black redstart"
+  },
+  "country:Monaco|Eurasian magpie|0": {
+    "region": "country:Monaco",
+    "kind": "Eurasian magpie"
+  },
+  "country:Montenegro|European wildcat|0": {
+    "region": "country:Montenegro",
+    "kind": "European wildcat"
+  },
+  "country:Montenegro|Hazel dormouse|0": {
+    "region": "country:Montenegro",
+    "kind": "Hazel dormouse"
+  },
+  "country:Montenegro|European roe deer|0": {
+    "region": "country:Montenegro",
+    "kind": "European roe deer"
+  },
+  "country:Montenegro|Blue rock thrush|0": {
+    "region": "country:Montenegro",
+    "kind": "Blue rock thrush"
+  },
+  "country:Montenegro|White-throated dipper|0": {
+    "region": "country:Montenegro",
+    "kind": "White-throated dipper"
+  },
+  "country:Netherlands|European hamster|0": {
+    "region": "country:Netherlands",
+    "kind": "European hamster"
+  },
+  "country:Netherlands|European rabbit|0": {
+    "region": "country:Netherlands",
+    "kind": "European rabbit"
+  },
+  "country:Netherlands|Stoat|0": {
+    "region": "country:Netherlands",
+    "kind": "Stoat"
+  },
+  "country:Netherlands|Eurasian spoonbill|0": {
+    "region": "country:Netherlands",
+    "kind": "Eurasian spoonbill"
+  },
+  "country:Netherlands|Great crested grebe|0": {
+    "region": "country:Netherlands",
+    "kind": "Great crested grebe"
+  },
+  "country:Portugal|Iberian hare|0": {
+    "region": "country:Portugal",
+    "kind": "Iberian hare"
+  },
+  "country:Portugal|Iberian lynx|0": {
+    "region": "country:Portugal",
+    "kind": "Iberian lynx"
+  },
+  "country:Portugal|Red deer|0": {
+    "region": "country:Portugal",
+    "kind": "Red deer"
+  },
+  "country:Portugal|Iberian magpie|0": {
+    "region": "country:Portugal",
+    "kind": "Iberian magpie"
+  },
+  "country:Portugal|Eurasian hoopoe|0": {
+    "region": "country:Portugal",
+    "kind": "Eurasian hoopoe"
+  },
+  "country:Romania|European mink|0": {
+    "region": "country:Romania",
+    "kind": "European mink"
+  },
+  "country:Romania|Moose|0": {
+    "region": "country:Romania",
+    "kind": "Moose"
+  },
+  "country:Romania|Eurasian lynx|0": {
+    "region": "country:Romania",
+    "kind": "Eurasian lynx"
+  },
+  "country:Romania|European roller|0": {
+    "region": "country:Romania",
+    "kind": "European roller"
+  },
+  "country:Romania|European bee-eater|0": {
+    "region": "country:Romania",
+    "kind": "European bee-eater"
+  },
+  "country:San Marino|European serin|0": {
+    "region": "country:San Marino",
+    "kind": "European serin"
+  },
+  "country:San Marino|Italian sparrow|0": {
+    "region": "country:San Marino",
+    "kind": "Italian sparrow"
+  },
+  "country:San Marino|Common blackbird|0": {
+    "region": "country:San Marino",
+    "kind": "Common blackbird"
+  },
+  "country:San Marino|Eurasian magpie|0": {
+    "region": "country:San Marino",
+    "kind": "Eurasian magpie"
+  },
+  "country:San Marino|Great tit|0": {
+    "region": "country:San Marino",
+    "kind": "Great tit"
+  },
+  "country:Serbia|Least weasel|0": {
+    "region": "country:Serbia",
+    "kind": "Least weasel"
+  },
+  "country:Serbia|Edible dormouse|0": {
+    "region": "country:Serbia",
+    "kind": "Edible dormouse"
+  },
+  "country:Serbia|European water vole|0": {
+    "region": "country:Serbia",
+    "kind": "European water vole"
+  },
+  "country:Serbia|Red-backed shrike|0": {
+    "region": "country:Serbia",
+    "kind": "Red-backed shrike"
+  },
+  "country:Serbia|Eurasian golden oriole|0": {
+    "region": "country:Serbia",
+    "kind": "Eurasian golden oriole"
+  },
+  "country:Slovakia|European polecat|0": {
+    "region": "country:Slovakia",
+    "kind": "European polecat"
+  },
+  "country:Slovakia|Garden dormouse|0": {
+    "region": "country:Slovakia",
+    "kind": "Garden dormouse"
+  },
+  "country:Slovakia|Moose|0": {
+    "region": "country:Slovakia",
+    "kind": "Moose"
+  },
+  "country:Slovakia|Western capercaillie|0": {
+    "region": "country:Slovakia",
+    "kind": "Western capercaillie"
+  },
+  "country:Slovakia|Eurasian bullfinch|0": {
+    "region": "country:Slovakia",
+    "kind": "Eurasian bullfinch"
+  },
+  "country:Slovenia|Mountain hare|0": {
+    "region": "country:Slovenia",
+    "kind": "Mountain hare"
+  },
+  "country:Slovenia|Beech marten|0": {
+    "region": "country:Slovenia",
+    "kind": "Beech marten"
+  },
+  "country:Slovenia|European pine marten|0": {
+    "region": "country:Slovenia",
+    "kind": "European pine marten"
+  },
+  "country:Slovenia|Black woodpecker|0": {
+    "region": "country:Slovenia",
+    "kind": "Black woodpecker"
+  },
+  "country:Slovenia|Eurasian jay|0": {
+    "region": "country:Slovenia",
+    "kind": "Eurasian jay"
+  },
+  "country:Spain|Iberian hare|0": {
+    "region": "country:Spain",
+    "kind": "Iberian hare"
+  },
+  "country:Spain|Iberian lynx|0": {
+    "region": "country:Spain",
+    "kind": "Iberian lynx"
+  },
+  "country:Spain|Pyrenean chamois|0": {
+    "region": "country:Spain",
+    "kind": "Pyrenean chamois"
+  },
+  "country:Spain|Iberian magpie|0": {
+    "region": "country:Spain",
+    "kind": "Iberian magpie"
+  },
+  "country:Spain|European green woodpecker|0": {
+    "region": "country:Spain",
+    "kind": "European green woodpecker"
+  },
+  "country:Switzerland|European mole|0": {
+    "region": "country:Switzerland",
+    "kind": "European mole"
+  },
+  "country:Switzerland|Grey wolf|0": {
+    "region": "country:Switzerland",
+    "kind": "Grey wolf"
+  },
+  "country:Switzerland|Eurasian lynx|0": {
+    "region": "country:Switzerland",
+    "kind": "Eurasian lynx"
+  },
+  "country:Switzerland|Alpine accentor|0": {
+    "region": "country:Switzerland",
+    "kind": "Alpine accentor"
+  },
+  "country:Switzerland|Eurasian nuthatch|0": {
+    "region": "country:Switzerland",
+    "kind": "Eurasian nuthatch"
+  },
+  "country:Vatican|Italian sparrow|0": {
+    "region": "country:Vatican",
+    "kind": "Italian sparrow"
+  },
+  "country:Vatican|European serin|0": {
+    "region": "country:Vatican",
+    "kind": "European serin"
+  },
+  "country:Vatican|Eurasian magpie|0": {
+    "region": "country:Vatican",
+    "kind": "Eurasian magpie"
+  },
+  "country:Vatican|Common swift|0": {
+    "region": "country:Vatican",
+    "kind": "Common swift"
+  },
+  "country:Vatican|Great tit|0": {
+    "region": "country:Vatican",
+    "kind": "Great tit"
+  },
+  "country:Denmark|European hedgehog|0": {
+    "region": "country:Denmark",
+    "kind": "European hedgehog"
+  },
+  "country:Denmark|Eurasian beaver|0": {
+    "region": "country:Denmark",
+    "kind": "Eurasian beaver"
+  },
+  "country:Denmark|Red squirrel|0": {
+    "region": "country:Denmark",
+    "kind": "Red squirrel"
+  },
+  "country:Denmark|Pied avocet|0": {
+    "region": "country:Denmark",
+    "kind": "Pied avocet"
+  },
+  "country:Denmark|Common shelduck|0": {
+    "region": "country:Denmark",
+    "kind": "Common shelduck"
+  },
+  "country:Estonia|Wolverine|0": {
+    "region": "country:Estonia",
+    "kind": "Wolverine"
+  },
+  "country:Estonia|Mountain hare|0": {
+    "region": "country:Estonia",
+    "kind": "Mountain hare"
+  },
+  "country:Estonia|European mink|0": {
+    "region": "country:Estonia",
+    "kind": "European mink"
+  },
+  "country:Estonia|Common crane|0": {
+    "region": "country:Estonia",
+    "kind": "Common crane"
+  },
+  "country:Estonia|Eurasian bullfinch|0": {
+    "region": "country:Estonia",
+    "kind": "Eurasian bullfinch"
+  },
+  "country:Finland|Reindeer|0": {
+    "region": "country:Finland",
+    "kind": "Reindeer"
+  },
+  "country:Finland|Wolverine|0": {
+    "region": "country:Finland",
+    "kind": "Wolverine"
+  },
+  "country:Finland|Brown bear|0": {
+    "region": "country:Finland",
+    "kind": "Brown bear"
+  },
+  "country:Finland|Whooper swan|0": {
+    "region": "country:Finland",
+    "kind": "Whooper swan"
+  },
+  "country:Finland|Western capercaillie|0": {
+    "region": "country:Finland",
+    "kind": "Western capercaillie"
+  },
+  "country:Iceland|Arctic fox|0": {
+    "region": "country:Iceland",
+    "kind": "Arctic fox"
+  },
+  "country:Iceland|Atlantic puffin|0": {
+    "region": "country:Iceland",
+    "kind": "Atlantic puffin"
+  },
+  "country:Iceland|Arctic tern|0": {
+    "region": "country:Iceland",
+    "kind": "Arctic tern"
+  },
+  "country:Iceland|Common eider|0": {
+    "region": "country:Iceland",
+    "kind": "Common eider"
+  },
+  "country:Iceland|Rock ptarmigan|0": {
+    "region": "country:Iceland",
+    "kind": "Rock ptarmigan"
+  },
+  "country:Ireland|European rabbit|0": {
+    "region": "country:Ireland",
+    "kind": "European rabbit"
+  },
+  "country:Ireland|Stoat|0": {
+    "region": "country:Ireland",
+    "kind": "Stoat"
+  },
+  "country:Ireland|Red deer|0": {
+    "region": "country:Ireland",
+    "kind": "Red deer"
+  },
+  "country:Ireland|Western barn owl|0": {
+    "region": "country:Ireland",
+    "kind": "Western barn owl"
+  },
+  "country:Ireland|Common kingfisher|0": {
+    "region": "country:Ireland",
+    "kind": "Common kingfisher"
+  },
+  "country:Latvia|Least weasel|0": {
+    "region": "country:Latvia",
+    "kind": "Least weasel"
+  },
+  "country:Latvia|Hazel dormouse|0": {
+    "region": "country:Latvia",
+    "kind": "Hazel dormouse"
+  },
+  "country:Latvia|European roe deer|0": {
+    "region": "country:Latvia",
+    "kind": "European roe deer"
+  },
+  "country:Latvia|Common crane|0": {
+    "region": "country:Latvia",
+    "kind": "Common crane"
+  },
+  "country:Latvia|Eurasian jay|0": {
+    "region": "country:Latvia",
+    "kind": "Eurasian jay"
+  },
+  "country:Lithuania|European polecat|0": {
+    "region": "country:Lithuania",
+    "kind": "European polecat"
+  },
+  "country:Lithuania|Edible dormouse|0": {
+    "region": "country:Lithuania",
+    "kind": "Edible dormouse"
+  },
+  "country:Lithuania|Moose|0": {
+    "region": "country:Lithuania",
+    "kind": "Moose"
+  },
+  "country:Lithuania|European roller|0": {
+    "region": "country:Lithuania",
+    "kind": "European roller"
+  },
+  "country:Lithuania|Eurasian nuthatch|0": {
+    "region": "country:Lithuania",
+    "kind": "Eurasian nuthatch"
+  },
+  "country:Norway|Reindeer|0": {
+    "region": "country:Norway",
+    "kind": "Reindeer"
+  },
+  "country:Norway|Wolverine|0": {
+    "region": "country:Norway",
+    "kind": "Wolverine"
+  },
+  "country:Norway|Arctic fox|0": {
+    "region": "country:Norway",
+    "kind": "Arctic fox"
+  },
+  "country:Norway|White-throated dipper|0": {
+    "region": "country:Norway",
+    "kind": "White-throated dipper"
+  },
+  "country:Norway|Eurasian bullfinch|0": {
+    "region": "country:Norway",
+    "kind": "Eurasian bullfinch"
+  },
+  "country:Poland|European hamster|0": {
+    "region": "country:Poland",
+    "kind": "European hamster"
+  },
+  "country:Poland|European ground squirrel|0": {
+    "region": "country:Poland",
+    "kind": "European ground squirrel"
+  },
+  "country:Poland|Alpine marmot|0": {
+    "region": "country:Poland",
+    "kind": "Alpine marmot"
+  },
+  "country:Poland|Common crane|0": {
+    "region": "country:Poland",
+    "kind": "Common crane"
+  },
+  "country:Poland|Black woodpecker|0": {
+    "region": "country:Poland",
+    "kind": "Black woodpecker"
+  },
+  "country:Sweden|European water vole|0": {
+    "region": "country:Sweden",
+    "kind": "European water vole"
+  },
+  "country:Sweden|Wolverine|0": {
+    "region": "country:Sweden",
+    "kind": "Wolverine"
+  },
+  "country:Sweden|European pine marten|0": {
+    "region": "country:Sweden",
+    "kind": "European pine marten"
+  },
+  "country:Sweden|Eurasian bullfinch|0": {
+    "region": "country:Sweden",
+    "kind": "Eurasian bullfinch"
+  },
+  "country:Sweden|Western capercaillie|0": {
+    "region": "country:Sweden",
+    "kind": "Western capercaillie"
+  },
+  "country:United Kingdom|European wildcat|0": {
+    "region": "country:United Kingdom",
+    "kind": "European wildcat"
+  },
+  "country:United Kingdom|European mole|0": {
+    "region": "country:United Kingdom",
+    "kind": "European mole"
+  },
+  "country:United Kingdom|European hedgehog|0": {
+    "region": "country:United Kingdom",
+    "kind": "European hedgehog"
+  },
+  "country:United Kingdom|Western barn owl|0": {
+    "region": "country:United Kingdom",
+    "kind": "Western barn owl"
+  },
+  "country:United Kingdom|Eurasian blue tit|0": {
+    "region": "country:United Kingdom",
+    "kind": "Eurasian blue tit"
+  },
+  "country:Belarus|Beech marten|0": {
+    "region": "country:Belarus",
+    "kind": "Beech marten"
+  },
+  "country:Belarus|Garden dormouse|0": {
+    "region": "country:Belarus",
+    "kind": "Garden dormouse"
+  },
+  "country:Belarus|European hamster|0": {
+    "region": "country:Belarus",
+    "kind": "European hamster"
+  },
+  "country:Belarus|Western capercaillie|0": {
+    "region": "country:Belarus",
+    "kind": "Western capercaillie"
+  },
+  "country:Belarus|Common crane|0": {
+    "region": "country:Belarus",
+    "kind": "Common crane"
+  },
+  "country:Moldova|European ground squirrel|0": {
+    "region": "country:Moldova",
+    "kind": "European ground squirrel"
+  },
+  "country:Moldova|Grey wolf|0": {
+    "region": "country:Moldova",
+    "kind": "Grey wolf"
+  },
+  "country:Moldova|Red squirrel|0": {
+    "region": "country:Moldova",
+    "kind": "Red squirrel"
+  },
+  "country:Moldova|Red-backed shrike|0": {
+    "region": "country:Moldova",
+    "kind": "Red-backed shrike"
+  },
+  "country:Moldova|Eurasian golden oriole|0": {
+    "region": "country:Moldova",
+    "kind": "Eurasian golden oriole"
+  },
+  "country:Ukraine|European snow vole|0": {
+    "region": "country:Ukraine",
+    "kind": "European snow vole"
+  },
+  "country:Ukraine|Brown bear|0": {
+    "region": "country:Ukraine",
+    "kind": "Brown bear"
+  },
+  "country:Ukraine|Eurasian lynx|0": {
+    "region": "country:Ukraine",
+    "kind": "Eurasian lynx"
+  },
+  "country:Ukraine|European roller|0": {
+    "region": "country:Ukraine",
+    "kind": "European roller"
+  },
+  "country:Ukraine|European bee-eater|0": {
+    "region": "country:Ukraine",
+    "kind": "European bee-eater"
+  },
+  "country:Gibraltar|Barbary macaque|0": {
+    "region": "country:Gibraltar",
+    "kind": "Barbary macaque"
+  },
+  "country:Gibraltar|Common blackbird|0": {
+    "region": "country:Gibraltar",
+    "kind": "Common blackbird"
+  },
+  "country:Gibraltar|European robin|0": {
+    "region": "country:Gibraltar",
+    "kind": "European robin"
+  },
+  "country:Gibraltar|Common swift|0": {
+    "region": "country:Gibraltar",
+    "kind": "Common swift"
+  },
+  "country:Gibraltar|Common kestrel|0": {
+    "region": "country:Gibraltar",
+    "kind": "Common kestrel"
+  },
+  "country:Guernsey|European hedgehog|0": {
+    "region": "country:Guernsey",
+    "kind": "European hedgehog"
+  },
+  "country:Guernsey|Eurasian blue tit|0": {
+    "region": "country:Guernsey",
+    "kind": "Eurasian blue tit"
+  },
+  "country:Guernsey|Western barn owl|0": {
+    "region": "country:Guernsey",
+    "kind": "Western barn owl"
+  },
+  "country:Guernsey|Eurasian oystercatcher|0": {
+    "region": "country:Guernsey",
+    "kind": "Eurasian oystercatcher"
+  },
+  "country:Guernsey|Common kestrel|0": {
+    "region": "country:Guernsey",
+    "kind": "Common kestrel"
+  },
+  "country:Jersey|Red squirrel|0": {
+    "region": "country:Jersey",
+    "kind": "Red squirrel"
+  },
+  "country:Jersey|Goldcrest|0": {
+    "region": "country:Jersey",
+    "kind": "Goldcrest"
+  },
+  "country:Jersey|Common kingfisher|0": {
+    "region": "country:Jersey",
+    "kind": "Common kingfisher"
+  },
+  "country:Jersey|Great tit|0": {
+    "region": "country:Jersey",
+    "kind": "Great tit"
+  },
+  "country:Jersey|Eurasian oystercatcher|0": {
+    "region": "country:Jersey",
+    "kind": "Eurasian oystercatcher"
+  },
+  "country:Isle of Man|Mountain hare|0": {
+    "region": "country:Isle of Man",
+    "kind": "Mountain hare"
+  },
+  "country:Isle of Man|Common shelduck|0": {
+    "region": "country:Isle of Man",
+    "kind": "Common shelduck"
+  },
+  "country:Isle of Man|European goldfinch|0": {
+    "region": "country:Isle of Man",
+    "kind": "European goldfinch"
+  },
+  "country:Isle of Man|Eurasian oystercatcher|0": {
+    "region": "country:Isle of Man",
+    "kind": "Eurasian oystercatcher"
+  },
+  "country:Isle of Man|Common raven|0": {
+    "region": "country:Isle of Man",
+    "kind": "Common raven"
+  },
+  "country:Faeroe Is.|Atlantic puffin|0": {
+    "region": "country:Faeroe Is.",
+    "kind": "Atlantic puffin"
+  },
+  "country:Faeroe Is.|Eurasian oystercatcher|0": {
+    "region": "country:Faeroe Is.",
+    "kind": "Eurasian oystercatcher"
+  },
+  "country:Faeroe Is.|Common eider|0": {
+    "region": "country:Faeroe Is.",
+    "kind": "Common eider"
+  },
+  "country:Faeroe Is.|Arctic tern|0": {
+    "region": "country:Faeroe Is.",
+    "kind": "Arctic tern"
+  },
+  "country:Faeroe Is.|Common raven|0": {
+    "region": "country:Faeroe Is.",
+    "kind": "Common raven"
+  },
+  "country:Åland|Reindeer|0": {
+    "region": "country:Åland",
+    "kind": "Reindeer"
+  },
+  "country:Åland|Eurasian beaver|0": {
+    "region": "country:Åland",
+    "kind": "Eurasian beaver"
+  },
+  "country:Åland|Arctic fox|0": {
+    "region": "country:Åland",
+    "kind": "Arctic fox"
+  },
+  "country:Åland|Whooper swan|0": {
+    "region": "country:Åland",
+    "kind": "Whooper swan"
+  },
+  "country:Åland|Common shelduck|0": {
+    "region": "country:Åland",
+    "kind": "Common shelduck"
+  },
+  "country:Greenland|Arctic fox|0": {
+    "region": "country:Greenland",
+    "kind": "Arctic fox"
+  },
+  "country:Greenland|Muskox|0": {
+    "region": "country:Greenland",
+    "kind": "Muskox"
+  },
+  "country:Greenland|Rock ptarmigan|0": {
+    "region": "country:Greenland",
+    "kind": "Rock ptarmigan"
+  },
+  "country:Greenland|Snow bunting|0": {
+    "region": "country:Greenland",
+    "kind": "Snow bunting"
+  },
+  "country:Greenland|Common raven|0": {
+    "region": "country:Greenland",
+    "kind": "Common raven"
+  },
+  "country:Bermuda|Bermuda petrel (cahow)|0": {
+    "region": "country:Bermuda",
+    "kind": "Bermuda petrel (cahow)"
+  },
+  "country:Bermuda|White-tailed tropicbird (longtail)|0": {
+    "region": "country:Bermuda",
+    "kind": "White-tailed tropicbird (longtail)"
+  },
+  "country:Bermuda|White-eyed vireo|0": {
+    "region": "country:Bermuda",
+    "kind": "White-eyed vireo"
+  },
+  "country:Bermuda|Grey catbird|0": {
+    "region": "country:Bermuda",
+    "kind": "Grey catbird"
+  },
+  "country:Bermuda|Eastern bluebird|0": {
+    "region": "country:Bermuda",
+    "kind": "Eastern bluebird"
+  },
+  "country:Canada|American beaver|0": {
+    "region": "country:Canada",
+    "kind": "American beaver"
+  },
+  "country:Canada|Moose|0": {
+    "region": "country:Canada",
+    "kind": "Moose"
+  },
+  "country:Canada|Snowshoe hare|0": {
+    "region": "country:Canada",
+    "kind": "Snowshoe hare"
+  },
+  "country:Canada|North American porcupine|0": {
+    "region": "country:Canada",
+    "kind": "North American porcupine"
+  },
+  "country:Canada|American red squirrel|0": {
+    "region": "country:Canada",
+    "kind": "American red squirrel"
+  },
+  "country:Mexico|Baird’s tapir|0": {
+    "region": "country:Mexico",
+    "kind": "Baird’s tapir"
+  },
+  "country:Mexico|Northern tamandua|0": {
+    "region": "country:Mexico",
+    "kind": "Northern tamandua"
+  },
+  "country:Mexico|Mexican long-nosed armadillo|0": {
+    "region": "country:Mexico",
+    "kind": "Mexican long-nosed armadillo"
+  },
+  "country:Mexico|Resplendent quetzal|0": {
+    "region": "country:Mexico",
+    "kind": "Resplendent quetzal"
+  },
+  "country:Mexico|Acorn woodpecker|0": {
+    "region": "country:Mexico",
+    "kind": "Acorn woodpecker"
+  },
+  "country:Belize|White-nosed coati|0": {
+    "region": "country:Belize",
+    "kind": "White-nosed coati"
+  },
+  "country:Belize|Jaguar|0": {
+    "region": "country:Belize",
+    "kind": "Jaguar"
+  },
+  "country:Belize|Central American agouti|0": {
+    "region": "country:Belize",
+    "kind": "Central American agouti"
+  },
+  "country:Belize|Keel-billed toucan|0": {
+    "region": "country:Belize",
+    "kind": "Keel-billed toucan"
+  },
+  "country:Belize|Black-headed trogon|0": {
+    "region": "country:Belize",
+    "kind": "Black-headed trogon"
+  },
+  "country:Guatemala|Northern raccoon|0": {
+    "region": "country:Guatemala",
+    "kind": "Northern raccoon"
+  },
+  "country:Guatemala|Puma|0": {
+    "region": "country:Guatemala",
+    "kind": "Puma"
+  },
+  "country:Guatemala|Lowland paca|0": {
+    "region": "country:Guatemala",
+    "kind": "Lowland paca"
+  },
+  "country:Guatemala|Horned guan|0": {
+    "region": "country:Guatemala",
+    "kind": "Horned guan"
+  },
+  "country:Guatemala|Pink-headed warbler|0": {
+    "region": "country:Guatemala",
+    "kind": "Pink-headed warbler"
+  },
+  "country:Honduras|Giant anteater|0": {
+    "region": "country:Honduras",
+    "kind": "Giant anteater"
+  },
+  "country:Honduras|Ocelot|0": {
+    "region": "country:Honduras",
+    "kind": "Ocelot"
+  },
+  "country:Honduras|Common opossum|0": {
+    "region": "country:Honduras",
+    "kind": "Common opossum"
+  },
+  "country:Honduras|Scarlet macaw|0": {
+    "region": "country:Honduras",
+    "kind": "Scarlet macaw"
+  },
+  "country:Honduras|Honduran emerald|0": {
+    "region": "country:Honduras",
+    "kind": "Honduran emerald"
+  },
+  "country:El Salvador|Margay|0": {
+    "region": "country:El Salvador",
+    "kind": "Margay"
+  },
+  "country:El Salvador|Virginia opossum|0": {
+    "region": "country:El Salvador",
+    "kind": "Virginia opossum"
+  },
+  "country:El Salvador|Jaguarundi|0": {
+    "region": "country:El Salvador",
+    "kind": "Jaguarundi"
+  },
+  "country:El Salvador|Turquoise-browed motmot|0": {
+    "region": "country:El Salvador",
+    "kind": "Turquoise-browed motmot"
+  },
+  "country:El Salvador|White-throated magpie-jay|0": {
+    "region": "country:El Salvador",
+    "kind": "White-throated magpie-jay"
+  },
+  "country:Nicaragua|Baird’s tapir|0": {
+    "region": "country:Nicaragua",
+    "kind": "Baird’s tapir"
+  },
+  "country:Nicaragua|Giant anteater|0": {
+    "region": "country:Nicaragua",
+    "kind": "Giant anteater"
+  },
+  "country:Nicaragua|Mexican long-nosed armadillo|0": {
+    "region": "country:Nicaragua",
+    "kind": "Mexican long-nosed armadillo"
+  },
+  "country:Nicaragua|Nicaraguan grackle|0": {
+    "region": "country:Nicaragua",
+    "kind": "Nicaraguan grackle"
+  },
+  "country:Nicaragua|Turquoise-browed motmot|0": {
+    "region": "country:Nicaragua",
+    "kind": "Turquoise-browed motmot"
+  },
+  "country:Costa Rica|Crab-eating raccoon|0": {
+    "region": "country:Costa Rica",
+    "kind": "Crab-eating raccoon"
+  },
+  "country:Costa Rica|Bush dog|0": {
+    "region": "country:Costa Rica",
+    "kind": "Bush dog"
+  },
+  "country:Costa Rica|Northern tamandua|0": {
+    "region": "country:Costa Rica",
+    "kind": "Northern tamandua"
+  },
+  "country:Costa Rica|Fiery-throated hummingbird|0": {
+    "region": "country:Costa Rica",
+    "kind": "Fiery-throated hummingbird"
+  },
+  "country:Costa Rica|Long-tailed silky-flycatcher|0": {
+    "region": "country:Costa Rica",
+    "kind": "Long-tailed silky-flycatcher"
+  },
+  "country:Panama|Lesser capybara|0": {
+    "region": "country:Panama",
+    "kind": "Lesser capybara"
+  },
+  "country:Panama|White-nosed coati|0": {
+    "region": "country:Panama",
+    "kind": "White-nosed coati"
+  },
+  "country:Panama|Jaguar|0": {
+    "region": "country:Panama",
+    "kind": "Jaguar"
+  },
+  "country:Panama|Harpy eagle|0": {
+    "region": "country:Panama",
+    "kind": "Harpy eagle"
+  },
+  "country:Panama|Golden-collared manakin|0": {
+    "region": "country:Panama",
+    "kind": "Golden-collared manakin"
+  },
+  "country:Colombia|Capybara|0": {
+    "region": "country:Colombia",
+    "kind": "Capybara"
+  },
+  "country:Colombia|Lowland tapir|0": {
+    "region": "country:Colombia",
+    "kind": "Lowland tapir"
+  },
+  "country:Colombia|Southern tamandua|0": {
+    "region": "country:Colombia",
+    "kind": "Southern tamandua"
+  },
+  "country:Colombia|Andean cock-of-the-rock|0": {
+    "region": "country:Colombia",
+    "kind": "Andean cock-of-the-rock"
+  },
+  "country:Colombia|Blue-billed curassow|0": {
+    "region": "country:Colombia",
+    "kind": "Blue-billed curassow"
+  },
+  "country:Venezuela|Nine-banded armadillo|0": {
+    "region": "country:Venezuela",
+    "kind": "Nine-banded armadillo"
+  },
+  "country:Venezuela|South American coati|0": {
+    "region": "country:Venezuela",
+    "kind": "South American coati"
+  },
+  "country:Venezuela|Red-rumped agouti|0": {
+    "region": "country:Venezuela",
+    "kind": "Red-rumped agouti"
+  },
+  "country:Venezuela|Venezuelan troupial|0": {
+    "region": "country:Venezuela",
+    "kind": "Venezuelan troupial"
+  },
+  "country:Venezuela|Red siskin|0": {
+    "region": "country:Venezuela",
+    "kind": "Red siskin"
+  },
+  "country:Guyana|Guianan long-nosed armadillo|0": {
+    "region": "country:Guyana",
+    "kind": "Guianan long-nosed armadillo"
+  },
+  "country:Guyana|Crab-eating fox|0": {
+    "region": "country:Guyana",
+    "kind": "Crab-eating fox"
+  },
+  "country:Guyana|Capybara|0": {
+    "region": "country:Guyana",
+    "kind": "Capybara"
+  },
+  "country:Guyana|Guianan cock-of-the-rock|0": {
+    "region": "country:Guyana",
+    "kind": "Guianan cock-of-the-rock"
+  },
+  "country:Guyana|Hoatzin|0": {
+    "region": "country:Guyana",
+    "kind": "Hoatzin"
+  },
+  "country:Suriname|Six-banded armadillo|0": {
+    "region": "country:Suriname",
+    "kind": "Six-banded armadillo"
+  },
+  "country:Suriname|Lowland tapir|0": {
+    "region": "country:Suriname",
+    "kind": "Lowland tapir"
+  },
+  "country:Suriname|Southern tamandua|0": {
+    "region": "country:Suriname",
+    "kind": "Southern tamandua"
+  },
+  "country:Suriname|Sun parakeet|0": {
+    "region": "country:Suriname",
+    "kind": "Sun parakeet"
+  },
+  "country:Suriname|Crimson topaz|0": {
+    "region": "country:Suriname",
+    "kind": "Crimson topaz"
+  },
+  "country:Ecuador|Mountain tapir|0": {
+    "region": "country:Ecuador",
+    "kind": "Mountain tapir"
+  },
+  "country:Ecuador|Culpeo|0": {
+    "region": "country:Ecuador",
+    "kind": "Culpeo"
+  },
+  "country:Ecuador|Mountain paca|0": {
+    "region": "country:Ecuador",
+    "kind": "Mountain paca"
+  },
+  "country:Ecuador|Violet-tailed sylph|0": {
+    "region": "country:Ecuador",
+    "kind": "Violet-tailed sylph"
+  },
+  "country:Ecuador|Sword-billed hummingbird|0": {
+    "region": "country:Ecuador",
+    "kind": "Sword-billed hummingbird"
+  },
+  "country:Peru|Maned wolf|0": {
+    "region": "country:Peru",
+    "kind": "Maned wolf"
+  },
+  "country:Peru|Guanaco|0": {
+    "region": "country:Peru",
+    "kind": "Guanaco"
+  },
+  "country:Peru|Mountain viscacha|0": {
+    "region": "country:Peru",
+    "kind": "Mountain viscacha"
+  },
+  "country:Peru|Marvelous spatuletail|0": {
+    "region": "country:Peru",
+    "kind": "Marvelous spatuletail"
+  },
+  "country:Peru|Andean condor|0": {
+    "region": "country:Peru",
+    "kind": "Andean condor"
+  },
+  "country:Bolivia|Southern three-banded armadillo|0": {
+    "region": "country:Bolivia",
+    "kind": "Southern three-banded armadillo"
+  },
+  "country:Bolivia|Geoffroy’s cat|0": {
+    "region": "country:Bolivia",
+    "kind": "Geoffroy’s cat"
+  },
+  "country:Bolivia|Gray brocket|0": {
+    "region": "country:Bolivia",
+    "kind": "Gray brocket"
+  },
+  "country:Bolivia|Blue-throated macaw|0": {
+    "region": "country:Bolivia",
+    "kind": "Blue-throated macaw"
+  },
+  "country:Bolivia|Red-fronted macaw|0": {
+    "region": "country:Bolivia",
+    "kind": "Red-fronted macaw"
+  },
+  "country:Brazil|Pampas deer|0": {
+    "region": "country:Brazil",
+    "kind": "Pampas deer"
+  },
+  "country:Brazil|Coypu|0": {
+    "region": "country:Brazil",
+    "kind": "Coypu"
+  },
+  "country:Brazil|White-eared opossum|0": {
+    "region": "country:Brazil",
+    "kind": "White-eared opossum"
+  },
+  "country:Brazil|Hyacinth macaw|0": {
+    "region": "country:Brazil",
+    "kind": "Hyacinth macaw"
+  },
+  "country:Brazil|Toco toucan|0": {
+    "region": "country:Brazil",
+    "kind": "Toco toucan"
+  },
+  "country:Paraguay|Large hairy armadillo|0": {
+    "region": "country:Paraguay",
+    "kind": "Large hairy armadillo"
+  },
+  "country:Paraguay|Chacoan mara|0": {
+    "region": "country:Paraguay",
+    "kind": "Chacoan mara"
+  },
+  "country:Paraguay|Plains viscacha|0": {
+    "region": "country:Paraguay",
+    "kind": "Plains viscacha"
+  },
+  "country:Paraguay|Bare-throated bellbird|0": {
+    "region": "country:Paraguay",
+    "kind": "Bare-throated bellbird"
+  },
+  "country:Paraguay|Saffron toucanet|0": {
+    "region": "country:Paraguay",
+    "kind": "Saffron toucanet"
+  },
+  "country:Uruguay|Nine-banded armadillo|0": {
+    "region": "country:Uruguay",
+    "kind": "Nine-banded armadillo"
+  },
+  "country:Uruguay|South American coati|0": {
+    "region": "country:Uruguay",
+    "kind": "South American coati"
+  },
+  "country:Uruguay|Margay|0": {
+    "region": "country:Uruguay",
+    "kind": "Margay"
+  },
+  "country:Uruguay|Southern lapwing|0": {
+    "region": "country:Uruguay",
+    "kind": "Southern lapwing"
+  },
+  "country:Uruguay|Red-crested cardinal|0": {
+    "region": "country:Uruguay",
+    "kind": "Red-crested cardinal"
+  },
+  "country:Argentina|Kodkod|0": {
+    "region": "country:Argentina",
+    "kind": "Kodkod"
+  },
+  "country:Argentina|Southern pudu|0": {
+    "region": "country:Argentina",
+    "kind": "Southern pudu"
+  },
+  "country:Argentina|Patagonian mara|0": {
+    "region": "country:Argentina",
+    "kind": "Patagonian mara"
+  },
+  "country:Argentina|Rufous hornero|0": {
+    "region": "country:Argentina",
+    "kind": "Rufous hornero"
+  },
+  "country:Argentina|Greater rhea|0": {
+    "region": "country:Argentina",
+    "kind": "Greater rhea"
+  },
+  "country:Chile|Large hairy armadillo|0": {
+    "region": "country:Chile",
+    "kind": "Large hairy armadillo"
+  },
+  "country:Chile|Culpeo|0": {
+    "region": "country:Chile",
+    "kind": "Culpeo"
+  },
+  "country:Chile|Puma|0": {
+    "region": "country:Chile",
+    "kind": "Puma"
+  },
+  "country:Chile|Magellanic woodpecker|0": {
+    "region": "country:Chile",
+    "kind": "Magellanic woodpecker"
+  },
+  "country:Chile|Chilean flamingo|0": {
+    "region": "country:Chile",
+    "kind": "Chilean flamingo"
+  },
+  "country:Anguilla|Anguilla bank anole|0": {
+    "region": "country:Anguilla",
+    "kind": "Anguilla bank anole"
+  },
+  "country:Anguilla|Lesser Antillean iguana|0": {
+    "region": "country:Anguilla",
+    "kind": "Lesser Antillean iguana"
+  },
+  "country:Anguilla|Zenaida dove|0": {
+    "region": "country:Anguilla",
+    "kind": "Zenaida dove"
+  },
+  "country:Anguilla|Caribbean elaenia|0": {
+    "region": "country:Anguilla",
+    "kind": "Caribbean elaenia"
+  },
+  "country:Anguilla|Antillean crested hummingbird|0": {
+    "region": "country:Anguilla",
+    "kind": "Antillean crested hummingbird"
+  },
+  "country:Antigua and Barb.|Barbuda warbler|0": {
+    "region": "country:Antigua and Barb.",
+    "kind": "Barbuda warbler"
+  },
+  "country:Antigua and Barb.|Lesser Antillean flycatcher|0": {
+    "region": "country:Antigua and Barb.",
+    "kind": "Lesser Antillean flycatcher"
+  },
+  "country:Antigua and Barb.|Caribbean martin|0": {
+    "region": "country:Antigua and Barb.",
+    "kind": "Caribbean martin"
+  },
+  "country:Antigua and Barb.|Green-throated carib|0": {
+    "region": "country:Antigua and Barb.",
+    "kind": "Green-throated carib"
+  },
+  "country:Antigua and Barb.|Lesser Antillean bullfinch|0": {
+    "region": "country:Antigua and Barb.",
+    "kind": "Lesser Antillean bullfinch"
+  },
+  "country:Aruba|Aruban whiptail|0": {
+    "region": "country:Aruba",
+    "kind": "Aruban whiptail"
+  },
+  "country:Aruba|Aruban burrowing owl|0": {
+    "region": "country:Aruba",
+    "kind": "Aruban burrowing owl"
+  },
+  "country:Aruba|Aruban brown-throated parakeet|0": {
+    "region": "country:Aruba",
+    "kind": "Aruban brown-throated parakeet"
+  },
+  "country:Aruba|Crested bobwhite|0": {
+    "region": "country:Aruba",
+    "kind": "Crested bobwhite"
+  },
+  "country:Aruba|Bare-eyed pigeon|0": {
+    "region": "country:Aruba",
+    "kind": "Bare-eyed pigeon"
+  },
+  "country:Bahamas|Bahama parrot|0": {
+    "region": "country:Bahamas",
+    "kind": "Bahama parrot"
+  },
+  "country:Bahamas|Bahama woodstar|0": {
+    "region": "country:Bahamas",
+    "kind": "Bahama woodstar"
+  },
+  "country:Bahamas|Bahama yellowthroat|0": {
+    "region": "country:Bahamas",
+    "kind": "Bahama yellowthroat"
+  },
+  "country:Bahamas|Bahama swallow|0": {
+    "region": "country:Bahamas",
+    "kind": "Bahama swallow"
+  },
+  "country:Bahamas|Bahama oriole|0": {
+    "region": "country:Bahamas",
+    "kind": "Bahama oriole"
+  },
+  "country:Barbados|Barbados anole|0": {
+    "region": "country:Barbados",
+    "kind": "Barbados anole"
+  },
+  "country:Barbados|Barbados bullfinch|0": {
+    "region": "country:Barbados",
+    "kind": "Barbados bullfinch"
+  },
+  "country:Barbados|Scaly-naped pigeon|0": {
+    "region": "country:Barbados",
+    "kind": "Scaly-naped pigeon"
+  },
+  "country:Barbados|Carib grackle|0": {
+    "region": "country:Barbados",
+    "kind": "Carib grackle"
+  },
+  "country:Barbados|Black-faced grassquit|0": {
+    "region": "country:Barbados",
+    "kind": "Black-faced grassquit"
+  },
+  "country:British Virgin Is.|Virgin Islands dwarf gecko|0": {
+    "region": "country:British Virgin Is.",
+    "kind": "Virgin Islands dwarf gecko"
+  },
+  "country:British Virgin Is.|Mangrove cuckoo|0": {
+    "region": "country:British Virgin Is.",
+    "kind": "Mangrove cuckoo"
+  },
+  "country:British Virgin Is.|Pearly-eyed thrasher|0": {
+    "region": "country:British Virgin Is.",
+    "kind": "Pearly-eyed thrasher"
+  },
+  "country:British Virgin Is.|Green-throated carib|0": {
+    "region": "country:British Virgin Is.",
+    "kind": "Green-throated carib"
+  },
+  "country:British Virgin Is.|Antillean crested hummingbird|0": {
+    "region": "country:British Virgin Is.",
+    "kind": "Antillean crested hummingbird"
+  },
+  "country:Cayman Is.|Grand Cayman blue iguana|0": {
+    "region": "country:Cayman Is.",
+    "kind": "Grand Cayman blue iguana"
+  },
+  "country:Cayman Is.|Grand Cayman bullfinch|0": {
+    "region": "country:Cayman Is.",
+    "kind": "Grand Cayman bullfinch"
+  },
+  "country:Cayman Is.|Grand Cayman parrot|0": {
+    "region": "country:Cayman Is.",
+    "kind": "Grand Cayman parrot"
+  },
+  "country:Cayman Is.|Vitelline warbler|0": {
+    "region": "country:Cayman Is.",
+    "kind": "Vitelline warbler"
+  },
+  "country:Cayman Is.|West Indian whistling duck|0": {
+    "region": "country:Cayman Is.",
+    "kind": "West Indian whistling duck"
+  },
+  "country:Cuba|Desmarest’s hutia|0": {
+    "region": "country:Cuba",
+    "kind": "Desmarest’s hutia"
+  },
+  "country:Cuba|Cuban rock iguana|0": {
+    "region": "country:Cuba",
+    "kind": "Cuban rock iguana"
+  },
+  "country:Cuba|Cuban trogon|0": {
+    "region": "country:Cuba",
+    "kind": "Cuban trogon"
+  },
+  "country:Cuba|Cuban tody|0": {
+    "region": "country:Cuba",
+    "kind": "Cuban tody"
+  },
+  "country:Cuba|Bee hummingbird|0": {
+    "region": "country:Cuba",
+    "kind": "Bee hummingbird"
+  },
+  "country:Curaçao|American flamingo|0": {
+    "region": "country:Curaçao",
+    "kind": "American flamingo"
+  },
+  "country:Curaçao|Curaçao barn owl|0": {
+    "region": "country:Curaçao",
+    "kind": "Curaçao barn owl"
+  },
+  "country:Curaçao|Curaçao brown-throated parakeet|0": {
+    "region": "country:Curaçao",
+    "kind": "Curaçao brown-throated parakeet"
+  },
+  "country:Curaçao|Bananaquit|0": {
+    "region": "country:Curaçao",
+    "kind": "Bananaquit"
+  },
+  "country:Curaçao|Blue-tailed emerald|0": {
+    "region": "country:Curaçao",
+    "kind": "Blue-tailed emerald"
+  },
+  "country:Dominica|Dominican anole|0": {
+    "region": "country:Dominica",
+    "kind": "Dominican anole"
+  },
+  "country:Dominica|Imperial amazon|0": {
+    "region": "country:Dominica",
+    "kind": "Imperial amazon"
+  },
+  "country:Dominica|Red-necked amazon|0": {
+    "region": "country:Dominica",
+    "kind": "Red-necked amazon"
+  },
+  "country:Dominica|Blue-headed hummingbird|0": {
+    "region": "country:Dominica",
+    "kind": "Blue-headed hummingbird"
+  },
+  "country:Dominica|Plumbeous warbler|0": {
+    "region": "country:Dominica",
+    "kind": "Plumbeous warbler"
+  },
+  "country:Dominican Rep.|Hispaniolan solenodon|0": {
+    "region": "country:Dominican Rep.",
+    "kind": "Hispaniolan solenodon"
+  },
+  "country:Dominican Rep.|Ricord’s rock iguana|0": {
+    "region": "country:Dominican Rep.",
+    "kind": "Ricord’s rock iguana"
+  },
+  "country:Dominican Rep.|Hispaniolan trogon|0": {
+    "region": "country:Dominican Rep.",
+    "kind": "Hispaniolan trogon"
+  },
+  "country:Dominican Rep.|Palmchat|0": {
+    "region": "country:Dominican Rep.",
+    "kind": "Palmchat"
+  },
+  "country:Dominican Rep.|Hispaniolan woodpecker|0": {
+    "region": "country:Dominican Rep.",
+    "kind": "Hispaniolan woodpecker"
+  },
+  "country:Grenada|Grenada tree anole|0": {
+    "region": "country:Grenada",
+    "kind": "Grenada tree anole"
+  },
+  "country:Grenada|Grenada dove|0": {
+    "region": "country:Grenada",
+    "kind": "Grenada dove"
+  },
+  "country:Grenada|Lesser Antillean tanager|0": {
+    "region": "country:Grenada",
+    "kind": "Lesser Antillean tanager"
+  },
+  "country:Grenada|Grenada flycatcher|0": {
+    "region": "country:Grenada",
+    "kind": "Grenada flycatcher"
+  },
+  "country:Grenada|Grenada wren|0": {
+    "region": "country:Grenada",
+    "kind": "Grenada wren"
+  },
+  "country:Haiti|Hispaniolan hutia|0": {
+    "region": "country:Haiti",
+    "kind": "Hispaniolan hutia"
+  },
+  "country:Haiti|Hispaniolan stout anole|0": {
+    "region": "country:Haiti",
+    "kind": "Hispaniolan stout anole"
+  },
+  "country:Haiti|Broad-billed tody|0": {
+    "region": "country:Haiti",
+    "kind": "Broad-billed tody"
+  },
+  "country:Haiti|Hispaniolan parakeet|0": {
+    "region": "country:Haiti",
+    "kind": "Hispaniolan parakeet"
+  },
+  "country:Haiti|Hispaniolan mango|0": {
+    "region": "country:Haiti",
+    "kind": "Hispaniolan mango"
+  },
+  "country:Jamaica|Jamaican hutia|0": {
+    "region": "country:Jamaica",
+    "kind": "Jamaican hutia"
+  },
+  "country:Jamaica|Jamaican iguana|0": {
+    "region": "country:Jamaica",
+    "kind": "Jamaican iguana"
+  },
+  "country:Jamaica|Red-billed streamertail|0": {
+    "region": "country:Jamaica",
+    "kind": "Red-billed streamertail"
+  },
+  "country:Jamaica|Jamaican tody|0": {
+    "region": "country:Jamaica",
+    "kind": "Jamaican tody"
+  },
+  "country:Jamaica|Jamaican spindalis|0": {
+    "region": "country:Jamaica",
+    "kind": "Jamaican spindalis"
+  },
+  "country:Montserrat|Montserrat galliwasp|0": {
+    "region": "country:Montserrat",
+    "kind": "Montserrat galliwasp"
+  },
+  "country:Montserrat|Montserrat oriole|0": {
+    "region": "country:Montserrat",
+    "kind": "Montserrat oriole"
+  },
+  "country:Montserrat|Forest thrush|0": {
+    "region": "country:Montserrat",
+    "kind": "Forest thrush"
+  },
+  "country:Montserrat|Brown trembler|0": {
+    "region": "country:Montserrat",
+    "kind": "Brown trembler"
+  },
+  "country:Montserrat|Bridled quail-dove|0": {
+    "region": "country:Montserrat",
+    "kind": "Bridled quail-dove"
+  },
+  "country:Puerto Rico|Puerto Rican emerald anole|0": {
+    "region": "country:Puerto Rico",
+    "kind": "Puerto Rican emerald anole"
+  },
+  "country:Puerto Rico|Common coquí|0": {
+    "region": "country:Puerto Rico",
+    "kind": "Common coquí"
+  },
+  "country:Puerto Rico|Puerto Rican amazon|0": {
+    "region": "country:Puerto Rico",
+    "kind": "Puerto Rican amazon"
+  },
+  "country:Puerto Rico|Puerto Rican tody|0": {
+    "region": "country:Puerto Rico",
+    "kind": "Puerto Rican tody"
+  },
+  "country:Puerto Rico|Puerto Rican woodpecker|0": {
+    "region": "country:Puerto Rico",
+    "kind": "Puerto Rican woodpecker"
+  },
+  "country:Saint Lucia|Saint Lucia anole|0": {
+    "region": "country:Saint Lucia",
+    "kind": "Saint Lucia anole"
+  },
+  "country:Saint Lucia|Saint Lucia amazon|0": {
+    "region": "country:Saint Lucia",
+    "kind": "Saint Lucia amazon"
+  },
+  "country:Saint Lucia|Saint Lucia oriole|0": {
+    "region": "country:Saint Lucia",
+    "kind": "Saint Lucia oriole"
+  },
+  "country:Saint Lucia|Saint Lucia warbler|0": {
+    "region": "country:Saint Lucia",
+    "kind": "Saint Lucia warbler"
+  },
+  "country:Saint Lucia|Saint Lucia black finch|0": {
+    "region": "country:Saint Lucia",
+    "kind": "Saint Lucia black finch"
+  },
+  "country:Sint Maarten|American oystercatcher|0": {
+    "region": "country:Sint Maarten",
+    "kind": "American oystercatcher"
+  },
+  "country:Sint Maarten|Black-necked stilt|0": {
+    "region": "country:Sint Maarten",
+    "kind": "Black-necked stilt"
+  },
+  "country:Sint Maarten|Killdeer|0": {
+    "region": "country:Sint Maarten",
+    "kind": "Killdeer"
+  },
+  "country:Sint Maarten|Royal tern|0": {
+    "region": "country:Sint Maarten",
+    "kind": "Royal tern"
+  },
+  "country:Sint Maarten|Least tern|0": {
+    "region": "country:Sint Maarten",
+    "kind": "Least tern"
+  },
+  "country:St-Martin|Carib grackle|0": {
+    "region": "country:St-Martin",
+    "kind": "Carib grackle"
+  },
+  "country:St-Martin|Northern mockingbird|0": {
+    "region": "country:St-Martin",
+    "kind": "Northern mockingbird"
+  },
+  "country:St-Martin|Zenaida dove|0": {
+    "region": "country:St-Martin",
+    "kind": "Zenaida dove"
+  },
+  "country:St-Martin|Antillean crested hummingbird|0": {
+    "region": "country:St-Martin",
+    "kind": "Antillean crested hummingbird"
+  },
+  "country:St-Martin|Great egret|0": {
+    "region": "country:St-Martin",
+    "kind": "Great egret"
+  },
+  "country:St-Barthélemy|Magnificent frigatebird|0": {
+    "region": "country:St-Barthélemy",
+    "kind": "Magnificent frigatebird"
+  },
+  "country:St-Barthélemy|Brown booby|0": {
+    "region": "country:St-Barthélemy",
+    "kind": "Brown booby"
+  },
+  "country:St-Barthélemy|Red-billed tropicbird|0": {
+    "region": "country:St-Barthélemy",
+    "kind": "Red-billed tropicbird"
+  },
+  "country:St-Barthélemy|Scaly-naped pigeon|0": {
+    "region": "country:St-Barthélemy",
+    "kind": "Scaly-naped pigeon"
+  },
+  "country:St-Barthélemy|White-cheeked pintail|0": {
+    "region": "country:St-Barthélemy",
+    "kind": "White-cheeked pintail"
+  },
+  "country:St. Kitts and Nevis|Brown trembler|0": {
+    "region": "country:St. Kitts and Nevis",
+    "kind": "Brown trembler"
+  },
+  "country:St. Kitts and Nevis|Scaly-breasted thrasher|0": {
+    "region": "country:St. Kitts and Nevis",
+    "kind": "Scaly-breasted thrasher"
+  },
+  "country:St. Kitts and Nevis|Purple-throated carib|0": {
+    "region": "country:St. Kitts and Nevis",
+    "kind": "Purple-throated carib"
+  },
+  "country:St. Kitts and Nevis|Zenaida dove|0": {
+    "region": "country:St. Kitts and Nevis",
+    "kind": "Zenaida dove"
+  },
+  "country:St. Kitts and Nevis|Lesser Antillean bullfinch|0": {
+    "region": "country:St. Kitts and Nevis",
+    "kind": "Lesser Antillean bullfinch"
+  },
+  "country:St. Vin. and Gren.|Saint Vincent bush anole|0": {
+    "region": "country:St. Vin. and Gren.",
+    "kind": "Saint Vincent bush anole"
+  },
+  "country:St. Vin. and Gren.|Saint Vincent amazon|0": {
+    "region": "country:St. Vin. and Gren.",
+    "kind": "Saint Vincent amazon"
+  },
+  "country:St. Vin. and Gren.|Whistling warbler|0": {
+    "region": "country:St. Vin. and Gren.",
+    "kind": "Whistling warbler"
+  },
+  "country:St. Vin. and Gren.|Lesser Antillean tanager|0": {
+    "region": "country:St. Vin. and Gren.",
+    "kind": "Lesser Antillean tanager"
+  },
+  "country:St. Vin. and Gren.|Rufous-throated solitaire|0": {
+    "region": "country:St. Vin. and Gren.",
+    "kind": "Rufous-throated solitaire"
+  },
+  "country:Trinidad and Tobago|Red-rumped agouti|0": {
+    "region": "country:Trinidad and Tobago",
+    "kind": "Red-rumped agouti"
+  },
+  "country:Trinidad and Tobago|Scarlet ibis|0": {
+    "region": "country:Trinidad and Tobago",
+    "kind": "Scarlet ibis"
+  },
+  "country:Trinidad and Tobago|Trinidad motmot|0": {
+    "region": "country:Trinidad and Tobago",
+    "kind": "Trinidad motmot"
+  },
+  "country:Trinidad and Tobago|Trinidad piping guan|0": {
+    "region": "country:Trinidad and Tobago",
+    "kind": "Trinidad piping guan"
+  },
+  "country:Trinidad and Tobago|Golden-headed manakin|0": {
+    "region": "country:Trinidad and Tobago",
+    "kind": "Golden-headed manakin"
+  },
+  "country:Turks and Caicos Is.|Turks and Caicos rock iguana|0": {
+    "region": "country:Turks and Caicos Is.",
+    "kind": "Turks and Caicos rock iguana"
+  },
+  "country:Turks and Caicos Is.|Thick-billed vireo|0": {
+    "region": "country:Turks and Caicos Is.",
+    "kind": "Thick-billed vireo"
+  },
+  "country:Turks and Caicos Is.|Bahama woodstar|0": {
+    "region": "country:Turks and Caicos Is.",
+    "kind": "Bahama woodstar"
+  },
+  "country:Turks and Caicos Is.|Western spindalis|0": {
+    "region": "country:Turks and Caicos Is.",
+    "kind": "Western spindalis"
+  },
+  "country:Turks and Caicos Is.|Antillean nighthawk|0": {
+    "region": "country:Turks and Caicos Is.",
+    "kind": "Antillean nighthawk"
+  },
+  "country:U.S. Virgin Is.|Virgin Islands big-scaled gecko|0": {
+    "region": "country:U.S. Virgin Is.",
+    "kind": "Virgin Islands big-scaled gecko"
+  },
+  "country:U.S. Virgin Is.|Yellow warbler|0": {
+    "region": "country:U.S. Virgin Is.",
+    "kind": "Yellow warbler"
+  },
+  "country:U.S. Virgin Is.|Bridled quail-dove|0": {
+    "region": "country:U.S. Virgin Is.",
+    "kind": "Bridled quail-dove"
+  },
+  "country:U.S. Virgin Is.|Brown pelican|0": {
+    "region": "country:U.S. Virgin Is.",
+    "kind": "Brown pelican"
+  },
+  "country:U.S. Virgin Is.|Caribbean elaenia|0": {
+    "region": "country:U.S. Virgin Is.",
+    "kind": "Caribbean elaenia"
+  },
+  "country:Maldives|Maldivian white-breasted waterhen|0": {
+    "region": "country:Maldives",
+    "kind": "Maldivian white-breasted waterhen"
+  },
+  "country:Maldives|White tern|0": {
+    "region": "country:Maldives",
+    "kind": "White tern"
+  },
+  "country:Maldives|Maldivian little heron|0": {
+    "region": "country:Maldives",
+    "kind": "Maldivian little heron"
+  },
+  "country:Maldives|Asian koel|0": {
+    "region": "country:Maldives",
+    "kind": "Asian koel"
+  },
+  "country:Maldives|White-breasted woodswallow|0": {
+    "region": "country:Maldives",
+    "kind": "White-breasted woodswallow"
+  },
+  "country:Mongolia|Siberian chipmunk|0": {
+    "region": "country:Mongolia",
+    "kind": "Siberian chipmunk"
+  },
+  "country:Mongolia|Tarbagan marmot|0": {
+    "region": "country:Mongolia",
+    "kind": "Tarbagan marmot"
+  },
+  "country:Mongolia|Mongolian gazelle|0": {
+    "region": "country:Mongolia",
+    "kind": "Mongolian gazelle"
+  },
+  "country:Mongolia|Mongolian lark|0": {
+    "region": "country:Mongolia",
+    "kind": "Mongolian lark"
+  },
+  "country:Mongolia|Demoiselle crane|0": {
+    "region": "country:Mongolia",
+    "kind": "Demoiselle crane"
+  },
+  "country:North Korea|Siberian roe deer|0": {
+    "region": "country:North Korea",
+    "kind": "Siberian roe deer"
+  },
+  "country:North Korea|Raccoon dog|0": {
+    "region": "country:North Korea",
+    "kind": "Raccoon dog"
+  },
+  "country:North Korea|Sable|0": {
+    "region": "country:North Korea",
+    "kind": "Sable"
+  },
+  "country:North Korea|Red-crowned crane|0": {
+    "region": "country:North Korea",
+    "kind": "Red-crowned crane"
+  },
+  "country:North Korea|Black-faced spoonbill|0": {
+    "region": "country:North Korea",
+    "kind": "Black-faced spoonbill"
+  },
+  "country:Russia|Mongolian gerbil|0": {
+    "region": "country:Russia",
+    "kind": "Mongolian gerbil"
+  },
+  "country:Russia|Long-eared hedgehog|0": {
+    "region": "country:Russia",
+    "kind": "Long-eared hedgehog"
+  },
+  "country:Russia|Tolai hare|0": {
+    "region": "country:Russia",
+    "kind": "Tolai hare"
+  },
+  "country:Russia|Siberian jay|0": {
+    "region": "country:Russia",
+    "kind": "Siberian jay"
+  },
+  "country:Russia|Siberian rubythroat|0": {
+    "region": "country:Russia",
+    "kind": "Siberian rubythroat"
+  },
+  "country:Norfolk Island|Norfolk parakeet|0": {
+    "region": "country:Norfolk Island",
+    "kind": "Norfolk parakeet"
+  },
+  "country:Norfolk Island|Norfolk gerygone|0": {
+    "region": "country:Norfolk Island",
+    "kind": "Norfolk gerygone"
+  },
+  "country:Norfolk Island|Norfolk robin|0": {
+    "region": "country:Norfolk Island",
+    "kind": "Norfolk robin"
+  },
+  "country:Norfolk Island|Norfolk golden whistler|0": {
+    "region": "country:Norfolk Island",
+    "kind": "Norfolk golden whistler"
+  },
+  "country:Norfolk Island|Norfolk fantail|0": {
+    "region": "country:Norfolk Island",
+    "kind": "Norfolk fantail"
+  },
+  "country:Pitcairn Is.|Pitcairn reed warbler|0": {
+    "region": "country:Pitcairn Is.",
+    "kind": "Pitcairn reed warbler"
+  },
+  "country:Pitcairn Is.|Henderson lorikeet|0": {
+    "region": "country:Pitcairn Is.",
+    "kind": "Henderson lorikeet"
+  },
+  "country:Pitcairn Is.|Henderson fruit dove|0": {
+    "region": "country:Pitcairn Is.",
+    "kind": "Henderson fruit dove"
+  },
+  "country:Pitcairn Is.|Henderson crake|0": {
+    "region": "country:Pitcairn Is.",
+    "kind": "Henderson crake"
+  },
+  "country:Pitcairn Is.|Murphy’s petrel|0": {
+    "region": "country:Pitcairn Is.",
+    "kind": "Murphy’s petrel"
+  },
+  "country:St. Pierre and Miquelon|Atlantic puffin|0": {
+    "region": "country:St. Pierre and Miquelon",
+    "kind": "Atlantic puffin"
+  },
+  "country:St. Pierre and Miquelon|Common murre|0": {
+    "region": "country:St. Pierre and Miquelon",
+    "kind": "Common murre"
+  },
+  "country:St. Pierre and Miquelon|Black guillemot|0": {
+    "region": "country:St. Pierre and Miquelon",
+    "kind": "Black guillemot"
+  },
+  "country:St. Pierre and Miquelon|Northern gannet|0": {
+    "region": "country:St. Pierre and Miquelon",
+    "kind": "Northern gannet"
+  },
+  "country:St. Pierre and Miquelon|Snow bunting|0": {
+    "region": "country:St. Pierre and Miquelon",
+    "kind": "Snow bunting"
+  },
+  "country:Falkland Is.|Magellanic penguin|0": {
+    "region": "country:Falkland Is.",
+    "kind": "Magellanic penguin"
+  },
+  "country:Falkland Is.|Southern rockhopper penguin|0": {
+    "region": "country:Falkland Is.",
+    "kind": "Southern rockhopper penguin"
+  },
+  "country:Falkland Is.|South American fur seal|0": {
+    "region": "country:Falkland Is.",
+    "kind": "South American fur seal"
+  },
+  "country:Falkland Is.|Striated caracara|0": {
+    "region": "country:Falkland Is.",
+    "kind": "Striated caracara"
+  },
+  "country:Falkland Is.|Falkland steamer duck|0": {
+    "region": "country:Falkland Is.",
+    "kind": "Falkland steamer duck"
+  },
+  "country:N. Cyprus|Red fox|0": {
+    "region": "country:N. Cyprus",
+    "kind": "Red fox"
+  },
+  "country:N. Cyprus|Cypriot long-eared hedgehog|0": {
+    "region": "country:N. Cyprus",
+    "kind": "Cypriot long-eared hedgehog"
+  },
+  "country:N. Cyprus|Cyprus warbler|0": {
+    "region": "country:N. Cyprus",
+    "kind": "Cyprus warbler"
+  },
+  "country:N. Cyprus|Cyprus wheatear|0": {
+    "region": "country:N. Cyprus",
+    "kind": "Cyprus wheatear"
+  },
+  "country:N. Cyprus|European roller|0": {
+    "region": "country:N. Cyprus",
+    "kind": "European roller"
+  },
+  "country:Akrotiri|Red fox|0": {
+    "region": "country:Akrotiri",
+    "kind": "Red fox"
+  },
+  "country:Akrotiri|Cypriot long-eared hedgehog|0": {
+    "region": "country:Akrotiri",
+    "kind": "Cypriot long-eared hedgehog"
+  },
+  "country:Akrotiri|Cyprus warbler|0": {
+    "region": "country:Akrotiri",
+    "kind": "Cyprus warbler"
+  },
+  "country:Akrotiri|Cyprus wheatear|0": {
+    "region": "country:Akrotiri",
+    "kind": "Cyprus wheatear"
+  },
+  "country:Akrotiri|European roller|0": {
+    "region": "country:Akrotiri",
+    "kind": "European roller"
+  },
+  "country:Dhekelia|Red fox|0": {
+    "region": "country:Dhekelia",
+    "kind": "Red fox"
+  },
+  "country:Dhekelia|Cypriot long-eared hedgehog|0": {
+    "region": "country:Dhekelia",
+    "kind": "Cypriot long-eared hedgehog"
+  },
+  "country:Dhekelia|Cyprus warbler|0": {
+    "region": "country:Dhekelia",
+    "kind": "Cyprus warbler"
+  },
+  "country:Dhekelia|Cyprus wheatear|0": {
+    "region": "country:Dhekelia",
+    "kind": "Cyprus wheatear"
+  },
+  "country:Dhekelia|European roller|0": {
+    "region": "country:Dhekelia",
+    "kind": "European roller"
+  },
+  "country:Cyprus U.N. Buffer Zone|Red fox|0": {
+    "region": "country:Cyprus U.N. Buffer Zone",
+    "kind": "Red fox"
+  },
+  "country:Cyprus U.N. Buffer Zone|Cypriot long-eared hedgehog|0": {
+    "region": "country:Cyprus U.N. Buffer Zone",
+    "kind": "Cypriot long-eared hedgehog"
+  },
+  "country:Cyprus U.N. Buffer Zone|Cyprus warbler|0": {
+    "region": "country:Cyprus U.N. Buffer Zone",
+    "kind": "Cyprus warbler"
+  },
+  "country:Cyprus U.N. Buffer Zone|Cyprus wheatear|0": {
+    "region": "country:Cyprus U.N. Buffer Zone",
+    "kind": "Cyprus wheatear"
+  },
+  "country:Cyprus U.N. Buffer Zone|European roller|0": {
+    "region": "country:Cyprus U.N. Buffer Zone",
+    "kind": "European roller"
+  },
+  "country:Baikonur|Sand cat|0": {
+    "region": "country:Baikonur",
+    "kind": "Sand cat"
+  },
+  "country:Baikonur|Marbled polecat|0": {
+    "region": "country:Baikonur",
+    "kind": "Marbled polecat"
+  },
+  "country:Baikonur|Caracal|0": {
+    "region": "country:Baikonur",
+    "kind": "Caracal"
+  },
+  "country:Baikonur|Sociable lapwing|0": {
+    "region": "country:Baikonur",
+    "kind": "Sociable lapwing"
+  },
+  "country:Baikonur|Steppe eagle|0": {
+    "region": "country:Baikonur",
+    "kind": "Steppe eagle"
+  },
+  "country:USNB Guantanamo Bay|Desmarest’s hutia|0": {
+    "region": "country:USNB Guantanamo Bay",
+    "kind": "Desmarest’s hutia"
+  },
+  "country:USNB Guantanamo Bay|Cuban rock iguana|0": {
+    "region": "country:USNB Guantanamo Bay",
+    "kind": "Cuban rock iguana"
+  },
+  "country:USNB Guantanamo Bay|Cuban green woodpecker|0": {
+    "region": "country:USNB Guantanamo Bay",
+    "kind": "Cuban green woodpecker"
+  },
+  "country:USNB Guantanamo Bay|Cuban emerald|0": {
+    "region": "country:USNB Guantanamo Bay",
+    "kind": "Cuban emerald"
+  },
+  "country:USNB Guantanamo Bay|Cuban pygmy owl|0": {
+    "region": "country:USNB Guantanamo Bay",
+    "kind": "Cuban pygmy owl"
+  },
+  "country:Antarctica|Adélie penguin|0": {
+    "region": "country:Antarctica",
+    "kind": "Adélie penguin"
+  },
+  "country:Antarctica|Emperor penguin|0": {
+    "region": "country:Antarctica",
+    "kind": "Emperor penguin"
+  },
+  "country:Antarctica|Weddell seal|0": {
+    "region": "country:Antarctica",
+    "kind": "Weddell seal"
+  },
+  "country:Antarctica|Snow petrel|0": {
+    "region": "country:Antarctica",
+    "kind": "Snow petrel"
+  },
+  "country:Antarctica|South polar skua|0": {
+    "region": "country:Antarctica",
+    "kind": "South polar skua"
+  },
+  "country:Ashmore and Cartier Is.|Red-footed booby|0": {
+    "region": "country:Ashmore and Cartier Is.",
+    "kind": "Red-footed booby"
+  },
+  "country:Ashmore and Cartier Is.|Brown booby|0": {
+    "region": "country:Ashmore and Cartier Is.",
+    "kind": "Brown booby"
+  },
+  "country:Ashmore and Cartier Is.|Great frigatebird|0": {
+    "region": "country:Ashmore and Cartier Is.",
+    "kind": "Great frigatebird"
+  },
+  "country:Ashmore and Cartier Is.|Sooty tern|0": {
+    "region": "country:Ashmore and Cartier Is.",
+    "kind": "Sooty tern"
+  },
+  "country:Ashmore and Cartier Is.|Lesser noddy|0": {
+    "region": "country:Ashmore and Cartier Is.",
+    "kind": "Lesser noddy"
+  },
+  "country:Br. Indian Ocean Ter.|Red-footed booby|0": {
+    "region": "country:Br. Indian Ocean Ter.",
+    "kind": "Red-footed booby"
+  },
+  "country:Br. Indian Ocean Ter.|Brown booby|0": {
+    "region": "country:Br. Indian Ocean Ter.",
+    "kind": "Brown booby"
+  },
+  "country:Br. Indian Ocean Ter.|Great frigatebird|0": {
+    "region": "country:Br. Indian Ocean Ter.",
+    "kind": "Great frigatebird"
+  },
+  "country:Br. Indian Ocean Ter.|Sooty tern|0": {
+    "region": "country:Br. Indian Ocean Ter.",
+    "kind": "Sooty tern"
+  },
+  "country:Br. Indian Ocean Ter.|Lesser noddy|0": {
+    "region": "country:Br. Indian Ocean Ter.",
+    "kind": "Lesser noddy"
+  },
+  "country:Clipperton I.|Masked booby|0": {
+    "region": "country:Clipperton I.",
+    "kind": "Masked booby"
+  },
+  "country:Coral Sea Is.|Masked booby|0": {
+    "region": "country:Coral Sea Is.",
+    "kind": "Masked booby"
+  },
+  "country:Coral Sea Is.|Red-footed booby|0": {
+    "region": "country:Coral Sea Is.",
+    "kind": "Red-footed booby"
+  },
+  "country:Coral Sea Is.|Great frigatebird|0": {
+    "region": "country:Coral Sea Is.",
+    "kind": "Great frigatebird"
+  },
+  "country:Coral Sea Is.|White tern|0": {
+    "region": "country:Coral Sea Is.",
+    "kind": "White tern"
+  },
+  "country:Coral Sea Is.|Brown noddy|0": {
+    "region": "country:Coral Sea Is.",
+    "kind": "Brown noddy"
+  },
+  "country:Fr. S. Antarctic Lands|King penguin|0": {
+    "region": "country:Fr. S. Antarctic Lands",
+    "kind": "King penguin"
+  },
+  "country:Fr. S. Antarctic Lands|Macaroni penguin|0": {
+    "region": "country:Fr. S. Antarctic Lands",
+    "kind": "Macaroni penguin"
+  },
+  "country:Fr. S. Antarctic Lands|Southern elephant seal|0": {
+    "region": "country:Fr. S. Antarctic Lands",
+    "kind": "Southern elephant seal"
+  },
+  "country:Fr. S. Antarctic Lands|Wandering albatross|0": {
+    "region": "country:Fr. S. Antarctic Lands",
+    "kind": "Wandering albatross"
+  },
+  "country:Fr. S. Antarctic Lands|Kerguelen shag|0": {
+    "region": "country:Fr. S. Antarctic Lands",
+    "kind": "Kerguelen shag"
+  },
+  "country:Heard I. and McDonald Is.|Gentoo penguin|0": {
+    "region": "country:Heard I. and McDonald Is.",
+    "kind": "Gentoo penguin"
+  },
+  "country:Heard I. and McDonald Is.|Macaroni penguin|0": {
+    "region": "country:Heard I. and McDonald Is.",
+    "kind": "Macaroni penguin"
+  },
+  "country:Heard I. and McDonald Is.|Southern elephant seal|0": {
+    "region": "country:Heard I. and McDonald Is.",
+    "kind": "Southern elephant seal"
+  },
+  "country:Heard I. and McDonald Is.|Antarctic fur seal|0": {
+    "region": "country:Heard I. and McDonald Is.",
+    "kind": "Antarctic fur seal"
+  },
+  "country:Heard I. and McDonald Is.|Heard Island shag|0": {
+    "region": "country:Heard I. and McDonald Is.",
+    "kind": "Heard Island shag"
+  },
+  "country:Indian Ocean Ter.|Christmas Island red crab|0": {
+    "region": "country:Indian Ocean Ter.",
+    "kind": "Christmas Island red crab"
+  },
+  "country:Indian Ocean Ter.|Abbott’s booby|0": {
+    "region": "country:Indian Ocean Ter.",
+    "kind": "Abbott’s booby"
+  },
+  "country:Indian Ocean Ter.|Christmas Island frigatebird|0": {
+    "region": "country:Indian Ocean Ter.",
+    "kind": "Christmas Island frigatebird"
+  },
+  "country:Indian Ocean Ter.|Christmas Island white-eye|0": {
+    "region": "country:Indian Ocean Ter.",
+    "kind": "Christmas Island white-eye"
+  },
+  "country:Indian Ocean Ter.|Golden bosun|0": {
+    "region": "country:Indian Ocean Ter.",
+    "kind": "Golden bosun"
+  },
+  "country:S. Geo. and the Is.|King penguin|0": {
+    "region": "country:S. Geo. and the Is.",
+    "kind": "King penguin"
+  },
+  "country:S. Geo. and the Is.|Chinstrap penguin|0": {
+    "region": "country:S. Geo. and the Is.",
+    "kind": "Chinstrap penguin"
+  },
+  "country:S. Geo. and the Is.|Antarctic fur seal|0": {
+    "region": "country:S. Geo. and the Is.",
+    "kind": "Antarctic fur seal"
+  },
+  "country:S. Geo. and the Is.|South Georgia pipit|0": {
+    "region": "country:S. Geo. and the Is.",
+    "kind": "South Georgia pipit"
+  },
+  "country:S. Geo. and the Is.|South Georgia pintail|0": {
+    "region": "country:S. Geo. and the Is.",
+    "kind": "South Georgia pintail"
+  },
+  "country:Spratly Is.|Masked booby|0": {
+    "region": "country:Spratly Is.",
+    "kind": "Masked booby"
+  },
+  "country:Spratly Is.|Red-footed booby|0": {
+    "region": "country:Spratly Is.",
+    "kind": "Red-footed booby"
+  },
+  "country:Spratly Is.|Great frigatebird|0": {
+    "region": "country:Spratly Is.",
+    "kind": "Great frigatebird"
+  },
+  "country:Spratly Is.|White tern|0": {
+    "region": "country:Spratly Is.",
+    "kind": "White tern"
+  },
+  "country:Spratly Is.|Brown noddy|0": {
+    "region": "country:Spratly Is.",
+    "kind": "Brown noddy"
+  },
+  "country:U.S. Minor Outlying Is.|Masked booby|0": {
+    "region": "country:U.S. Minor Outlying Is.",
+    "kind": "Masked booby"
+  },
+  "country:U.S. Minor Outlying Is.|Red-footed booby|0": {
+    "region": "country:U.S. Minor Outlying Is.",
+    "kind": "Red-footed booby"
+  },
+  "country:U.S. Minor Outlying Is.|Great frigatebird|0": {
+    "region": "country:U.S. Minor Outlying Is.",
+    "kind": "Great frigatebird"
+  },
+  "country:U.S. Minor Outlying Is.|White tern|0": {
+    "region": "country:U.S. Minor Outlying Is.",
+    "kind": "White tern"
+  },
+  "country:U.S. Minor Outlying Is.|Brown noddy|0": {
+    "region": "country:U.S. Minor Outlying Is.",
+    "kind": "Brown noddy"
+  },
+  "country:Laos|Asian elephant|0": {
+    "region": "country:Laos",
+    "kind": "Asian elephant"
+  },
+  "country:Laos|Northern white-cheeked gibbon|0": {
+    "region": "country:Laos",
+    "kind": "Northern white-cheeked gibbon"
+  },
+  "country:Laos|Sambar deer|0": {
+    "region": "country:Laos",
+    "kind": "Sambar deer"
+  },
+  "country:Laos|Gaur|0": {
+    "region": "country:Laos",
+    "kind": "Gaur"
+  },
+  "country:Laos|Silver pheasant|0": {
+    "region": "country:Laos",
+    "kind": "Silver pheasant"
+  },
+  "country:Vietnam|Sunda pangolin|0": {
+    "region": "country:Vietnam",
+    "kind": "Sunda pangolin"
+  },
+  "country:Vietnam|Owston's civet|0": {
+    "region": "country:Vietnam",
+    "kind": "Owston's civet"
+  },
+  "country:Vietnam|Red-shanked douc|0": {
+    "region": "country:Vietnam",
+    "kind": "Red-shanked douc"
+  },
+  "country:Vietnam|Red-bellied squirrel|0": {
+    "region": "country:Vietnam",
+    "kind": "Red-bellied squirrel"
+  },
+  "country:Vietnam|Asian black bear|0": {
+    "region": "country:Vietnam",
+    "kind": "Asian black bear"
+  },
+  "country:Thailand|Binturong|0": {
+    "region": "country:Thailand",
+    "kind": "Binturong"
+  },
+  "country:Thailand|Lesser mouse-deer|0": {
+    "region": "country:Thailand",
+    "kind": "Lesser mouse-deer"
+  },
+  "country:Thailand|Water buffalo|0": {
+    "region": "country:Thailand",
+    "kind": "Water buffalo"
+  },
+  "country:Thailand|Asian small-clawed otter|0": {
+    "region": "country:Thailand",
+    "kind": "Asian small-clawed otter"
+  },
+  "country:Thailand|Malayan porcupine|0": {
+    "region": "country:Thailand",
+    "kind": "Malayan porcupine"
+  },
+  "state:Wisconsin|White-tailed deer|0": {
+    "region": "state:Wisconsin",
+    "kind": "White-tailed deer"
+  },
+  "state:Wisconsin|Raccoon|0": {
+    "region": "state:Wisconsin",
+    "kind": "Raccoon"
+  },
+  "state:Wisconsin|Red fox|0": {
+    "region": "state:Wisconsin",
+    "kind": "Red fox"
+  },
+  "state:Wisconsin|Coyote|0": {
+    "region": "state:Wisconsin",
+    "kind": "Coyote"
+  },
+  "state:Wisconsin|Gray wolf|0": {
+    "region": "state:Wisconsin",
+    "kind": "Gray wolf"
+  },
+  "state:Wisconsin|American badger|0": {
+    "region": "state:Wisconsin",
+    "kind": "American badger"
+  },
+  "state:Wisconsin|American beaver|0": {
+    "region": "state:Wisconsin",
+    "kind": "American beaver"
+  },
+  "state:Wisconsin|North American river otter|0": {
+    "region": "state:Wisconsin",
+    "kind": "North American river otter"
+  },
+  "state:Wisconsin|Sandhill crane|0": {
+    "region": "state:Wisconsin",
+    "kind": "Sandhill crane"
+  },
+  "state:Wisconsin|American robin|0": {
+    "region": "state:Wisconsin",
+    "kind": "American robin"
+  }
+}

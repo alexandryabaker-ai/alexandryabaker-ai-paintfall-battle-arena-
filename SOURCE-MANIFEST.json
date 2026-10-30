@@ -1,0 +1,1576 @@
+{
+  "createdAt": "2026-10-30T19:58:02.789Z",
+  "status": "Review candidate; not a published or contest-approved build",
+  "files": [
+    {
+      "path": "public/arena-character-check.html",
+      "bytes": 3482,
+      "sha256": "266bbcaaed0e3ec9c35831838274f3a49b24c4350a41a72a651c1f6104a8b24d"
+    },
+    {
+      "path": "public/arena-world-tour.html",
+      "bytes": 4634,
+      "sha256": "ac39d63e2d9b27af0b115e1c8ef233f468016705e8583dfe5feaa1a59624ae80"
+    },
+    {
+      "path": "public/assets/characters/nova-game-01.glb",
+      "bytes": 3950808,
+      "sha256": "1346bc00aecd204d7f302036b60c6b6c75a6de22b0cfcdd02a9007d66498e8b1"
+    },
+    {
+      "path": "public/character-abilities-review.html",
+      "bytes": 6720,
+      "sha256": "3c1261d388d0bb9131110397fa961138b79b840772da5e8641ae475fcdca44fe"
+    },
+    {
+      "path": "public/character-style-review.html",
+      "bytes": 4281,
+      "sha256": "42513b8e8e9df35b66235acdd773ba65709dc8edb5d3fa96e9618f5ef23fbd5d"
+    },
+    {
+      "path": "public/character3d.js",
+      "bytes": 3511,
+      "sha256": "ea6d4c2c1d186f0c2b8ba372e66881e85335a1f204fdcf2f93ed6927aeda45e9"
+    },
+    {
+      "path": "public/characters.js",
+      "bytes": 5984,
+      "sha256": "3d86a52956da5b01c4ef2b51e9c05d9d7fbbe36d7182dd66307b29df388cd25b"
+    },
+    {
+      "path": "public/country-land-build.html",
+      "bytes": 3448,
+      "sha256": "535a9f02b306ca1be35f3407eea6cb3a12374c6c524a81256f43cd5956ac723a"
+    },
+    {
+      "path": "public/graphics.js",
+      "bytes": 10630,
+      "sha256": "9a3e39a1d39ea7be4a226252cc86a5732b4290846f73bc0af4b16b42013e3592"
+    },
+    {
+      "path": "public/hair-motion-review.html",
+      "bytes": 5265,
+      "sha256": "0351a3bcaded33319cb9061c37c174441b0ad33e258e6c53b7da0366db0e75b9"
+    },
+    {
+      "path": "public/index.html",
+      "bytes": 15072,
+      "sha256": "6374c5c26df104b2c47690a4a7c66822a69c3ff6a6fc42aa369805733d59ef5b"
+    },
+    {
+      "path": "public/jax-ability-review.html",
+      "bytes": 4088,
+      "sha256": "082d66c90f0c2ce6652d9d487b1a69a09cd74b5f965ab73f8e367ee82dcd04be"
+    },
+    {
+      "path": "public/kirin-energy-proposal.html",
+      "bytes": 7191,
+      "sha256": "02c5f5eca382ec88bf4439cb704f94a5bac7fab3866314c64851e211ccd90c58"
+    },
+    {
+      "path": "public/kirin-review.html",
+      "bytes": 3843,
+      "sha256": "28e37488f91a0ddc5283718b14968e750b5871c205d08331869a9bf3260dc985"
+    },
+    {
+      "path": "public/map-design.html",
+      "bytes": 11908,
+      "sha256": "8f9ac45c2989f75777c5cea7073510f6f28c87c812d609e3f460c27211447f9c"
+    },
+    {
+      "path": "public/maya-3d.js",
+      "bytes": 8774,
+      "sha256": "d8ee82103eded997c8f76a643121d122f7bc4c897aa75a40eb34519c92798b3d"
+    },
+    {
+      "path": "public/maya-ability-review.html",
+      "bytes": 3871,
+      "sha256": "12c7781f49bbb0ce84444f80c16ff8ff5f4938206e5415600e595e017cf9957c"
+    },
+    {
+      "path": "public/mobile-controls-fix.js",
+      "bytes": 353,
+      "sha256": "839adb7a74aa755cc14791fdd412fa2efe712d7de84d7f6c7e54f849edc9d2ae"
+    },
+    {
+      "path": "public/nova-face-hair-review.html",
+      "bytes": 4675,
+      "sha256": "5d857ad769a17fe32135ee8ec721dfc4849daae56ec04ed96bba702aee6491c8"
+    },
+    {
+      "path": "public/nova-game-transition-review.html",
+      "bytes": 5289,
+      "sha256": "e733b643eb42d0ce539ef897f80dcb3122f695cc5f0ce230f7d1171bd7e859c6"
+    },
+    {
+      "path": "public/nova-outfit-review.html",
+      "bytes": 4594,
+      "sha256": "a85fcd06b6802872174e2dbf11648ea53f4ebac85850b9edf7febd56ee455ba7"
+    },
+    {
+      "path": "public/nova-sheet-review.html",
+      "bytes": 4235,
+      "sha256": "7a162ecc690394e90501f27e67a2600730ff63fe474c3d152bbc4e2777365c3b"
+    },
+    {
+      "path": "public/paintball-arena-3d-design.js",
+      "bytes": 478,
+      "sha256": "7c912c3ee5d3ff8b48fa1d0e7ab78629c4e849cd1fd95bba202237fc579ac420"
+    },
+    {
+      "path": "public/paintball-arena-3d-scene.js",
+      "bytes": 5830,
+      "sha256": "94ae69087f8fb90a230885d50265d6b7b1004e93cd72b19b583893e2f1429236"
+    },
+    {
+      "path": "public/paintfall-2d-jump-feedback.js",
+      "bytes": 940,
+      "sha256": "440d760d892080105208c586f601e700e4e94f4501a1801fcf86af1f8f7a4989"
+    },
+    {
+      "path": "public/paintfall-3d-arena-layer.js",
+      "bytes": 2295,
+      "sha256": "9f5ff3d4732fa2a04653d5cef57dc96f8e0837af395aefcd6071256c442a4466"
+    },
+    {
+      "path": "public/paintfall-3d-arena.js",
+      "bytes": 11642,
+      "sha256": "2cdca155f9c62b06d5714d9a48dbe9afb26b108fa7986e6e158456854cd90fc1"
+    },
+    {
+      "path": "public/paintfall-3d-character-spec.js",
+      "bytes": 2272,
+      "sha256": "36f4412c514ff81fbc9ac8f08fa9337974bd32149c325c3f3b398cf956bfd39a"
+    },
+    {
+      "path": "public/paintfall-3d-character-stage.js",
+      "bytes": 11,
+      "sha256": "a73f5986eb985871284e6e216372de3505634a97229de643216728d0fbfd6227"
+    },
+    {
+      "path": "public/paintfall-3d-player-sync.js",
+      "bytes": 1486,
+      "sha256": "0e44ff12b0b0335e0bb36d5ecc4f8766e79923e051981ba8f84819d319fdab7a"
+    },
+    {
+      "path": "public/paintfall-ability-ui.js",
+      "bytes": 4219,
+      "sha256": "b23df8fae25beeadbf763143b08e786104ab422a3fdef6c642a8c05d8bb5c04b"
+    },
+    {
+      "path": "public/paintfall-account.css",
+      "bytes": 3226,
+      "sha256": "2e7cd75b50007463e68adbb5b006bc8740e7af283bcb69649d316d4dbda18f94"
+    },
+    {
+      "path": "public/paintfall-account.js",
+      "bytes": 18656,
+      "sha256": "dc3480fb0a3569ffdbd1911b612ad8c685398f7b9e6df1e0bf0a3e5ba0e438d4"
+    },
+    {
+      "path": "public/paintfall-africa-animal-details.js",
+      "bytes": 8073,
+      "sha256": "0f74ec314aef99b0c5fcacca59047f1109e348c23eeb67915c9f30d8cc2e2dda"
+    },
+    {
+      "path": "public/paintfall-africa-flowers.js",
+      "bytes": 2224,
+      "sha256": "139ebbc99fa8e2b36310e6a7e8c0acec7709f3234bfc42bd3888c1c12dda4a99"
+    },
+    {
+      "path": "public/paintfall-africa-homes.js",
+      "bytes": 3892,
+      "sha256": "d0efe8db08a949186fad80260837bf0440910086fab08deeca9409f9dad3354a"
+    },
+    {
+      "path": "public/paintfall-africa-scenery.js",
+      "bytes": 759,
+      "sha256": "9045050c1fc06fc67b3e058dc32a19855cb7069ea2e0bed24403b7330caac382"
+    },
+    {
+      "path": "public/paintfall-animal-behavior.js",
+      "bytes": 7102,
+      "sha256": "9f220178c462b2462be4fb05153e233fd6980faf6c05533fbbfb15365927d845"
+    },
+    {
+      "path": "public/paintfall-animal-interactions.js",
+      "bytes": 4255,
+      "sha256": "c04945e49c9cfa612c8ca9599a5289046bc90e18110f80599018bfce7457aba2"
+    },
+    {
+      "path": "public/paintfall-animal-memory.js",
+      "bytes": 5834,
+      "sha256": "bf2691fe8b9ce071c9b38a8ded88bfc0e8950106d1c8b7ea34ee94816c84d67a"
+    },
+    {
+      "path": "public/paintfall-archipelago-animal-details.js",
+      "bytes": 4691,
+      "sha256": "1898c8bf607362a747d2fe90feab2c14db36d15302d90e6916cb1c9fdd473792"
+    },
+    {
+      "path": "public/paintfall-archipelago-homes.js",
+      "bytes": 5024,
+      "sha256": "373a7d8201bad9ca842c5b021a0d9fb287775ef7cb7999908be538835ac50372"
+    },
+    {
+      "path": "public/paintfall-archipelago-scenery.js",
+      "bytes": 2544,
+      "sha256": "17819bbad2a701e55a1f877d66e0150d840a8e2a563aa92fd9f56a708744d939"
+    },
+    {
+      "path": "public/paintfall-arena-animal-memories.js",
+      "bytes": 7623,
+      "sha256": "ecd28415c2175cceb29dbbd0a024f182cafaaf059c42324ac6d20b85dec842b5"
+    },
+    {
+      "path": "public/paintfall-arena-catalog.js",
+      "bytes": 863581,
+      "sha256": "6780511f4d2ee53f454c67c92f0aee17cedf8ad9cb6c823e99d65cfdc3b00928"
+    },
+    {
+      "path": "public/paintfall-arena-color-trial.js",
+      "bytes": 1987,
+      "sha256": "7203630d24b7c520d861bf3adbaa030ea8958d1e538f9473c80ea85f56abbe9f"
+    },
+    {
+      "path": "public/paintfall-arena-comfort.js",
+      "bytes": 1423,
+      "sha256": "92dd0270ea0aeb8e9205ff82519771f4dc35668a0ea4e6853b5b412c9b584ce1"
+    },
+    {
+      "path": "public/paintfall-arena-destinations.json",
+      "bytes": 26372,
+      "sha256": "f373f361d70e6f83f28362f0887e0f8e4987930f2eabe4400b5149293f9e319a"
+    },
+    {
+      "path": "public/paintfall-arena-drop.js",
+      "bytes": 8239,
+      "sha256": "00ae288fa8db76c57fee15b6e947c95604ac554647d977c6c9986cdb1d207944"
+    },
+    {
+      "path": "public/paintfall-arena-gardens.js",
+      "bytes": 10106,
+      "sha256": "008b0ca2c98223a816e349ee7273a1f8c5098111f038fe7e0dee4eea93e52c19"
+    },
+    {
+      "path": "public/paintfall-arena-mexico.js",
+      "bytes": 2134,
+      "sha256": "7bc050ec4f6166d5cd790a9efc13f609dac79c008ed0114a84950922c8b82b63"
+    },
+    {
+      "path": "public/paintfall-arena-region-assets.js",
+      "bytes": 143050,
+      "sha256": "5367529d76ac7215a85b86debfde3e1b6c8ddb92ee99299555b63439ce96d245"
+    },
+    {
+      "path": "public/paintfall-arena-region.js",
+      "bytes": 2830,
+      "sha256": "9b8cad0f08ea928368526d755b2001a01c327904f3b858691a3fbda427d31567"
+    },
+    {
+      "path": "public/paintfall-arena-surface.js",
+      "bytes": 1170,
+      "sha256": "b2773fc86503da9b731341a3a35df3a8127fec35fab161b9752863e27b0332dd"
+    },
+    {
+      "path": "public/paintfall-arena-world-tour.js",
+      "bytes": 8524,
+      "sha256": "17c371e9d2f500884877bfefb9ff2624f06c245654a7a859b46ee356eb086612"
+    },
+    {
+      "path": "public/paintfall-arizona-building.js",
+      "bytes": 3848,
+      "sha256": "eed9f8725d32e333fdb67442f892e58a9b176d52bca471d1fa63b2ac1579b1f3"
+    },
+    {
+      "path": "public/paintfall-arizona-garden.js",
+      "bytes": 4178,
+      "sha256": "ef3de361932748f47b8a0d8f5fddd4bffba17f62d3542581c7f5232715ed842b"
+    },
+    {
+      "path": "public/paintfall-arizona-hub.js",
+      "bytes": 3971,
+      "sha256": "7f17b75fc328694122e9a600a991823cb23719927bca48b07d4954be0cb8bf87"
+    },
+    {
+      "path": "public/paintfall-arizona-racing.js",
+      "bytes": 2463,
+      "sha256": "47da745378de68b3109f836db9c0e56f1fb3ad3e8217b137c29f4dc601d50f99"
+    },
+    {
+      "path": "public/paintfall-arizona-trees.js",
+      "bytes": 3459,
+      "sha256": "b3632612313f80a8af6e3468f7512d24ef4fe69a24ae0ac456c0264569d1cc72"
+    },
+    {
+      "path": "public/paintfall-arizona-water.js",
+      "bytes": 5887,
+      "sha256": "ad6971dec5639cb799aa9e11f9521bb8e1dd1f31066a274320f336ea127c3ca0"
+    },
+    {
+      "path": "public/paintfall-atoll-animal-details.js",
+      "bytes": 4224,
+      "sha256": "310a297578977b4f3f20d1e5b0a866aca7ade67e6ea873eb6905ae8dc73e4e1f"
+    },
+    {
+      "path": "public/paintfall-atoll-homes.js",
+      "bytes": 4939,
+      "sha256": "a47d2f5fa4929bc1bd7bcdff3ef80ca76ffa565a5a828880d0d350f448d7a661"
+    },
+    {
+      "path": "public/paintfall-atoll-scenery.js",
+      "bytes": 4454,
+      "sha256": "9d74fe2bb2e856ead27b8a54b384e819b94ce0597999cd7a4805d62aad134c54"
+    },
+    {
+      "path": "public/paintfall-batch-homes.js",
+      "bytes": 7364,
+      "sha256": "032c1cafabfc693414afb5001544f42ef979269912d07fc7e8cd65a13a5e499b"
+    },
+    {
+      "path": "public/paintfall-batch-interiors.js",
+      "bytes": 2142,
+      "sha256": "5b3fa16494856fd4a6acdc29633bed483c46ffe4389e445f633c60752fa82ee8"
+    },
+    {
+      "path": "public/paintfall-batch-scenery.js",
+      "bytes": 7407,
+      "sha256": "4f13b91d84373ac2ca30112f53170cad5aa3d7539d4ebed3387fe0668465dd08"
+    },
+    {
+      "path": "public/paintfall-bot-brain.js",
+      "bytes": 3134,
+      "sha256": "ef1383e7af8958e44eaeaeaa86c14381d9fd30ca6cc724ab9047f6c4073d8234"
+    },
+    {
+      "path": "public/paintfall-bull-ride-effects.js",
+      "bytes": 2666,
+      "sha256": "81a0ac441f8b522bdf4079fd1f6e78abe72ab3c8435363051ef4f876a2ed0c6e"
+    },
+    {
+      "path": "public/paintfall-bull-ride.js",
+      "bytes": 1445,
+      "sha256": "68b37c21b5735d5ac60873a956bd110ea79b4aa95e29688d31ef52b05514e586"
+    },
+    {
+      "path": "public/paintfall-california-building.js",
+      "bytes": 9491,
+      "sha256": "10423f6c030e88c30957784c79fe889a2ea38fcc0107f039b4931f261b5e26af"
+    },
+    {
+      "path": "public/paintfall-california-colors.js",
+      "bytes": 2004,
+      "sha256": "6883bc5ede0cf750c21c5c12d1216aeb0d542312679c82f52e49793e8c06e3db"
+    },
+    {
+      "path": "public/paintfall-california-garden.js",
+      "bytes": 9850,
+      "sha256": "ea952a29d55bfe96fccd0bd9eda8862c4110596ee64bd057b1806179ac3720f9"
+    },
+    {
+      "path": "public/paintfall-california-hub.js",
+      "bytes": 7291,
+      "sha256": "de2837f1e45e62fe860188709d9aeb636378c70d9ad07d2ecc497b132cab9f91"
+    },
+    {
+      "path": "public/paintfall-california-paint.js",
+      "bytes": 11380,
+      "sha256": "692e9134e5aa769b2afc858360125fdab1c6e2e1b66429752b7272272ef6406f"
+    },
+    {
+      "path": "public/paintfall-california-racing.js",
+      "bytes": 5460,
+      "sha256": "82488625c4ba245234bad67b04deba4ce19efb1da5a9f42cf59aff99c08bace4"
+    },
+    {
+      "path": "public/paintfall-california-scenery.js",
+      "bytes": 2379,
+      "sha256": "0203253bf43e7e58b5496b9359aeac19e200847c8556f4e1725bc8c40fca57e1"
+    },
+    {
+      "path": "public/paintfall-cambodia-garden.js",
+      "bytes": 5977,
+      "sha256": "2d5384df172ed1a72b497343435f634f4f6b35c3f7ad8fd6d3d0d6d00ec30391"
+    },
+    {
+      "path": "public/paintfall-camera-obstruction.js",
+      "bytes": 2130,
+      "sha256": "11320a13f1e249daf90eb4fa8361f883a131450e2eb9ad540fc73878cb34f89c"
+    },
+    {
+      "path": "public/paintfall-caucasus-animal-details.js",
+      "bytes": 5702,
+      "sha256": "9bc358b676a8daa75664acafa3fae389a037b688d25f09bc0841f98dfec79259"
+    },
+    {
+      "path": "public/paintfall-caucasus-flowers.js",
+      "bytes": 3918,
+      "sha256": "729c36ec0eb46499f86986176a9aaa2eb64073fd870a8f8dbe1ec050cd8f3ddb"
+    },
+    {
+      "path": "public/paintfall-caucasus-homes.js",
+      "bytes": 7549,
+      "sha256": "55beea685ece70ca64efeeb92bd47d5f5af603f00879ed2223019e719e1c2b03"
+    },
+    {
+      "path": "public/paintfall-central-asia-animal-details.js",
+      "bytes": 5748,
+      "sha256": "cb2a6d0e4bc9ede927716074e9a5607e5e2de278e2ea509ea9e76077491600cb"
+    },
+    {
+      "path": "public/paintfall-central-asia-flowers.js",
+      "bytes": 2093,
+      "sha256": "09e98304e3b4ea12a0eec2fb16a5214c1c14243a6b688e2ee73bccb87578a053"
+    },
+    {
+      "path": "public/paintfall-central-asia-homes.js",
+      "bytes": 7658,
+      "sha256": "6481b50917dced57dfb9c06904ede7f2526d7ed71f6bff383ba69ea82e72a73b"
+    },
+    {
+      "path": "public/paintfall-central-asia-scenery.js",
+      "bytes": 570,
+      "sha256": "98232677e575dfa0cda9ec0e32fa1797f008a89dd91e986e31edca2366db5704"
+    },
+    {
+      "path": "public/paintfall-character-animation-foundation.js",
+      "bytes": 1406,
+      "sha256": "6ffcb5de3b11bd015a79f4ddf0b568b4e9018147f3fa1fe31a271336ef4ea0a5"
+    },
+    {
+      "path": "public/paintfall-character-designs.js",
+      "bytes": 2389,
+      "sha256": "56b7dec8e8cb5f4b08ad177561ee96fc8e51240a6ccefc4cb19b1df190453cd4"
+    },
+    {
+      "path": "public/paintfall-character-emotions.js",
+      "bytes": 1526,
+      "sha256": "edcba5d263f10313357d604127f00fc09677e16a8b55069dba93fc9ef47ac179"
+    },
+    {
+      "path": "public/paintfall-character-models.js",
+      "bytes": 4284,
+      "sha256": "05aeed3e3f424758f1549499da1f2a24879fd778790546eefe41853a5dc5787c"
+    },
+    {
+      "path": "public/paintfall-character-roster.js",
+      "bytes": 1366,
+      "sha256": "94de777560c8240bfddbb9d291de0020c8d2a8d4b27b529f1bbf59e38f3fe6cd"
+    },
+    {
+      "path": "public/paintfall-character-selection.js",
+      "bytes": 392,
+      "sha256": "4272f7c668fe5066b4434b982a26591d08446ea2ad2172f15cdeea75b9cc85ce"
+    },
+    {
+      "path": "public/paintfall-character-sheet-details.js",
+      "bytes": 9591,
+      "sha256": "e70c3fe23694e1569d5d0d1121c1bafd3cb8a6e5efea2182c57adb00a6158e27"
+    },
+    {
+      "path": "public/paintfall-china-neighborhood.js",
+      "bytes": 2774,
+      "sha256": "c28af9d26353bec403af4bf34540a03de41f5c3e4c35dfe1392dff360588e48a"
+    },
+    {
+      "path": "public/paintfall-china-scenery.js",
+      "bytes": 1518,
+      "sha256": "edf11ab11d43cb5de5580786f386c606423c58993e34dc51ae308617128c109a"
+    },
+    {
+      "path": "public/paintfall-contest-3d-game.js",
+      "bytes": 11616,
+      "sha256": "64abbb84bbb35f34ab2236c25440af450ab32777bc5bb2cd51bcd2599a5d014c"
+    },
+    {
+      "path": "public/paintfall-contest-3d-runtime.js",
+      "bytes": 9294,
+      "sha256": "dba5a9136c996466b00fe01d0d5c7339973913789432f540fb31f98d2aa59a70"
+    },
+    {
+      "path": "public/paintfall-contest-3d-world.js",
+      "bytes": 43547,
+      "sha256": "d12ee7a49ccc0ab9556fce990727fe76a8b9ef805c037fdaae42039b52b73dc2"
+    },
+    {
+      "path": "public/paintfall-contest-playable-layer.js",
+      "bytes": 601,
+      "sha256": "701a03428391060c9a112108e380d41449de94d7f4cacd224fd5a83f027d9294"
+    },
+    {
+      "path": "public/paintfall-core-abilities.js",
+      "bytes": 3597,
+      "sha256": "260d3f767bb8bba1bffaeefcc461538c3297c477bfbf49a38e66a7978b78aa60"
+    },
+    {
+      "path": "public/paintfall-core-ability-effects.js",
+      "bytes": 10916,
+      "sha256": "afcb026690a9200854681158be3b91194577ce516afebaaf9f206ad6f5d80aac"
+    },
+    {
+      "path": "public/paintfall-country-africa-thirty.js",
+      "bytes": 90902,
+      "sha256": "3ecc02fdf9d65d7a053176a60e504c03b4068f552a51cdfd97e47c767dbdb7f1"
+    },
+    {
+      "path": "public/paintfall-country-batch-eight.js",
+      "bytes": 5656,
+      "sha256": "aa79e822a30f525ec995d716838146a893793ec2a300088ee1966572b9333783"
+    },
+    {
+      "path": "public/paintfall-country-batch-eleven.js",
+      "bytes": 5701,
+      "sha256": "2babc6a8931c862c221cd4814885da11d3560f028ad1c34179def96fb442c18b"
+    },
+    {
+      "path": "public/paintfall-country-batch-fifteen.js",
+      "bytes": 6814,
+      "sha256": "501507221276285e3a18d4b1f2b2b9f8de9098a27402c0b109f4383176fd8788"
+    },
+    {
+      "path": "public/paintfall-country-batch-five.js",
+      "bytes": 5025,
+      "sha256": "23d57ec486d30ef7a8fc6219c3fdd504c8ae811e9b30facdf1db5bf0a9b71a11"
+    },
+    {
+      "path": "public/paintfall-country-batch-four.js",
+      "bytes": 4816,
+      "sha256": "7e3ccd7771c8f7f63dcc091c3576b4b4f0a963d252da3b9e20a563f752ab01d9"
+    },
+    {
+      "path": "public/paintfall-country-batch-fourteen.js",
+      "bytes": 6622,
+      "sha256": "0953b213009122bbbcbcfa75fea42d3590d88abb5922354baafaed313a712769"
+    },
+    {
+      "path": "public/paintfall-country-batch-nine.js",
+      "bytes": 5790,
+      "sha256": "16a2f3069b079aaeeb6e208b41d6d4d6f01bd99fbf2189273c6d841d5aa66d05"
+    },
+    {
+      "path": "public/paintfall-country-batch-one.js",
+      "bytes": 3618,
+      "sha256": "d15fcce619f1cd00d610b619ce176bc2649774129c4fd4e319344138657e1c95"
+    },
+    {
+      "path": "public/paintfall-country-batch-seven.js",
+      "bytes": 5599,
+      "sha256": "bca3b32e0eb00e3262d42ed99d7b90863956867087dc31eb8d92758d258d221c"
+    },
+    {
+      "path": "public/paintfall-country-batch-six.js",
+      "bytes": 5219,
+      "sha256": "a3e785dd24a3fc5b1ab252e9c3afba64097e6f0937cdf5b70c36bdd946eb4905"
+    },
+    {
+      "path": "public/paintfall-country-batch-sixteen.js",
+      "bytes": 7272,
+      "sha256": "10a0bc02c550b269201d009fe3e55e0e5e57e5a709c80dfb59688a6eae325deb"
+    },
+    {
+      "path": "public/paintfall-country-batch-ten.js",
+      "bytes": 5823,
+      "sha256": "343be00e8fded99aa0b9af07d9be563ed31b2de6eec7d7f1e1b239f3bca4cb96"
+    },
+    {
+      "path": "public/paintfall-country-batch-thirteen.js",
+      "bytes": 4440,
+      "sha256": "7bbddf91079042b9cb74be13a661da89e0c0dc470e77621cc32eb2bc67915b68"
+    },
+    {
+      "path": "public/paintfall-country-batch-three.js",
+      "bytes": 5037,
+      "sha256": "f530419cd0b992effd96a9b2991d8bd85a28e287ce04ed404422c494ae20c1b0"
+    },
+    {
+      "path": "public/paintfall-country-batch-twelve.js",
+      "bytes": 4855,
+      "sha256": "c03225320b889d398b09deb6c6a380c2daeef5af7378b9204627878af25c4d27"
+    },
+    {
+      "path": "public/paintfall-country-batch-two.js",
+      "bytes": 4699,
+      "sha256": "d04fadb3b833281251c6e3e91cdf50eff9e31e5b032d1b139673d3134e46625f"
+    },
+    {
+      "path": "public/paintfall-country-final-map.js",
+      "bytes": 257945,
+      "sha256": "295e4228b939b0129bb9574bcc5329d0ee0a1c81ecb999ea78fd4402c2e5a0fe"
+    },
+    {
+      "path": "public/paintfall-country-next-sixty.js",
+      "bytes": 209294,
+      "sha256": "ca3ce1bb8e536cc09e824a4879f6044df3f8a7bbd2c7d6952d7412428d706511"
+    },
+    {
+      "path": "public/paintfall-country-next-thirty.js",
+      "bytes": 100731,
+      "sha256": "a2cbc5284ccdf84ebb7f28d189fa2984979e190632da5054d3738cab98087431"
+    },
+    {
+      "path": "public/paintfall-create-chaos.js",
+      "bytes": 9561,
+      "sha256": "c6c234e9316a1856b44daf4b7ca0134d6cfa9f2cddc8e3281b7fabeb9f99c864"
+    },
+    {
+      "path": "public/paintfall-east-asia-animal-details.js",
+      "bytes": 3927,
+      "sha256": "9e25cf083d68fa0dbcab584c3a897ce9f7290054c7239307415af47a3e4de532"
+    },
+    {
+      "path": "public/paintfall-east-asia-homes.js",
+      "bytes": 5493,
+      "sha256": "38f6d5427bc39d4258738acdf8cb482fecb3906bab665695468251111022d144"
+    },
+    {
+      "path": "public/paintfall-east-asia-scenery.js",
+      "bytes": 1888,
+      "sha256": "8d8931eeaa10266128cd39cc3cc093cef1311f1ccc409940d52f73e255709c27"
+    },
+    {
+      "path": "public/paintfall-equatorial-scenery.js",
+      "bytes": 4232,
+      "sha256": "e2eb55854a4d6cc1e27e1b75ccaf2ae89a29c9e18df1f7541e17a849a18f7697"
+    },
+    {
+      "path": "public/paintfall-europe-animal-details.js",
+      "bytes": 11157,
+      "sha256": "c25ec9bc190c5cc41b09b28fa454c1205860172dddbc35b4eb0449ab9cb4a2a5"
+    },
+    {
+      "path": "public/paintfall-family-room-ui.js",
+      "bytes": 5972,
+      "sha256": "9b47bdefd5fcebddffc852ae36b85be275d06c06c51c7267e5ae883eff054bac"
+    },
+    {
+      "path": "public/paintfall-final-animal-details.js",
+      "bytes": 11179,
+      "sha256": "85e0f3be5eeee3f7e493bfe7b99da27e628bc1e8d7bf5e1038587c4faa140904"
+    },
+    {
+      "path": "public/paintfall-final-homes.js",
+      "bytes": 13065,
+      "sha256": "2198a1358abc5bf4a20526c738e7da1eba135d8b4c7fdf651c1cafaa3eb39fbf"
+    },
+    {
+      "path": "public/paintfall-final-scenery.js",
+      "bytes": 4368,
+      "sha256": "866192c6e665d48c15edadd281e88ee10f8477b472c5b6f6f65f53cfda7b8525"
+    },
+    {
+      "path": "public/paintfall-first-person-touch.js",
+      "bytes": 2228,
+      "sha256": "9f84b646c68f9aacda5004316a8061380e41d8b68a5342c6e2d5b4cb1169e6c2"
+    },
+    {
+      "path": "public/paintfall-game-menu.js",
+      "bytes": 4204,
+      "sha256": "16a0298b773682f784f033b3997e34ee165b42fb798de8c650b1c91108ab21c6"
+    },
+    {
+      "path": "public/paintfall-game-modes.js",
+      "bytes": 946,
+      "sha256": "b8ca2fa1f1b48c670239d4def42d76cdc0720e38508ecc30799d49d6290ba8b4"
+    },
+    {
+      "path": "public/paintfall-game-world.js",
+      "bytes": 6108,
+      "sha256": "97360ae628b09dca197ef885acfa4e2e52d4186dd34488ef7d66824e3c66871a"
+    },
+    {
+      "path": "public/paintfall-garden-paint-flowers.js",
+      "bytes": 7787,
+      "sha256": "b47e2bcd0f602abed1f7f29db352653b0b4a3cde5beab299ca76eeb24444cb1b"
+    },
+    {
+      "path": "public/paintfall-hero-brain.js",
+      "bytes": 4127,
+      "sha256": "a95a1ff5db301d57be40b3cb6f3a678e5159c5b87acc5fff03763635063b23e2"
+    },
+    {
+      "path": "public/paintfall-hero-visible-tells.js",
+      "bytes": 1144,
+      "sha256": "874ec8d0edc53a7cb22211186c6abc823d510b916407ac826fe6ac4b32f7be59"
+    },
+    {
+      "path": "public/paintfall-himalaya-delta-animal-details.js",
+      "bytes": 5385,
+      "sha256": "0980a4cc7280d63e1e74472b307c501c584530a1a5b6739548f7c72a812365da"
+    },
+    {
+      "path": "public/paintfall-himalaya-delta-homes.js",
+      "bytes": 5360,
+      "sha256": "014cd2cfdd22f2b31b01ec4a670acad831b55976dd0fed4a6b786b84aa50a45b"
+    },
+    {
+      "path": "public/paintfall-himalaya-delta-scenery.js",
+      "bytes": 1906,
+      "sha256": "cbef575ef580d4bf50a6a3b6ad813eae8b35347cbbb9279ccacbbd1a5aa999c8"
+    },
+    {
+      "path": "public/paintfall-house-massing-variety.js",
+      "bytes": 7525,
+      "sha256": "360dbd5e5a94f2872c5dcd09488bbab41d0f7e0ec06901a5a7fe2deb3e4ba208"
+    },
+    {
+      "path": "public/paintfall-http-party-socket.js",
+      "bytes": 2792,
+      "sha256": "2c65d2b6433c9b9478c6aad26b6b51ef1eb1a08c73609f3884e3b577b728148e"
+    },
+    {
+      "path": "public/paintfall-idaho-scenery.js",
+      "bytes": 3245,
+      "sha256": "dfccc1f880bb626f36bc86aa4d12fbc117866d921d31a2a37d9cf34396f1ec10"
+    },
+    {
+      "path": "public/paintfall-immersive-camera-v2.js",
+      "bytes": 7671,
+      "sha256": "acc0b8e53c3eb11035da4d08101af0764951192748bcd2254759b24323987ce3"
+    },
+    {
+      "path": "public/paintfall-immersive-camera.js",
+      "bytes": 5614,
+      "sha256": "1d35e96ae4833153f7929cae75614f30950f416c0e599ce76175c90a7b291e2e"
+    },
+    {
+      "path": "public/paintfall-impact-events.js",
+      "bytes": 1145,
+      "sha256": "1806f79586ed351821b52886cd47c15064d9da94cab79573c6f799898b2defdc"
+    },
+    {
+      "path": "public/paintfall-impact-hooks.js",
+      "bytes": 892,
+      "sha256": "a3ab7bd8f8b8af4ea80e9bd46630af7bae3538c50a49d2d33bd546017739d538"
+    },
+    {
+      "path": "public/paintfall-impact-system.js",
+      "bytes": 3083,
+      "sha256": "c349dfe076fb16322044b24a4849db17ee3d2b70da31dbec102df82830890d93"
+    },
+    {
+      "path": "public/paintfall-input-controls.js",
+      "bytes": 2997,
+      "sha256": "ac7da031ab3f468c6fb5750780c713bb940570742e0159c30a0301d21148cbc4"
+    },
+    {
+      "path": "public/paintfall-island-group-nine-animal-details.js",
+      "bytes": 2439,
+      "sha256": "227f5549f7fb2893cfc57c3f74b7f337782ba7486319457e5dac374dbf231f83"
+    },
+    {
+      "path": "public/paintfall-island-group-nine-homes.js",
+      "bytes": 5535,
+      "sha256": "73a9f1b61b84d817d8c4d93a63b4f083bd326f43af958cb3109c18d65981861b"
+    },
+    {
+      "path": "public/paintfall-island-group-nine-scenery.js",
+      "bytes": 1852,
+      "sha256": "5692985bc2a152e058a7b3b8062fb6f785e14c012d66e6448372ff630dc0a8c4"
+    },
+    {
+      "path": "public/paintfall-island-group-ten-animal-details.js",
+      "bytes": 2131,
+      "sha256": "4ae8e65e5340fc140e62cb106cd7864f7722192443c29f8a4692aaf761d22563"
+    },
+    {
+      "path": "public/paintfall-island-group-ten-homes.js",
+      "bytes": 4074,
+      "sha256": "7e0f2de28c1840f4e625f5d009ae558ad30d1711f4be9c07ebe36fa26f8f19ef"
+    },
+    {
+      "path": "public/paintfall-island-group-ten-scenery.js",
+      "bytes": 3012,
+      "sha256": "aef7568b0da8c743f5b3a540d02bd463db99f72bebb56e8cd6ae9848185c4d71"
+    },
+    {
+      "path": "public/paintfall-island-homes.js",
+      "bytes": 5909,
+      "sha256": "dd441e13795e2bc6380ad0b2bc60eae21bdee566aef7b41bedb95ab92e0c7b76"
+    },
+    {
+      "path": "public/paintfall-island-scenery.js",
+      "bytes": 6272,
+      "sha256": "32cd3af9ee408e2831507fb58e997ed64db64345704b337ad72fff6b660d0ad4"
+    },
+    {
+      "path": "public/paintfall-japan-neighborhood.js",
+      "bytes": 2180,
+      "sha256": "ccc46e52af8c22eca0319692e54f00602f0d7daabb9c38064151e288959f0547"
+    },
+    {
+      "path": "public/paintfall-japan-scenery.js",
+      "bytes": 2651,
+      "sha256": "7afd5ea6449c7aed5085244c84cd7a068ed7cb26ada746eb9ad10a0008bd8b7a"
+    },
+    {
+      "path": "public/paintfall-jax-ability.js",
+      "bytes": 4346,
+      "sha256": "0157276aebf552fac2df7afbf51d495a76094ad160029d73a4e4b6c6cd1c1c80"
+    },
+    {
+      "path": "public/paintfall-kirin-energy-proposal.js",
+      "bytes": 8341,
+      "sha256": "6273883ddb3c403a2f0a714f383237e5104517b6187b73dedb4a1440ac780fa8"
+    },
+    {
+      "path": "public/paintfall-kirin.js",
+      "bytes": 5746,
+      "sha256": "64ee6476f0a58fcf758a10e66f335ce007bf37adfb4611cd8910bd6eab832591"
+    },
+    {
+      "path": "public/paintfall-korea-neighborhood.js",
+      "bytes": 2738,
+      "sha256": "60de10127bb7e07b904b2266be5edb335735b5b5e45aea79dcd48216d17815b2"
+    },
+    {
+      "path": "public/paintfall-land-scenery.js",
+      "bytes": 8396,
+      "sha256": "74e2be5b86fae5e0b88bdef568e0dbab20228ebb16db5284853256b515d42d73"
+    },
+    {
+      "path": "public/paintfall-land-walking.js",
+      "bytes": 7338,
+      "sha256": "002925a34998eee584f97147e41c85a15540a83cb47f8b63de85b228c8b47708"
+    },
+    {
+      "path": "public/paintfall-laos-garden.js",
+      "bytes": 6311,
+      "sha256": "d7cd3bbc7cb032767837603e224b3f440a1f3f78adc1a2ba8e4dcf6fc4ec0572"
+    },
+    {
+      "path": "public/paintfall-laos-interiors.js",
+      "bytes": 2066,
+      "sha256": "ab8ff31d28cba99b543c16d7a744de44cec262de8ad82f80cf67083756cd32e9"
+    },
+    {
+      "path": "public/paintfall-laos-neighborhood.js",
+      "bytes": 2974,
+      "sha256": "3fdf976d04a967cb0bab41bf7cb959cb5202b2dd0a159d45b61df9b6a464c82b"
+    },
+    {
+      "path": "public/paintfall-laos-scenery.js",
+      "bytes": 3165,
+      "sha256": "97eec9225c58ae7d737856c553db897c3589d2b971c470d7a424adf5ce8be64a"
+    },
+    {
+      "path": "public/paintfall-laos-wildlife.js",
+      "bytes": 22010,
+      "sha256": "2be83186294407c8ef315619e412d1949ad04c41a3ee5e3643e01dfa56ed4f8e"
+    },
+    {
+      "path": "public/paintfall-levant-animal-details.js",
+      "bytes": 5427,
+      "sha256": "da71a705c2e49f0287e90ad3d862b86881e12123bee7a4282a7f851db2f0b042"
+    },
+    {
+      "path": "public/paintfall-levant-homes.js",
+      "bytes": 7023,
+      "sha256": "7444d40ebc3f6eae27ff2e8067d8f30ed651037c99fce2401723deff3226352c"
+    },
+    {
+      "path": "public/paintfall-match-transition.js",
+      "bytes": 1983,
+      "sha256": "6ba8d3abe377457685fc608265cc08cb4f95e3d63aa7f912f526141a7d06640b"
+    },
+    {
+      "path": "public/paintfall-maya-ability.js",
+      "bytes": 4288,
+      "sha256": "c80c45c999dd51f8f8b723390d31f604fb3da56c99d57e5198d05acc383df230"
+    },
+    {
+      "path": "public/paintfall-micronesian-animal-details.js",
+      "bytes": 2729,
+      "sha256": "44e31080b0b3ffc2a2e29b3ee50f0011fd0fed90d314fb4c4a89346f430de78a"
+    },
+    {
+      "path": "public/paintfall-micronesian-homes.js",
+      "bytes": 5569,
+      "sha256": "1ad635367b11d59242a42c22d0b4f6d4db7176b55e4b0253ddc64eb173e49b8c"
+    },
+    {
+      "path": "public/paintfall-micronesian-scenery.js",
+      "bytes": 2578,
+      "sha256": "f3cc24af1a54df4fc094f8ce0dc1730c9b1f92d842ce87e0e66f142cb84c3f50"
+    },
+    {
+      "path": "public/paintfall-movement-sync.js",
+      "bytes": 7481,
+      "sha256": "6d456bab1b8a2da2fe781f97b3a4794e1e9d07963c69a7e9a5760dd62cf1127c"
+    },
+    {
+      "path": "public/paintfall-native-trees.js",
+      "bytes": 2409,
+      "sha256": "769f800a8c200db0e0ce6dea8d689b89f7f2f89e58133cd3f578075c75ebe4ac"
+    },
+    {
+      "path": "public/paintfall-nevada-build.js",
+      "bytes": 28077,
+      "sha256": "935f2423c2e2adc8fd3735ec19114d31a338007cc45cb7f78d3760bd0f5906f9"
+    },
+    {
+      "path": "public/paintfall-next-sixty-homes.js",
+      "bytes": 10447,
+      "sha256": "9b56786fcc9b7666320099ed8bab1959b321396317cfe0e4a78faa76a98f160e"
+    },
+    {
+      "path": "public/paintfall-next-sixty-scenery.js",
+      "bytes": 1080,
+      "sha256": "d201a8fc1babdc6f34d00ae8bfc6c39e696861c6a18c56765d9d0f4ab0a38ecc"
+    },
+    {
+      "path": "public/paintfall-next-thirty-animal-details.js",
+      "bytes": 7105,
+      "sha256": "ce357f7f7194866da91e1b7015cb1a5d1930c98d3d02483af2497e6f7dfedeea"
+    },
+    {
+      "path": "public/paintfall-next-thirty-flowers.js",
+      "bytes": 1808,
+      "sha256": "becea2a6898711ddcd7b9c9e4cb53aecb061811e2c2a6780d59438ce2798cac7"
+    },
+    {
+      "path": "public/paintfall-next-thirty-homes.js",
+      "bytes": 6607,
+      "sha256": "02112384f63208702fcbfadcef1a1aaeb0349d86c94a0cf972ca095707442d19"
+    },
+    {
+      "path": "public/paintfall-next-thirty-scenery.js",
+      "bytes": 643,
+      "sha256": "d470a7a925acc362538172078f875670dad5c9ea94e6ea2eecf433973d235377"
+    },
+    {
+      "path": "public/paintfall-nova-ability.js",
+      "bytes": 6001,
+      "sha256": "89fce4ec2436f91be1353d246a581ba547fc060fb3030e13bf72309148c4b676"
+    },
+    {
+      "path": "public/paintfall-nova-eye-alignment.js",
+      "bytes": 4653,
+      "sha256": "53070c2a292c62c06eb63e17bb9676e4b3fce049319bcabee87b68b8cd2fba29"
+    },
+    {
+      "path": "public/paintfall-nova-face-refinement.js",
+      "bytes": 3622,
+      "sha256": "b9445ff38d16334918272a21219f8ec68e8ce79d1e64102afe1281e092548322"
+    },
+    {
+      "path": "public/paintfall-nova-game-model.js",
+      "bytes": 4564,
+      "sha256": "a29e39ff1c3b00d21b496fa6f5d03052068fdb7a58fa208f4ea35b27309875ce"
+    },
+    {
+      "path": "public/paintfall-nova-knowing-expression.js",
+      "bytes": 2795,
+      "sha256": "9f4e2f461289eba494c8831895c23c068477d377a098dc53cb71494c5af02166"
+    },
+    {
+      "path": "public/paintfall-nova-locomotion.js",
+      "bytes": 12130,
+      "sha256": "88463db746847fa9406716b8c63f10f03f8be9c4daeaa6d077695df04d47b39a"
+    },
+    {
+      "path": "public/paintfall-nova-outfit.js",
+      "bytes": 1284,
+      "sha256": "0750fae59812cc9f450a149883ae9b2254291b01ea15f80ff84cdb88f4079307"
+    },
+    {
+      "path": "public/paintfall-nova-relaxed-face.js",
+      "bytes": 3572,
+      "sha256": "65ea5f54d23d2b79801cdb02944c9fb2692841ff8a18291af51fe7472180abe9"
+    },
+    {
+      "path": "public/paintfall-nova-sheet-outfit.js",
+      "bytes": 7061,
+      "sha256": "9ec56ab531b424ab50a57bd728e2eb3ce17f2a899e2ab1eff78f38f2353fd70e"
+    },
+    {
+      "path": "public/paintfall-nova-sheet-portrait.js",
+      "bytes": 9715,
+      "sha256": "bd7bcfb49c5b9ade2e8faa590012ded26fed7524b4ce5c026da943215d483a81"
+    },
+    {
+      "path": "public/paintfall-nova-smile.js",
+      "bytes": 2834,
+      "sha256": "f43385e30721522afe135947fd263e2ee68472568290a3a14214b0b2179b0c2b"
+    },
+    {
+      "path": "public/paintfall-oceanic-homes.js",
+      "bytes": 4918,
+      "sha256": "535ae6573f4a1c480d25831cb428184f1f00305f13a831d3f90732886a6ecc89"
+    },
+    {
+      "path": "public/paintfall-oceanic-scenery.js",
+      "bytes": 2629,
+      "sha256": "be24ef22e912b96494c1f7bdde271b673528b5f5aa63a760e759eae14824336e"
+    },
+    {
+      "path": "public/paintfall-oregon-scenery.js",
+      "bytes": 3183,
+      "sha256": "8e6d6ea68a5907e2f92429c1adc7e82c8d050b1feffc430291e3f74ad56189eb"
+    },
+    {
+      "path": "public/paintfall-outdoor-character-factory.js",
+      "bytes": 29983,
+      "sha256": "573d50ab930eebb29fa542cf1f61f8ec825e764d4087089fb1a7afca21eb2d55"
+    },
+    {
+      "path": "public/paintfall-outdoor-players.js",
+      "bytes": 11662,
+      "sha256": "76956020b8b0eedea35a8efddbe9a50056ea91734328ee574eb535c2e83de743"
+    },
+    {
+      "path": "public/paintfall-pacific-animal-details.js",
+      "bytes": 6772,
+      "sha256": "530c145826cd809c0bb6e6e32964d3c8768e9a585f27c33209cec6d11a69e492"
+    },
+    {
+      "path": "public/paintfall-pacific-homes.js",
+      "bytes": 5690,
+      "sha256": "47d9f8182b1b996db4864c0b2aedeaa60d0d3e38abc8ad22419fcfcc9bfc981c"
+    },
+    {
+      "path": "public/paintfall-pacific-scenery.js",
+      "bytes": 3039,
+      "sha256": "e0f572567b6820b198bad0075dc19ca149f05988bbdf1da5d73bfa22b748712d"
+    },
+    {
+      "path": "public/paintfall-park-progress.js",
+      "bytes": 2717,
+      "sha256": "b197a2dd835f5eab29f49b11a21d532629c5907956314b0695e1a7dacc98653c"
+    },
+    {
+      "path": "public/paintfall-party-connection.js",
+      "bytes": 3863,
+      "sha256": "943673531e466dc4a8d6195536451b5bd9abfbb7337716fbf43db46868295daf"
+    },
+    {
+      "path": "public/paintfall-party-create-fix.js",
+      "bytes": 1724,
+      "sha256": "10830861a78e2b669f905cf891577ac76cf376a59933d4874b252f8725b6c6cc"
+    },
+    {
+      "path": "public/paintfall-party-lobby.js",
+      "bytes": 8587,
+      "sha256": "a37248c54456600820c4e44b8cc98245bc2b82100d4ccfae18c49d2ba936ccff"
+    },
+    {
+      "path": "public/paintfall-party-preview.js",
+      "bytes": 2971,
+      "sha256": "63e8395c3dc7bf370abb681c3b984f4d2fcafcc9aa7566fc1208631b8f1c3281"
+    },
+    {
+      "path": "public/paintfall-play-hub.js",
+      "bytes": 3858,
+      "sha256": "348492865965298098880ecd459f3ec65cb42b392974d355cc620e1743c7dce1"
+    },
+    {
+      "path": "public/paintfall-player-3d.js",
+      "bytes": 6933,
+      "sha256": "3379784ed59cd8f33c064a7b23e1556b5cd0c5fea6f025f70cbe45e5e4561770"
+    },
+    {
+      "path": "public/paintfall-player-paint-effects.js",
+      "bytes": 4036,
+      "sha256": "1700a579c1c406d647a962eb1039c367ddd6623cea756aff3a4cfb17d799e03c"
+    },
+    {
+      "path": "public/paintfall-player-paint.js",
+      "bytes": 1818,
+      "sha256": "249bc1ab426c496ca5a0b4674362e08c6b11f057c11794058d095dedc7a1b3da"
+    },
+    {
+      "path": "public/paintfall-reality-pass.js",
+      "bytes": 6763,
+      "sha256": "7923d5755305231f08188b8b81b88f905ef64168b960e7babcc7697552d2a1d2"
+    },
+    {
+      "path": "public/paintfall-refined-homes.js",
+      "bytes": 10537,
+      "sha256": "a4dd50e9ce92da5b6a61709e9495dcbfeeff53205c75e8536de5f0ae952677a5"
+    },
+    {
+      "path": "public/paintfall-regional-bird-details.js",
+      "bytes": 1676,
+      "sha256": "987966063e9ad501293accc9112a828c99a3dcfa08cd6a4db61b59ee71c56d00"
+    },
+    {
+      "path": "public/paintfall-regional-homes.js",
+      "bytes": 9364,
+      "sha256": "7790fd0bcf508db2c44b39bba1f3c91ee761de8788ee09bd53543f74c61fc3f1"
+    },
+    {
+      "path": "public/paintfall-regional-refinement-profiles.js",
+      "bytes": 3722,
+      "sha256": "8af9dd0e8ff5c933419090df6d43e444051d1589fe91a39c669483228b94ec21"
+    },
+    {
+      "path": "public/paintfall-regional-scenery.js",
+      "bytes": 2825,
+      "sha256": "a1757006bb3b0efccc6f64b63762f279d635a77a7e3eb54b07a47a840b964f65"
+    },
+    {
+      "path": "public/paintfall-regional-tree-studies.js",
+      "bytes": 6743,
+      "sha256": "899a5741799b5cf63f36db0773ff05781608e683f1f7739837b95df575d8b852"
+    },
+    {
+      "path": "public/paintfall-room-connection-ui.js",
+      "bytes": 2892,
+      "sha256": "f913bde18ee93e6ff8dfbbb581d3d72a5d96cf37d358b6db7a2e346098e9b31d"
+    },
+    {
+      "path": "public/paintfall-safari-scroll-fix.js",
+      "bytes": 1266,
+      "sha256": "f0e62cbd621159a3c41c715e28f88df778b2593631a33622596ee03c8e5cdc21"
+    },
+    {
+      "path": "public/paintfall-south-asia-animal-details.js",
+      "bytes": 5167,
+      "sha256": "268344fe308471d11ca07df89839c2352296902fcba510519988ed7ad720a00b"
+    },
+    {
+      "path": "public/paintfall-south-asia-flowers.js",
+      "bytes": 3453,
+      "sha256": "c93d937df05f91caa9d3374f94db381c30a0f2b976fd80b6496fb835980e9df5"
+    },
+    {
+      "path": "public/paintfall-south-asia-homes.js",
+      "bytes": 4862,
+      "sha256": "fc5a511c8e90bc0917e4c817ba44dde30fe44abd16d711eb1b82be6840de4b67"
+    },
+    {
+      "path": "public/paintfall-south-asia-scenery.js",
+      "bytes": 833,
+      "sha256": "f0009d974e750e2d34c972e9b173d5425046d3703aa7fe810a96c11769084a45"
+    },
+    {
+      "path": "public/paintfall-splash-landing.js",
+      "bytes": 5952,
+      "sha256": "f651f43a7a944f522040e2046ea65f603c59549897d6fa91b9e6bc0bcd08b4ad"
+    },
+    {
+      "path": "public/paintfall-splash-ui.js",
+      "bytes": 1603,
+      "sha256": "8561db35150d99d44d79adf0b702594aedcfd1b526aa33599213754d79c6e7c0"
+    },
+    {
+      "path": "public/paintfall-state-identity.js",
+      "bytes": 7316,
+      "sha256": "d0b69bb39481fa1973ee8ea804d7fad634d4872b803093abfc473a38b5ecef39"
+    },
+    {
+      "path": "public/paintfall-surface-materials.js",
+      "bytes": 1008,
+      "sha256": "99696042a4022e621f4bf65fffc6c734b67b4f1431aaaf3c4ee94039d03551f6"
+    },
+    {
+      "path": "public/paintfall-syntax-test.mjs.txt",
+      "bytes": 16517,
+      "sha256": "65a0243ecbdd6bfc8124ff502bbee785cad6cd0fc8031013e7efe7f2e25f87fc"
+    },
+    {
+      "path": "public/paintfall-thailand-details.js",
+      "bytes": 6893,
+      "sha256": "d275a230d2274f6bf51e7809f24123863bcb763e5a0d598581e24382f4ad6973"
+    },
+    {
+      "path": "public/paintfall-thailand-neighborhood.js",
+      "bytes": 2502,
+      "sha256": "28935f64d0fddd1e8d9f7c2d99302e8e0aacc10421d9f36645553f03c4ddff6b"
+    },
+    {
+      "path": "public/paintfall-thailand-scenery.js",
+      "bytes": 2312,
+      "sha256": "840d3b9cc78baa7b78fb05b0b0f5225b13c8e5e1ea0ebda323613011a8e8439a"
+    },
+    {
+      "path": "public/paintfall-thailand-wildlife.js",
+      "bytes": 4686,
+      "sha256": "cf9bba171746c8779a82eb93f04adeb28ea6c5f6727c64a630b57be785bc3609"
+    },
+    {
+      "path": "public/paintfall-third-person-controls.js",
+      "bytes": 2591,
+      "sha256": "6ba56d295ba77d2aceb4aeb7dab95a5474ea473888e31e0fec61daff48e6306f"
+    },
+    {
+      "path": "public/paintfall-us-foundations.js",
+      "bytes": 5096,
+      "sha256": "59adf1870dfa756b8933dd5930ffbda09027bfe89f284ff38df573e8a1ee11a1"
+    },
+    {
+      "path": "public/paintfall-us-land.js",
+      "bytes": 41448,
+      "sha256": "5db57bb31c389ad0eda7b06b0a0d032e538bfd95ff423f482964b1e0f073cb97"
+    },
+    {
+      "path": "public/paintfall-utah-building.js",
+      "bytes": 6418,
+      "sha256": "e76408e5c5ed9b0d0333b5a22a29d8d8a56a652b839690e9c5494382bc7f221a"
+    },
+    {
+      "path": "public/paintfall-utah-scenery.js",
+      "bytes": 2611,
+      "sha256": "fb7b1656f04e2e1f54bf10a428637e4af3c6cf2be8f8dd764f7904a0fbae7857"
+    },
+    {
+      "path": "public/paintfall-vietnam-garden.js",
+      "bytes": 5782,
+      "sha256": "51b2d225900bef1c0f69ae27adcd5eb1f152ac2b49dc808b4f2f6d558fa87244"
+    },
+    {
+      "path": "public/paintfall-vietnam-interiors.js",
+      "bytes": 3926,
+      "sha256": "229188e570bcb842f78254e1f4209c4d02a09f7fd04c043e38ebd007ba0cf6e6"
+    },
+    {
+      "path": "public/paintfall-vietnam-neighborhood.js",
+      "bytes": 3031,
+      "sha256": "ee1aebf71e3ba810b837b567298db966a8554e4ad1f08190d359e3d7752fb604"
+    },
+    {
+      "path": "public/paintfall-vietnam-scenery.js",
+      "bytes": 4595,
+      "sha256": "86e633a5a41ad6609b58c25adbc1064c5ccbc14c581d32c511ab89618d898038"
+    },
+    {
+      "path": "public/paintfall-vietnam-wildlife.js",
+      "bytes": 10728,
+      "sha256": "0aca4156b755335c9bb5f46a42ed37e69945917fd65bedbe39a1579b99e41e11"
+    },
+    {
+      "path": "public/paintfall-visible-brain-ui.js",
+      "bytes": 2649,
+      "sha256": "23431e9d089249070e2c858d3ee3f19f1d1dcee0115d09a446c91491d3a7a404"
+    },
+    {
+      "path": "public/paintfall-wallis-enclosed-homes.js",
+      "bytes": 3627,
+      "sha256": "2c7f4e779ce78861dd2cd3828d48703e737bcd224be1ee08fd876ca78ff79a07"
+    },
+    {
+      "path": "public/paintfall-washington-scenery.js",
+      "bytes": 2794,
+      "sha256": "9928ac9fe14726df73746b11371da07fbbd8dabdee3c8d23cdf9ed74b9243c1a"
+    },
+    {
+      "path": "public/paintfall-water-buffalo.js",
+      "bytes": 1101,
+      "sha256": "e5df7f10224c35dace3b3a818674c77bea17eebe4e1f8f3162f771469def1a3f"
+    },
+    {
+      "path": "public/paintfall-wisconsin-landmarks.js",
+      "bytes": 3220,
+      "sha256": "79d60ddbac5d8476e4b02f10d8b15fbb2c7cc5ea9776326626893c6cc37fe4d4"
+    },
+    {
+      "path": "public/paintfall-wisconsin-neighborhood.js",
+      "bytes": 5498,
+      "sha256": "bf0549c4e500b79b59b02b7b93dcc383fcc939fb7a8304fb6a53696d51c407f1"
+    },
+    {
+      "path": "public/paintfall-wisconsin-wildlife.js",
+      "bytes": 12708,
+      "sha256": "1189f4a2551c15edd67f938d9899011cd17b19f0455e41a3aef8783f34cbde7d"
+    },
+    {
+      "path": "public/paintfall-world-atlas.js",
+      "bytes": 12296,
+      "sha256": "72a8239b037132cc49aabe5c9c3e7b84228f2b27e8ec2c3dc3d786c1747418fa"
+    },
+    {
+      "path": "public/paintfall-world-discovery.js",
+      "bytes": 6552,
+      "sha256": "83fe242a5426d56b6c33b50f0fb3e39ff1605580f817a7c6c45b6973925e9ae2"
+    },
+    {
+      "path": "public/paintfall-world-foundation.js",
+      "bytes": 3132,
+      "sha256": "0d7305bf6c3607165a979070cc6d66baacd4b4c5fd3227166730403257e9fa7e"
+    },
+    {
+      "path": "public/paintfall-world-play-mode.js",
+      "bytes": 6038,
+      "sha256": "dbbc927280d6abedc0adf76073bb01ff4100a0c6b303fd6b06024000663e4941"
+    },
+    {
+      "path": "public/paintfall-zara-ability.js",
+      "bytes": 3916,
+      "sha256": "3835166b004cb06249117a3b8f0916bbc739d3a11155412773e5b057f0dfeb89"
+    },
+    {
+      "path": "public/Paintfall_ Battle Arena Showdown.png",
+      "bytes": 2964209,
+      "sha256": "fe61c434798d4f6de26b00983aefe6720eda720fe83a90264eee9bc0d731814b"
+    },
+    {
+      "path": "public/park-build.html",
+      "bytes": 3129,
+      "sha256": "a63b2bc13365574988e5dfbc3d6a63e74c1eacd108c7895b07502a3dd7a05147"
+    },
+    {
+      "path": "public/park-progress.html",
+      "bytes": 2382,
+      "sha256": "3b73853d9d787bd7374cd2b7524484b7cbc606e1beb2dd5f77b7e3b2524ad697"
+    },
+    {
+      "path": "public/projectiles.js",
+      "bytes": 1793,
+      "sha256": "218a0be6734dc91dae0a352458366aa402659850383ad286e2346bc09e116bd5"
+    },
+    {
+      "path": "public/review-images/approved-dante.png",
+      "bytes": 2684370,
+      "sha256": "707f24da1409a8a25fca69774508ba3700ca115d694e6224ef425fb2dd5148a3"
+    },
+    {
+      "path": "public/review-images/approved-jax.png",
+      "bytes": 2964835,
+      "sha256": "8d2a6b5a99e8951b5abb9b69dae9a530acc705ffd7714e18523a35fa2489de04"
+    },
+    {
+      "path": "public/review-images/approved-kai.png",
+      "bytes": 2735406,
+      "sha256": "6da43a53037a5d7d1a99e425c59c952d1abec2e981cc25a6e7a9f9d0cc1555df"
+    },
+    {
+      "path": "public/review-images/approved-maya.png",
+      "bytes": 2748878,
+      "sha256": "209fbd8b31fa4e84806fb2424aee5531c21f16538c0f23bf59d891dd8040c434"
+    },
+    {
+      "path": "public/review-images/approved-nova.png",
+      "bytes": 2636128,
+      "sha256": "a5a492ab40de09b288aac9ca09c5004e94b165cd6915a564b0594de6561eee53"
+    },
+    {
+      "path": "public/review-images/approved-rico.png",
+      "bytes": 2698118,
+      "sha256": "a1c44787cb2a8464b3249d3a08938e84976d4c172cfff87500ebaea24564857f"
+    },
+    {
+      "path": "public/review-images/approved-skye.png",
+      "bytes": 3167784,
+      "sha256": "cf5db5cc73bb0bb8a25d191c6cb702f7b091590d057beaeea2b943aed085d73b"
+    },
+    {
+      "path": "public/review-images/approved-zara.png",
+      "bytes": 2793061,
+      "sha256": "31fa63c575f38ca611f66de5d2d35c0967da7739cd148833d530149153fe80bb"
+    },
+    {
+      "path": "public/review-images/cambodia-homes.png",
+      "bytes": 33521,
+      "sha256": "63aaee37e589add32febb0b1750f6e16c8e0be53d3d05f6c8240a39cea3179d8"
+    },
+    {
+      "path": "public/review-images/cambodia-interior.png",
+      "bytes": 42893,
+      "sha256": "9895277e7cfd3da85ee070fbab4a82e1be9e7f87cf4e37c62174e10ade931ebc"
+    },
+    {
+      "path": "public/review-images/cambodia-land.png",
+      "bytes": 30108,
+      "sha256": "cfe9a15a1df12803a8bd6ca5ba14a000ce3acf5d0c61ec9d1a52e766c472a064"
+    },
+    {
+      "path": "public/review-images/cambodia-wildlife.png",
+      "bytes": 49887,
+      "sha256": "fc4f9bfb77c7702deeb6f24864dccfc1b48430acbdfa34cfd3c5c711bc2bf2b8"
+    },
+    {
+      "path": "public/review-images/malaysia-homes.png",
+      "bytes": 34597,
+      "sha256": "da0525d2a29f34777b6b6a3d9880a257c88e168875a21a27949b6358a37e4ffc"
+    },
+    {
+      "path": "public/review-images/malaysia-interior.png",
+      "bytes": 58787,
+      "sha256": "9354ff394a8c1f87149780eb9ce3ee077fef723b9511801b5158ffbcbff5b8a3"
+    },
+    {
+      "path": "public/review-images/malaysia-land.png",
+      "bytes": 30359,
+      "sha256": "efcb2cd69c25b72fc47348f585704ea9641eec0cafa1466e35632de160266d56"
+    },
+    {
+      "path": "public/review-images/malaysia-wildlife.png",
+      "bytes": 51494,
+      "sha256": "a9dadd387c47da8759f9a1a6b03f3b9b0df526ac1b7f5964a5b59395ffe78c35"
+    },
+    {
+      "path": "public/review-images/myanmar-homes.png",
+      "bytes": 32506,
+      "sha256": "460685067811f08ed1de5917c292b632bd2371764e1601e50af7f41ba448cc82"
+    },
+    {
+      "path": "public/review-images/myanmar-interior.png",
+      "bytes": 38301,
+      "sha256": "86ee96bc8b9666e6930078b3f63b6e1768b4028bf7a67761c5bc4733aad97da2"
+    },
+    {
+      "path": "public/review-images/myanmar-land.png",
+      "bytes": 30974,
+      "sha256": "438b06f86a575a30e7aaeac9182e427d390e72b786f2d778d1eec3542392259b"
+    },
+    {
+      "path": "public/review-images/myanmar-wildlife.png",
+      "bytes": 33127,
+      "sha256": "f8271ea4465e5256569133c206f953e6def94d021729a51f9f92fb35304f31e1"
+    },
+    {
+      "path": "public/splash-landing-review.html",
+      "bytes": 4507,
+      "sha256": "0b087c5531c88dbe4d0a8f1543c482e1c753f4c495197d178d698e49faae95cd"
+    },
+    {
+      "path": "public/three-character-foundation.js",
+      "bytes": 552,
+      "sha256": "086ab3c23cc63e36b3c0514c11f3eb077d21d0734fff30f8f959432257548b36"
+    },
+    {
+      "path": "public/us-land-build.html",
+      "bytes": 3353,
+      "sha256": "3c85de94355876cd49b55ea175f1ccc73b2690d234386ce97752d1af4a9718db"
+    },
+    {
+      "path": "public/vendor/BufferGeometryUtils.js",
+      "bytes": 35553,
+      "sha256": "dd161846dee1b9e1fba88692d540c0fc76167aff90e1a7dfb1d1837d99d761b6"
+    },
+    {
+      "path": "public/vendor/D3-LICENSE.txt",
+      "bytes": 730,
+      "sha256": "b9ce458c2efc4caf95f3fccb44286a78ad69aa3bd7452c77e2cb0bd0dea31015"
+    },
+    {
+      "path": "public/vendor/d3.min.js",
+      "bytes": 279706,
+      "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539"
+    },
+    {
+      "path": "public/vendor/GLTFLoader.js",
+      "bytes": 114746,
+      "sha256": "8b3b56a5148a1d60e849a4e71c0a497bb727a29fff28d831377882074523bc4b"
+    },
+    {
+      "path": "public/vendor/OrbitControls.js",
+      "bytes": 38703,
+      "sha256": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c"
+    },
+    {
+      "path": "public/vendor/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "path": "public/vendor/three.core.js",
+      "bytes": 1403455,
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+    },
+    {
+      "path": "public/vendor/three.module.js",
+      "bytes": 603113,
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+    },
+    {
+      "path": "public/vendor/topojson-client.min.js",
+      "bytes": 7169,
+      "sha256": "25cd02ae486cc5063e0215a4e4cfb15de83700c87ac48bac4d57dc6aaf3ebb89"
+    },
+    {
+      "path": "public/vendor/TOPOJSON-LICENSE.txt",
+      "bytes": 734,
+      "sha256": "4c4d15b635e04e691825a76db7d33f7f2033b55669a7430011694f31e6c65999"
+    },
+    {
+      "path": "public/world-build.html",
+      "bytes": 7221,
+      "sha256": "298fc44af2f89ea6d7ff40f29eab1ee1851ac34fbeb24171320e3a4c287f58a3"
+    },
+    {
+      "path": "public/world-data/countries.json",
+      "bytes": 3661071,
+      "sha256": "3bc6f1d367a9bcec479841bae0e76092f512838411d0cef124e92eec4db45f79"
+    },
+    {
+      "path": "public/world-data/states.json",
+      "bytes": 114554,
+      "sha256": "d76b391ccfa8bff601d51e3e3da5d43a89fa46cd5caca72ce731b383be5596d0"
+    },
+    {
+      "path": "public/world-data/US-ATLAS-LICENSE.txt",
+      "bytes": 733,
+      "sha256": "d75658f1534a261d3f3a6a6b8582e58421781e320f029866c417c7f2b51a54e4"
+    },
+    {
+      "path": "public/world-data/WORLD-ATLAS-LICENSE.txt",
+      "bytes": 734,
+      "sha256": "8048290dfdb6e83fbed17e8985c8cfc4ce9da9b842642f3d3e497280790cfa31"
+    },
+    {
+      "path": "public/world-review-three.html",
+      "bytes": 6170,
+      "sha256": "c953200d9fa2a1b81b8abc2d825d6739f060e64a8c8afbb2e6b3b4341021233b"
+    },
+    {
+      "path": "public/zara-ability-review.html",
+      "bytes": 3805,
+      "sha256": "9a96584fde69df4ec1477a0c85e795622ac1f3d8d7f640e8392ca1323376ca02"
+    },
+    {
+      "path": "server.js",
+      "bytes": 17344,
+      "sha256": "836feb83f8cd04b0f917b960087ca8a2ece528c8133d583a5c3aaf1998f72ff9"
+    },
+    {
+      "path": "paintfall-accounts.cjs",
+      "bytes": 16445,
+      "sha256": "2a1b340d866dd248221b0bd4ed9e46e668a1a4de4a48b143816410bb2bc4b8fb"
+    },
+    {
+      "path": "paintfall-family-rooms.cjs",
+      "bytes": 2903,
+      "sha256": "f99d87ccaedba130bf3f7dbbe5cf39621efc5440238a8b410eb9dcd12b55865a"
+    },
+    {
+      "path": "paintfall-http-party.cjs",
+      "bytes": 5152,
+      "sha256": "e2a09e39206539ec093846da749e986d9cdf5ecfbb6a8d45fbce74ef1d6fe551"
+    },
+    {
+      "path": "paintfall-questionnaire.json",
+      "bytes": 2587,
+      "sha256": "d0c251008a66824406de1eece1d7c95fa7d13c0efd97105a5c5632c85b1f2a78"
+    },
+    {
+      "path": "paintfall-animal-memory-catalog.json",
+      "bytes": 141628,
+      "sha256": "0586917af0289b980736989af6cd150f7bfe5d795c1ce80685f0faafc0d7c135"
+    },
+    {
+      "path": "package.json",
+      "bytes": 228,
+      "sha256": "5f886c17e2a4454ff97c539494d9b076cde81db82a7e826286a308a6692a9257"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 949,
+      "sha256": "60651df863b47baa8fd8049f7b6ad3dbc07247520ef33d93dc18f31346aff687"
+    },
+    {
+      "path": "docs/PAINTFALL-SUBMISSION-GUIDE.md",
+      "bytes": 4445,
+      "sha256": "19cefcc3b86d0c6bf8fab2ba07b10632cefa0251108074b5f79d0ceb95a5c5f3"
+    },
+    {
+      "path": "CONTEST_RULES.md",
+      "bytes": 5231,
+      "sha256": "6de1d5b55bc75ecf54571bf94f009e63b75b0cf4e40d2c4d2b47c04f57c2e5f3"
+    },
+    {
+      "path": "public/paintfall-release.json",
+      "bytes": 339,
+      "sha256": "9e29429de49f300dda4709de3f1a11b426d44b2537157e4c2cb5e286662afb9d"
+    }
+  ]
+}

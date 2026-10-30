@@ -1,0 +1,2 @@
+import {buildHimalayaDeltaScenery} from './paintfall-himalaya-delta-scenery.js';
+export function buildCentralAsiaScenery(T,args){const result=buildHimalayaDeltaScenery(T,args),theme=args.profile.theme;result.group.traverse(o=>{if(o.name==='Valley boulder study'){const flat=theme==='stone-skylight'||theme==='steppe-cottage';o.scale.y*=flat?.4:theme==='felt-yurt'?.65:.8;o.position.y-=flat?.7:.25;o.material.color.setHex(theme==='mud-court'?0xb4a18b:theme==='timber-ayvan'?0xb5bba7:theme==='felt-yurt'?0xadb5ad:0xa6a89b);o.name='Regional rock study';}});return result;}

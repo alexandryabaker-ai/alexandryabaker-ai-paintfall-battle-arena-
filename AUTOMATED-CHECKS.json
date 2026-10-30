@@ -1,0 +1,242 @@
+{
+  "checkedAt": "2026-10-30T19:20:05.458Z",
+  "scope": "Automated local readiness checks, not contest approval or a deployment",
+  "manualChecksRequired": [
+    "Browser gameplay and visual review",
+    "Physical phone Safari and Chrome controls",
+    "Published build and persistent save storage",
+    "Contest organizer requirements and submission materials"
+  ],
+  "results": [
+    {
+      "test": "tests/accounts.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "accounts.cjs.log"
+    },
+    {
+      "test": "tests/animal-memories.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "animal-memories.cjs.log"
+    },
+    {
+      "test": "tests/animal-memories-ui.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "animal-memories-ui.cjs.log"
+    },
+    {
+      "test": "tests/world-discovery.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "world-discovery.cjs.log"
+    },
+    {
+      "test": "tests/party-connection.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "party-connection.cjs.log"
+    },
+    {
+      "test": "tests/http-party-server.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "http-party-server.cjs.log"
+    },
+    {
+      "test": "tests/input-controls.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "input-controls.cjs.log"
+    },
+    {
+      "test": "tests/movement-sync-trial.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "movement-sync-trial.cjs.log"
+    },
+    {
+      "test": "tests/movement-sync-server-trial.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "movement-sync-server-trial.cjs.log"
+    },
+    {
+      "test": "tests/submission-stability.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "submission-stability.cjs.log"
+    },
+    {
+      "test": "tests/arena-comfort.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "arena-comfort.cjs.log"
+    },
+    {
+      "test": "tests/arena-regions.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "arena-regions.cjs.log"
+    },
+    {
+      "test": "tests/game-world-integration.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "game-world-integration.cjs.log"
+    },
+    {
+      "test": "tests/contest-render-alignment.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "contest-render-alignment.cjs.log"
+    },
+    {
+      "test": "tests/movement-sync-render-trial.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "movement-sync-render-trial.cjs.log"
+    },
+    {
+      "test": "tests/camera-obstruction.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "camera-obstruction.cjs.log"
+    },
+    {
+      "test": "tests/ability-key.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "ability-key.cjs.log"
+    },
+    {
+      "test": "tests/maya-ability.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "maya-ability.cjs.log"
+    },
+    {
+      "test": "tests/zara-ability.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "zara-ability.cjs.log"
+    },
+    {
+      "test": "tests/jax-ability.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "jax-ability.cjs.log"
+    },
+    {
+      "test": "tests/nova-ability.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "nova-ability.cjs.log"
+    },
+    {
+      "test": "tests/core-abilities.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "core-abilities.cjs.log"
+    },
+    {
+      "test": "tests/kai-companion.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "kai-companion.cjs.log"
+    },
+    {
+      "test": "tests/nova-fallback-ability.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "nova-fallback-ability.cjs.log"
+    },
+    {
+      "test": "tests/player-paint.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "player-paint.cjs.log"
+    },
+    {
+      "test": "tests/game-entry-drop.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "game-entry-drop.cjs.log"
+    },
+    {
+      "test": "tests/character-style.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "character-style.cjs.log"
+    },
+    {
+      "test": "tests/hair-motion.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "hair-motion.cjs.log"
+    },
+    {
+      "test": "tests/splash-landing.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "splash-landing.cjs.log"
+    },
+    {
+      "test": "tests/character-feedback.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "character-feedback.cjs.log"
+    },
+    {
+      "test": "tests/accounts-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "accounts-socket.cjs.log"
+    },
+    {
+      "test": "tests/maya-ability-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "maya-ability-socket.cjs.log"
+    },
+    {
+      "test": "tests/zara-ability-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "zara-ability-socket.cjs.log"
+    },
+    {
+      "test": "tests/character-emotions-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "character-emotions-socket.cjs.log"
+    },
+    {
+      "test": "tests/jax-ability-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "jax-ability-socket.cjs.log"
+    },
+    {
+      "test": "tests/nova-ability-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "nova-ability-socket.cjs.log"
+    },
+    {
+      "test": "tests/splash-landing-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "splash-landing-socket.cjs.log"
+    },
+    {
+      "test": "tests/arena-regions-socket.cjs",
+      "passed": true,
+      "exitCode": 0,
+      "log": "arena-regions-socket.cjs.log"
+    }
+  ],
+  "passed": true,
+  "reportDirectory": "art\\submission-readiness\\2026-10-30T19-19-37-812Z"
+}

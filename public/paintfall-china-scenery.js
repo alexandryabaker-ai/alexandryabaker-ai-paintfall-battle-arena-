@@ -1,0 +1,7 @@
+import {buildRegionalScenery} from './paintfall-regional-scenery.js';
+export function buildChinaScenery(T,{land,ground,spawn}){
+ const result=buildRegionalScenery(T,{land,ground,spawn,style:'mountain',cues:['Quiet waterway']});const stone=new T.MeshStandardMaterial({color:0x9cabaa,roughness:1}),cap=new T.MeshStandardMaterial({color:0x87b49d,roughness:1}),accent=new T.MeshStandardMaterial({color:0xb6a0d0});let center;
+ for(let i=0;i<200;i++){const a=i*2.4,r=18+Math.sqrt(i),p=ground(spawn.x+Math.cos(a)*r,spawn.z+Math.sin(a)*r);if(p&&Array.from({length:8},(_,k)=>ground(p.x+Math.cos(k*Math.PI/4)*7,p.z+Math.sin(k*Math.PI/4)*7)).every(Boolean)&&result.visits.every(v=>Math.hypot(p.x-v.target.x,p.z-v.target.z)>15)){center=p;break;}}
+ if(center){for(let i=0;i<5;i++){const a=i*2.4,p=ground(center.x+Math.cos(a)*4,center.z+Math.sin(a)*4);if(!p)continue;const h=7+i*1.4;for(let j=0;j<5;j++){const width=1.6*(1-j*.09),m=new T.Mesh(new T.CylinderGeometry(width*.85,width,h/5,9),j===4?cap:j===2?accent:stone);m.position.set(p.x+Math.sin(j+i)*.15,p.y+h/10+j*h/5,p.z);result.group.add(m);}result.obstacles.push({x:p.x,z:p.z,halfX:1.8,halfZ:1.8});}const v={name:'Prism Karst Towers',target:center.clone().add(new T.Vector3(0,4,0)),viewOffset:new T.Vector3(14,12,18)};for(let i=0;i<100;i++){const a=i*2.4,p=ground(center.x+Math.cos(a)*10,center.z+Math.sin(a)*10);if(p&&!result.obstacles.some(o=>Math.abs(p.x-o.x)<o.halfX+1&&Math.abs(p.z-o.z)<o.halfZ+1)){v.point=p;break;}}if(v.point)result.visits.push(v);}
+ return result;
+}

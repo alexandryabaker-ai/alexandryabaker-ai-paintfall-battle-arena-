@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nova — regular outfit to track athlete</title><style>
+*{box-sizing:border-box}body{margin:0;background:#101d1a;color:#f0fff7;font:16px/1.5 system-ui}main{max-width:1100px;margin:auto;padding:20px}a{color:#b4f5ca}h1{margin:10px 0}p{color:#c0d7cd}.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:18px 0}button{background:#255d42;color:white;border:1px solid #7fc69c;border-radius:10px;padding:10px 14px;font:inherit}#view{height:540px;border-radius:18px;overflow:hidden;border:1px solid #526c60}canvas{display:block;width:100%;height:100%}.labels{display:flex;justify-content:space-around;text-align:center;margin:12px 0}.labels span{width:33%}input{max-width:180px} @media(max-width:600px){main{padding:10px}#view{height:440px}.labels{font-size:13px}}</style></head><body><main><a href="/">Back to PAINTFALL</a><h1>Nova: momentum in motion</h1><p>Nova’s regular green-and-black outfit gradually becomes a streamlined track top, athletic cargo pants and light running shoes. Her green-and-black colors and bubble ponytail stay with her.</p><div class="controls"><button id="play">Play transition</button><button id="rotate">Rotate together</button><button id="walk">Show running motion</button><label>Middle outfit <input id="phase" aria-label="Outfit transition" type="range" min="0" max="1" step=".01" value=".5"></label></div><div id="view"></div><div class="labels"><span>Regular outfit</span><span>Gradual transition</span><span>Track athlete</span></div><p>Garments are a new proposal for your review. The regular outfit stays her starting point, with cargo pants at every stage. Ability gameplay is unchanged. This preview does not yet activate Nova’s energy, speed or recovery flight.</p></main><script type="module">
+import * as T from './vendor/three.module.js';
+import {createCharacterFactory} from './paintfall-outdoor-character-factory.js';
+import {createNovaOutfit} from './paintfall-nova-outfit.js';
+const host=document.getElementById('view'),scene=new T.Scene();scene.background=new T.Color(0x293f38);
+scene.add(new T.HemisphereLight(0xeafff4,0x534a4c,2));const sun=new T.DirectionalLight(0xffe8cc,2.4);sun.position.set(-3,5,-4);scene.add(sun);
+const floor=new T.Mesh(new T.PlaneGeometry(25,25),new T.MeshStandardMaterial({color:0x344e43,roughness:1}));floor.rotation.x=-Math.PI/2;scene.add(floor);
+const camera=new T.PerspectiveCamera(32,1,.1,50);camera.position.set(0,1.5,-5.4);camera.lookAt(0,.84,0);
+const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=T.SRGBColorSpace;host.append(renderer.domElement);
+const make=createCharacterFactory(T),actors=[make('Nova'),make('Nova'),make('Nova')],outfits=actors.map(a=>createNovaOutfit(T,a));actors.forEach((a,i)=>{a.position.x=(1-i)*1.05;scene.add(a);});outfits[2].update(1);
+let angle=0,rotating=false,running=false,playing=false,start=0;
+document.getElementById('rotate').onclick=()=>rotating=!rotating;
+document.getElementById('walk').onclick=()=>{running=!running;document.getElementById('walk').textContent=running?'Stand still':'Show running motion';};
+document.getElementById('play').onclick=()=>{playing=!playing;start=performance.now();document.getElementById('play').textContent=playing?'Pause transition':'Play transition';};
+document.getElementById('phase').oninput=()=>{playing=false;document.getElementById('play').textContent='Play transition';};
+function resize(){renderer.setSize(host.clientWidth,host.clientHeight);camera.aspect=host.clientWidth/host.clientHeight;camera.updateProjectionMatrix();}new ResizeObserver(resize).observe(host);resize();
+let last=0;function frame(now){const dt=Math.min(.05,(now-last)/1000||0);last=now;if(rotating)angle+=dt*.45;
+if(playing)document.getElementById('phase').value=(1-Math.cos((now-start)/6000*Math.PI))/2;
+outfits[1].update(+document.getElementById('phase').value);
+actors.forEach((a,i)=>{a.rotation.y=angle;const p=a.userData.parts,t=a.userData.novaOutfitProgress,w=running?Math.sin(now*(.006+.004*t)):0;p.legL.rotation.x=w*(.20+.35*t);p.legR.rotation.x=-p.legL.rotation.x;p.armL.rotation.x=-w*.48;p.armR.rotation.x=w*.48;p.legL.userData.shin.rotation.x=Math.max(0,-w)*.65;p.legR.userData.shin.rotation.x=Math.max(0,w)*.65;p.body.position.y=running?Math.abs(w)*.015:0;});renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);
+window.novaOutfitReview={actors,outfits};
+</script></body></html>

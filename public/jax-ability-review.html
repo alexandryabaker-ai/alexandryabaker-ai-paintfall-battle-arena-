@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jax — dragon presence review</title><style>body{margin:0;background:#111a29;color:#edf3ff;font:16px/1.5 system-ui}main{max-width:1100px;margin:auto;padding:20px}h1{margin:0}p{color:#c8d5e8}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}button{font:inherit;background:#7047ba;color:white;padding:10px 16px;border:1px solid #c1abe0;border-radius:10px;cursor:pointer}#view{height:64vh;min-height:400px;position:relative;border:1px solid #657491;border-radius:16px;overflow:hidden}canvas{width:100%;height:100%;display:block}#phase{font-weight:700}.labels{display:flex;justify-content:space-around;font-weight:700}a{color:#c4b9ff}</style></head><body><main><a href="/">Back to PAINTFALL</a><h1>Jax’s dragon presence</h1><p>Current arena model • Strength and presence build → Ryujin circling Jax and breathing harmless fire toward him → gradual recovery.</p><div class="controls"><button id="play">Play ability</button><button data-time="-1">Normal</button><button data-time="5000">Presence building</button><button data-time="12000">Muscle close-up</button><button data-time="15000">Ryujin beacon</button><button data-time="25000">Returning to normal</button></div><div id="view"></div><div class="labels"><span>Starting look</span><span id="phase">Normal</span></div><p>This review shows the same model and transformation used in the arena. No saved profile or match is changed here.</p></main><script src="/paintfall-movement-sync.js"></script><script src="/paintfall-jax-ability.js"></script><script type="module">
+import * as T from './vendor/three.module.js';
+import {createCharacterFactory} from './paintfall-outdoor-character-factory.js';
+import {createOutdoorPlayers} from './paintfall-outdoor-players.js';
+const host=document.getElementById('view'),scene=new T.Scene();scene.background=new T.Color(0x243146);
+scene.add(new T.HemisphereLight(0xe9ecff,0x54566a,2.6));const light=new T.DirectionalLight(0xffe1cb,3);light.position.set(-3,6,-4);scene.add(light);
+const ground=new T.Mesh(new T.PlaneGeometry(30,30),new T.MeshStandardMaterial({color:0x46516b,roughness:.9}));ground.rotation.x=-Math.PI/2;scene.add(ground);
+const camera=new T.PerspectiveCamera(36,1,.1,60);camera.position.set(-.9,2.7,-10.5);camera.lookAt(-.9,1.65,0);
+const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=T.SRGBColorSpace;host.append(renderer.domElement);
+const players=createOutdoorPlayers(T,scene,createCharacterFactory(T));let playing=false,start=0,at=-1;
+const resize=()=>{renderer.setSize(host.clientWidth,host.clientHeight);camera.aspect=host.clientWidth/host.clientHeight;camera.updateProjectionMatrix();};new ResizeObserver(resize).observe(host);resize();
+document.getElementById('play').onclick=()=>{playing=true;start=performance.now();};for(const b of document.querySelectorAll('[data-time]'))b.onclick=()=>{playing=false;at=Number(b.dataset.time);};
+function render(now){if(playing){at=Math.min(PaintfallJaxAbility.TOTAL_MS,now-start);if(at>=PaintfallJaxAbility.TOTAL_MS)playing=false;}
+ const detail=!playing&&at===12000;
+ camera.position.set(detail?0:-.9,detail?1.7:2.7,detail?-2.8:-10.5);camera.lookAt(detail?0:-.9,detail?1.45:1.65,0);
+ const spacing=detail?.55:1.4;
+ const list=[{id:'normal',character:'Jax',alive:true,...PaintfallMovement.toGameplay({x:spacing,z:0})},{id:'ability',character:'Jax',alive:true,...PaintfallMovement.toGameplay({x:-spacing,z:0}),ability:at<0?null:{type:'jax-dragon',id:'review',elapsedMs:at,sampleAt:now}}];
+ players.update(list,null,'third',now);
+ for(const a of players.actors.values())a.rotation.y=-.45;
+ const a=players.actors.get('ability');a.userData.movingUntil=now+200;
+ document.getElementById('phase').textContent=detail?'Peak muscle definition':at<0?'Normal':PaintfallJaxAbility.phase(at).label;renderer.render(scene,camera);requestAnimationFrame(render);
+}requestAnimationFrame(render);
+</script></body></html>

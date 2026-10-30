@@ -1,0 +1,5 @@
+export function makeSurfaceMaterials(T,colors){
+ const texture=mode=>{const n=64,data=new Uint8Array(n*n*4);for(let y=0;y<n;y++)for(let x=0;x<n;x++){const i=(y*n+x)*4,noise=((x*37+y*67+x*y*13)%31),joint=mode==='brick'&&(y%12<1||((x+(Math.floor(y/12)%2)*16)%32<1))?45:0,v=mode==='wood'?214+Math.floor(Math.sin(x*.7+Math.sin(y*.1))*9)+noise/2:218+noise-joint;data[i]=data[i+1]=data[i+2]=v;data[i+3]=255;}const t=new T.DataTexture(data,n,n,T.RGBAFormat);t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(2,2);t.colorSpace=T.SRGBColorSpace;t.needsUpdate=true;return t;};
+ const plaster=texture('plaster'),brick=texture('brick'),grain=texture('wood'),mat=(c,map)=>new T.MeshStandardMaterial({color:c,map,roughness:.92,side:T.DoubleSide});
+ return{wall:mat(colors[0],plaster),brick:mat(colors[0],brick),roof:mat(colors[1],grain),trim:mat(colors[2],plaster),wood:mat(0x796047,grain),stone:mat(0xa69b84,brick),glass:new T.MeshStandardMaterial({color:0x6b8585,roughness:.38,metalness:.08}),thatch:mat(0x8d774b,grain)};
+}
