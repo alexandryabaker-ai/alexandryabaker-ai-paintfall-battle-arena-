@@ -224,8 +224,8 @@
     },
     {
       "path": "public/paintfall-arena-catalog.js",
-      "bytes": 863581,
-      "sha256": "6780511f4d2ee53f454c67c92f0aee17cedf8ad9cb6c823e99d65cfdc3b00928"
+      "bytes": 865893,
+      "sha256": "926fc10dcb8ecadef2be53d15d2d87120858416613bd2f7c9bcaac45c9f89818"
     },
     {
       "path": "public/paintfall-arena-color-trial.js",
@@ -249,8 +249,8 @@
     },
     {
       "path": "public/paintfall-arena-gardens.js",
-      "bytes": 10106,
-      "sha256": "008b0ca2c98223a816e349ee7273a1f8c5098111f038fe7e0dee4eea93e52c19"
+      "bytes": 10415,
+      "sha256": "d6b21566bbafd74eab6f8eb96d999e50e5e6f068d6650b2b3d7cb2081e4a05ad"
     },
     {
       "path": "public/paintfall-arena-mexico.js",
@@ -274,8 +274,8 @@
     },
     {
       "path": "public/paintfall-arena-world-tour.js",
-      "bytes": 8524,
-      "sha256": "17c371e9d2f500884877bfefb9ff2624f06c245654a7a859b46ee356eb086612"
+      "bytes": 9036,
+      "sha256": "6a1cb68d3cfc9a913cc0ac1a6e750f22ff3b3ffd27170059201e165006f91062"
     },
     {
       "path": "public/paintfall-arizona-building.js",
@@ -1569,8 +1569,8 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 493,
-      "sha256": "8dbcd2d99e6cec9f55baa48cc450f817a15fa41d9127aec46b490b92f73c5c26"
+      "bytes": 541,
+      "sha256": "2d9dad145ee20841410a2c2d9b9fbb786240266f2add61cd478d2b05167ff754"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
@@ -1586,8 +1586,18 @@
       "path": "docs/PAINTFALL-CHARACTER-HIP-CONNECTION-2026-10-30.md",
       "bytes": 2409,
       "sha256": "e33fd17535a15eefd440c8b9e498099d98312dbd7c60dd19dafc0d2598508098"
+    },
+    {
+      "path": "public/paintfall-southeast-asia-gardens.js",
+      "bytes": 12151,
+      "sha256": "eac515234a9f77f0758b03b9b640752089e503e9aaddd2cb0c28e0aaba7c9589"
+    },
+    {
+      "path": "docs/PAINTFALL-GARDENS-ASIA-BATCH-ONE-2026-10-30.md",
+      "bytes": 5146,
+      "sha256": "bc0a889f472fc445d21f5d354e5848d07a17c63fbf327112c1a6617d3ef9aacd"
     }
   ],
-  "revision": "hip-joints-v2",
-  "updatedAt": "2026-10-31T02:02:44.790Z"
+  "revision": "gardens-asia-five-v3",
+  "updatedAt": "2026-10-31T02:19:59.614Z"
 }
