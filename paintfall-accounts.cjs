@@ -17,11 +17,16 @@ function createAccounts({databasePath=path.join(__dirname,'.paintfall-data','acc
  CREATE TABLE IF NOT EXISTS sessions(hash TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE, expires_at INTEGER NOT NULL);
  CREATE INDEX IF NOT EXISTS session_account ON sessions(account_id);
  CREATE TABLE IF NOT EXISTS guest_sessions(hash TEXT PRIMARY KEY,birth_year INTEGER NOT NULL,expires_at INTEGER NOT NULL);`);
+ db.exec('CREATE TABLE IF NOT EXISTS account_recovery(account_id TEXT PRIMARY KEY REFERENCES accounts(id) ON DELETE CASCADE,code_hash TEXT NOT NULL);');
  const query={account:db.prepare('SELECT * FROM accounts WHERE id=?'),user:db.prepare('SELECT * FROM accounts WHERE username=?'),
   create:db.prepare('INSERT INTO accounts VALUES(?,?,?,?,?,?)'),save:db.prepare('UPDATE accounts SET profile=? WHERE id=?'),
   session:db.prepare('SELECT s.*,a.username FROM sessions s JOIN accounts a ON a.id=s.account_id WHERE s.hash=? AND s.expires_at>?'),
   addSession:db.prepare('INSERT INTO sessions VALUES(?,?,?)'),removeSession:db.prepare('DELETE FROM sessions WHERE hash=?'),prune:db.prepare('DELETE FROM sessions WHERE expires_at<=?')};
  const limits=new Map(),animalLimits=new Map();let busy=0,onRevoke=()=>{};
+ const recoveryCode=()=>randomBytes(24).toString('hex').match(/.{8}/g).join('-');
+ const recoveryHash=code=>hash('paintfall-recovery-v1:'+code);
+ const normalizeRecovery=code=>typeof code==='string'?code.replace(/[\s-]/g,'').toLowerCase():'';
+ function storeRecovery(id,code){db.prepare('INSERT INTO account_recovery VALUES(?,?) ON CONFLICT(account_id) DO UPDATE SET code_hash=excluded.code_hash').run(id,recoveryHash(normalizeRecovery(code)));}
  const defaults=birthYear=>({version:1,birthYear,preferences:{character:'Maya',arenaRegion:'country:Mexico'},questionnaire:{status:'not-started',answers:{}},progress:{paintHits:0,kills:0,roundsEntered:0,visitedRegions:[],unlockedEpics:[],lastRegion:null,lastPosition:null},updatedAt:now()});
  function validateYear(value){const year=new Date(now()).getUTCFullYear();if(!Number.isInteger(value)||value<year-120||value>year)throw error(400,'Enter a valid birth year to choose your server group.');return value;}
  function serverGroup(birthYear){if(!Number.isInteger(birthYear))return null;const minimumAge=new Date(now()).getUTCFullYear()-birthYear-1;return minimumAge>=18?'adult':minimumAge>=13?'teen':'younger';}
@@ -152,14 +157,54 @@ function createAccounts({databasePath=path.join(__dirname,'.paintfall-data','acc
       const salt=randomBytes(16).toString('hex'),key=await derive(password,salt,64,{N:32768,r:8,p:1,maxmem:64*1024*1024});
       const id=randomUUID();
       try{query.create.run(id,username,key.toString('hex'),salt,JSON.stringify(defaults(birthYear)),now());}catch(e){if(query.user.get(username))throw error(409,'That player name is taken. Choose another one.');throw e;}
-      newSession(req,res,id);return reply(201,{account:publicAccount(id)});
+      const code=recoveryCode();storeRecovery(id,code);
+      newSession(req,res,id);return reply(201,{account:publicAccount(id),recoveryCode:code});
      }
      const account=query.user.get(username),salt=account?.salt||'0'.repeat(32),key=await derive(password,salt,64,{N:32768,r:8,p:1,maxmem:64*1024*1024});
      if(!account||!timingSafeEqual(key,Buffer.from(account.password_hash,'hex')))throw error(401,'Player name or password is incorrect.');
      newSession(req,res,account.id);return reply(200,{account:publicAccount(account.id)});
     }finally{busy--;}
    }
+   if(pathname==='/api/account/reset-password'){
+    const username=typeof data.username==='string'?data.username.trim().toLowerCase():'';
+    rate(req,'recovery:'+username);
+    if(typeof data.password!=='string'||data.password.length<10||data.password.length>128)throw error(400,'Use a new password with 10–128 characters.');
+    if(busy>=4)throw error(429,'Account recovery is busy. Please try again shortly.');
+    busy++;try{
+     const account=query.user.get(username),code=normalizeRecovery(data.recoveryCode);
+     const saved=account?db.prepare('SELECT code_hash FROM account_recovery WHERE account_id=?').get(account.id):null;
+     const matches=timingSafeEqual(Buffer.from(recoveryHash(code),'hex'),Buffer.from(saved?.code_hash||'0'.repeat(64),'hex'));
+     const salt=randomBytes(16).toString('hex'),key=await derive(data.password,salt,64,{N:32768,r:8,p:1,maxmem:64*1024*1024});
+     if(!account||!/^[a-f0-9]{48}$/.test(code)||!saved||!matches)throw error(401,'Player name or recovery code is incorrect. Use the private code you saved earlier.');
+     const next=recoveryCode();
+     db.exec('BEGIN IMMEDIATE');
+     let revoked;
+     try{
+      // Claim the old code atomically: a concurrent request cannot reuse it.
+      const claim=db.prepare('UPDATE account_recovery SET code_hash=? WHERE account_id=? AND code_hash=?').run(recoveryHash(normalizeRecovery(next)),account.id,saved.code_hash);
+      if(claim.changes!==1)throw error(401,'Player name or recovery code is incorrect. Use the private code you saved earlier.');
+      db.prepare('UPDATE accounts SET password_hash=?,salt=? WHERE id=?').run(key.toString('hex'),salt,account.id);
+      revoked=db.prepare('SELECT hash FROM sessions WHERE account_id=?').all(account.id);
+      db.prepare('DELETE FROM sessions WHERE account_id=?').run(account.id);db.exec('COMMIT');
+     }catch(e){db.exec('ROLLBACK');throw e;}
+     for(const item of revoked)onRevoke(item.hash);
+     return reply(200,{ok:true,recoveryCode:next});
+    }finally{busy--;}
+   }
    const s=session(req);if(!s?.accountId)throw error(401,'Please sign in to save to your account.');
+   if(pathname==='/api/account/recovery-code'){
+    rate(req,'recovery:'+s.username);
+    if(typeof data.password!=='string'||data.password.length<10||data.password.length>128)throw error(400,'Enter your current password.');
+    if(busy>=4)throw error(429,'Account recovery is busy. Please try again shortly.');
+    busy++;try{
+     const row=query.account.get(s.accountId),key=await derive(data.password,row.salt,64,{N:32768,r:8,p:1,maxmem:64*1024*1024});
+     if(!timingSafeEqual(key,Buffer.from(row.password_hash,'hex')))throw error(401,'Your current password is incorrect.');
+     // A reset or logout during password verification must invalidate this request.
+     const current=query.account.get(s.accountId);
+     if(!session(req)?.accountId||current.password_hash!==row.password_hash)throw error(401,'Please sign in again.');
+     const code=recoveryCode();storeRecovery(s.accountId,code);return reply(200,{recoveryCode:code});
+    }finally{busy--;}
+   }
    if(pathname==='/api/account/logout'){query.removeSession.run(s.hash);onRevoke(s.hash);res.setHeader('Set-Cookie',cookie(req,'',0));return reply(200,{ok:true});}
    if(pathname==='/api/account/animal'){
     if(data.accountId!==s.accountId)throw error(409,'Your player account changed. Please try the interaction again.');

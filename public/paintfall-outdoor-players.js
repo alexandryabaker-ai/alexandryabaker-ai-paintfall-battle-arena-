@@ -117,10 +117,22 @@ export function createOutdoorPlayers(THREE, scene, makeCharacter, companions={})
       if(character==='Nova'&&companions.create){
         let companion=actor.userData.novaCompanion;
         if(!companion){companion=companions.create();companion.name='Kirin — following Nova';scene.add(companion);actor.userData.novaCompanion=companion;}
-        companions.animate?.(companion,now,{riderMounted:false});
+        const ride=player.kirinRide,mounted=ride?.phase==='flying';
+        companions.animate?.(companion,now,{riderMounted:mounted});
         companion.scale.setScalar(.58);
-        companion.position.set(next.x+Math.cos(now*.00016)*2.5,next.y+3.2+Math.sin(now*.001)*.12,next.z+Math.sin(now*.00016)*2.5);
-        companion.rotation.y=-now*.00016-.5;companion.visible=player.alive!==false;
+        const sample=actor.userData.novaAbilitySample,approach=ride?Math.max(0,Math.min(1,((sample?.elapsed||0)-window.PaintfallNovaAbility.SPEND_MS)/4000)):0;
+        const blend=approach*approach*(3-2*approach);
+        companion.position.set(next.x+Math.cos(now*.00016)*2.5*(1-blend),mounted?actor.position.y-.08:next.y+(3.2+Math.sin(now*.001)*.12)*(1-blend),next.z+Math.sin(now*.00016)*2.5*(1-blend));
+        companion.rotation.y=ride?actor.rotation.y:-now*.00016-.5;companion.visible=player.alive!==false;
+        actor.userData.kirinMounted=mounted;
+        if(mounted){
+          // Sitting on the energy body; the normal locomotion remains intact off ride.
+          parts.body.position.y=actor.userData.baseBodyY;
+          parts.legL.rotation.x=parts.legR.rotation.x=-1.05;
+          parts.legL.rotation.z=-.24;parts.legR.rotation.z=.24;
+          parts.legL.userData.shin.rotation.x=parts.legR.userData.shin.rotation.x=1.15;
+          parts.armL.rotation.x=parts.armR.rotation.x=-.25;
+        }
       }
     }
     const viewer=players.find(p=>p.id===localId),zara=window.PaintfallZaraAbility;

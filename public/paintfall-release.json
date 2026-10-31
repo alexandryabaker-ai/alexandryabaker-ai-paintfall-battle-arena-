@@ -10,6 +10,10 @@
     "regional-gardens",
     "animal-jokes",
     "optional-bull-ride",
-    "mid-match-world-travel"
-  ]
+    "mid-match-world-travel",
+    "private-password-recovery-codes",
+    "nova-kirin-pickup",
+    "server-bot-movement"
+  ],
+  "revision": "recovery-kirin-bots-v1"
 }

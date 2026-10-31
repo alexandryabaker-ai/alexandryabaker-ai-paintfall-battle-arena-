@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-30T19:58:02.789Z",
-  "status": "Review candidate; not a published or contest-approved build",
+  "status": "Tested public update candidate; owner artistic review and physical-phone verification remain",
   "files": [
     {
       "path": "public/arena-character-check.html",
@@ -164,8 +164,8 @@
     },
     {
       "path": "public/paintfall-account.js",
-      "bytes": 18656,
-      "sha256": "dc3480fb0a3569ffdbd1911b612ad8c685398f7b9e6df1e0bf0a3e5ba0e438d4"
+      "bytes": 24542,
+      "sha256": "5cc62e3c5bdef210736d9b5b267e6569e63bc7bd09ad23e9526375551a5e50da"
     },
     {
       "path": "public/paintfall-africa-animal-details.js",
@@ -339,8 +339,8 @@
     },
     {
       "path": "public/paintfall-bot-brain.js",
-      "bytes": 3134,
-      "sha256": "ef1383e7af8958e44eaeaeaa86c14381d9fd30ca6cc724ab9047f6c4073d8234"
+      "bytes": 6136,
+      "sha256": "eb424aa1590437fb901a6130ecb35463d1124200c52498b867a0e85119ed06aa"
     },
     {
       "path": "public/paintfall-bull-ride-effects.js",
@@ -939,8 +939,8 @@
     },
     {
       "path": "public/paintfall-nova-ability.js",
-      "bytes": 6001,
-      "sha256": "89fce4ec2436f91be1353d246a581ba547fc060fb3030e13bf72309148c4b676"
+      "bytes": 7050,
+      "sha256": "d0461275cc6da3df23bd2b492cb82e14b25635c263961ef7fa0349d68967f3ec"
     },
     {
       "path": "public/paintfall-nova-eye-alignment.js",
@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/paintfall-outdoor-players.js",
-      "bytes": 11662,
-      "sha256": "76956020b8b0eedea35a8efddbe9a50056ea91734328ee574eb535c2e83de743"
+      "bytes": 12524,
+      "sha256": "10001861fb88b6c88b0b2240a965b68536ff34b91a2fdbbb304164d26ff20823"
     },
     {
       "path": "public/paintfall-pacific-animal-details.js",
@@ -1519,13 +1519,13 @@
     },
     {
       "path": "server.js",
-      "bytes": 17344,
-      "sha256": "836feb83f8cd04b0f917b960087ca8a2ece528c8133d583a5c3aaf1998f72ff9"
+      "bytes": 18187,
+      "sha256": "2d0df5e3684628bec9eb486718ae5f2f8ee545bced09cf8eb07e421d89f87f8f"
     },
     {
       "path": "paintfall-accounts.cjs",
-      "bytes": 16445,
-      "sha256": "2a1b340d866dd248221b0bd4ed9e46e668a1a4de4a48b143816410bb2bc4b8fb"
+      "bytes": 20098,
+      "sha256": "b54c57ebd7e309071062730fbc8e3f731df96f3a545541ed721ac75448fec9cd"
     },
     {
       "path": "paintfall-family-rooms.cjs",
@@ -1569,8 +1569,15 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 339,
-      "sha256": "9e29429de49f300dda4709de3f1a11b426d44b2537157e4c2cb5e286662afb9d"
+      "bytes": 470,
+      "sha256": "6b93bf783f5a2ef9f7e64ed199d7a38c69b670065843657bf9112ae695b51874"
+    },
+    {
+      "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
+      "bytes": 5051,
+      "sha256": "4a176a55f63c1aaea20cfafd509dcbfd95c8eca8a4fb906b0f53f9ea913ed96b"
     }
-  ]
+  ],
+  "revision": "recovery-kirin-bots-v1",
+  "updatedAt": "2026-10-31T01:04:40.236Z"
 }

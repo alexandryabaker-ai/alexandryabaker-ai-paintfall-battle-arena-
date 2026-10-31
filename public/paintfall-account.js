@@ -12,11 +12,38 @@
   const login=document.createElement('dialog');login.id='pf-login';login.className='pf-account-dialog';login.setAttribute('aria-labelledby','pf-login-title');
   login.innerHTML=`<span class="pf-optional">Your world. Your way.</span><h1 id="pf-login-title">PAINTFALL</h1><p>Welcome back, player. Sign in to save your progress, heroes and preferences automatically on this game server.</p><div class="pf-tabs" role="tablist" aria-label="Account action"><button id="pf-login-tab" role="tab" aria-selected="true" type="button">Sign in</button><button id="pf-register-tab" role="tab" aria-selected="false" type="button">Create account</button></div><form id="pf-auth-form"><label for="pf-username">Player name</label><input id="pf-username" name="username" autocomplete="username" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]+" required><small>3–24 letters, numbers or underscores. No real name needed.</small><label for="pf-password">Password</label><input id="pf-password" name="password" type="password" autocomplete="current-password" minlength="10" maxlength="128" required><div id="pf-register-fields" hidden><label for="pf-confirm">Confirm password</label><input id="pf-confirm" name="confirmation" type="password" autocomplete="new-password" minlength="10" maxlength="128"><label for="pf-birth-year">Birth year (required)</label><input id="pf-birth-year" name="birthYear" type="number" min="${year-120}" max="${year}" inputmode="numeric"><small>Used for your birth-year server group. Your birth year is not shown to other players. We do not ask for your full birth date.</small></div><button id="pf-auth-submit" class="pf-primary" type="submit">Sign in</button></form><p id="pf-auth-message" class="pf-feedback" role="status" aria-live="polite"></p><hr class="pf-divider"><button id="pf-guest-open" class="pf-secondary" type="button">Play as guest</button><form id="pf-guest-form" hidden><label for="pf-guest-year">Birth year (required for guest server grouping)</label><input id="pf-guest-year" type="number" min="${year-120}" max="${year}" inputmode="numeric" required><button class="pf-primary" type="submit">Continue as guest</button></form><small>Guest settings stay in this browser. Sign in to keep game progress in your account.</small>`;
   document.body.append(login);
+  login.insertAdjacentHTML('beforeend',`<button id="pf-forgot-password" class="pf-secondary" type="button">Forgot password?</button><section id="pf-recover-panel" hidden><h2>Reset your password</h2><p>Use the private recovery code you saved when creating your account or from Account recovery. PAINTFALL does not send password-reset emails. Without a saved code, we cannot safely reset an account. You can still play as a guest.</p><form id="pf-reset-form"><label for="pf-reset-name">Player name</label><input id="pf-reset-name" autocomplete="username" required maxlength="24"><label for="pf-reset-code">Saved recovery code</label><input id="pf-reset-code" type="password" autocomplete="off" spellcheck="false" required maxlength="80"><label for="pf-reset-password">New password</label><input id="pf-reset-password" type="password" autocomplete="new-password" required minlength="10" maxlength="128"><label for="pf-reset-confirm">Confirm new password</label><input id="pf-reset-confirm" type="password" autocomplete="new-password" required minlength="10" maxlength="128"><button id="pf-reset-submit" class="pf-primary" type="submit">Reset password</button></form><p id="pf-reset-message" class="pf-feedback" role="status" aria-live="polite"></p><button id="pf-reset-back" class="pf-secondary" type="button">Back to sign in</button></section>`);
+  const recovery=document.createElement('dialog');recovery.id='pf-recovery';recovery.className='pf-account-dialog';recovery.setAttribute('aria-labelledby','pf-recovery-title');
+  recovery.innerHTML='<h2 id="pf-recovery-title">Account recovery</h2><form id="pf-recovery-form"><p>Create a new private recovery code before you forget your password. This replaces any previous code.</p><label for="pf-recovery-password">Current password</label><input id="pf-recovery-password" type="password" autocomplete="current-password" minlength="10" maxlength="128" required><button id="pf-recovery-create" class="pf-primary" type="submit">Create recovery code</button></form><section id="pf-code-panel" hidden><p id="pf-code-intro"></p><label for="pf-private-code">Your private recovery code</label><input id="pf-private-code" readonly autocomplete="off" spellcheck="false"><p>Save this in your password manager or somewhere private. It can reset your password, so do not share it. We show it only here. A reset replaces this code and signs out all devices.</p><small>Recovery works only while your account still exists on this game server.</small></section><p id="pf-recovery-message" class="pf-feedback" role="status" aria-live="polite"></p><button id="pf-recovery-close" class="pf-secondary" type="button">Back to game</button>';
+  document.body.append(recovery);
+  const recoveryButton=document.createElement('button');recoveryButton.id='pf-open-recovery';recoveryButton.className='pf-secondary';recoveryButton.type='button';recoveryButton.textContent='Account recovery';recoveryButton.hidden=true;bar.append(recoveryButton);
   const quiz=document.createElement('dialog');quiz.id='pf-questionnaire';quiz.className='pf-account-dialog';quiz.setAttribute('aria-labelledby','pf-quiz-title');
   quiz.innerHTML='<span class="pf-optional">Optional • every answer can be skipped</span><h2 id="pf-quiz-title">Make PAINTFALL feel like you</h2><p>Your answers are private. Choose your play style, starting place and things you would prefer to avoid. You can change or clear them later.</p><form id="pf-quiz-form"><div id="pf-questions"></div><p id="pf-comfort-note"></p><div class="pf-actions"><button class="pf-primary" type="submit">Save my choices</button><button id="pf-quiz-skip" class="pf-secondary" type="button">Skip questionnaire</button><button id="pf-quiz-close" class="pf-secondary" type="button">Back to game</button></div></form><p id="pf-quiz-message" class="pf-feedback" role="status" aria-live="polite"></p><button id="pf-quiz-clear" class="pf-secondary" type="button">Clear my optional answers</button>';
   document.body.append(quiz);
   const topSkip=document.createElement('button');topSkip.type='button';topSkip.className='pf-secondary';topSkip.textContent='Skip for now';quiz.querySelector('form').before(topSkip);
   const $=id=>document.getElementById(id);
+  let finishCode=null;
+  function closeRecovery(){recovery.close();$('pf-private-code').value=$('pf-recovery-password').value='';const done=finishCode;finishCode=null;done?.();}
+  function showCode(code,message){
+   $('pf-recovery-form').hidden=true;$('pf-code-panel').hidden=false;$('pf-private-code').value=code;$('pf-code-intro').textContent=message;$('pf-recovery-message').textContent='';$('pf-recovery-close').textContent='I saved my recovery code';
+   if(!recovery.open)recovery.showModal();
+   return new Promise(resolve=>{finishCode=resolve;});
+  }
+  $('pf-recovery-close').onclick=closeRecovery;recovery.addEventListener('cancel',e=>{e.preventDefault();closeRecovery();});
+  recoveryButton.onclick=()=>{$('pf-code-panel').hidden=true;$('pf-recovery-form').hidden=false;$('pf-recovery-password').value='';$('pf-recovery-message').textContent='';$('pf-recovery-close').textContent='Back to game';recovery.showModal();};
+  $('pf-recovery-form').onsubmit=async e=>{
+   e.preventDefault();$('pf-recovery-create').disabled=true;
+   try{const result=await api('/recovery-code',{password:$('pf-recovery-password').value});$('pf-recovery-password').value='';await showCode(result.recoveryCode,'Your new code is ready. Save it now; your previous code no longer works.');}
+   catch(e){$('pf-recovery-message').textContent=e.message;}finally{$('pf-recovery-create').disabled=false;}
+  };
+  function recoveryPanel(open){$('pf-recover-panel').hidden=!open;$('pf-auth-form').hidden=open;$('pf-forgot-password').hidden=open;if(open){$('pf-reset-name').value=$('pf-username').value;$('pf-auth-message').textContent='';$('pf-reset-name').focus();}else{$('pf-reset-form').reset();$('pf-reset-message').textContent='';}}
+  $('pf-forgot-password').onclick=()=>recoveryPanel(true);$('pf-reset-back').onclick=()=>recoveryPanel(false);
+  $('pf-reset-form').onsubmit=async e=>{
+   e.preventDefault();if($('pf-reset-password').value!==$('pf-reset-confirm').value){$('pf-reset-message').textContent='The passwords do not match.';return;}
+   $('pf-reset-submit').disabled=true;$('pf-reset-message').textContent='Checking your recovery code…';
+   try{const name=$('pf-reset-name').value,result=await api('/reset-password',{username:name,recoveryCode:$('pf-reset-code').value,password:$('pf-reset-password').value});recoveryPanel(false);authTab('login');$('pf-username').value=name;await showCode(result.recoveryCode,'Password reset. Save this replacement code, then sign in with your new password.');$('pf-auth-message').textContent='Your password has been reset. Sign in with your new password.';}
+   catch(e){$('pf-reset-message').textContent=e.message;}finally{$('pf-reset-submit').disabled=false;}
+  };
   const status=(message,state='saved')=>{$('pf-save-state').textContent=message;$('pf-save-state').dataset.state=state;};
   const profile=()=>account?.profile||guestProfile;
   async function api(route,body){
@@ -34,6 +61,7 @@
    const p=profile()?.progress;
    $('pf-progress').textContent=p?`${p.paintHits} paint hits • ${p.visitedRegions.length} places visited`:'';
    $('pf-account-action').textContent=account?'Sign out':'Sign in';
+   recoveryButton.hidden=!account;
   }
   function lock(){window.PAINTFALL_ACCOUNT_LOCKED=true;window.dispatchEvent(new Event('blur'));document.body.classList.add('pf-account-locked');if(!login.open)login.showModal();}
   function unlock(){window.PAINTFALL_ACCOUNT_LOCKED=false;document.body.classList.remove('pf-account-locked');login.close();$('pf-password').value=$('pf-confirm').value='';}
@@ -73,7 +101,7 @@
   document.addEventListener('click',e=>{if(e.target.closest('#paintfallCreateChaos [data-h],#paintfallCreateChaos [data-b]'))changed();});
   new MutationObserver(()=>{const root=$('paintfallCreateChaos');if(root&&root!==configuredRoot){configuredRoot=root;root.setAttribute('aria-label','Gaming menu');const title=root.querySelector('.ccHead b');if(title)title.textContent='🎮 GAMING MENU';applyPreferences();}}).observe(document.body,{childList:true,subtree:true});
   function authTab(mode){authMode=mode;const registering=mode==='register';$('pf-register-fields').hidden=!registering;$('pf-confirm').required=registering;$('pf-birth-year').required=registering;$('pf-auth-submit').textContent=registering?'Create account':'Sign in';$('pf-password').autocomplete=registering?'new-password':'current-password';$('pf-login-tab').setAttribute('aria-selected',String(!registering));$('pf-register-tab').setAttribute('aria-selected',String(registering));$('pf-auth-message').textContent='';}
-  $('pf-login-tab').onclick=()=>authTab('login');$('pf-register-tab').onclick=()=>authTab('register');
+  $('pf-login-tab').onclick=()=>{recoveryPanel(false);authTab('login');};$('pf-register-tab').onclick=()=>{recoveryPanel(false);authTab('register');};
   login.addEventListener('cancel',e=>e.preventDefault());
   $('pf-auth-form').onsubmit=async e=>{
    e.preventDefault();if(authMode==='register'&&$('pf-password').value!==$('pf-confirm').value){$('pf-auth-message').textContent='The passwords do not match.';return;}
@@ -84,6 +112,7 @@
     const current=await api('');definition=current.questionnaire;group=current.serverGroup;
     if(!Number.isInteger(account.profile.birthYear))throw new Error('This account needs a birth year before it can enter a server.');
     window.paintfallSocket?.close(1000,'Account changed');pending={};applyPreferences();comfort();renderBar();unlock();status('Saved to your account');
+    if(result.recoveryCode)await showCode(result.recoveryCode,'Your account is ready. Save this private code so you can reset a forgotten password.');
     if(account.profile.questionnaire.status==='not-started')await openQuiz();
    }catch(error){$('pf-auth-message').textContent=error.message;}finally{$('pf-auth-submit').disabled=false;}
   };

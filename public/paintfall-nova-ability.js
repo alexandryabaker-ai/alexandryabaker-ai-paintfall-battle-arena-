@@ -18,11 +18,30 @@
   p.ability={type:'nova-energy',id:r.round+':'+time,startedAt:time};p.abilityReadyAt=time+Math.max(TOTAL_MS,(r.rules.cooldown||180)*1000);
   p.abilityReady=false;p.abilityCooldown=Math.ceil((p.abilityReadyAt-time)/1000);return true;
  }
- function tick(p,time){
+ function stopRide(p){if(p.ability?.type==='nova-energy')p.ability.kirinDeclined=true;if(!p.kirinRide)return false;p.kirinRide=null;p.mounted=false;return true;}
+ function tick(p,time,room){
   let changed=false;
+  const age=p.ability?.type==='nova-energy'?time-p.ability.startedAt:-1;
+  if(age>=SPEND_MS&&age<TOTAL_MS&&p.alive&&!p.ability.kirinDeclined&&!p.splashLanding){
+   if(!p.kirinRide){p.kirinRide={phase:'approaching',startedAt:p.ability.startedAt+SPEND_MS};changed=true;}
+   const rideAge=time-p.kirinRide.startedAt;
+   if(rideAge>=4000){
+    p.kirinRide.phase='flying';p.mounted=true;p.grounded=false;p.vz=0;
+    const lift=smooth((rideAge-4000)/4000);p.z=(.08+lift*3)*40;changed=true;
+   }
+  }else if(p.kirinRide){
+   stopRide(p);
+   if(p.alive&&p.z>0&&room)rootSplash(p,room,time);
+   changed=true;
+  }
   if(p.ability&&(!p.alive||time-p.ability.startedAt>=TOTAL_MS)){p.ability=null;changed=true;}
   if(p.abilityReadyAt){const n=Math.max(0,Math.ceil((p.abilityReadyAt-time)/1000));if(n!==p.abilityCooldown){p.abilityCooldown=n;changed=true;}if(!n){p.abilityReadyAt=0;p.abilityReady=true;changed=true;}}
   return changed;
+ }
+ // Reuse the existing safe descent instead of dropping a recovering rider.
+ function rootSplash(p,room,time){
+  const api=typeof module==='object'&&module.exports?require('./paintfall-splash-landing.js'):globalThis.PaintfallSplashLanding;
+  api?.start(p,room,time);
  }
  function snapshot(p,time){return p.alive&&p.ability?.type==='nova-energy'?{type:'nova-energy',id:p.ability.id,elapsedMs:Math.max(0,time-p.ability.startedAt),sampleAt:time}:null;}
  function sample(wire,now,clock){
@@ -85,5 +104,5 @@
   });
   return s;
  }
- return {BUILD_MS,PEAK_MS,SPEND_MS,RECOVERY_MS,TOTAL_MS,phase,activate,tick,snapshot,sample,gait,apply};
+ return {BUILD_MS,PEAK_MS,SPEND_MS,RECOVERY_MS,TOTAL_MS,phase,activate,tick,stopRide,snapshot,sample,gait,apply};
 });
