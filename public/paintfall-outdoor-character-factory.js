@@ -1,5 +1,6 @@
 import { CHARACTER_DESIGNS } from './paintfall-character-designs.js';
 import { applyCharacterSheetDetails } from './paintfall-character-sheet-details.js';
+import { connectCharacterHips } from './paintfall-character-hip-joints.js';
 
 // Individually proportioned, articulated bases. The outdoor world owns THREE.
 export function createCharacterFactory(T, {style='donghua'}={}) {
@@ -404,6 +405,7 @@ export function createCharacterFactory(T, {style='donghua'}={}) {
     group.userData.baseBodyY=0;body.position.y=0;
     group.userData.parts={body,armL:arms[0],armR:arms[1],legL:legs[0],legR:legs[1],blaster,shirt:cloth,accent,head,torso,hairstyle,belt,mayaTransformation,zaraEyes,jaxEffects,hairDynamics};
     applyCharacterSheetDetails(T,group,{box,curve,ring,sphere,mat,skin});
+    connectCharacterHips(T,group);
     if(donghua){
       // A small set of restrained silhouette lines, not an outline on every detail.
       const contourMaterial=new T.MeshBasicMaterial({color:0x252335,side:T.BackSide,transparent:true,opacity:.48,depthWrite:false});

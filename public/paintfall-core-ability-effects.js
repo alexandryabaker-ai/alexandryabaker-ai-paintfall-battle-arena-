@@ -34,7 +34,7 @@ export function createCoreAbilityEffects(T,scene){
   }else if(name==='Dante'){
    const p=actor.userData.parts;
    actor.traverse(mesh=>{if(!mesh.isMesh||mesh.userData.decorative)return;
-    if(['tailored-torso','hips','thigh','shin','cargo-pocket','cargo-secondary-pocket','cargo-pocket-flap','sheet-panel','sheet-strap','vest-detail','hood-down'].includes(mesh.name)){
+    if(['tailored-torso','hips','thigh','cargo-hip-joint','shin','cargo-pocket','cargo-secondary-pocket','cargo-pocket-flap','sheet-panel','sheet-strap','vest-detail','hood-down'].includes(mesh.name)){
      const mats=Array.isArray(mesh.material)?mesh.material:[mesh.material];const replacements=mats.map(m=>m.clone());mesh.material=Array.isArray(mesh.material)?replacements:replacements[0];for(const m of replacements)if(m.color)fx.garments.push({material:m,color:m.color.clone()});
     }});
    for(let i=0;i<2;i++){const awareness=ring(root,0xffb54e,.11+i*.07);awareness.rotation.x=Math.PI/2;awareness.position.y=.025;fx.rings.push(awareness);}

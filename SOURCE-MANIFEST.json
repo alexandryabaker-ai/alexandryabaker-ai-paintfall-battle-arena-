@@ -19,8 +19,8 @@
     },
     {
       "path": "public/character-abilities-review.html",
-      "bytes": 6720,
-      "sha256": "3c1261d388d0bb9131110397fa961138b79b840772da5e8641ae475fcdca44fe"
+      "bytes": 6890,
+      "sha256": "0f384bb081b76d2959124c4383ecd2e1dfa1519dbf37838963917c5ff262ac91"
     },
     {
       "path": "public/character-style-review.html",
@@ -504,8 +504,8 @@
     },
     {
       "path": "public/paintfall-core-ability-effects.js",
-      "bytes": 10916,
-      "sha256": "afcb026690a9200854681158be3b91194577ce516afebaaf9f206ad6f5d80aac"
+      "bytes": 10934,
+      "sha256": "aef0df5a1594183d67652983dc937bc386d78e32c9edf4ae841d751652ffa77b"
     },
     {
       "path": "public/paintfall-country-africa-thirty.js",
@@ -1009,8 +1009,8 @@
     },
     {
       "path": "public/paintfall-outdoor-character-factory.js",
-      "bytes": 29983,
-      "sha256": "573d50ab930eebb29fa542cf1f61f8ec825e764d4087089fb1a7afca21eb2d55"
+      "bytes": 30094,
+      "sha256": "91ad1b869a692f6adea6ef097d0dc0511eeef988a837368fa8d77f2417b5adf2"
     },
     {
       "path": "public/paintfall-outdoor-players.js",
@@ -1569,15 +1569,25 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 470,
-      "sha256": "6b93bf783f5a2ef9f7e64ed199d7a38c69b670065843657bf9112ae695b51874"
+      "bytes": 493,
+      "sha256": "8dbcd2d99e6cec9f55baa48cc450f817a15fa41d9127aec46b490b92f73c5c26"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
       "bytes": 5051,
       "sha256": "4a176a55f63c1aaea20cfafd509dcbfd95c8eca8a4fb906b0f53f9ea913ed96b"
+    },
+    {
+      "path": "public/paintfall-character-hip-joints.js",
+      "bytes": 1243,
+      "sha256": "3254f2ed35466825325d03d5e08854730d4f9e58d7e2982c469a3433b244cfe7"
+    },
+    {
+      "path": "docs/PAINTFALL-CHARACTER-HIP-CONNECTION-2026-10-30.md",
+      "bytes": 2409,
+      "sha256": "e33fd17535a15eefd440c8b9e498099d98312dbd7c60dd19dafc0d2598508098"
     }
   ],
-  "revision": "recovery-kirin-bots-v1",
-  "updatedAt": "2026-10-31T01:04:40.236Z"
+  "revision": "hip-joints-v2",
+  "updatedAt": "2026-10-31T02:02:44.790Z"
 }

@@ -13,7 +13,8 @@
     "mid-match-world-travel",
     "private-password-recovery-codes",
     "nova-kirin-pickup",
-    "server-bot-movement"
+    "server-bot-movement",
+    "connected-character-hips"
   ],
-  "revision": "recovery-kirin-bots-v1"
+  "revision": "hip-joints-v2"
 }
