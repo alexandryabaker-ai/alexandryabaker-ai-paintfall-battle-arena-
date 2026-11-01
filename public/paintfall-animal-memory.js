@@ -29,7 +29,7 @@
   if(action==='prefer-walking')m.prefersWalking=true;
   if(action==='offer-pet'){
    m.petOffers=(m.petOffers||0)+1;
-   const comfortable=m.meetings>=1&&m.paintHits<=(m.apologizedThrough||0)&&((m.petOffers+m.meetings+m.spaceGiven)%3!==0);
+   const comfortable=m.meetings>=1&&m.paintHits<=(m.apologizedThrough||0)&&(m.petOffers%4!==0);
    m.petOfferUntil=comfortable?time+15000:0;m.lastPetAccepted=comfortable;
   }
   if(action==='pet'){
