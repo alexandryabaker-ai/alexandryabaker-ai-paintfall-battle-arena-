@@ -10,7 +10,7 @@ export function regionClimate(destination,style,{season,month}={}){
  const mountains=style==='mountain'||mountainStates.has(state);
  return {winter,mountains};
 }
-function peakGeometry(T,width,height,seed,snowOnly=false){
+export function createMountainPeakGeometry(T,width,height,seed,snowOnly=false){
  const points=[],segments=9;
  const baseY=-.4,capY=height*.69;
  const rng=i=>((Math.sin(seed*1.73+i*18.12)*43758.5453)%1+1)%1;
@@ -42,8 +42,8 @@ export function buildWinterMountains(T,{land,destination,style,season,month}){
   const specs=[[-58,-102,25,33],[-24,-110,29,39],[13,-109,27,35],[49,-101,24,30],[-104,-42,22,27],[104,-48,21,29]];
   for(let i=0;i<specs.length;i++){
    const [x,z,width,height]=specs[i],base=new T.Group();base.name='Distant mountain peak '+(i+1);base.position.set(x,0,z);group.add(base);
-   const body=new T.Mesh(peakGeometry(T,width,height,i+9),i%2?shaded:rock);body.name='faceted mountain rock';base.add(body);
-   const cap=new T.Mesh(peakGeometry(T,width,height,i+9,true),climate.winter||style==='mountain'?snow:glacier);cap.name='snow-covered mountain summit';base.add(cap);
+   const body=new T.Mesh(createMountainPeakGeometry(T,width,height,i+9),i%2?shaded:rock);body.name='faceted mountain rock';base.add(body);
+   const cap=new T.Mesh(createMountainPeakGeometry(T,width,height,i+9,true),climate.winter||style==='mountain'?snow:glacier);cap.name='snow-covered mountain summit';base.add(cap);
   }
  }
  if(climate.winter){
