@@ -47,7 +47,7 @@ export function createArenaAnimalMemories(T,{world,host,isActive}){
     result={memory,dialogue:rules.dialogue(entry.a.kind,action,memory),saveMessage:'Guest memory lasts for this page only. Sign in to keep future encounters.'};
    }
    if(!disposed&&typeof window.dispatchEvent==='function')window.dispatchEvent(new CustomEvent('paintfall-animal-encounter',{detail:{guest:!profile.account,animalId:entry.id,memory:result.memory}}));
-   if(region===selectedRegion&&!disposed){response.textContent=entry.a.kind+': “'+result.dialogue+'”';saved.textContent=result.saveMessage;lastMemory=result.memory;memoryId=entry.id;}
+   if(region===selectedRegion&&!disposed){response.textContent=entry.a.kind+': “'+result.dialogue+'”';saved.textContent=result.saveMessage;lastMemory=result.memory;memoryId=entry.id;window.dispatchEvent(new CustomEvent('paintfall-arena-dialogue',{detail:{speaker:entry.a.kind,text:result.dialogue}}));}
    return true;
   }catch(e){if(region===selectedRegion&&!disposed){response.textContent=e.message;saved.textContent='This encounter was not saved. Try the action again.';}return false;}
   finally{busy=false;refresh();}
