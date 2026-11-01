@@ -62,6 +62,15 @@ export function buildWinterMountains(T,{land,destination,style,season,month}){
   }
  }
  if(climate.winter){
+  // Shallow snow mounds sit above the continuous snow surface. No colliders.
+  const driftGeometry=new T.SphereGeometry(1,10,7);
+  for(let i=0;i<34;i++){
+   const a=i*2.39996,r=12+Math.sqrt(i)*9.2,x=Math.cos(a)*r,z=Math.sin(a)*r;
+   if(Math.abs(x)>72||Math.abs(z)>72)continue;
+   const drift=new T.Mesh(driftGeometry,i%5===0?glacier:snow);
+   drift.position.set(x,.027,z);drift.scale.set(1.4+(i%4)*.7,.045+(i%3)*.015,.75+(i%3)*.4);
+   drift.name='Shallow snow drift on playable ground';group.add(drift);
+  }
   // Low decorative snow banks are placed outside the arena boundary, not on walkable paths.
   for(let i=0;i<12;i++){
    const a=(i+.35)/12*Math.PI*2,r=85+(i%3)*2,x=Math.cos(a)*r,z=Math.sin(a)*r;
