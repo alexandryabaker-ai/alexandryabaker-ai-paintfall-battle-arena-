@@ -1,4 +1,5 @@
 import {buildRegionalAssets} from './paintfall-arena-region-assets.js';
+import {buildFantasyCreatures} from './paintfall-fantasy-creatures.js';
 import {applyArenaComfort} from './paintfall-arena-comfort.js';
 import {buildArenaGarden} from './paintfall-arena-gardens.js';
 import {createArenaSurfaceMaterial} from './paintfall-arena-surface.js';
@@ -20,6 +21,9 @@ export function buildArenaRegion(T,scene,destination){
  try{
   const assets=buildRegionalAssets(T,{land:group,...destination,ground,explorer});
   const garden=buildArenaGarden(T,{group,destination,obstacles:assets.obstacles,waterBounds:assets.landmarks?.waterBounds,style:assets.style});
+  const fantasy=buildFantasyCreatures(T,{land:group,style:assets.style,explorer,destination});
+  if(!assets.wildlife)assets.wildlife={animals:[],update(){}};
+  assets.wildlife.animals.push(...fantasy.animals);
   // Wildlife route checks retain this array; share the added garden obstacles.
   if(garden)assets.obstacles.push(...garden.obstacles);
   const palette={forest:0x82916a,desert:0xc6ac81,coast:0xc5c09b,ice:0xc9dde0,mountain:0x9ca18a,volcano:0x8c8a85,lake:0xa3af88,wetland:0x94a281,prairie:0xb9b982,river:0xa2af88,cave:0xaaa28b};
@@ -29,7 +33,7 @@ export function buildArenaRegion(T,scene,destination){
   const points=[[-70,-70],[70,-70],[70,70],[-70,70],[-70,-70]].map(([x,z])=>new T.Vector3(x,.04,z));
   const boundary=new T.Line(new T.BufferGeometry().setFromPoints(points),new T.LineBasicMaterial({color:0x265f67}));boundary.name='Arena movement boundary';group.add(boundary);
   scene.add(group);
-  const result={...assets,garden,group,explorer,destination,get interactionTime(){return assets.interactionTime;},update(dt,p){if(p)explorer.position.copy(p);assets.update(dt);garden?.update(dt);applyArenaComfort(T,result,globalThis.window?.PAINTFALL_COMFORT_CHOICES||[]);}};
+  const result={...assets,garden,group,explorer,destination,get interactionTime(){return assets.interactionTime;},update(dt,p){if(p)explorer.position.copy(p);assets.update(dt);fantasy.update(dt);garden?.update(dt);applyArenaComfort(T,result,globalThis.window?.PAINTFALL_COMFORT_CHOICES||[]);}};
   return result;
  }catch(error){disposeRegion({group});throw error;}
 }

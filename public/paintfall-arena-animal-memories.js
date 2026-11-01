@@ -23,13 +23,21 @@ export function createArenaAnimalMemories(T,{world,host,isActive}){
   return {a,id:rules.key(region.destination.id,a.kind,n)};
  });}
  function distance(entry){return point?Math.hypot(entry.a.root.position.x-point.x,entry.a.root.position.z-point.z):Infinity;}
- function refresh(){for(const b of buttons)b.disabled=busy||!current||!isActive()||distance(current)>8;offer.hidden=busy||!current||!isActive()||distance(current)>8||memoryId!==current.id||!rules.isBull(current.a.kind)||!(lastMemory?.paintHits||lastMemory?.jokes)||lastMemory.prefersWalking||declined.has(current.id)||!!window.PAINTFALL_LAST_PLAYER_STATE?.bullRide;}
+ function refresh(){
+  const fantasy=!!current&&/^(Ryujin family dragon|Wild unicorn)$/.test(current.a.kind);
+  for(const b of buttons){
+   const petAction=['offer-pet','pet'].includes(b.dataset.animalAction);
+   b.hidden=petAction&&!fantasy;
+   b.disabled=busy||!current||!isActive()||distance(current)>(b.dataset.animalAction==='pet'?3:8)
+    ||(b.dataset.animalAction==='pet'&&!(memoryId===current?.id&&(lastMemory?.petOfferUntil||0)>Date.now()));
+  }offer.hidden=busy||!current||!isActive()||distance(current)>8||memoryId!==current.id||!rules.isBull(current.a.kind)||!(lastMemory?.paintHits||lastMemory?.jokes)||lastMemory.prefersWalking||declined.has(current.id)||!!window.PAINTFALL_LAST_PLAYER_STATE?.bullRide;}
  const rideSend=accept=>{const socket=window.paintfallSocket;if(socket?.readyState!==1)return;socket.send(JSON.stringify({type:'bull-ride',animalId:current?.id,accept}));yes.disabled=true;};
  yes.onclick=()=>{if(offer.hidden||yes.disabled)return;rideSend(true);};no.onclick=()=>{if(current)declined.add(current.id);offer.hidden=true;response.textContent='No ride? No problem. We can trade jokes with both feet on the ground.';};dismount.onclick=()=>rideSend(false);
  function rideResult(e){yes.disabled=false;response.textContent=e.detail.message;refresh();}
  window.addEventListener('paintfall-animal-ride-result',rideResult);
  async function request(action,entry=current){
   if(disposed||busy||!entry||!isActive()||!available(entry.a)||distance(entry)>(action==='paint-hit'?40:8))return false;
+  if(action==='pet'&&(memoryId!==entry.id||!(lastMemory?.petOfferUntil>Date.now())||distance(entry)>3))return false;
   if(performance.now()-lastAction<700)return false;
   busy=true;lastAction=performance.now();refresh();const selectedRegion=region;
   response.textContent='Listening…';saved.textContent='';
@@ -52,14 +60,14 @@ export function createArenaAnimalMemories(T,{world,host,isActive}){
   }catch(e){if(region===selectedRegion&&!disposed){response.textContent=e.message;saved.textContent='This encounter was not saved. Try the action again.';}return false;}
   finally{busy=false;refresh();}
  }
- for(const [action,label]of [['talk','Say hello'],['joke','Tell me a joke'],['apologize','Say sorry'],['space','Give space'],['prefer-walking','I prefer walking']]){
+ for(const [action,label]of [['talk','Say hello'],['joke','Tell me a joke'],['apologize','Say sorry'],['space','Give space'],['prefer-walking','I prefer walking'],['offer-pet','Offer a pet'],['pet','Pet gently']]){
   const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.animalAction=action;
   b.onclick=()=>{const entry=current;if(action==='space'&&entry)entry.a.spaceUntil=(region?.interactionTime||entry.a.phase||0)+10;request(action,entry);};
   row.append(b);buttons.push(b);
  }
  function update(player){
   point=player;const next=world.region;
-  if(next!==region){region=next;current=null;response.textContent='Come closer and say hello. Animals can remember your encounters.';saved.textContent='';}
+  if(next!==region){region=next;current=null;lastMemory=null;memoryId=null;response.textContent='Come closer and say hello. Animals can remember your encounters.';saved.textContent='';}
   const animals=entries().filter(e=>available(e.a));
   const riding=!!window.PAINTFALL_LAST_PLAYER_STATE?.bullRide;panel.hidden=!isActive()||(!animals.length&&!riding);dismount.hidden=!riding;
   reticle.hidden=!isActive();
