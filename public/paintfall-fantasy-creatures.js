@@ -1,6 +1,7 @@
 // PAINTFALL fantasy wildlife preview. Separate from Jax's Ryujin and Nova's Kirin.
 // No rides or player movement are granted by this visual wildlife module.
-export function buildFantasyCreatures(T,{land,style,explorer}){
+export function buildFantasyCreatures(T,{land,style,explorer,destination}){
+ const seed=[...(destination?.name||'PAINTFALL')].reduce((n,c)=>n+c.charCodeAt(0),0);
  const group=new T.Group();group.name='PAINTFALL roaming dragons and unicorns';land.add(group);
  const animals=[],mat=(color,metalness=0)=>new T.MeshStandardMaterial({color,roughness:.67,metalness,side:T.DoubleSide});
  const sphere=new T.SphereGeometry(1,12,9);
@@ -13,7 +14,8 @@ export function buildFantasyCreatures(T,{land,style,explorer}){
  }
  function dragon(){
   const root=new T.Group();root.name='Ryujin family dragon';group.add(root);
-  const blue=mat(0x2674b7),light=mat(0x66cde4),dark=mat(0x17447e),gold=mat(0xffd47d,.22),eye=mat(0x15294d);
+  const coats=[[0x2674b7,0x66cde4,0x17447e],[0x8a50a9,0xe2a8f2,0x573b7b],[0x4c9a83,0x9be2b5,0x245c53]][seed%3];
+  const blue=mat(coats[0]),light=mat(coats[1]),dark=mat(coats[2]),gold=mat(0xffd47d,.22),eye=mat(0x15294d);
   orb(root,blue,0,1.26,0,.52,.43,.85);orb(root,light,0,1.16,.38,.40,.28,.48);
   orb(root,blue,0,1.66,.69,.34,.33,.38);orb(root,blue,0,1.55,1.02,.30,.17,.42);
   for(const side of [-1,1]){orb(root,eye,side*.26,1.77,.83,.043,.06,.05);cone(root,gold,side*.23,2.04,.53,.105,.35,side*.20);
@@ -25,7 +27,8 @@ export function buildFantasyCreatures(T,{land,style,explorer}){
  }
  function unicorn(){
   const root=new T.Group();root.name='Wild unicorn';group.add(root);
-  const pearl=mat(0xe5dfef),mane=mat(0xb994f0),aqua=mat(0x8ee6d6),hoof=mat(0x6d668b),eye=mat(0x2d435e),horn=mat(0xf8df8e,.25);
+  const coats=[[0xe5dfef,0xb994f0,0x8ee6d6],[0xffe7cf,0xf1a7a5,0xf8d88a],[0xc7d8f5,0x7f9ce6,0xa8e8dc]][seed%3];
+  const pearl=mat(coats[0]),mane=mat(coats[1]),aqua=mat(coats[2]),hoof=mat(0x6d668b),eye=mat(0x2d435e),horn=mat(0xf8df8e,.25);
   orb(root,pearl,0,1.13,0,.36,.35,.73);orb(root,pearl,0,1.42,.47,.24,.47,.27);
   orb(root,pearl,0,1.78,.68,.24,.26,.31);orb(root,pearl,0,1.64,.94,.20,.15,.26);
   for(const side of [-1,1]){orb(root,eye,side*.22,1.83,.79,.032,.046,.035);
