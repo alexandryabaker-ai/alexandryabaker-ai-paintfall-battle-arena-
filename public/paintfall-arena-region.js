@@ -21,7 +21,7 @@ export function buildArenaRegion(T,scene,destination){
  try{
   const assets=buildRegionalAssets(T,{land:group,...destination,ground,explorer});
   const garden=buildArenaGarden(T,{group,destination,obstacles:assets.obstacles,waterBounds:assets.landmarks?.waterBounds,style:assets.style});
-  const fantasy=buildFantasyCreatures(T,{land:group,style:assets.style,explorer});
+  const fantasy=buildFantasyCreatures(T,{land:group,style:assets.style,explorer,destination});
   if(!assets.wildlife)assets.wildlife={animals:[],update(){}};
   assets.wildlife.animals.push(...fantasy.animals);
   // Wildlife route checks retain this array; share the added garden obstacles.
