@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-30T19:58:02.789Z",
-  "status": "Tested public update candidate; owner artistic review and physical-phone verification remain",
+  "status": "Eleven researched garden additions; local geometry, movement and actual-room browser checks passed; owner visual refinements remain",
   "files": [
     {
       "path": "public/arena-character-check.html",
@@ -224,8 +224,8 @@
     },
     {
       "path": "public/paintfall-arena-catalog.js",
-      "bytes": 865893,
-      "sha256": "926fc10dcb8ecadef2be53d15d2d87120858416613bd2f7c9bcaac45c9f89818"
+      "bytes": 869358,
+      "sha256": "102531261528fa0e88e97cbc1f15926a39d109df53269d05630a7b4e82f71d9e"
     },
     {
       "path": "public/paintfall-arena-color-trial.js",
@@ -249,8 +249,8 @@
     },
     {
       "path": "public/paintfall-arena-gardens.js",
-      "bytes": 10415,
-      "sha256": "d6b21566bbafd74eab6f8eb96d999e50e5e6f068d6650b2b3d7cb2081e4a05ad"
+      "bytes": 10514,
+      "sha256": "207f856af61468bf6ece8d82e9de7486a2af1c782cb363ce9846ad6f3032241f"
     },
     {
       "path": "public/paintfall-arena-mexico.js",
@@ -274,8 +274,8 @@
     },
     {
       "path": "public/paintfall-arena-world-tour.js",
-      "bytes": 9036,
-      "sha256": "6a1cb68d3cfc9a913cc0ac1a6e750f22ff3b3ffd27170059201e165006f91062"
+      "bytes": 9216,
+      "sha256": "3ab0b06ca753f123ce5ea0e20fe432a05ee97bf64d46ac2e620e1d17df247f2c"
     },
     {
       "path": "public/paintfall-arizona-building.js",
@@ -1569,8 +1569,8 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 541,
-      "sha256": "2d9dad145ee20841410a2c2d9b9fbb786240266f2add61cd478d2b05167ff754"
+      "bytes": 581,
+      "sha256": "6fe4f3d9d0ec69aa4224806bad8b572ba3d0c8df9219fea60136a51bb720bef1"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
@@ -1589,15 +1589,30 @@
     },
     {
       "path": "public/paintfall-southeast-asia-gardens.js",
-      "bytes": 12151,
-      "sha256": "eac515234a9f77f0758b03b9b640752089e503e9aaddd2cb0c28e0aaba7c9589"
+      "bytes": 12197,
+      "sha256": "970cf72107ed99e3f5c01b1cb70fe78c3cb4c217e00b127a3701671bda7ba8b4"
     },
     {
       "path": "docs/PAINTFALL-GARDENS-ASIA-BATCH-ONE-2026-10-30.md",
       "bytes": 5146,
       "sha256": "bc0a889f472fc445d21f5d354e5848d07a17c63fbf327112c1a6617d3ef9aacd"
+    },
+    {
+      "path": "public/paintfall-east-asia-gardens.js",
+      "bytes": 16737,
+      "sha256": "30720916c35b9e128306d1120cb5f5cee95bf104683aabb0265c886745e2263e"
+    },
+    {
+      "path": "public/paintfall-garden-references.js",
+      "bytes": 2448,
+      "sha256": "653ebffe9784a04ef1ecaebb7873361d821b4b95ae134b1b632f4ce7c788b445"
+    },
+    {
+      "path": "docs/PAINTFALL-GARDENS-ASIA-BATCH-TWO-2026-11-04.md",
+      "bytes": 9181,
+      "sha256": "a8c09029c987494e492e3110b16235cabcd68b12531c00d1f96a1aaf58d558f9"
     }
   ],
-  "revision": "gardens-asia-five-v3",
-  "updatedAt": "2026-10-31T02:19:59.614Z"
+  "revision": "gardens-asia-eleven-v4",
+  "updatedAt": "2026-11-04"
 }

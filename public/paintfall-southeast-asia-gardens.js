@@ -1,6 +1,6 @@
 // Place-specific garden proposals. Shared construction tools, distinct layouts/plants.
 import {createArenaSurfaceMaterial} from './paintfall-arena-surface.js';
-function kit(T,g,country){
+export function createGardenKit(T,g,country){
  const obstacles=[],seats=[],sphere=new T.SphereGeometry(1,8,6),dummy=new T.Object3D();let flowerCount=0;
  const mat=(color,extra={})=>new T.MeshStandardMaterial({color,roughness:.84,...extra});
  const m={leaf:mat(0x39754b),light:mat(0x699b52),wood:mat(0x725239),soil:mat(0x5a4638),cream:mat(0xe6d7b8),yellow:mat(0xf4c94c),white:mat(0xfff5e5),pink:mat(0xec7baa),red:mat(0xd63d57),violet:mat(0x9c69c4),jade:mat(0x48c9ae)};
@@ -60,6 +60,7 @@ function kit(T,g,country){
  function finish(themeKey,theme,layout,paintCorner){g.userData.localIdentity=theme;g.userData.storySeats=seats;return{obstacles,seats,flowerCount,themeKey,theme,layout,paintCorner};}
  return{T,g,m,box,ell,block,rod,surface,floor,path,ring,bench,leaves,tree,flower,flowerBed,orchidStand,entry,finish};
 }
+const kit=createGardenKit;
 
 export function buildThailandGarden(T,g){
  const k=kit(T,g,'Thailand');k.floor(0x88a96b);k.path(0,-.6,3.1,15,0xcdb78b,'central lotus causeway');k.path(0,5.4,15.5,2,0xcdb78b,'rear crosswalk');k.entry('Open timber garden entrance');
