@@ -18,7 +18,10 @@
     "five-local-southeast-asia-gardens",
     "eleven-more-local-asia-gardens",
     "all-255-country-territory-garden-foundations",
-    "nevada-world-hub-and-racing-visitor-plazas"
+    "nevada-world-hub-and-racing-visitor-plazas",
+    "kirin-pickup-preserved-after-jump-and-travel",
+    "tilting-towers-with-facade-track"
   ],
-  "revision": "nevada-park-plazas-v6"
+  "revision": "kirin-pickup-tower-motion-v7",
+  "channel": "testing"
 }

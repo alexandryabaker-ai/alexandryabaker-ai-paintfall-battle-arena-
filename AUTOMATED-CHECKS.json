@@ -294,5 +294,40 @@
       "actual-room named park entries, shared collision metadata, one renderer and return to Vietnam"
     ],
     "evidence": "art/nevada-arena-parks-2026-11-04/verification.json"
+  },
+  "kirinTowerFix": {
+    "checkedAt": "2026-11-05T02:50:39.201Z",
+    "revision": "kirin-pickup-tower-motion-v7",
+    "passed": true,
+    "scope": "testing branch only",
+    "pickupScenarios": [
+      {
+        "scenario": "normal",
+        "passed": true
+      },
+      {
+        "scenario": "early-landing",
+        "passed": true
+      },
+      {
+        "scenario": "early-travel",
+        "passed": true
+      }
+    ],
+    "towerMotion": [
+      "opposite tower tilt visible in real arena renderer",
+      "rails deform with tower motion",
+      "one renderer",
+      "desktop and phone-size pictures"
+    ],
+    "unitChecks": [
+      "pre-pickup actions do not decline Kirin",
+      "interrupted approach descends again",
+      "actual flight dismount does not remount",
+      "1600 tower-motion steps, sampled car/body clearance and reused geometry",
+      "existing Nevada and 255-garden regressions"
+    ],
+    "physicalPhoneTest": false,
+    "boardingEnabled": false
   }
 }

@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-30T19:58:02.789Z",
-  "status": "First Nevada World Hub and Racin Park visitor plazas in the arena; unoccupied ground-track tests only; boarding and coaster connections closed pending ride checks",
+  "status": "Testing only: corrected Kirin pickup after normal landings/travel and restored moving towers with attached facade track; local regression checks passed; owner phone review pending",
   "files": [
     {
       "path": "public/arena-character-check.html",
@@ -939,8 +939,8 @@
     },
     {
       "path": "public/paintfall-nova-ability.js",
-      "bytes": 7050,
-      "sha256": "d0461275cc6da3df23bd2b492cb82e14b25635c263961ef7fa0349d68967f3ec"
+      "bytes": 7384,
+      "sha256": "56949a1fc86bcbd4ef9d108db44b7ab5fe0426902720c1f2f636693faf948086"
     },
     {
       "path": "public/paintfall-nova-eye-alignment.js",
@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/paintfall-outdoor-players.js",
-      "bytes": 12524,
-      "sha256": "10001861fb88b6c88b0b2240a965b68536ff34b91a2fdbbb304164d26ff20823"
+      "bytes": 12789,
+      "sha256": "a78111f9e4f739e938c3790442466a103c3e73315b6aed81c80e592691d2d232"
     },
     {
       "path": "public/paintfall-pacific-animal-details.js",
@@ -1569,8 +1569,8 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 682,
-      "sha256": "636096a30cb1c0455087472adfa6448d06f03e628f38a2d7b4698141c678d6e1"
+      "bytes": 805,
+      "sha256": "aaad8b15c64c28e9b7beae73814539600a0e607b0be5e0abbcf9cbc20d5d7506"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
@@ -2979,8 +2979,8 @@
     },
     {
       "path": "public/paintfall-arena-nevada-parks.js",
-      "bytes": 8908,
-      "sha256": "5d88107f880e77002471a1a9ddea10de1fc5552a43a0cd9077ac05f4e5b41f44"
+      "bytes": 8849,
+      "sha256": "ebb6994d5422784d51782b935092873c37647ff8cc743eca4bf161bcc9f19d8c"
     },
     {
       "path": "tools/build-arena-catalog.mjs",
@@ -3006,8 +3006,43 @@
       "path": "art/nevada-arena-parks-2026-11-04/verification.json",
       "bytes": 382,
       "sha256": "934113a1ecee34ac68d755d112e270f8eef3fda0116daaad2ecefb097f050bce"
+    },
+    {
+      "path": "public/paintfall-towers-coaster-track.js",
+      "bytes": 5179,
+      "sha256": "6ee0117190cecc604b6d10045e11e023dd5b47289c957158dc161b8483ac7383"
+    },
+    {
+      "path": "tests/nova-kirin-handoff.cjs",
+      "bytes": 1706,
+      "sha256": "ee6fb45f323abe9e7d8602d132fe29e6eeb6c8bb8b4a2b714244b76d8e9a2e0d"
+    },
+    {
+      "path": "tests/nova-kirin-handoff-browser.cjs",
+      "bytes": 3747,
+      "sha256": "d2bfc2ee307f54dfd19ee47b976cb6abf9f9fe92eedb1cb413dc6711c65f8808"
+    },
+    {
+      "path": "tests/kirin-pickup.cjs",
+      "bytes": 3553,
+      "sha256": "f65378b2c2ddb42c152510e6335d62502bdeb12f29adefdad93b2c132d38cafa"
+    },
+    {
+      "path": "tests/towers-coaster-motion.mjs",
+      "bytes": 2981,
+      "sha256": "85bb8af7a529399d618cf161b3b6bd692f6388809a1c3b22f23d97ec47614772"
+    },
+    {
+      "path": "tests/towers-coaster-browser.cjs",
+      "bytes": 2349,
+      "sha256": "f5c4168e6cf249331efb9cfee8c12eccfd7939091039eb97dfef1b4c0f835f5d"
+    },
+    {
+      "path": "docs/PAINTFALL-KIRIN-TOWERS-TESTER-FIX-2026-11-04.md",
+      "bytes": 3100,
+      "sha256": "812f0a0a83b90c3848ea119b3e0dafb6dcc24099c6b09fcda99d6b9f439d41b0"
     }
   ],
-  "revision": "nevada-park-plazas-v6",
+  "revision": "kirin-pickup-tower-motion-v7",
   "updatedAt": "2026-11-04"
 }

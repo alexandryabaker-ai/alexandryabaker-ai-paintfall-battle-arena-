@@ -1,6 +1,7 @@
 // First arena installation of the saved Nevada park studies. No renderer,
 // physics dispatcher or inter-park travel is created here. Visitors can explore
 // the plazas; the unoccupied test tracks remain behind visible barriers.
+import {buildTiltingTowersTrack} from './paintfall-towers-coaster-track.js';
 export function buildNevadaArenaParks(T,{group,destination}){
  if(destination.id!=='state:Nevada')return null;
  const root=new T.Group();root.name='Nevada World Hub and Racin’ Park';group.add(root);
@@ -51,9 +52,8 @@ export function buildNevadaArenaParks(T,{group,destination}){
   s.group.userData={parkSite:id,title,status:s.status,entrance:s.entrance,boardingEnabled:false,storySeats:[{x:-17,y:.64,z:37,facing:Math.PI},{x:17,y:.64,z:37,facing:Math.PI}]};return s;
  }
  const hub=site('hub','World Hub',0,-125,43,28),h=hub.group;
- for(const x of [-6,6]){box(h,x,14,-2,5,28,5,m.dark,'PAINTFALL Towers');for(let j=0;j<6;j++)for(const z of [-4.56,.56])box(h,x,4+j*4,z,4,.45,.12,j%2?m.purple:m.blue,'Tower paint-light panel');}
- const towerPoints=[[-14,3,16],[-14,12,3],[-13,37,-12],[-9,39,-17],[-8,3,-22],[0,3,-25],[12,21,-23],[15,35,-13],[15,4,2],[22,4,14],[6,3,21]];
- testTrain(h,rail(h,towerPoints,0xffce61,'PAINTFALL Towers Coaster'),m.purple,'PAINTFALL Towers Coaster',8);
+ const towerTrack=buildTiltingTowersTrack(T,h);
+ const towerTrain=testTrain(h,towerTrack.curve,m.purple,'PAINTFALL Towers Coaster',8);towerTrain.orientation=towerTrack.orientation;
  sign(h,'PAINTFALL Towers Coaster','Unoccupied track tests',0,32,2,16);
  // Saved sky stations remain visibly under construction until a complete ride is ready.
  box(h,31,18,-5,7,36,7,m.dark,'SKYFALL departure tower');box(h,31,37,-5,11,1,10,m.blue,'SKYFALL rooftop station');sign(h,'SKYFALL PaintCoaster','Station under construction',31,41,-5,14);
@@ -76,7 +76,7 @@ export function buildNevadaArenaParks(T,{group,destination}){
  sign(r,'Ready-Set-Paint-Race','Go-karts • Coming soon',-23,2.8,32,12);
  sign(r,'Paint Splatter Cars','Monster trucks • Coming soon',23,2.8,32,12);
  box(root,-52.5,.035,-82,105,.025,6,m.sand,'Open pedestrian connection between Nevada park plazas');
- let elapsed=0;function update(dt){dt=Math.min(.05,Math.max(0,Number(dt)||0));elapsed+=dt;for(const ride of trains){ride.distance=(ride.distance+dt*ride.speed)%ride.length;for(let i=0;i<ride.cars.length;i++){const t=((ride.distance-i*3.2)%ride.length+ride.length)%ride.length/ride.length,car=ride.cars[i];car.position.copy(ride.curve.getPointAt(t));car.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),ride.curve.getTangentAt(t));}}jets.scale.y=.94+Math.sin(elapsed*1.3)*.06;}
+ let elapsed=0;function update(dt){dt=Math.min(.05,Math.max(0,Number(dt)||0));elapsed+=dt;towerTrack.update(dt);for(const ride of trains){ride.length=ride.curve.getLength();ride.distance=(ride.distance+dt*ride.speed)%ride.length;for(let i=0;i<ride.cars.length;i++){const t=((ride.distance-i*3.2)%ride.length+ride.length)%ride.length/ride.length,car=ride.cars[i];car.position.copy(ride.curve.getPointAt(t));if(ride.orientation)ride.orientation(t,car.quaternion);else car.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),ride.curve.getTangentAt(t));}}jets.scale.y=.94+Math.sin(elapsed*1.3)*.06;}
  update(0);root.userData={arenaParks:true,phase:'Nevada visitor plazas and ground-track testing',boardingEnabled:false};
- return {group:root,sites,obstacles,bound:180,trains,update};
+ return {group:root,sites,obstacles,bound:180,trains,towerTrack,update};
 }

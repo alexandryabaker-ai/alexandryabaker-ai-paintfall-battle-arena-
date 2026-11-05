@@ -1,0 +1,24 @@
+const assert=require('node:assert/strict'),nova=require('../public/paintfall-nova-ability.js'),splash=require('../public/paintfall-splash-landing.js');
+const room={started:true,round:1,rules:{cooldown:180}};
+const make=()=>({id:'nova',character:'Nova',alive:true,abilityReady:true,grounded:true,x:600,y:350,z:0});
+const p=make();nova.activate(p,room,1000);
+nova.tick(p,22999,room);assert.equal(p.kirinRide,undefined);
+nova.tick(p,23000,room);assert.equal(p.kirinRide.phase,'approaching');assert.equal(p.mounted,undefined);
+nova.tick(p,27000,room);assert.equal(p.kirinRide.phase,'flying');assert.equal(p.mounted,true);assert.equal(p.grounded,false);
+nova.tick(p,31000,room);assert.ok(p.z>120);assert.ok(nova.phase(30000).energy>nova.phase(22000).energy);
+const height=p.z;assert.equal(splash.start(p,room,32000),true);nova.stopRide(p);nova.tick(p,33000,room);assert.equal(p.kirinRide,null);assert.equal(p.mounted,false);assert.equal(p.z,height);splash.tick(p,33000);assert.ok(p.z<height);
+const end=make();nova.activate(end,room,1000);nova.tick(end,31000,room);nova.tick(end,1000+nova.TOTAL_MS,room);assert.equal(end.kirinRide,null);assert.equal(end.ability,null);assert.equal(end.splashLanding.phase,'descending');
+(async()=>{
+ const T=await import('../public/vendor/three.module.js'),{createCharacterFactory}=await import('../public/paintfall-outdoor-character-factory.js'),{createOutdoorPlayers}=await import('../public/paintfall-outdoor-players.js'),{createKirinEnergyProposal,animateKirinEnergyProposal}=await import('../public/paintfall-kirin-energy-proposal.js');
+ global.window={PaintfallMovement:require('../public/paintfall-movement-sync.js'),PaintfallNovaAbility:nova,PaintfallSplashLanding:splash};
+ const scene=new T.Scene(),controller=createOutdoorPlayers(T,scene,createCharacterFactory(T),{create:()=>createKirinEnergyProposal(T),animate:animateKirinEnergyProposal});
+ const flying=make();nova.activate(flying,room,1000);nova.tick(flying,31000,room);
+ controller.update([{...flying,ability:nova.snapshot(flying,31000)}],'nova','third',100);const actor=controller.actors.get('nova'),kirin=actor.userData.novaCompanion;
+ assert.equal(actor.userData.kirinMounted,true);assert.ok(kirin.userData.energy.transfer.visible);assert.ok(Math.abs(actor.position.x-kirin.position.x)<.001);assert.ok(Math.abs(actor.position.z-kirin.position.z)<.001);assert.ok(Math.abs(actor.position.y-kirin.position.y-.08)<.001);assert.equal(actor.userData.standingHeight,1.524);
+ const retry=make();nova.activate(retry,room,1000);nova.tick(retry,23000,room);nova.stopRide(retry);nova.tick(retry,28000,room);
+ controller.update([{...retry,ability:nova.snapshot(retry,28000)}],'nova','third',200);const high=kirin.position.y;assert.ok(high>actor.position.y+3,'restarted approach begins in the sky');
+ controller.update([{...retry,ability:nova.snapshot(retry,30000)}],'nova','third',300);assert.ok(kirin.position.y<high-1,'Kirin visibly descends on the restarted ride clock');
+ nova.tick(retry,32000,room);controller.update([{...retry,ability:nova.snapshot(retry,32000)}],'nova','third',400);assert.ok(actor.userData.kirinMounted);
+ controller.update([{...make(),ability:null}],'nova','third',500);assert.equal(actor.userData.kirinMounted,false);assert.equal(kirin.userData.energy.transfer.visible,false);controller.update([],'nova','third',600);
+ console.log('PASS: Kirin descends, mounts Nova, restores energy, shows rainbow transfer, permits safe hop-off, avoids remount, and lands safely when recovery ends.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

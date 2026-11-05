@@ -18,12 +18,21 @@
   p.ability={type:'nova-energy',id:r.round+':'+time,startedAt:time};p.abilityReadyAt=time+Math.max(TOTAL_MS,(r.rules.cooldown||180)*1000);
   p.abilityReady=false;p.abilityCooldown=Math.ceil((p.abilityReadyAt-time)/1000);return true;
  }
- function stopRide(p){if(p.ability?.type==='nova-energy')p.ability.kirinDeclined=true;if(!p.kirinRide)return false;p.kirinRide=null;p.mounted=false;return true;}
+ function stopRide(p){
+  // A regular jump landing or a map drop is not a refusal of a future pickup.
+  // Only leaving an existing flight opts Nova out for this activation.
+  if(!p.kirinRide)return false;
+  if(p.ability?.type==='nova-energy'){
+   if(p.kirinRide.phase==='flying')p.ability.kirinDeclined=true;
+   else p.ability.kirinApproachInterrupted=true;
+  }
+  p.kirinRide=null;p.mounted=false;return true;
+ }
  function tick(p,time,room){
   let changed=false;
   const age=p.ability?.type==='nova-energy'?time-p.ability.startedAt:-1;
   if(age>=SPEND_MS&&age<TOTAL_MS&&p.alive&&!p.ability.kirinDeclined&&!p.splashLanding){
-   if(!p.kirinRide){p.kirinRide={phase:'approaching',startedAt:p.ability.startedAt+SPEND_MS};changed=true;}
+   if(!p.kirinRide){p.kirinRide={phase:'approaching',startedAt:p.ability.kirinApproachInterrupted?time:p.ability.startedAt+SPEND_MS};delete p.ability.kirinApproachInterrupted;changed=true;}
    const rideAge=time-p.kirinRide.startedAt;
    if(rideAge>=4000){
     p.kirinRide.phase='flying';p.mounted=true;p.grounded=false;p.vz=0;

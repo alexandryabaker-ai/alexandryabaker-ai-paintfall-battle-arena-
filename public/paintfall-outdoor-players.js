@@ -120,7 +120,11 @@ export function createOutdoorPlayers(THREE, scene, makeCharacter, companions={})
         const ride=player.kirinRide,mounted=ride?.phase==='flying';
         companions.animate?.(companion,now,{riderMounted:mounted});
         companion.scale.setScalar(.58);
-        const sample=actor.userData.novaAbilitySample,approach=ride?Math.max(0,Math.min(1,((sample?.elapsed||0)-window.PaintfallNovaAbility.SPEND_MS)/4000)):0;
+        const sample=actor.userData.novaAbilitySample;
+        // The server can restart an interrupted approach after a jump landing.
+        // Anchor descent to that ride attempt, rather than the original Overload.
+        const abilityStart=player.ability?player.ability.sampleAt-player.ability.elapsedMs:0;
+        const approach=ride?Math.max(0,Math.min(1,((sample?.elapsed||0)-(ride.startedAt-abilityStart))/4000)):0;
         const blend=approach*approach*(3-2*approach);
         companion.position.set(next.x+Math.cos(now*.00016)*2.5*(1-blend),mounted?actor.position.y-.08:next.y+(3.2+Math.sin(now*.001)*.12)*(1-blend),next.z+Math.sin(now*.00016)*2.5*(1-blend));
         companion.rotation.y=ride?actor.rotation.y:-now*.00016-.5;companion.visible=player.alive!==false;
