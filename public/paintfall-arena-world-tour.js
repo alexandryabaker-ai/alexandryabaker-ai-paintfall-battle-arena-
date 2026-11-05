@@ -3,7 +3,7 @@ import {gardenReferences} from './paintfall-garden-references.js';
 import {composedGardenReferences} from './paintfall-garden-compositions.js';
 const $=id=>document.getElementById(id),host=$('view');
 const catalog=window.PaintfallArenaCatalog,all=Object.values(catalog).sort((a,b)=>a.name.localeCompare(b.name)||a.type.localeCompare(b.type));
-const viewIds=['overview','ground','overhead','garden','flowers','hub','racing'];
+const viewIds=['overview','ground','overhead','garden','flowers','hub','racing','racers'];
 let world,current=null,filtered=all,view=viewIds.includes(new URL(location.href).searchParams.get('view'))?new URL(location.href).searchParams.get('view'):'overview',angle=.7,distance=68,center=new THREE.Vector3(0,1,0),turn=false,previousTime=0,drag=null;
 const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 let colorRequested=new URL(location.href).searchParams.get('look')!=='original';
@@ -15,6 +15,8 @@ function syncColors(){
 for(const [id,enabled]of [['look-original',false],['look-pop',true]])$(id).onclick=()=>{colorRequested=enabled;syncColors();const url=new URL(location.href);url.searchParams.set('look',enabled?'pop':'original');history.replaceState(null,'',url);};
 function kind(p){return p.type==='state'?'U.S. state':'Country / territory';}
 function fit(){
+ world.region.parks?.setInspectionMode(view==='racers');
+ if(view==='racers'&&world.region.parks){distance=6;angle=.7;return;}
  const bounds=new THREE.Box3(),park=world.region.parks?.sites.find(p=>p.id===view);if(park){park.group.updateWorldMatrix(true,true);bounds.expandByObject(park.group);}else if(['garden','flowers'].includes(view)&&world.region.garden){const focus=view==='flowers'?world.region.garden.paintFlowers.group:world.region.garden.group;focus.updateWorldMatrix(true,true);bounds.expandByObject(focus);}else for(const child of world.region.group.children)if(!['Level regional arena terrain','Arena movement boundary'].includes(child.name))bounds.expandByObject(child);
  if(bounds.isEmpty())center.set(0,1,0);else bounds.getCenter(center);
  center.y=1;const size=bounds.isEmpty()?new THREE.Vector3(40,10,40):bounds.getSize(new THREE.Vector3());
@@ -23,8 +25,8 @@ function fit(){
 function choose(id){
  if(!world||!catalog[id])return;
  try{
-  world.setRegion(id);current=catalog[id];if((['garden','flowers'].includes(view)&&!world.region.garden)||(['hub','racing'].includes(view)&&!world.region.parks))view='overview';fit();syncColors();
-  $('garden').disabled=$('flowers').disabled=!world.region.garden;$('hub').disabled=$('racing').disabled=!world.region.parks;for(const v of viewIds)$(v).setAttribute('aria-pressed',String(v===view));
+  world.setRegion(id);current=catalog[id];if((['garden','flowers'].includes(view)&&!world.region.garden)||(['hub','racing','racers'].includes(view)&&!world.region.parks))view='overview';fit();syncColors();
+  $('garden').disabled=$('flowers').disabled=!world.region.garden;$('hub').disabled=$('racing').disabled=!world.region.parks;$('racers').hidden=$('race-car').hidden=!world.region.parks;for(const v of viewIds)$(v).setAttribute('aria-pressed',String(v===view));
   $('place').value=id;$('place-title').textContent=current.name+' · '+kind(current);
   $('stats').textContent=(current.homes||0)+' homes · '+(current.animals||0)+' animals in the current arena catalog';
   $('garden-note').replaceChildren();if(world.region.garden){const note=$('garden-note');note.append(document.createTextNode(world.region.garden.theme+' · PAINTFALL paint flowers · 2 benches · Garden Park coming soon. '+(world.region.garden.identityStatus==='regional-design-pending'?'Local garden identity is still to be designed together.':'')));const inspiration={Vietnam:['https://vietnamtourism.vn/en/index.php/news/items/2334','Huế garden inspiration'],Laos:['https://www.pha-tad-ke.com/visit/the-gardens-2/','Lao botanical-garden inspiration'],Cambodia:['https://tourismcambodia.org/public/attractions/royal-garden-1551335490','Cambodian garden inspiration'],Thailand:['https://en.wikipedia.org/wiki/Cassia_fistula','Golden-shower plant reference'],Myanmar:['https://en.wikipedia.org/wiki/National_Kandawgyi_Botanical_Gardens','Upland botanical-garden reference'],Malaysia:['https://www.frim.gov.my/attractions/nature-activities/kepong-botanic-gardens/','Malaysian botanical-garden reference'],Indonesia:['https://kebunraya.id/r/bogor','Bogor botanical-garden reference'],Philippines:['https://en.wikipedia.org/wiki/Strongylodon_macrobotrys','Jade-vine plant reference']}[current.name]||((gardenReferences[current.name]||composedGardenReferences[current.name])?[(gardenReferences[current.name]||composedGardenReferences[current.name]).url,(gardenReferences[current.name]||composedGardenReferences[current.name]).title]:null);if(inspiration){const link=document.createElement('a');link.href=inspiration[0];link.textContent=' '+inspiration[1];link.target='_blank';link.rel='noopener';note.append(link);}}
@@ -48,6 +50,7 @@ function filter(){
 $('search').oninput=filter;$('type').onchange=filter;$('place').onchange=()=>choose($('place').value);
 for(const [id,step] of [['previous',-1],['next',1]])$(id).onclick=()=>{const index=Math.max(0,filtered.findIndex(p=>p.id===current?.id));choose(filtered[(index+step+filtered.length)%filtered.length].id);};
 for(const id of viewIds)$(id).onclick=()=>{view=id;fit();for(const v of viewIds)$(v).setAttribute('aria-pressed',String(v===view));const url=new URL(location.href);url.searchParams.set('view',view);history.replaceState(null,'',url);};
+$('race-car').onchange=()=>{view='racers';choose(current.id);};
 $('rotate').onclick=()=>{turn=!turn;$('rotate').setAttribute('aria-pressed',String(turn));};
 for(const id of ['country:Mexico','state:Arizona','country:Vietnam','country:Senegal','country:Japan','state:Wisconsin']){
  const button=document.createElement('button');button.type='button';button.textContent=catalog[id].name;button.onclick=()=>{$('search').value='';$('type').value='all';filter();choose(id);};document.querySelector('.quick').append(button);
@@ -63,6 +66,7 @@ function render(now){
   const spawn=current.spawns[0];let cx=center.x,cy=1,cz=center.z,ex=cx+Math.sin(angle)*distance,ez=cz+Math.cos(angle)*distance,ey=distance*.48;
   if(view==='overhead'){ey=distance*1.05;ex=cx+Math.sin(angle)*distance*.08;ez=cz+Math.cos(angle)*distance*.08;}
   if(view==='ground'){ex=spawn.x;ez=spawn.z;ey=1.6;cx=ex-Math.sin(angle)*18;cz=ez-Math.cos(angle)*18;cy=1.6;}
+  if(view==='racers'&&world.region.parks){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
   world.setCameraPose({ex,ey,ez,cx,cy,cz,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:320,mode:'review'});world.render();
  }requestAnimationFrame(render);
 }

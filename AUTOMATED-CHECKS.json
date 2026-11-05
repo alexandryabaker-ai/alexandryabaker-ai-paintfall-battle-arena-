@@ -329,5 +329,30 @@
     ],
     "physicalPhoneTest": false,
     "boardingEnabled": false
+  },
+  "nevadaRacingIdentities": {
+    "revision": "nevada-racing-identities-v8",
+    "checkedAt": "2026-11-05T04:16:38.985Z",
+    "passed": true,
+    "scope": "testing branch only; original coach bodies and unoccupied track studies",
+    "unitTests": [
+      {
+        "test": "tests/nevada-racing-identity.mjs",
+        "passed": true
+      },
+      {
+        "test": "tests/nevada-arena-parks.mjs",
+        "passed": true
+      }
+    ],
+    "browserChecks": [
+      "three original car-train close-ups in the existing renderer",
+      "single canvas",
+      "phone-size view",
+      "return to garden destination"
+    ],
+    "physicalPhoneTest": false,
+    "boardingEnabled": false,
+    "vehicleDrivingEnabled": false
   }
 }

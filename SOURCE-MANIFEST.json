@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-30T19:58:02.789Z",
-  "status": "Testing only: corrected Kirin pickup after normal landings/travel and restored moving towers with attached facade track; local regression checks passed; owner phone review pending",
+  "status": "Testing only: three original Nevada racing coach identities and shared track orientation; boarding, go-karts and bumper trucks remain unfinished",
   "files": [
     {
       "path": "public/arena-character-check.html",
@@ -9,8 +9,8 @@
     },
     {
       "path": "public/arena-world-tour.html",
-      "bytes": 4877,
-      "sha256": "b55c6249c9f0fbedadc3113da608f71cd053969f108b428a9aaa311c3e227444"
+      "bytes": 5200,
+      "sha256": "48cc1f1d2073e49ef4fbd20c8cbdf4e080a0a95d98393f6c731e1f162b42235d"
     },
     {
       "path": "public/assets/characters/nova-game-01.glb",
@@ -274,8 +274,8 @@
     },
     {
       "path": "public/paintfall-arena-world-tour.js",
-      "bytes": 9637,
-      "sha256": "97cc61bbdedb77cf37c2f0701e8ed9b63d14abd98f38fc3e534383f60ace5557"
+      "bytes": 10372,
+      "sha256": "b8cde82bb1a50b764c167f3e184ac6246163dbcf9765781263852a7ae092a1df"
     },
     {
       "path": "public/paintfall-arizona-building.js",
@@ -1569,8 +1569,8 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 805,
-      "sha256": "aaad8b15c64c28e9b7beae73814539600a0e607b0be5e0abbcf9cbc20d5d7506"
+      "bytes": 892,
+      "sha256": "f4512fca8597a339bb07d50a6a9e0dd67fa6ed3d60096939e0d646a6703808dd"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
@@ -2979,8 +2979,8 @@
     },
     {
       "path": "public/paintfall-arena-nevada-parks.js",
-      "bytes": 8849,
-      "sha256": "ebb6994d5422784d51782b935092873c37647ff8cc743eca4bf161bcc9f19d8c"
+      "bytes": 10512,
+      "sha256": "cbd8bcc5641d7ce4900a8e7d68723ecaac49b8542a25ebfcd03318198f407f01"
     },
     {
       "path": "tools/build-arena-catalog.mjs",
@@ -3019,8 +3019,8 @@
     },
     {
       "path": "tests/nova-kirin-handoff-browser.cjs",
-      "bytes": 3747,
-      "sha256": "d2bfc2ee307f54dfd19ee47b976cb6abf9f9fe92eedb1cb413dc6711c65f8808"
+      "bytes": 4268,
+      "sha256": "b8c3f395fc33b9f59af253165f09b669536d456ef5104bf50e39feffbf62c5f4"
     },
     {
       "path": "tests/kirin-pickup.cjs",
@@ -3041,8 +3041,28 @@
       "path": "docs/PAINTFALL-KIRIN-TOWERS-TESTER-FIX-2026-11-04.md",
       "bytes": 3100,
       "sha256": "812f0a0a83b90c3848ea119b3e0dafb6dcc24099c6b09fcda99d6b9f439d41b0"
+    },
+    {
+      "path": "public/paintfall-nevada-racing-vehicles.js",
+      "bytes": 6327,
+      "sha256": "8af7b913c3413ee9e505ec0ee5981de9b9abf69feabf51f6dc67b1433a170a75"
+    },
+    {
+      "path": "tests/nevada-racing-identity.mjs",
+      "bytes": 3806,
+      "sha256": "74ffcbad1184c1b559b34364132a4dff32838a397edfe088aab8eb7dc5007b8f"
+    },
+    {
+      "path": "tests/nevada-racing-identity-browser.cjs",
+      "bytes": 2038,
+      "sha256": "eb105a3af5d2206fc6ba679be61401b9c811928269c3ed3a1292c1bedf9b0010"
+    },
+    {
+      "path": "docs/PAINTFALL-NEVADA-RACING-TESTER-2026-11-04.md",
+      "bytes": 2896,
+      "sha256": "747de9aa088eb620f517ded2f7749867c8a81ca17830e52a3278079ebea3bf06"
     }
   ],
-  "revision": "kirin-pickup-tower-motion-v7",
-  "updatedAt": "2026-11-04"
+  "revision": "nevada-racing-identities-v8",
+  "updatedAt": "2026-11-05T04:16:38.935Z"
 }

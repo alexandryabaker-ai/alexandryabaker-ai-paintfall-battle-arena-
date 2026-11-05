@@ -20,8 +20,10 @@
     "all-255-country-territory-garden-foundations",
     "nevada-world-hub-and-racing-visitor-plazas",
     "kirin-pickup-preserved-after-jump-and-travel",
-    "tilting-towers-with-facade-track"
+    "tilting-towers-with-facade-track",
+    "three-original-nevada-racing-coach-identities",
+    "paused-car-train-inspection"
   ],
-  "revision": "kirin-pickup-tower-motion-v7",
+  "revision": "nevada-racing-identities-v8",
   "channel": "testing"
 }
