@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "questions": [
+    {
+      "id": "playStyle",
+      "label": "How do you like to play?",
+      "type": "single",
+      "options": [
+        {"value":"relaxed","label":"Relaxed exploring and creating"},
+        {"value":"competitive","label":"Friendly competition"},
+        {"value":"both","label":"A little of both"}
+      ]
+    },
+    {
+      "id": "avoid",
+      "label": "What scares you, or would you prefer to leave out of your arena?",
+      "hint": "Choose any that apply, or leave this blank. You can change these choices later.",
+      "type": "multiple",
+      "options": [
+        {"value":"spiders","label":"Spiders"},
+        {"value":"snakes","label":"Snakes"},
+        {"value":"insects","label":"Insects"},
+        {"value":"bats","label":"Bats"},
+        {"value":"crocodiles","label":"Crocodiles and alligators"},
+        {"value":"deep-water","label":"Deep water"},
+        {"value":"heights","label":"Heights"},
+        {"value":"darkness","label":"Darkness"},
+        {"value":"sudden-scares","label":"Sudden scares"}
+      ]
+    },
+    {"id":"birthCountry","label":"What is your birth country or territory?","type":"country"},
+    {"id":"spawnAtBirth","label":"Would you like to start in your birth country or territory?","type":"single","options":[{"value":"yes","label":"Yes"},{"value":"no","label":"No, I would like to choose somewhere else"}]},
+    {"id":"preferredSpawn","label":"If not, where would you like to start?","type":"destination","hint":"Used as your default when you create a room. Joining a friend uses that room’s destination."},
+    {"id":"language","label":"What is your preferred language?","hint":"Saved for future language and voice support; the current interface is in English.","type":"single","options":[{"value":"English","label":"English"},{"value":"Spanish","label":"Español"},{"value":"French","label":"Français"},{"value":"Portuguese","label":"Português"},{"value":"Arabic","label":"العربية"},{"value":"Hindi","label":"हिन्दी"},{"value":"Chinese","label":"中文"},{"value":"Japanese","label":"日本語"},{"value":"Korean","label":"한국어"},{"value":"Other","label":"Another language"}]}
+  ],
+  "event": {
+    "id": "welcome-planning-v1",
+    "title": "Community event planning",
+    "question": "What would you enjoy at a future PAINTFALL event?",
+    "options": [
+      {"value":"exploring","label":"A world exploration challenge"},
+      {"value":"building","label":"A creative building challenge"},
+      {"value":"paintball","label":"A friendly paintball challenge"}
+    ]
+  }
+}

@@ -1,0 +1,1527 @@
+[
+  {
+    "id": "country:Indonesia",
+    "type": "country",
+    "name": "Indonesia"
+  },
+  {
+    "id": "country:Malaysia",
+    "type": "country",
+    "name": "Malaysia"
+  },
+  {
+    "id": "country:Chile",
+    "type": "country",
+    "name": "Chile"
+  },
+  {
+    "id": "country:Bolivia",
+    "type": "country",
+    "name": "Bolivia"
+  },
+  {
+    "id": "country:Peru",
+    "type": "country",
+    "name": "Peru"
+  },
+  {
+    "id": "country:Argentina",
+    "type": "country",
+    "name": "Argentina"
+  },
+  {
+    "id": "country:Dhekelia",
+    "type": "country",
+    "name": "Dhekelia"
+  },
+  {
+    "id": "country:Cyprus",
+    "type": "country",
+    "name": "Cyprus"
+  },
+  {
+    "id": "country:India",
+    "type": "country",
+    "name": "India"
+  },
+  {
+    "id": "country:China",
+    "type": "country",
+    "name": "China"
+  },
+  {
+    "id": "country:Israel",
+    "type": "country",
+    "name": "Israel"
+  },
+  {
+    "id": "country:Palestine",
+    "type": "country",
+    "name": "Palestine"
+  },
+  {
+    "id": "country:Lebanon",
+    "type": "country",
+    "name": "Lebanon"
+  },
+  {
+    "id": "country:Ethiopia",
+    "type": "country",
+    "name": "Ethiopia"
+  },
+  {
+    "id": "country:S. Sudan",
+    "type": "country",
+    "name": "S. Sudan"
+  },
+  {
+    "id": "country:Somalia",
+    "type": "country",
+    "name": "Somalia"
+  },
+  {
+    "id": "country:Kenya",
+    "type": "country",
+    "name": "Kenya"
+  },
+  {
+    "id": "country:Pakistan",
+    "type": "country",
+    "name": "Pakistan"
+  },
+  {
+    "id": "country:Malawi",
+    "type": "country",
+    "name": "Malawi"
+  },
+  {
+    "id": "country:Tanzania",
+    "type": "country",
+    "name": "Tanzania"
+  },
+  {
+    "id": "country:Syria",
+    "type": "country",
+    "name": "Syria"
+  },
+  {
+    "id": "country:Somaliland",
+    "type": "country",
+    "name": "Somaliland"
+  },
+  {
+    "id": "country:France",
+    "type": "country",
+    "name": "France"
+  },
+  {
+    "id": "country:Suriname",
+    "type": "country",
+    "name": "Suriname"
+  },
+  {
+    "id": "country:Guyana",
+    "type": "country",
+    "name": "Guyana"
+  },
+  {
+    "id": "country:South Korea",
+    "type": "country",
+    "name": "South Korea"
+  },
+  {
+    "id": "country:North Korea",
+    "type": "country",
+    "name": "North Korea"
+  },
+  {
+    "id": "country:Morocco",
+    "type": "country",
+    "name": "Morocco"
+  },
+  {
+    "id": "country:W. Sahara",
+    "type": "country",
+    "name": "W. Sahara"
+  },
+  {
+    "id": "country:Costa Rica",
+    "type": "country",
+    "name": "Costa Rica"
+  },
+  {
+    "id": "country:Nicaragua",
+    "type": "country",
+    "name": "Nicaragua"
+  },
+  {
+    "id": "country:Congo",
+    "type": "country",
+    "name": "Congo"
+  },
+  {
+    "id": "country:Dem. Rep. Congo",
+    "type": "country",
+    "name": "Dem. Rep. Congo"
+  },
+  {
+    "id": "country:Bhutan",
+    "type": "country",
+    "name": "Bhutan"
+  },
+  {
+    "id": "country:Ukraine",
+    "type": "country",
+    "name": "Ukraine"
+  },
+  {
+    "id": "country:Belarus",
+    "type": "country",
+    "name": "Belarus"
+  },
+  {
+    "id": "country:Namibia",
+    "type": "country",
+    "name": "Namibia"
+  },
+  {
+    "id": "country:South Africa",
+    "type": "country",
+    "name": "South Africa"
+  },
+  {
+    "id": "country:St-Martin",
+    "type": "country",
+    "name": "St-Martin"
+  },
+  {
+    "id": "country:Sint Maarten",
+    "type": "country",
+    "name": "Sint Maarten"
+  },
+  {
+    "id": "country:Oman",
+    "type": "country",
+    "name": "Oman"
+  },
+  {
+    "id": "country:Uzbekistan",
+    "type": "country",
+    "name": "Uzbekistan"
+  },
+  {
+    "id": "country:Kazakhstan",
+    "type": "country",
+    "name": "Kazakhstan"
+  },
+  {
+    "id": "country:Tajikistan",
+    "type": "country",
+    "name": "Tajikistan"
+  },
+  {
+    "id": "country:Lithuania",
+    "type": "country",
+    "name": "Lithuania"
+  },
+  {
+    "id": "country:Brazil",
+    "type": "country",
+    "name": "Brazil"
+  },
+  {
+    "id": "country:Uruguay",
+    "type": "country",
+    "name": "Uruguay"
+  },
+  {
+    "id": "country:Mongolia",
+    "type": "country",
+    "name": "Mongolia"
+  },
+  {
+    "id": "country:Russia",
+    "type": "country",
+    "name": "Russia"
+  },
+  {
+    "id": "country:Czechia",
+    "type": "country",
+    "name": "Czechia"
+  },
+  {
+    "id": "country:Germany",
+    "type": "country",
+    "name": "Germany"
+  },
+  {
+    "id": "country:Estonia",
+    "type": "country",
+    "name": "Estonia"
+  },
+  {
+    "id": "country:Latvia",
+    "type": "country",
+    "name": "Latvia"
+  },
+  {
+    "id": "country:Norway",
+    "type": "country",
+    "name": "Norway"
+  },
+  {
+    "id": "country:Sweden",
+    "type": "country",
+    "name": "Sweden"
+  },
+  {
+    "id": "country:Finland",
+    "type": "country",
+    "name": "Finland"
+  },
+  {
+    "id": "country:Vietnam",
+    "type": "country",
+    "name": "Vietnam"
+  },
+  {
+    "id": "country:Cambodia",
+    "type": "country",
+    "name": "Cambodia"
+  },
+  {
+    "id": "country:Luxembourg",
+    "type": "country",
+    "name": "Luxembourg"
+  },
+  {
+    "id": "country:United Arab Emirates",
+    "type": "country",
+    "name": "United Arab Emirates"
+  },
+  {
+    "id": "country:Belgium",
+    "type": "country",
+    "name": "Belgium"
+  },
+  {
+    "id": "country:Georgia",
+    "type": "country",
+    "name": "Georgia"
+  },
+  {
+    "id": "country:Macedonia",
+    "type": "country",
+    "name": "Macedonia"
+  },
+  {
+    "id": "country:Albania",
+    "type": "country",
+    "name": "Albania"
+  },
+  {
+    "id": "country:Azerbaijan",
+    "type": "country",
+    "name": "Azerbaijan"
+  },
+  {
+    "id": "country:Kosovo",
+    "type": "country",
+    "name": "Kosovo"
+  },
+  {
+    "id": "country:Turkey",
+    "type": "country",
+    "name": "Turkey"
+  },
+  {
+    "id": "country:Spain",
+    "type": "country",
+    "name": "Spain"
+  },
+  {
+    "id": "country:Laos",
+    "type": "country",
+    "name": "Laos"
+  },
+  {
+    "id": "country:Kyrgyzstan",
+    "type": "country",
+    "name": "Kyrgyzstan"
+  },
+  {
+    "id": "country:Armenia",
+    "type": "country",
+    "name": "Armenia"
+  },
+  {
+    "id": "country:Denmark",
+    "type": "country",
+    "name": "Denmark"
+  },
+  {
+    "id": "country:Libya",
+    "type": "country",
+    "name": "Libya"
+  },
+  {
+    "id": "country:Tunisia",
+    "type": "country",
+    "name": "Tunisia"
+  },
+  {
+    "id": "country:Romania",
+    "type": "country",
+    "name": "Romania"
+  },
+  {
+    "id": "country:Hungary",
+    "type": "country",
+    "name": "Hungary"
+  },
+  {
+    "id": "country:Slovakia",
+    "type": "country",
+    "name": "Slovakia"
+  },
+  {
+    "id": "country:Poland",
+    "type": "country",
+    "name": "Poland"
+  },
+  {
+    "id": "country:Ireland",
+    "type": "country",
+    "name": "Ireland"
+  },
+  {
+    "id": "country:United Kingdom",
+    "type": "country",
+    "name": "United Kingdom"
+  },
+  {
+    "id": "country:Greece",
+    "type": "country",
+    "name": "Greece"
+  },
+  {
+    "id": "country:Zambia",
+    "type": "country",
+    "name": "Zambia"
+  },
+  {
+    "id": "country:Sierra Leone",
+    "type": "country",
+    "name": "Sierra Leone"
+  },
+  {
+    "id": "country:Guinea",
+    "type": "country",
+    "name": "Guinea"
+  },
+  {
+    "id": "country:Liberia",
+    "type": "country",
+    "name": "Liberia"
+  },
+  {
+    "id": "country:Central African Rep.",
+    "type": "country",
+    "name": "Central African Rep."
+  },
+  {
+    "id": "country:Sudan",
+    "type": "country",
+    "name": "Sudan"
+  },
+  {
+    "id": "country:Djibouti",
+    "type": "country",
+    "name": "Djibouti"
+  },
+  {
+    "id": "country:Eritrea",
+    "type": "country",
+    "name": "Eritrea"
+  },
+  {
+    "id": "country:Austria",
+    "type": "country",
+    "name": "Austria"
+  },
+  {
+    "id": "country:Iraq",
+    "type": "country",
+    "name": "Iraq"
+  },
+  {
+    "id": "country:Italy",
+    "type": "country",
+    "name": "Italy"
+  },
+  {
+    "id": "country:Switzerland",
+    "type": "country",
+    "name": "Switzerland"
+  },
+  {
+    "id": "country:Iran",
+    "type": "country",
+    "name": "Iran"
+  },
+  {
+    "id": "country:Netherlands",
+    "type": "country",
+    "name": "Netherlands"
+  },
+  {
+    "id": "country:Liechtenstein",
+    "type": "country",
+    "name": "Liechtenstein"
+  },
+  {
+    "id": "country:Côte d'Ivoire",
+    "type": "country",
+    "name": "Côte d'Ivoire"
+  },
+  {
+    "id": "country:Serbia",
+    "type": "country",
+    "name": "Serbia"
+  },
+  {
+    "id": "country:Mali",
+    "type": "country",
+    "name": "Mali"
+  },
+  {
+    "id": "country:Senegal",
+    "type": "country",
+    "name": "Senegal"
+  },
+  {
+    "id": "country:Nigeria",
+    "type": "country",
+    "name": "Nigeria"
+  },
+  {
+    "id": "country:Benin",
+    "type": "country",
+    "name": "Benin"
+  },
+  {
+    "id": "country:Angola",
+    "type": "country",
+    "name": "Angola"
+  },
+  {
+    "id": "country:Croatia",
+    "type": "country",
+    "name": "Croatia"
+  },
+  {
+    "id": "country:Slovenia",
+    "type": "country",
+    "name": "Slovenia"
+  },
+  {
+    "id": "country:Qatar",
+    "type": "country",
+    "name": "Qatar"
+  },
+  {
+    "id": "country:Saudi Arabia",
+    "type": "country",
+    "name": "Saudi Arabia"
+  },
+  {
+    "id": "country:Botswana",
+    "type": "country",
+    "name": "Botswana"
+  },
+  {
+    "id": "country:Zimbabwe",
+    "type": "country",
+    "name": "Zimbabwe"
+  },
+  {
+    "id": "country:Bulgaria",
+    "type": "country",
+    "name": "Bulgaria"
+  },
+  {
+    "id": "country:Thailand",
+    "type": "country",
+    "name": "Thailand"
+  },
+  {
+    "id": "country:San Marino",
+    "type": "country",
+    "name": "San Marino"
+  },
+  {
+    "id": "country:Haiti",
+    "type": "country",
+    "name": "Haiti"
+  },
+  {
+    "id": "country:Dominican Rep.",
+    "type": "country",
+    "name": "Dominican Rep."
+  },
+  {
+    "id": "country:Chad",
+    "type": "country",
+    "name": "Chad"
+  },
+  {
+    "id": "country:Kuwait",
+    "type": "country",
+    "name": "Kuwait"
+  },
+  {
+    "id": "country:El Salvador",
+    "type": "country",
+    "name": "El Salvador"
+  },
+  {
+    "id": "country:Guatemala",
+    "type": "country",
+    "name": "Guatemala"
+  },
+  {
+    "id": "country:Timor-Leste",
+    "type": "country",
+    "name": "Timor-Leste"
+  },
+  {
+    "id": "country:Brunei",
+    "type": "country",
+    "name": "Brunei"
+  },
+  {
+    "id": "country:Monaco",
+    "type": "country",
+    "name": "Monaco"
+  },
+  {
+    "id": "country:Algeria",
+    "type": "country",
+    "name": "Algeria"
+  },
+  {
+    "id": "country:Mozambique",
+    "type": "country",
+    "name": "Mozambique"
+  },
+  {
+    "id": "country:eSwatini",
+    "type": "country",
+    "name": "eSwatini"
+  },
+  {
+    "id": "country:Burundi",
+    "type": "country",
+    "name": "Burundi"
+  },
+  {
+    "id": "country:Rwanda",
+    "type": "country",
+    "name": "Rwanda"
+  },
+  {
+    "id": "country:Myanmar",
+    "type": "country",
+    "name": "Myanmar"
+  },
+  {
+    "id": "country:Bangladesh",
+    "type": "country",
+    "name": "Bangladesh"
+  },
+  {
+    "id": "country:Andorra",
+    "type": "country",
+    "name": "Andorra"
+  },
+  {
+    "id": "country:Afghanistan",
+    "type": "country",
+    "name": "Afghanistan"
+  },
+  {
+    "id": "country:Montenegro",
+    "type": "country",
+    "name": "Montenegro"
+  },
+  {
+    "id": "country:Bosnia and Herz.",
+    "type": "country",
+    "name": "Bosnia and Herz."
+  },
+  {
+    "id": "country:Uganda",
+    "type": "country",
+    "name": "Uganda"
+  },
+  {
+    "id": "country:USNB Guantanamo Bay",
+    "type": "country",
+    "name": "USNB Guantanamo Bay"
+  },
+  {
+    "id": "country:Cuba",
+    "type": "country",
+    "name": "Cuba"
+  },
+  {
+    "id": "country:Honduras",
+    "type": "country",
+    "name": "Honduras"
+  },
+  {
+    "id": "country:Ecuador",
+    "type": "country",
+    "name": "Ecuador"
+  },
+  {
+    "id": "country:Colombia",
+    "type": "country",
+    "name": "Colombia"
+  },
+  {
+    "id": "country:Paraguay",
+    "type": "country",
+    "name": "Paraguay"
+  },
+  {
+    "id": "country:Portugal",
+    "type": "country",
+    "name": "Portugal"
+  },
+  {
+    "id": "country:Moldova",
+    "type": "country",
+    "name": "Moldova"
+  },
+  {
+    "id": "country:Turkmenistan",
+    "type": "country",
+    "name": "Turkmenistan"
+  },
+  {
+    "id": "country:Jordan",
+    "type": "country",
+    "name": "Jordan"
+  },
+  {
+    "id": "country:Nepal",
+    "type": "country",
+    "name": "Nepal"
+  },
+  {
+    "id": "country:Lesotho",
+    "type": "country",
+    "name": "Lesotho"
+  },
+  {
+    "id": "country:Cameroon",
+    "type": "country",
+    "name": "Cameroon"
+  },
+  {
+    "id": "country:Gabon",
+    "type": "country",
+    "name": "Gabon"
+  },
+  {
+    "id": "country:Niger",
+    "type": "country",
+    "name": "Niger"
+  },
+  {
+    "id": "country:Burkina Faso",
+    "type": "country",
+    "name": "Burkina Faso"
+  },
+  {
+    "id": "country:Togo",
+    "type": "country",
+    "name": "Togo"
+  },
+  {
+    "id": "country:Ghana",
+    "type": "country",
+    "name": "Ghana"
+  },
+  {
+    "id": "country:Guinea-Bissau",
+    "type": "country",
+    "name": "Guinea-Bissau"
+  },
+  {
+    "id": "country:Gibraltar",
+    "type": "country",
+    "name": "Gibraltar"
+  },
+  {
+    "id": "country:United States of America",
+    "type": "country",
+    "name": "United States of America"
+  },
+  {
+    "id": "country:Canada",
+    "type": "country",
+    "name": "Canada"
+  },
+  {
+    "id": "country:Mexico",
+    "type": "country",
+    "name": "Mexico"
+  },
+  {
+    "id": "country:Belize",
+    "type": "country",
+    "name": "Belize"
+  },
+  {
+    "id": "country:Panama",
+    "type": "country",
+    "name": "Panama"
+  },
+  {
+    "id": "country:Venezuela",
+    "type": "country",
+    "name": "Venezuela"
+  },
+  {
+    "id": "country:Papua New Guinea",
+    "type": "country",
+    "name": "Papua New Guinea"
+  },
+  {
+    "id": "country:Egypt",
+    "type": "country",
+    "name": "Egypt"
+  },
+  {
+    "id": "country:Yemen",
+    "type": "country",
+    "name": "Yemen"
+  },
+  {
+    "id": "country:Mauritania",
+    "type": "country",
+    "name": "Mauritania"
+  },
+  {
+    "id": "country:Eq. Guinea",
+    "type": "country",
+    "name": "Eq. Guinea"
+  },
+  {
+    "id": "country:Gambia",
+    "type": "country",
+    "name": "Gambia"
+  },
+  {
+    "id": "country:Hong Kong",
+    "type": "country",
+    "name": "Hong Kong"
+  },
+  {
+    "id": "country:Vatican",
+    "type": "country",
+    "name": "Vatican"
+  },
+  {
+    "id": "country:N. Cyprus",
+    "type": "country",
+    "name": "N. Cyprus"
+  },
+  {
+    "id": "country:Cyprus U.N. Buffer Zone",
+    "type": "country",
+    "name": "Cyprus U.N. Buffer Zone"
+  },
+  {
+    "id": "country:Siachen Glacier",
+    "type": "country",
+    "name": "Siachen Glacier"
+  },
+  {
+    "id": "country:Baikonur",
+    "type": "country",
+    "name": "Baikonur"
+  },
+  {
+    "id": "country:Akrotiri",
+    "type": "country",
+    "name": "Akrotiri"
+  },
+  {
+    "id": "country:Antarctica",
+    "type": "country",
+    "name": "Antarctica"
+  },
+  {
+    "id": "country:Australia",
+    "type": "country",
+    "name": "Australia"
+  },
+  {
+    "id": "country:Greenland",
+    "type": "country",
+    "name": "Greenland"
+  },
+  {
+    "id": "country:Fiji",
+    "type": "country",
+    "name": "Fiji"
+  },
+  {
+    "id": "country:New Zealand",
+    "type": "country",
+    "name": "New Zealand"
+  },
+  {
+    "id": "country:New Caledonia",
+    "type": "country",
+    "name": "New Caledonia"
+  },
+  {
+    "id": "country:Madagascar",
+    "type": "country",
+    "name": "Madagascar"
+  },
+  {
+    "id": "country:Philippines",
+    "type": "country",
+    "name": "Philippines"
+  },
+  {
+    "id": "country:Sri Lanka",
+    "type": "country",
+    "name": "Sri Lanka"
+  },
+  {
+    "id": "country:Curaçao",
+    "type": "country",
+    "name": "Curaçao"
+  },
+  {
+    "id": "country:Aruba",
+    "type": "country",
+    "name": "Aruba"
+  },
+  {
+    "id": "country:Bahamas",
+    "type": "country",
+    "name": "Bahamas"
+  },
+  {
+    "id": "country:Turks and Caicos Is.",
+    "type": "country",
+    "name": "Turks and Caicos Is."
+  },
+  {
+    "id": "country:Taiwan",
+    "type": "country",
+    "name": "Taiwan"
+  },
+  {
+    "id": "country:Japan",
+    "type": "country",
+    "name": "Japan"
+  },
+  {
+    "id": "country:St. Pierre and Miquelon",
+    "type": "country",
+    "name": "St. Pierre and Miquelon"
+  },
+  {
+    "id": "country:Iceland",
+    "type": "country",
+    "name": "Iceland"
+  },
+  {
+    "id": "country:Pitcairn Is.",
+    "type": "country",
+    "name": "Pitcairn Is."
+  },
+  {
+    "id": "country:Fr. Polynesia",
+    "type": "country",
+    "name": "Fr. Polynesia"
+  },
+  {
+    "id": "country:Fr. S. Antarctic Lands",
+    "type": "country",
+    "name": "Fr. S. Antarctic Lands"
+  },
+  {
+    "id": "country:Seychelles",
+    "type": "country",
+    "name": "Seychelles"
+  },
+  {
+    "id": "country:Kiribati",
+    "type": "country",
+    "name": "Kiribati"
+  },
+  {
+    "id": "country:Marshall Is.",
+    "type": "country",
+    "name": "Marshall Is."
+  },
+  {
+    "id": "country:Trinidad and Tobago",
+    "type": "country",
+    "name": "Trinidad and Tobago"
+  },
+  {
+    "id": "country:Grenada",
+    "type": "country",
+    "name": "Grenada"
+  },
+  {
+    "id": "country:St. Vin. and Gren.",
+    "type": "country",
+    "name": "St. Vin. and Gren."
+  },
+  {
+    "id": "country:Barbados",
+    "type": "country",
+    "name": "Barbados"
+  },
+  {
+    "id": "country:Saint Lucia",
+    "type": "country",
+    "name": "Saint Lucia"
+  },
+  {
+    "id": "country:Dominica",
+    "type": "country",
+    "name": "Dominica"
+  },
+  {
+    "id": "country:U.S. Minor Outlying Is.",
+    "type": "country",
+    "name": "U.S. Minor Outlying Is."
+  },
+  {
+    "id": "country:Montserrat",
+    "type": "country",
+    "name": "Montserrat"
+  },
+  {
+    "id": "country:Antigua and Barb.",
+    "type": "country",
+    "name": "Antigua and Barb."
+  },
+  {
+    "id": "country:St. Kitts and Nevis",
+    "type": "country",
+    "name": "St. Kitts and Nevis"
+  },
+  {
+    "id": "country:U.S. Virgin Is.",
+    "type": "country",
+    "name": "U.S. Virgin Is."
+  },
+  {
+    "id": "country:St-Barthélemy",
+    "type": "country",
+    "name": "St-Barthélemy"
+  },
+  {
+    "id": "country:Puerto Rico",
+    "type": "country",
+    "name": "Puerto Rico"
+  },
+  {
+    "id": "country:Anguilla",
+    "type": "country",
+    "name": "Anguilla"
+  },
+  {
+    "id": "country:British Virgin Is.",
+    "type": "country",
+    "name": "British Virgin Is."
+  },
+  {
+    "id": "country:Jamaica",
+    "type": "country",
+    "name": "Jamaica"
+  },
+  {
+    "id": "country:Cayman Is.",
+    "type": "country",
+    "name": "Cayman Is."
+  },
+  {
+    "id": "country:Bermuda",
+    "type": "country",
+    "name": "Bermuda"
+  },
+  {
+    "id": "country:Heard I. and McDonald Is.",
+    "type": "country",
+    "name": "Heard I. and McDonald Is."
+  },
+  {
+    "id": "country:Saint Helena",
+    "type": "country",
+    "name": "Saint Helena"
+  },
+  {
+    "id": "country:Mauritius",
+    "type": "country",
+    "name": "Mauritius"
+  },
+  {
+    "id": "country:Comoros",
+    "type": "country",
+    "name": "Comoros"
+  },
+  {
+    "id": "country:São Tomé and Principe",
+    "type": "country",
+    "name": "São Tomé and Principe"
+  },
+  {
+    "id": "country:Cabo Verde",
+    "type": "country",
+    "name": "Cabo Verde"
+  },
+  {
+    "id": "country:Malta",
+    "type": "country",
+    "name": "Malta"
+  },
+  {
+    "id": "country:Jersey",
+    "type": "country",
+    "name": "Jersey"
+  },
+  {
+    "id": "country:Guernsey",
+    "type": "country",
+    "name": "Guernsey"
+  },
+  {
+    "id": "country:Isle of Man",
+    "type": "country",
+    "name": "Isle of Man"
+  },
+  {
+    "id": "country:Åland",
+    "type": "country",
+    "name": "Åland"
+  },
+  {
+    "id": "country:Faeroe Is.",
+    "type": "country",
+    "name": "Faeroe Is."
+  },
+  {
+    "id": "country:Indian Ocean Ter.",
+    "type": "country",
+    "name": "Indian Ocean Ter."
+  },
+  {
+    "id": "country:Br. Indian Ocean Ter.",
+    "type": "country",
+    "name": "Br. Indian Ocean Ter."
+  },
+  {
+    "id": "country:Singapore",
+    "type": "country",
+    "name": "Singapore"
+  },
+  {
+    "id": "country:Norfolk Island",
+    "type": "country",
+    "name": "Norfolk Island"
+  },
+  {
+    "id": "country:Cook Is.",
+    "type": "country",
+    "name": "Cook Is."
+  },
+  {
+    "id": "country:Tonga",
+    "type": "country",
+    "name": "Tonga"
+  },
+  {
+    "id": "country:Wallis and Futuna Is.",
+    "type": "country",
+    "name": "Wallis and Futuna Is."
+  },
+  {
+    "id": "country:Samoa",
+    "type": "country",
+    "name": "Samoa"
+  },
+  {
+    "id": "country:Solomon Is.",
+    "type": "country",
+    "name": "Solomon Is."
+  },
+  {
+    "id": "country:Tuvalu",
+    "type": "country",
+    "name": "Tuvalu"
+  },
+  {
+    "id": "country:Maldives",
+    "type": "country",
+    "name": "Maldives"
+  },
+  {
+    "id": "country:Nauru",
+    "type": "country",
+    "name": "Nauru"
+  },
+  {
+    "id": "country:Micronesia",
+    "type": "country",
+    "name": "Micronesia"
+  },
+  {
+    "id": "country:S. Geo. and the Is.",
+    "type": "country",
+    "name": "S. Geo. and the Is."
+  },
+  {
+    "id": "country:Falkland Is.",
+    "type": "country",
+    "name": "Falkland Is."
+  },
+  {
+    "id": "country:Vanuatu",
+    "type": "country",
+    "name": "Vanuatu"
+  },
+  {
+    "id": "country:Niue",
+    "type": "country",
+    "name": "Niue"
+  },
+  {
+    "id": "country:American Samoa",
+    "type": "country",
+    "name": "American Samoa"
+  },
+  {
+    "id": "country:Palau",
+    "type": "country",
+    "name": "Palau"
+  },
+  {
+    "id": "country:Guam",
+    "type": "country",
+    "name": "Guam"
+  },
+  {
+    "id": "country:N. Mariana Is.",
+    "type": "country",
+    "name": "N. Mariana Is."
+  },
+  {
+    "id": "country:Bahrain",
+    "type": "country",
+    "name": "Bahrain"
+  },
+  {
+    "id": "country:Coral Sea Is.",
+    "type": "country",
+    "name": "Coral Sea Is."
+  },
+  {
+    "id": "country:Spratly Is.",
+    "type": "country",
+    "name": "Spratly Is."
+  },
+  {
+    "id": "country:Clipperton I.",
+    "type": "country",
+    "name": "Clipperton I."
+  },
+  {
+    "id": "country:Macao",
+    "type": "country",
+    "name": "Macao"
+  },
+  {
+    "id": "country:Ashmore and Cartier Is.",
+    "type": "country",
+    "name": "Ashmore and Cartier Is."
+  },
+  {
+    "id": "country:Bajo Nuevo Bank",
+    "type": "country",
+    "name": "Bajo Nuevo Bank"
+  },
+  {
+    "id": "country:Serranilla Bank",
+    "type": "country",
+    "name": "Serranilla Bank"
+  },
+  {
+    "id": "country:Scarborough Reef",
+    "type": "country",
+    "name": "Scarborough Reef"
+  },
+  {
+    "id": "state:Alabama",
+    "type": "state",
+    "name": "Alabama"
+  },
+  {
+    "id": "state:Alaska",
+    "type": "state",
+    "name": "Alaska"
+  },
+  {
+    "id": "state:Arizona",
+    "type": "state",
+    "name": "Arizona"
+  },
+  {
+    "id": "state:Arkansas",
+    "type": "state",
+    "name": "Arkansas"
+  },
+  {
+    "id": "state:California",
+    "type": "state",
+    "name": "California"
+  },
+  {
+    "id": "state:Colorado",
+    "type": "state",
+    "name": "Colorado"
+  },
+  {
+    "id": "state:Connecticut",
+    "type": "state",
+    "name": "Connecticut"
+  },
+  {
+    "id": "state:Delaware",
+    "type": "state",
+    "name": "Delaware"
+  },
+  {
+    "id": "state:Florida",
+    "type": "state",
+    "name": "Florida"
+  },
+  {
+    "id": "state:Georgia",
+    "type": "state",
+    "name": "Georgia"
+  },
+  {
+    "id": "state:Hawaii",
+    "type": "state",
+    "name": "Hawaii"
+  },
+  {
+    "id": "state:Idaho",
+    "type": "state",
+    "name": "Idaho"
+  },
+  {
+    "id": "state:Illinois",
+    "type": "state",
+    "name": "Illinois"
+  },
+  {
+    "id": "state:Indiana",
+    "type": "state",
+    "name": "Indiana"
+  },
+  {
+    "id": "state:Iowa",
+    "type": "state",
+    "name": "Iowa"
+  },
+  {
+    "id": "state:Kansas",
+    "type": "state",
+    "name": "Kansas"
+  },
+  {
+    "id": "state:Kentucky",
+    "type": "state",
+    "name": "Kentucky"
+  },
+  {
+    "id": "state:Louisiana",
+    "type": "state",
+    "name": "Louisiana"
+  },
+  {
+    "id": "state:Maine",
+    "type": "state",
+    "name": "Maine"
+  },
+  {
+    "id": "state:Maryland",
+    "type": "state",
+    "name": "Maryland"
+  },
+  {
+    "id": "state:Massachusetts",
+    "type": "state",
+    "name": "Massachusetts"
+  },
+  {
+    "id": "state:Michigan",
+    "type": "state",
+    "name": "Michigan"
+  },
+  {
+    "id": "state:Minnesota",
+    "type": "state",
+    "name": "Minnesota"
+  },
+  {
+    "id": "state:Mississippi",
+    "type": "state",
+    "name": "Mississippi"
+  },
+  {
+    "id": "state:Missouri",
+    "type": "state",
+    "name": "Missouri"
+  },
+  {
+    "id": "state:Montana",
+    "type": "state",
+    "name": "Montana"
+  },
+  {
+    "id": "state:Nebraska",
+    "type": "state",
+    "name": "Nebraska"
+  },
+  {
+    "id": "state:Nevada",
+    "type": "state",
+    "name": "Nevada"
+  },
+  {
+    "id": "state:New Hampshire",
+    "type": "state",
+    "name": "New Hampshire"
+  },
+  {
+    "id": "state:New Jersey",
+    "type": "state",
+    "name": "New Jersey"
+  },
+  {
+    "id": "state:New Mexico",
+    "type": "state",
+    "name": "New Mexico"
+  },
+  {
+    "id": "state:New York",
+    "type": "state",
+    "name": "New York"
+  },
+  {
+    "id": "state:North Carolina",
+    "type": "state",
+    "name": "North Carolina"
+  },
+  {
+    "id": "state:North Dakota",
+    "type": "state",
+    "name": "North Dakota"
+  },
+  {
+    "id": "state:Ohio",
+    "type": "state",
+    "name": "Ohio"
+  },
+  {
+    "id": "state:Oklahoma",
+    "type": "state",
+    "name": "Oklahoma"
+  },
+  {
+    "id": "state:Oregon",
+    "type": "state",
+    "name": "Oregon"
+  },
+  {
+    "id": "state:Pennsylvania",
+    "type": "state",
+    "name": "Pennsylvania"
+  },
+  {
+    "id": "state:Rhode Island",
+    "type": "state",
+    "name": "Rhode Island"
+  },
+  {
+    "id": "state:South Carolina",
+    "type": "state",
+    "name": "South Carolina"
+  },
+  {
+    "id": "state:South Dakota",
+    "type": "state",
+    "name": "South Dakota"
+  },
+  {
+    "id": "state:Tennessee",
+    "type": "state",
+    "name": "Tennessee"
+  },
+  {
+    "id": "state:Texas",
+    "type": "state",
+    "name": "Texas"
+  },
+  {
+    "id": "state:Utah",
+    "type": "state",
+    "name": "Utah"
+  },
+  {
+    "id": "state:Vermont",
+    "type": "state",
+    "name": "Vermont"
+  },
+  {
+    "id": "state:Virginia",
+    "type": "state",
+    "name": "Virginia"
+  },
+  {
+    "id": "state:Washington",
+    "type": "state",
+    "name": "Washington"
+  },
+  {
+    "id": "state:West Virginia",
+    "type": "state",
+    "name": "West Virginia"
+  },
+  {
+    "id": "state:Wisconsin",
+    "type": "state",
+    "name": "Wisconsin"
+  },
+  {
+    "id": "state:Wyoming",
+    "type": "state",
+    "name": "Wyoming"
+  }
+]

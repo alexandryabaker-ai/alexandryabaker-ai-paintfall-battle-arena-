@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:54915",
+  "checks": [
+    "two park views and phone dimensions",
+    "actual room entry and travel to both named park drop points",
+    "positions and shared collision metadata",
+    "one renderer",
+    "same room retained",
+    "return to country arena"
+  ],
+  "physicalPhoneTest": false,
+  "boardingEnabled": false,
+  "errors": []
+}

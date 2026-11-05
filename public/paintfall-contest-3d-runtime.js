@@ -15,7 +15,7 @@
     game.insertBefore(host, game.firstChild);
 
     const badge = document.createElement('div');
-    badge.textContent = '🌲 PAINTFALL • OUTDOOR WORLD';
+    badge.textContent = 'PAINTFALL • REGIONAL ARENA';
     badge.style.cssText = 'position:absolute;z-index:3;top:10px;left:12px;color:#fff;font:900 12px system-ui;text-shadow:0 2px 5px #000;pointer-events:none';
     host.appendChild(badge);
     const status = document.createElement('div');
@@ -32,25 +32,28 @@
     cameraHint.style.cssText = 'position:absolute;z-index:3;top:91px;right:12px;color:#fff;background:rgba(18,24,39,.72);padding:5px 8px;border-radius:9px;font:800 9px system-ui;pointer-events:none';
     host.appendChild(cameraHint);
 
-    let cameraMode = 'third', camYaw = 0, camPitch = 0, dragging = false, lastX = 0, lastY = 0;
+    let cameraMode = 'third', camYaw = 0, camPitch = 0, dragging = false, lastX = 0, lastY = 0, cameraPointer = null;
+    window.paintfallMovementInput = (x,y) => window.PaintfallInput.cameraMovement(x,y,camYaw);
     function pointerDown(event) {
-      if (event.target === cameraButton) return;
+      if (event.target.closest?.('button') || cameraPointer !== null) return; cameraPointer = event.pointerId;
       dragging = true; lastX = event.clientX; lastY = event.clientY;
       host.setPointerCapture?.(event.pointerId);
     }
     function pointerMove(event) {
-      if (!dragging) return;
+      if (!dragging || event.pointerId !== cameraPointer) return;
       const dx = event.clientX - lastX, dy = event.clientY - lastY;
       lastX = event.clientX; lastY = event.clientY;
       camYaw -= dx * .008;
       const lowerPitch = cameraMode === 'third' ? -.08 : -.85;
       camPitch = Math.max(lowerPitch, Math.min(1.15, camPitch - dy * .006));
     }
-    function pointerUp() { dragging = false; }
+    function pointerUp(event) { if(event && event.pointerId !== cameraPointer)return; dragging = false; cameraPointer = null; }
     host.addEventListener('pointerdown', pointerDown);
     host.addEventListener('pointermove', pointerMove);
     host.addEventListener('pointerup', pointerUp);
     host.addEventListener('pointercancel', pointerUp);
+    host.addEventListener('lostpointercapture', pointerUp);
+    window.addEventListener('blur', () => pointerUp());
     function toggleCamera() {
       cameraMode = cameraMode === 'third' ? 'first' : 'third';
       camPitch = Math.max(cameraMode === 'third' ? -.08 : -.85, Math.min(1.15, camPitch));
@@ -60,36 +63,42 @@
     host.tabIndex = 0;
     host.addEventListener('keydown', event => { if (event.key.toLowerCase() === 'c') toggleCamera(); });
 
-    let world = null;
+    let world = null, animalMemories = null, discoveryBook = null;
     let latest = window.__paintfallLatest3DState || { players: [], id: null };
+    let arenaRegion = latest.rules?.arenaRegion || 'country:Mexico';
     window.addEventListener('paintfall-3d-state', event => {
       const state = event.detail;
       if (!state) return;
       if (Array.isArray(state.players)) latest.players = state.players;
       if (state.id) latest.id = state.id;
+      const own=latest.players.find(p=>p.id===(latest.id||window.paintfallLocalPlayerId||window.PAINTFALL_ROOM_PLAYER_ID));
+      arenaRegion = own?.arenaRegion || state.rules?.arenaRegion || arenaRegion;
     });
+    const regionalPlayers=()=>latest.players.filter(p=>!p.arenaRegion||p.arenaRegion===arenaRegion);
     function playerWorld() {
       const localId = latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID;
       const player = latest.players.find(item => item.id === localId) || latest.players.find(item => item.id);
       if (!player) return { x: 0, z: 5 };
-      return {
-        x: (Math.max(0, Math.min(1200, player.x)) - 600) / 40,
-        z: (350 - Math.max(0, Math.min(700, player.y))) / 25
-      };
+      return window.PaintfallMovement.toWorld(player);
     }
     const projectionFov = Math.PI * .38;
     function render() {
       if (!world) return;
+      if (window.PAINTFALL_WORLD_EXPLORING) { requestAnimationFrame(render); return; }
       const rect = host.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) { requestAnimationFrame(render); return; }
       const localId = latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID;
-      world.players.update(latest.players, localId, cameraMode, performance.now());
+      world.setRegion(arenaRegion);
+      world.players.update(regionalPlayers(), localId, cameraMode, performance.now());
       const actor = world.players.actors.get(localId);
-      const player = playerWorld(), targetY = actor ? actor.position.y + actor.userData.height * .55 : 1.1;
+      const rideLift=actor?.userData.bullRide?actor.userData.bullRideLift||0:0;
+      const player = playerWorld(), targetY = actor ? actor.position.y + actor.userData.height * .55 + rideLift : 1.1;
+      animalMemories?.update(player);
+      discoveryBook?.update();
       let ex, ey, ez, cx, cy, cz;
       const cp = Math.cos(camPitch), sp = Math.sin(camPitch), sy = Math.sin(camYaw), cyaw = Math.cos(camYaw);
       if (cameraMode === 'first') {
-        ex = player.x; ey = actor ? actor.position.y + actor.userData.eyeHeight : targetY + 1.15; ez = player.z;
+        ex = player.x; ey = actor ? actor.position.y + actor.userData.eyeHeight + rideLift : targetY + 1.15; ez = player.z;
         cx = ex + sy * cp * 10; cy = ey + sp * 10; cz = ez - cyaw * cp * 10;
       } else {
         const orbitDistance = actor ? Math.max(4.5, actor.userData.renderHeight * 2.6) : 4.8;
@@ -98,17 +107,24 @@
       }
       world.setCameraPose({ ex, ey, ez, cx, cy, cz, mode: cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
       world.render();
-      status.textContent = '🌲 OUTDOOR WORLD • ' + (cameraMode === 'third' ? 'THIRD-PERSON' : 'FIRST-PERSON');
+      const destination=window.PaintfallArenaCatalog?.[arenaRegion];
+      badge.textContent='PAINTFALL • '+(destination?.name||'Regional')+' ARENA';
+      const room=window.PAINTFALL_ROOM_CODE;
+      status.textContent = (cameraMode === 'third' ? 'THIRD-PERSON' : 'FIRST-PERSON')+(room?' • ROOM '+room:'');
       requestAnimationFrame(render);
     }
 
-    import('./paintfall-contest-3d-world.js').then(module => {
+    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js')]).then(([module,book]) => {
       world = module.createWorld(host);
+      const active=()=>game.classList.contains('started')&&!window.PAINTFALL_CONNECTION_LOST&&!window.PAINTFALL_ACCOUNT_LOCKED&&!window.PAINTFALL_WORLD_EXPLORING;
+      animalMemories = module.createArenaAnimalMemories(module.THREE,{world,host,isActive:()=>active()&&!window.PAINTFALL_DISCOVERY_OPEN});
+      discoveryBook=book.createWorldDiscoveryBook({host,isActive:active,getRegion:()=>arenaRegion});
+      window.paintfallTryAnimalShot = () => animalMemories.tryPaintShot();
       window.PAINTFALL_3D_SCENE_HOST = host;
       host.__paintfallScene = world.scene;
       host.__paintfallCamera = world.camera;
       host.__pf3dPlayers = world.players.actors;
-      window.paintfall3DPlayerInit = () => world.players.update(latest.players, latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID, cameraMode, performance.now());
+      window.paintfall3DPlayerInit = () => world.players.update(regionalPlayers(), latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID, cameraMode, performance.now());
       window.paintfall3DPlayerJump = () => world.players.jump(latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID);
       window.paintfall3DPlayerFire = detail => world.players.fire(detail);
       window.addEventListener('paintfall-maya-gymnast-jump', window.paintfall3DPlayerJump);

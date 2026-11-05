@@ -1,0 +1,24 @@
+{
+  "release": "contest-2026-10-30",
+  "candidate": "2026-10-30T19-58-01-448Z",
+  "features": [
+    "optional-questionnaire",
+    "eight-hero-abilities",
+    "family-rooms",
+    "phone-control-release-fix",
+    "connection-recovery",
+    "regional-gardens",
+    "animal-jokes",
+    "optional-bull-ride",
+    "mid-match-world-travel",
+    "private-password-recovery-codes",
+    "nova-kirin-pickup",
+    "server-bot-movement",
+    "connected-character-hips",
+    "five-local-southeast-asia-gardens",
+    "eleven-more-local-asia-gardens",
+    "all-255-country-territory-garden-foundations",
+    "nevada-world-hub-and-racing-visitor-plazas"
+  ],
+  "revision": "nevada-park-plazas-v6"
+}

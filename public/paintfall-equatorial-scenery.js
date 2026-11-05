@@ -1,0 +1,21 @@
+import {buildRegionalScenery} from './paintfall-regional-scenery.js';
+export function buildEquatorialScenery(T,{land,ground,spawn,profile}){
+ const result=buildRegionalScenery(T,{land,ground,spawn,style:profile.style,cues:profile.cues}),mat=c=>new T.MeshStandardMaterial({color:c,roughness:.95,side:T.DoubleSide}),wood=mat(0x9e785b),green=mat(profile.theme==='dry-ridge'?0xa5b189:0x7ea48c),stone=mat(0xc1b69f),water=mat(0x82b8bc);result.group.name=profile.name+' scenery';let center;
+ for(let i=0;i<1800;i++){const a=i*2.4,r=9+Math.sqrt(i)*1.1,p=ground(spawn.x+Math.cos(a)*r,spawn.z+Math.sin(a)*r);if(p&&Math.hypot(p.x,p.z)<54&&Array.from({length:24},(_,j)=>ground(p.x+Math.cos(j*Math.PI/12)*8,p.z+Math.sin(j*Math.PI/12)*8)).every(Boolean)&&result.visits.every(v=>p.distanceTo(v.target)>18)){center=p;break;}}
+ function mesh(g,m,p,y,name){const o=new T.Mesh(g,m);o.position.copy(p);o.position.y+=y;o.name=name;result.group.add(o);return o;}
+ function rod(a,b,r,name){const d=b.clone().sub(a),o=mesh(new T.CylinderGeometry(r*.7,r,d.length(),7),wood,a.clone().add(b).multiplyScalar(.5),0,name);o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),d.normalize());return o;}
+ if(center){
+  if(profile.theme==='river-homes'){
+   const positions=[];for(let x=-5;x<5;x++)for(let z=-4;z<4;z++){const p=[[x,z],[x+1,z],[x+1,z+1],[x,z+1]].map(([x,z])=>ground(center.x+x,center.z+z));if(p.every(Boolean))for(const j of [0,1,2,0,2,3])positions.push(p[j].x,p[j].y+.08,p[j].z);}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(positions,3));geo.computeVertexNormals();mesh(geo,water,new T.Vector3(),0,'Riverbank water study');
+   for(let i=0;i<6;i++){const a=i*Math.PI/3,p=ground(center.x+Math.cos(a)*6.5,center.z+Math.sin(a)*5.5);if(!p)continue;mesh(new T.CylinderGeometry(.2,.3,4.2,8),wood,p,2.1,'Root-fringe tree');for(let j=0;j<3;j++){const b=j*Math.PI*2/3,foot=ground(p.x+Math.cos(b)*.8,p.z+Math.sin(b)*.8);if(foot)rod(foot,p.clone().add(new T.Vector3(0,1.3,0)),.09,'Riverbank root');}mesh(new T.IcosahedronGeometry(1.6,1),green,p,4.4,'Riverbank canopy').scale.y=.7;result.obstacles.push({x:p.x,z:p.z,halfX:1,halfZ:1});}
+  }else if(profile.theme==='dry-ridge'){
+   for(let i=0;i<5;i++){const x=center.x+(i-2)*2.1,z=center.z+Math.sin(i)*1.2,p=ground(x,z);if(!p)continue;const rock=mesh(new T.ConeGeometry(2.1,3+i%3,5),stone,p,(3+i%3)/2,'Mountain-spine rock study');rock.rotation.y=i*.4;result.obstacles.push({x,z,halfX:2.2,halfZ:2.2});}
+   for(let i=0;i<12;i++){const a=i*2.4,p=ground(center.x+Math.cos(a)*7,center.z+Math.sin(a)*6);if(p){const grass=mesh(new T.ConeGeometry(.3,.75,6),green,p,.38,'Dry woodland grass tuft');grass.scale.z=.4;}}
+  }else{
+   for(let i=0;i<12;i++){const a=i*2.4,r=2+i%4,p=ground(center.x+Math.cos(a)*r,center.z+Math.sin(a)*r);if(!p)continue;rod(p,p.clone().add(new T.Vector3(0,1.4,0)),.035,'Fern study stem');for(let side of [-1,1])for(let j=0;j<5;j++){const frond=mesh(new T.SphereGeometry(1,8,5),green,p,1.25-j*.13,'Fern-color frond');frond.position.x+=side*(.15+j*.11);frond.scale.set(.28,.035,.1);frond.rotation.z=side*.25;}}
+   for(let i=0;i<4;i++){const a=i*Math.PI/2,p=ground(center.x+Math.cos(a)*6.5,center.z+Math.sin(a)*6.5);if(!p)continue;mesh(new T.CylinderGeometry(.24,.6,6,8),wood,p,3,'Rainforest buttress trunk');for(let j=0;j<3;j++){const b=j*Math.PI*2/3,foot=ground(p.x+Math.cos(b)*1.1,p.z+Math.sin(b)*1.1);if(foot)rod(foot,p.clone().add(new T.Vector3(0,2,0)),.17,'Buttress-root study');}mesh(new T.IcosahedronGeometry(2.2,1),green,p,6.2,'Rainforest broad canopy');result.obstacles.push({x:p.x,z:p.z,halfX:1.3,halfZ:1.3});}
+  }
+  result.clearings.push({x:center.x,z:center.z,radius:11});for(let i=0;i<150;i++){const a=i*2.4,p=ground(center.x+Math.cos(a)*11,center.z+Math.sin(a)*11);if(p&&!result.obstacles.some(o=>Math.abs(p.x-o.x)<o.halfX+1&&Math.abs(p.z-o.z)<o.halfZ+1)){result.visits.push({name:profile.features[0],point:p,target:center.clone().add(new T.Vector3(0,profile.theme==='fern-rainforest'?2:1,0)),viewOffset:new T.Vector3(13,15,18)});break;}}
+ }
+ result.waterBounds=[];result.group.traverse(o=>{if(o.isMesh&&(o.material===water||o.material?.color?.getHex()===0x79c7d7))result.waterBounds.push(new T.Box3().setFromObject(o));});return result;
+}

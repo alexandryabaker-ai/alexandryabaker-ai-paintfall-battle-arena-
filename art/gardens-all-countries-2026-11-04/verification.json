@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:50196",
+  "checks": [
+    "255 of 255 tour scenes checked: garden identities, linked botanical references, one tour renderer; full catalog has 255 place-specific gardens",
+    "eight representative botanical and conservatory scenes also render at phone dimensions",
+    "actual HTTP-connected room travels to all 255 requested countries/territories: two benches, animated paint plants, front park sign, exact collision catalog and one arena renderer"
+  ],
+  "errors": [],
+  "placeCount": 255,
+  "deployed": false,
+  "physicalPhoneTest": false
+}

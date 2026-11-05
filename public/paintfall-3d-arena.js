@@ -42,7 +42,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
   const roster = {
     Maya:{skin:0xb97852,hair:0x2a1712,shirt:0x6c63ff,accent:0x55e6ff,style:'ponytail'},
     Zara:{skin:0x8d5a3b,hair:0x17110e,shirt:0xe64b62,accent:0xffd34e,style:'braids'},
-    Nova:{skin:0xf0c5a4,hair:0x17151a,shirt:0x20b978,accent:0xff6b9f,style:'rocker'},
+    Nova:{skin:0xf0c5a4,hair:0x17151a,shirt:0x20b978,accent:0xff6b9f,style:'bubbleBraids'},
     Skye:{skin:0xe5b18e,hair:0x704522,shirt:0x20aeb8,accent:0xff4d8d,style:'waves'},
     Jax:{skin:0x75452d,hair:0x17110e,shirt:0x3d7cff,accent:0x31e8ff,style:'dreads'},
     Rico:{skin:0xa96645,hair:0x25140f,shirt:0xe34b31,accent:0xffd34e,style:'warrior'},
@@ -72,6 +72,15 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.m
     } else if (style==='braids') {
       const cap=new THREE.Mesh(new THREE.SphereGeometry(.38,18,12,0,Math.PI*2,0,Math.PI*.6),material); cap.position.y=2.17; group.add(cap);
       [-.28,.28].forEach(x=>{const braid=new THREE.Mesh(new THREE.CapsuleGeometry(.075,.62,6,10),material);braid.position.set(x,1.95,.08);group.add(braid);});
+    } else if (style==='bubbleBraids') {
+      const cap=new THREE.Mesh(new THREE.SphereGeometry(.39,18,12,0,Math.PI*2,0,Math.PI*.6),material);
+      cap.position.y=2.18; group.add(cap);
+      [-.27,.27].forEach(x=>{
+        [2.08,1.86,1.64].forEach((y,i)=>{
+          const bubble=new THREE.Mesh(new THREE.SphereGeometry(.13-i*.012,12,10),material);
+          bubble.position.set(x,y,.10); group.add(bubble);
+        });
+      });
     } else if (style==='rocker') {
       const cap=new THREE.Mesh(new THREE.SphereGeometry(.39,18,12,0,Math.PI*2,0,Math.PI*.62),material); cap.position.y=2.19; cap.scale.set(1.08,1,1.02); group.add(cap);
       const bang=new THREE.Mesh(new THREE.CapsuleGeometry(.08,.44,5,8),material); bang.position.set(-.22,2.19,-.26); bang.rotation.z=-.55; group.add(bang);

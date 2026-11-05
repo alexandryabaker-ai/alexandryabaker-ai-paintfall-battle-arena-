@@ -1,7 +1,7 @@
 (()=>{
   const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
   const HEROES={
-    Maya:{core:'confidence',peak:'copy',overdrive:'visibility',tell:'fiercer-strut'},
+    Maya:{core:'confidence',peak:'confidence-transformation',overdrive:'visibility',tell:'fiercer-strut'},
     Zara:{core:'curiosity',peak:'discover',overdrive:'distraction',tell:'secret-agent-focus'},
     Nova:{core:'optimism',peak:'boost',overdrive:'overcommit',tell:'skip-to-run'},
     Skye:{core:'calm-observation',peak:'mark',overdrive:'slow-reaction',tell:'dance-focus'},

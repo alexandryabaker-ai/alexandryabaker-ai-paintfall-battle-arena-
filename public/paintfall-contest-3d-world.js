@@ -1,7 +1,13 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
+import * as THREE from './vendor/three.module.js';
+export { THREE };
 import { constrainThirdPersonCamera } from './paintfall-camera-obstruction.js';
 import { createCharacterFactory } from './paintfall-outdoor-character-factory.js';
 import { createOutdoorPlayers } from './paintfall-outdoor-players.js';
+import { createKirinEnergyProposal, animateKirinEnergyProposal } from './paintfall-kirin-energy-proposal.js';
+import { buildArenaRegion, disposeRegion } from './paintfall-arena-region.js';
+import { createArenaColorTrial } from './paintfall-arena-color-trial.js';
+import { createBullRideEffects } from './paintfall-bull-ride-effects.js';
+export { createArenaAnimalMemories } from './paintfall-arena-animal-memories.js';
 
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 function seeded(seed) {
@@ -31,7 +37,15 @@ function makeSurfaceTexture(base, colors, seed, repeat = 1) {
 
 export function createWorld(host) {
   const scene = new THREE.Scene();
-  const players = createOutdoorPlayers(THREE, scene, createCharacterFactory(THREE));
+  const players = createOutdoorPlayers(THREE, scene, createCharacterFactory(THREE), {create:()=>{
+    const kirin=createKirinEnergyProposal(THREE),base=kirin.userData.energy.bodyBase;
+    const outlineMaterial=new THREE.MeshBasicMaterial({color:0x354f7d,side:THREE.BackSide,transparent:true,opacity:.28,depthWrite:false});
+    const outlines=[];base.traverse(part=>{if(['translucent horse torso','unicorn head','long horse face'].includes(part.name))outlines.push(part);});
+    for(const part of outlines){const line=new THREE.Mesh(part.geometry,outlineMaterial);line.scale.setScalar(1.016);line.name='Kirin sky silhouette';part.add(line);}
+    const canvas=document.createElement('canvas');canvas.width=256;canvas.height=80;const ctx=canvas.getContext('2d');ctx.fillStyle='rgba(20,32,60,.85)';ctx.fillRect(0,0,256,80);ctx.fillStyle='#d5fff8';ctx.font='bold 48px sans-serif';ctx.textAlign='center';ctx.fillText('Kirin',128,58);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;const material=new THREE.SpriteMaterial({map:texture,depthTest:true,depthWrite:false});material.userData.companionLabel=true;
+    const label=new THREE.Sprite(material);label.position.y=3.05;label.scale.set(1.6,.50,1);kirin.add(label);return kirin;
+  },animate:animateKirinEnergyProposal});
   scene.background = new THREE.Color(0xb5cbd2);
   scene.fog = new THREE.Fog(0xb5cbd2, 92, 230);
   const camera = new THREE.PerspectiveCamera(55, 1, .1, 180);
@@ -53,7 +67,7 @@ export function createWorld(host) {
   sun.shadow.camera.left = -82; sun.shadow.camera.right = 82;
   sun.shadow.camera.top = 82; sun.shadow.camera.bottom = -82;
   sun.shadow.camera.near = 1; sun.shadow.camera.far = 190;
-  sun.shadow.bias = -.00025; sun.shadow.normalBias = .025;
+  sun.shadow.bias = -.0005; sun.shadow.normalBias = .06;
   scene.add(sun);
   const skyFill = new THREE.DirectionalLight(0xb5d6e8, .65);
   skyFill.position.set(28, 20, -48); scene.add(skyFill);
@@ -546,9 +560,40 @@ export function createWorld(host) {
     for (const leg of [-.8, .8]) box(x + leg, ground + .16, 64, .12, .36, .12, materials.darkMetal);
   }
 
-  // Export simple collider metadata for future physics integration without owning player movement.
+  // Replace the generic environment inside this same playable scene. Actors are
+  // added by the existing player manager after createWorld returns.
+  const retired = new THREE.Group();
+  for (const object of [...scene.children]) if (!object.isLight) retired.add(object);
+  disposeRegion({group:retired});
+  let region = null,regionId = null;
+  const bullRides=createBullRideEffects(THREE,players,()=>region);
+  let colorLookEnabled=true;
+  const colorLook=createArenaColorTrial(THREE,{scene,renderer,get region(){return region;}});
+  function setColorLook(enabled){
+    colorLookEnabled=!!enabled;const active=colorLook.apply(colorLookEnabled);
+    host.dataset.colorLook=active?'pop':'original';return active;
+  }
+  const regionalOutline=[[-70,-70],[70,-70],[70,70],[-70,70]];
+  function setRegion(id){
+    const destination=window.PaintfallArenaCatalog?.[id];
+    if(!destination||id===regionId)return;
+    // Build before retiring the previous scene, so a failed build is recoverable.
+    const next=buildArenaRegion(THREE,scene,destination);
+    colorLook.restore();
+    bullRides.dispose();
+    disposeRegion(region);region=next;regionId=id;
+    setColorLook(colorLookEnabled);
+    colliders.length=0;
+    for(const o of destination.obstacles)colliders.push({type:'box',x:o.x,z:o.z,y:3,width:o.halfX*2,depth:o.halfZ*2,height:6});
+    window.PAINTFALL_ARENA_COLLIDERS=colliders.slice();
+    window.PAINTFALL_ARENA_SURFACE={width:(destination.bound||70)*2,depth:(destination.bound||70)*2,floorTop:.012,units:'world',outdoor:true,region:id};
+    renderer.domElement.setAttribute('aria-label','PAINTFALL playable arena — '+destination.name);
+  }
+  setRegion('country:Mexico');
+  const regionClock = new THREE.Clock();
+
+  // The regional catalog owns shared movement; expose camera collider metadata.
   window.PAINTFALL_ARENA_COLLIDERS = colliders.slice();
-  window.PAINTFALL_ARENA_SURFACE = { width: 54, depth: 42, floorTop: .012, units: 'world', outdoor: true };
   window.PAINTFALL_WORLD_SCENE = scene;
 
   let width = 1, height = 1;
@@ -581,16 +626,18 @@ export function createWorld(host) {
   }
   function setCameraPose(next) {
     Object.assign(pose, next);
-    pose.ey = Math.max(pose.ey, terrainHeight(pose.ex, pose.ez) + .7);
-    pose.cy = Math.max(pose.cy, terrainHeight(pose.cx, pose.cz) + .1);
-    if (next.mode === 'third') Object.assign(pose, constrainThirdPersonCamera(pose, outline, colliders));
+    pose.ey = Math.max(pose.ey, .012 + .7);
+    pose.cy = Math.max(pose.cy, .012 + .1);
+    if (next.mode === 'third') Object.assign(pose, constrainThirdPersonCamera(pose, regionalOutline, colliders));
   }
   function render() {
     camera.fov = THREE.MathUtils.radToDeg(pose.fov);
     camera.aspect = pose.aspect; camera.near = pose.near; camera.far = pose.far;
     camera.position.set(pose.ex, pose.ey, pose.ez);
     camera.lookAt(pose.cx, pose.cy, pose.cz); camera.updateProjectionMatrix(); camera.updateMatrixWorld();
-    updateLod(); renderer.render(scene, camera);
+    region?.update(Math.min(.1,regionClock.getDelta()),new THREE.Vector3(pose.cx,.012,pose.cz));
+    bullRides.update(performance.now());
+    renderer.render(scene, camera);
   }
-  return { scene, camera, renderer, players, setCameraPose, render, dispose() { resizeObserver?.disconnect(); window.removeEventListener('resize', resize); renderer.dispose(); } };
+  return { scene, camera, renderer, players, setRegion, setColorLook, setCameraPose, render, get region(){return region;}, dispose() { bullRides.dispose();colorLook.restore();disposeRegion(region);resizeObserver?.disconnect(); window.removeEventListener('resize', resize); renderer.dispose(); } };
 }

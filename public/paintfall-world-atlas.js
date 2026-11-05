@@ -1,0 +1,61 @@
+(async()=>{
+ const el=id=>document.getElementById(id),svg=d3.select('#atlas');let mode='world',selected,records={},features,world,states;
+ try{records=JSON.parse(localStorage.getItem('paintfall-world-plans-v1')||'{}')||{};}catch{}
+ try{
+  const [a,b]=await Promise.all([fetch('/world-data/countries.json').then(r=>{if(!r.ok)throw Error('World outlines unavailable');return r.json();}),fetch('/world-data/states.json').then(r=>{if(!r.ok)throw Error('State outlines unavailable');return r.json();})]);
+  world=topojson.feature(a,a.objects.countries).features;states=topojson.feature(b,b.objects.states).features;
+  // A few source island rings wind outward and otherwise paint the whole ocean.
+  for(const f of world){const polygons=f.geometry.type==='MultiPolygon'?f.geometry.coordinates:[f.geometry.coordinates];for(const rings of polygons){if(d3.geoArea({type:'Polygon',coordinates:rings})>Math.PI*2)rings.forEach(ring=>ring.reverse());}}
+  const excluded=new Set(['District of Columbia','Puerto Rico','Guam','American Samoa','United States Virgin Islands','Northern Mariana Islands','Commonwealth of the Northern Mariana Islands']);states=states.filter(f=>!excluded.has(f.properties.name));
+  world.sort((a,b)=>a.properties.name.localeCompare(b.properties.name));states.sort((a,b)=>a.properties.name.localeCompare(b.properties.name));
+  function key(f){return `${mode}:${f.id}:${f.properties.name}`;}
+  function choose(id){selected=features.find(f=>key(f)===id)||features[0];el('place').value=key(selected);const name=selected.properties.name,index=features.indexOf(selected)+1,record=records[key(selected)]||{};
+   const foundation=mode==='states'?window.PAINTFALL_US_FOUNDATIONS[name]:null;
+   el('region-title').textContent=name;el('layout-title').textContent=name+' • Open regional foundation';el('region-name').value=record.name||foundation?.name||`Prism Reach ${String(index).padStart(3,'0')}`;el('ideas').value=record.ideas||'';el('saved').textContent='';
+   el('hometown').hidden=!(mode==='states'&&name==='Wisconsin');el('secret-park').hidden=true;el('reveal-hometown').onclick=()=>{el('secret-park').hidden=false;};
+   const built=mode==='states'&&['Nevada','Arizona'].includes(name);el('region-status').textContent=built?'Existing park construction previews preserved. Detailed rides are still in development.':'Land foundation first • Amusement parks will be designed together later.';
+   document.querySelectorAll('#region-layout .slot,#region-layout .slot-text').forEach(node=>{node.style.display=built?'':'none';});
+   let detail=el('state-foundation');if(!detail){detail=document.createElement('section');detail.id='state-foundation';el('region-status').after(detail);}detail.replaceChildren();detail.hidden=!foundation;
+   if(foundation){const land=document.createElement('p');land.textContent='Landscape proposal: '+foundation.landscape+'.';detail.append(land);const outline=document.createElementNS('http://www.w3.org/2000/svg','svg');outline.setAttribute('viewBox','0 0 300 180');outline.setAttribute('aria-label',name+' land outline; no new parks or housing');const projection=d3.geoMercator().fitExtent([[10,10],[290,170]],selected);d3.select(outline).append('path').attr('d',d3.geoPath(projection)(selected)).attr('fill','#77aa96').attr('stroke','#cfe3b5');detail.append(outline);const status=document.createElement('p');status.className='note';status.textContent=foundation.status+' • Four outer areas open • '+(foundation.housingPlaced?'One Wisconsin neighborhood draft.':'No houses placed.');detail.append(status);if(name==='California'){const known=document.createElement('p');known.className='note';known.textContent='Previously approved California park concepts remain in the design records. No new park sites have been placed here.';detail.append(known);}}
+   el('preview-link').hidden=!built;el('preview-link').href='/park-build.html?state='+name.toLowerCase();svg.selectAll('.country,.state').classed('selected',f=>f===selected);
+   let landLink=el('state-land-link');if(!landLink){landLink=document.createElement('a');landLink.id='state-land-link';landLink.style.cssText='display:block;margin-top:12px';el('preview-link').after(landLink);}landLink.hidden=false;landLink.textContent='Explore '+name+' in 3D';landLink.href='/us-land-build.html?'+(mode==='states'?'state=':'region=country&country=')+encodeURIComponent(name);
+   renderIdentity(name,foundation);
+  }
+  function renderIdentity(name,foundation){
+   let panel=el('identity-panel');if(!panel){panel=document.createElement('section');panel.id='identity-panel';panel.className='panel';panel.style.marginTop='20px';el('layout-title').closest('section').before(panel);}panel.replaceChildren();panel.hidden=!foundation;
+   const identity=window.PAINTFALL_STATE_IDENTITY[name];if(!foundation||!identity)return;
+   const title=document.createElement('h2');title.textContent=name+' • Familiar land, PAINTFALL personality';panel.append(title);
+   const scene=document.createElementNS('http://www.w3.org/2000/svg','svg');scene.setAttribute('viewBox','0 0 720 220');scene.setAttribute('aria-label',name+' landscape concept; not actual terrain placement');scene.style.maxWidth='850px';
+   const styles={mountain:'#b1bcdf',ice:'#b6ebf6',desert:'#eec495',volcano:'#dbafdc',forest:'#a6dab7',lake:'#a0dedf',coast:'#c5dcd0',wetland:'#b2d9bf',river:'#c0dcb1',prairie:'#d9dbac'};const color=styles[identity.style]||styles.forest;
+   const mountain=['mountain','ice','desert','volcano','cave'].includes(identity.style);
+   scene.innerHTML=`<rect width="720" height="220" rx="14" fill="#243f50"/><circle cx="610" cy="43" r="25" fill="#ffe396"/><path d="M0 165 Q90 115 190 151 T390 150 T720 150 V220 H0Z" fill="${color}"/><path d="M0 202 Q160 150 350 191 T720 184" fill="none" stroke="#80d7e8" stroke-width="18"/>${mountain?'<path d="M95 158 L185 40 L265 158 M235 158 L335 25 L435 158 M435 159 L515 69 L590 159" fill="#ae92c8" stroke="#ddbeee" stroke-width="4"/>':'<path d="M40 162 Q155 60 267 160 T505 157 T720 156" fill="none" stroke="#95caa1" stroke-width="24"/>'}${identity.style==='desert'?'<path d="M50 155V88 M50 110H35V94 M50 127H66V103" stroke="#92cfa5" stroke-width="8" fill="none"/>':''}${identity.style==='forest'?'<path d="M80 153V77 M72 87 Q20 64 73 45 Q127 21 146 65 Q155 104 87 98 M549 161V74 M530 85 Q496 35 554 29 Q615 25 611 76 Q607 107 559 90" stroke="#9edab7" fill="#89bfa6" stroke-width="8"/>':''}`;panel.append(scene);
+   const cues=document.createElement('p');cues.textContent='Recognition cues: '+identity.cues.join(' + ')+'. Reimagined with translucent water, pastel rock layers and playful light accents.';panel.append(cues);
+   identity.animals.forEach((animal,i)=>{const marker=document.createElementNS('http://www.w3.org/2000/svg','g');marker.setAttribute('class','animal-marker');marker.setAttribute('transform',`translate(${90+(i%5)*130},${identity.animals.length>5?(i<5?135:195):170})`);marker.innerHTML=`<circle r="16" fill="${animal.color}" stroke="#233e4a" stroke-width="2"/><text text-anchor="middle" y="5" fill="#233e4a" font-family="system-ui" font-size="13">${i+1}</text>`;const tooltip=document.createElementNS('http://www.w3.org/2000/svg','title');tooltip.textContent=animal.species+' — one individual';marker.append(tooltip);scene.append(marker);});
+   const wildlifeTitle=document.createElement('h3');wildlifeTitle.textContent=identity.animals.length+' real animal kinds • One individual each';panel.append(wildlifeTitle);
+   const roster=document.createElement('div');roster.style.cssText='display:flex;gap:12px;flex-wrap:wrap';
+   identity.animals.forEach(animal=>{const card=document.createElement('button');card.style.cssText='flex:1;min-width:150px;text-align:left;border-top:5px solid '+animal.color;card.textContent=animal.species;card.setAttribute('aria-label',animal.species+' — show PAINTFALL personality');card.onclick=()=>{info.textContent=animal.species+' • '+animal.behavior.realTraits+'. Routine: '+animal.behavior.routine+'. PAINTFALL: '+animal.behavior.paintfall+'. Roaming animation still to be built.';};roster.append(card);});panel.append(roster);const info=document.createElement('p');info.className='note';info.textContent=identity.note;info.setAttribute('role','status');panel.append(info);
+  }
+  function draw(next){mode=next;features=mode==='world'?world:states;el('world-mode').setAttribute('aria-pressed',String(mode==='world'));el('states-mode').setAttribute('aria-pressed',String(mode==='states'));el('place').previousElementSibling.textContent=mode==='world'?'Choose a country or territory':'Choose a U.S. state';el('place').replaceChildren();for(const f of features){const op=document.createElement('option');op.value=key(f);op.textContent=f.properties.name;el('place').append(op);}
+   svg.selectAll('*').remove();const projection=mode==='world'?d3.geoEqualEarth().fitExtent([[12,12],[948,548]],{type:'Sphere'}):d3.geoAlbersUsa().fitExtent([[30,25],[930,535]],{type:'FeatureCollection',features});const path=d3.geoPath(projection),layer=svg.append('g');
+   if(mode==='world')layer.append('path').attr('d',path({type:'Sphere'})).attr('fill','#1c4558');
+   layer.selectAll('path.region').data(features).join('path').attr('class',mode==='world'?'country':'state').attr('d',path).attr('fill',(_,i)=>['#6a9d87','#77aa96','#88b597','#648f89','#94b99e'][i%5]).attr('role','button').attr('tabindex',0).attr('aria-label',f=>'Choose '+f.properties.name).on('click',(_,f)=>choose(key(f))).on('keydown',(e,f)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(key(f));}}).append('title').text(f=>f.properties.name);
+   if(mode==='states'){
+    const calls=['Maine','Vermont','New Hampshire','Massachusetts','Rhode Island','Connecticut','New York','New Jersey','Pennsylvania','Delaware','Maryland'];
+    const labels=layer.append('g').attr('pointer-events','none').attr('aria-label','Names of all 50 states');
+    features.forEach(f=>{const [x,y]=path.centroid(f),i=calls.indexOf(f.properties.name),lx=i<0?x:835,ly=i<0?y:30+i*24;
+     if(i>=0)labels.append('path').attr('d',`M${x},${y}L${lx-9},${ly-3}`).attr('stroke','#dceccd').attr('stroke-width',.8).attr('fill','none');
+     const text=labels.append('text').attr('class','state-label').attr('x',lx).attr('y',ly).attr('text-anchor',i<0?'middle':'start').attr('fill','#fff8e4').attr('stroke','#203c42').attr('stroke-width',2.6).attr('paint-order','stroke').attr('font-size',i<0?10:11).attr('font-family','system-ui');
+     const words=f.properties.name.split(' ');if(i<0&&words.length>1){text.append('tspan').attr('x',lx).text(words[0]);text.append('tspan').attr('x',lx).attr('dy',11).text(words.slice(1).join(' '));}else text.text(f.properties.name);
+    });
+   }
+   const zoom=d3.zoom().scaleExtent([1,12]).on('zoom',e=>layer.attr('transform',e.transform));svg.call(zoom);el('reset-map').onclick=()=>svg.call(zoom.transform,d3.zoomIdentity);
+   el('load-status').textContent='Select an outline or use the list. Drag to pan; scroll or pinch to zoom.';el('totals').textContent=`${world.length} country/territory outlines • ${states.length} U.S. states • 7 continents • 4 outer areas kept open per region`;
+   const requested=new URLSearchParams(location.search).get(mode==='states'?'state':'country');choose(key(features.find(f=>f.properties.name===requested)||features.find(f=>f.properties.name==='Arizona')||features.find(f=>f.properties.name==='United States of America')||features[0]));
+  }
+  el('place').onchange=e=>choose(e.target.value);el('world-mode').onclick=()=>draw('world');el('states-mode').onclick=()=>draw('states');el('save').onclick=()=>{records[key(selected)]={name:el('region-name').value.trim(),ideas:el('ideas').value};try{localStorage.setItem('paintfall-world-plans-v1',JSON.stringify(records));el('saved').textContent='Saved in this browser. You can keep refining this place.';}catch{el('saved').textContent='Kept for this visit; browser storage is unavailable.';}};
+  draw(new URLSearchParams(location.search).get('focus')==='us'?'states':'world');window.PAINTFALL_WORLD_ATLAS={world,states,records,usFoundations:window.PAINTFALL_US_FOUNDATIONS,identities:window.PAINTFALL_STATE_IDENTITY,ready:true};
+ }catch(error){el('load-status').textContent='Could not load the world foundation. Please refresh. '+error.message;console.error(error);}
+})();
+
+
+

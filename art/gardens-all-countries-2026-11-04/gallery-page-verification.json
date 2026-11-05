@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:8192",
+  "images": 255,
+  "checks": [
+    "search and clear",
+    "accent-insensitive search",
+    "zero matches",
+    "all 255 JPEG responses",
+    "phone layout fits",
+    "gallery link opens requested 3D tour"
+  ],
+  "errors": [],
+  "physicalPhoneTest": false
+}

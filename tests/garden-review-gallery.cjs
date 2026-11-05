@@ -1,0 +1,19 @@
+// Review artifacts only. No extra character/world renderer or production assets.
+const fs=require('node:fs'),path=require('node:path'),{chromium}=require('playwright');
+const out=path.resolve('art/gardens-all-countries-2026-11-04'),escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+(async()=>{
+ const images=JSON.parse(fs.readFileSync(path.join(out,'images.json')));if(images.length!==255)throw Error('The full country/territory review set must be complete first.');
+ const refined=['Algeria','Cyprus','Maldives','Dhekelia','Cyprus U.N. Buffer Zone','Brazil','Palau','American Samoa','U.S. Virgin Is.','Bahamas','Pitcairn Is.','St. Vin. and Gren.','New Caledonia','Georgia'];
+ const browser=await chromium.launch({channel:'msedge',headless:true});try{
+  const page=await browser.newPage({viewport:{width:1100,height:850}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('http://127.0.0.1:8192/arena-world-tour.html?place=country%3AAlgeria&view=garden');await page.waitForFunction(()=>document.getElementById('view').dataset.ready==='true');
+  for(const name of refined){await page.getByLabel('Destination').selectOption('country:'+name);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await page.locator('#view').screenshot({path:path.join(out,images.find(x=>x.name===name).file),type:'jpeg',quality:78});}
+  if(errors.length)throw Error(errors.join('\n'));await page.close();
+  const css='*{box-sizing:border-box}body{margin:0;padding:24px;background:#10232c;color:#eff9ee;font:16px system-ui}h1{margin:0 0 6px;color:#b6e58e}p{margin:0 0 20px;color:#d0ddcf}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}figure{margin:0;background:#243c43;border-radius:8px;overflow:hidden}img{width:100%;display:block}figcaption{padding:7px 10px;font-weight:600}a{color:inherit;text-decoration:none}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}';
+  const card=(item,embedded=false)=>'<figure><a href="https://paintfall-battle-arena.onrender.com/arena-world-tour.html?place='+encodeURIComponent('country:'+item.name)+'&amp;view=garden"><img alt="'+escape(item.name)+' garden" src="'+(embedded?'data:image/jpeg;base64,'+fs.readFileSync(path.join(out,item.file)).toString('base64'):item.file)+'"><figcaption>'+escape(item.name)+'</figcaption></a></figure>';
+  fs.writeFileSync(path.join(out,'review.html'),'<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PAINTFALL — 255 garden foundations</title><style>'+css+'</style><h1>Our PAINTFALL gardens</h1><p>255 countries and territories · 510 benches · PAINTFALL paint flowers. Full Garden Park rides are coming soon. Choose any garden to open its world-tour view.</p><div class="grid">'+images.map(x=>card(x)).join('')+'</div></html>');
+  const sheet=await browser.newPage({viewport:{width:1440,height:2600}});
+  for(let start=0;start<images.length;start+=32){const n=start/32+1;await sheet.setContent('<html><meta charset="utf-8"><style>'+css+'</style><h1>PAINTFALL garden collection '+n+' / 8</h1><p>Complete country and territory foundations · Full amusement rides coming soon</p><div class="grid">'+images.slice(start,start+32).map(x=>card(x,true)).join('')+'</div></html>');await sheet.evaluate(()=>Promise.all([...document.images].map(i=>i.decode())));await sheet.screenshot({path:path.join(out,'contact-'+n+'.jpg'),fullPage:true,type:'jpeg',quality:87});}
+  fs.writeFileSync(path.join(out,'gallery-verification.json'),JSON.stringify({passed:true,images:images.length,refinedViews:refined,sheets:8,errors},null,2));console.log('PASS: complete 255-garden gallery, eight contact sheets and final refined views.');
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});
