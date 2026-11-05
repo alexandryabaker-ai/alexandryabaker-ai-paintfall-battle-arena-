@@ -63,7 +63,7 @@
     host.tabIndex = 0;
     host.addEventListener('keydown', event => { if (event.key.toLowerCase() === 'c') toggleCamera(); });
 
-    let world = null, animalMemories = null, discoveryBook = null;
+    let world = null, animalMemories = null, discoveryBook = null, arenaAccessibility = null;
     let latest = window.__paintfallLatest3DState || { players: [], id: null };
     let arenaRegion = latest.rules?.arenaRegion || 'country:Mexico';
     window.addEventListener('paintfall-3d-state', event => {
@@ -114,9 +114,10 @@
       requestAnimationFrame(render);
     }
 
-    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js')]).then(([module,book]) => {
+    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js'),import('./paintfall-arena-accessibility.js')]).then(([module,book,accessibility]) => {
       world = module.createWorld(host);
       const active=()=>game.classList.contains('started')&&!window.PAINTFALL_CONNECTION_LOST&&!window.PAINTFALL_ACCOUNT_LOCKED&&!window.PAINTFALL_WORLD_EXPLORING;
+      arenaAccessibility=accessibility.createArenaAccessibility({host,isActive:active});
       animalMemories = module.createArenaAnimalMemories(module.THREE,{world,host,isActive:()=>active()&&!window.PAINTFALL_DISCOVERY_OPEN});
       discoveryBook=book.createWorldDiscoveryBook({host,isActive:active,getRegion:()=>arenaRegion});
       window.paintfallTryAnimalShot = () => animalMemories.tryPaintShot();
@@ -125,10 +126,10 @@
       host.__paintfallCamera = world.camera;
       host.__pf3dPlayers = world.players.actors;
       window.paintfall3DPlayerInit = () => world.players.update(regionalPlayers(), latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID, cameraMode, performance.now());
-      window.paintfall3DPlayerJump = () => world.players.jump(latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID);
-      window.paintfall3DPlayerFire = detail => world.players.fire(detail);
+      window.paintfall3DPlayerJump = () => {world.players.jump(latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID);arenaAccessibility?.effect('jump');};
+      window.paintfall3DPlayerFire = detail => {world.players.fire(detail);arenaAccessibility?.effect('fire');};
       window.addEventListener('paintfall-maya-gymnast-jump', window.paintfall3DPlayerJump);
-      window.addEventListener('paintfall-fire', event => world.players.fire(event.detail));
+      window.addEventListener('paintfall-fire', event => window.paintfall3DPlayerFire(event.detail));
       window.paintfall3DPlayerInit();
       for (const action of window.__paintfallPending3DActions || []) {
         if (action.type === 'jump') window.paintfall3DPlayerJump();
