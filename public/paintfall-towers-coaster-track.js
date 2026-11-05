@@ -16,8 +16,11 @@ export function buildTiltingTowersTrack(T,parent){
  }
  const anchors=[],fixed=(x,y,z)=>anchors.push({point:new T.Vector3(x,y,z)}),on=(tower,x,y,z)=>anchors.push({tower,point:new T.Vector3(x,y,z)});
  fixed(-22,2.5,18);fixed(-23,3,6);fixed(-18,3,-10);
- const climb=i=>{on(i,0,3,-7);on(i,0,8,-4.2);on(i,0,18,-4.2);on(i,0,26,-4.2);on(i,0,30,-3.5);on(i,0,32,0);on(i,0,30,3.5);on(i,0,26,4.2);on(i,0,18,4.2);on(i,0,8,4.2);on(i,0,3,7);};
- climb(0);fixed(0,4,9);fixed(16,5,8);fixed(19,5,-10);climb(1);fixed(13,3,15);fixed(1,2.5,22);fixed(-12,2.5,21);
+ // One ascent, a rooftop crossing, then one descent on the other tower.
+ on(0,0,3,-7);on(0,0,8,-4.2);on(0,0,18,-4.2);on(0,0,26,-4.2);on(0,0,30,-3.5);on(0,0,32,0);
+ fixed(0,33,-2);
+ on(1,0,32,0);on(1,0,30,3.5);on(1,0,26,4.2);on(1,0,18,4.2);on(1,0,8,4.2);on(1,0,3,7);
+ fixed(13,3,15);fixed(1,2.5,22);fixed(-12,2.5,21);
  const curve=new T.CatmullRomCurve3(anchors.map(a=>a.point.clone()),true,'centripetal');curve.arcLengthDivisions=240;
  const segments=128,radial=5,rails=[];
  for(const side of [-1,1]){
@@ -34,7 +37,8 @@ export function buildTiltingTowersTrack(T,parent){
   for(const {pivot,side}of towers){pivot.rotation.z=Math.sin(elapsed*.3)*.08*side;pivot.updateMatrix();}
   for(let i=0;i<anchors.length;i++){const a=anchors[i];curve.points[i].copy(a.point);if(a.tower!==undefined)curve.points[i].applyMatrix4(towers[a.tower].pivot.matrix);}
   curve.updateArcLengths();frames=curve.computeFrenetFrames(segments,true);
-  if(frames.normals[0].dot(up)<0)for(let i=0;i<=segments;i++){frames.normals[i].negate();frames.binormals[i].negate();}
+  const initialUp=up.clone().addScaledVector(frames.tangents[0],-up.dot(frames.tangents[0])).normalize(),roll=Math.atan2(frames.tangents[0].dot(frames.normals[0].clone().cross(initialUp)),frames.normals[0].dot(initialUp));
+  for(let i=0;i<=segments;i++){frames.normals[i].applyAxisAngle(frames.tangents[i],roll);frames.binormals[i].crossVectors(frames.tangents[i],frames.normals[i]).normalize();}
   for(let i=0;i<=segments;i++){
    curve.getPointAt(i/segments,p);const n=frames.normals[i],b=frames.binormals[i];
    for(const {mesh,side}of rails){const pos=mesh.geometry.attributes.position,norm=mesh.geometry.attributes.normal;
@@ -46,6 +50,6 @@ export function buildTiltingTowersTrack(T,parent){
   for(let i=0;i<supports.length;i++){curve.getPointAt(i/supports.length,top);const support=supports[i];p.set(top.x,0,top.z);const length=p.distanceTo(top);support.position.copy(p).lerp(top,.5);support.scale.set(1,length,1);support.quaternion.setFromUnitVectors(up,top.clone().sub(p).normalize());}
  }
  function orientation(u,target){const k=Math.min(segments,Math.round(u*segments));basis.makeBasis(right.copy(frames.binormals[k]).negate(),normal.copy(frames.normals[k]),frames.tangents[k]);return target.setFromRotationMatrix(basis);}
- update(0);root.userData={movingTowers:true,trackFollowsTowers:true,boardingEnabled:false};
+ update(0);root.userData={movingTowers:true,trackFollowsTowers:true,route:'up-left-across-rooftops-down-right',boardingEnabled:false};
  return {group:root,towers,curve,anchors,rails,ties,update,orientation,get elapsed(){return elapsed;}};
 }

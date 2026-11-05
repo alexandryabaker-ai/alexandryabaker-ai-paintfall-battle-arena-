@@ -60,7 +60,7 @@ export function buildNevadaArenaParks(T,{group,destination}){
  const hub=site('hub','World Hub',0,-125,43,28),h=hub.group;
  const towerTrack=buildTiltingTowersTrack(T,h);
  const towerTrain=testTrain(h,towerTrack.curve,m.purple,'PAINTFALL Towers Coaster',8);towerTrain.orientation=towerTrack.orientation;
- sign(h,'PAINTFALL Towers Coaster','Unoccupied track tests',0,32,2,16);
+ sign(h,'PAINTFALL Towers Coaster','Unoccupied track tests',-18,31,2,12);
  // Saved sky stations remain visibly under construction until a complete ride is ready.
  box(h,31,18,-5,7,36,7,m.dark,'SKYFALL departure tower');box(h,31,37,-5,11,1,10,m.blue,'SKYFALL rooftop station');sign(h,'SKYFALL PaintCoaster','Station under construction',31,41,-5,14);
  cylinder(h,-29,1,13,5,2,m.purple,'Second sky station foundation');sign(h,'SKY STATION','Design in development',-29,5,13,10);

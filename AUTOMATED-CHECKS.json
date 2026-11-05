@@ -354,5 +354,30 @@
     "physicalPhoneTest": false,
     "boardingEnabled": false,
     "vehicleDrivingEnabled": false
+  },
+  "towerCrossingCorrection": {
+    "revision": "tower-crossing-route-v9",
+    "checkedAt": "2026-11-05T17:35:34.737Z",
+    "passed": true,
+    "scope": "testing branch only; continuous up-one/across/down-other route",
+    "unitTests": [
+      {
+        "test": "tests/towers-coaster-motion.mjs",
+        "passed": true
+      },
+      {
+        "test": "tests/nevada-arena-parks.mjs",
+        "passed": true
+      }
+    ],
+    "browserChecks": [
+      "corrected tower crossing route loaded",
+      "opposite tower tilt visible in real arena renderer",
+      "rails deform with tower motion",
+      "one renderer",
+      "two desktop angles and phone-size pictures"
+    ],
+    "physicalPhoneTest": false,
+    "boardingEnabled": false
   }
 }

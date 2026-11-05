@@ -22,8 +22,9 @@
     "kirin-pickup-preserved-after-jump-and-travel",
     "tilting-towers-with-facade-track",
     "three-original-nevada-racing-coach-identities",
-    "paused-car-train-inspection"
+    "paused-car-train-inspection",
+    "towers-up-one-across-down-other"
   ],
-  "revision": "nevada-racing-identities-v8",
+  "revision": "tower-crossing-route-v9",
   "channel": "testing"
 }

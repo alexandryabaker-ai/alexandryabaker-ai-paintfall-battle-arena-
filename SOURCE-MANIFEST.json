@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-30T19:58:02.789Z",
-  "status": "Testing only: three original Nevada racing coach identities and shared track orientation; boarding, go-karts and bumper trucks remain unfinished",
+  "status": "Testing only: single left-tower ascent, rooftop crossing, single right-tower descent; passenger boarding remains closed",
   "files": [
     {
       "path": "public/arena-character-check.html",
@@ -1569,8 +1569,8 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 892,
-      "sha256": "f4512fca8597a339bb07d50a6a9e0dd67fa6ed3d60096939e0d646a6703808dd"
+      "bytes": 927,
+      "sha256": "3be8191eaa1d338cbba9decb0b64ead1cb496111a28ce554861cf87e88c29253"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
@@ -2979,8 +2979,8 @@
     },
     {
       "path": "public/paintfall-arena-nevada-parks.js",
-      "bytes": 10512,
-      "sha256": "cbd8bcc5641d7ce4900a8e7d68723ecaac49b8542a25ebfcd03318198f407f01"
+      "bytes": 10514,
+      "sha256": "a9f554450c7ac72e3111c7384f900af5206da9e3c39529440435f5d37d94b42b"
     },
     {
       "path": "tools/build-arena-catalog.mjs",
@@ -3009,8 +3009,8 @@
     },
     {
       "path": "public/paintfall-towers-coaster-track.js",
-      "bytes": 5179,
-      "sha256": "6ee0117190cecc604b6d10045e11e023dd5b47289c957158dc161b8483ac7383"
+      "bytes": 5525,
+      "sha256": "82b87a970be06f1daa566a9f385e0b6495dcffabaa71571653cc03f08e6992de"
     },
     {
       "path": "tests/nova-kirin-handoff.cjs",
@@ -3029,13 +3029,13 @@
     },
     {
       "path": "tests/towers-coaster-motion.mjs",
-      "bytes": 2981,
-      "sha256": "85bb8af7a529399d618cf161b3b6bd692f6388809a1c3b22f23d97ec47614772"
+      "bytes": 3992,
+      "sha256": "faa9d84b84567fbb1986bb960e7485cca9f614c972750f04e021966239ffb76a"
     },
     {
       "path": "tests/towers-coaster-browser.cjs",
-      "bytes": 2349,
-      "sha256": "f5c4168e6cf249331efb9cfee8c12eccfd7939091039eb97dfef1b4c0f835f5d"
+      "bytes": 2980,
+      "sha256": "ac0be401dd3d80c53672b9c6aa38382da81c554d490b8066ff223c4b49cbc3a1"
     },
     {
       "path": "docs/PAINTFALL-KIRIN-TOWERS-TESTER-FIX-2026-11-04.md",
@@ -3061,8 +3061,13 @@
       "path": "docs/PAINTFALL-NEVADA-RACING-TESTER-2026-11-04.md",
       "bytes": 2896,
       "sha256": "747de9aa088eb620f517ded2f7749867c8a81ca17830e52a3278079ebea3bf06"
+    },
+    {
+      "path": "docs/PAINTFALL-TOWER-CROSSING-CORRECTION-2026-11-05.md",
+      "bytes": 2253,
+      "sha256": "9ab56df862c96818db66b0eb73e85faa58f26b26f481a8c4390efe1e385009c1"
     }
   ],
-  "revision": "nevada-racing-identities-v8",
-  "updatedAt": "2026-11-05T04:16:38.935Z"
+  "revision": "tower-crossing-route-v9",
+  "updatedAt": "2026-11-05T17:35:34.731Z"
 }
