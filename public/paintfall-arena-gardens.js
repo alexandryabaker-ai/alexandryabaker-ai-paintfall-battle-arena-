@@ -5,7 +5,8 @@ import {buildLaosGarden} from './paintfall-laos-garden.js';
 import {buildCambodiaGarden} from './paintfall-cambodia-garden.js';
 import {buildThailandGarden,buildMyanmarGarden,buildMalaysiaGarden,buildIndonesiaGarden,buildPhilippinesGarden} from './paintfall-southeast-asia-gardens.js';
 import {eastAsiaGardenBuilders} from './paintfall-east-asia-gardens.js';
-const localBuilders={Vietnam:buildVietnamGarden,Laos:buildLaosGarden,Cambodia:buildCambodiaGarden,Thailand:buildThailandGarden,Myanmar:buildMyanmarGarden,Malaysia:buildMalaysiaGarden,Indonesia:buildIndonesiaGarden,Philippines:buildPhilippinesGarden,...eastAsiaGardenBuilders};
+import {composedGardenBuilders} from './paintfall-garden-compositions.js';
+const localBuilders={Vietnam:buildVietnamGarden,Laos:buildLaosGarden,Cambodia:buildCambodiaGarden,Thailand:buildThailandGarden,Myanmar:buildMyanmarGarden,Malaysia:buildMalaysiaGarden,Indonesia:buildIndonesiaGarden,Philippines:buildPhilippinesGarden,...eastAsiaGardenBuilders,...composedGardenBuilders};
 function parkSign(T,garden,destination){
  const x=-3.8,z=-10.8;
  const canvas=document.createElement('canvas');canvas.width=768;canvas.height=256;const ctx=canvas.getContext('2d');

@@ -256,5 +256,26 @@
     }
   ],
   "passed": true,
-  "reportDirectory": "art\\submission-readiness\\2026-10-31T00-54-52-680Z"
+  "reportDirectory": "art\\submission-readiness\\2026-10-31T00-54-52-680Z",
+  "gardenUpdate": {
+    "checkedAt": "2026-11-05T00:25:18.905Z",
+    "revision": "gardens-all-countries-v5",
+    "passed": true,
+    "scope": "255 country/territory garden foundations; 50 US states and city gardens remain separate",
+    "tourScenes": 255,
+    "connectedRoomDestinations": 255,
+    "connectedRoomNote": "Completed across resumed isolated rooms; every successful destination recorded.",
+    "benches": 510,
+    "safeSpawnPoints": 4880,
+    "collisionSteps": 122000,
+    "galleryImages": 255,
+    "phoneDimensions": 8,
+    "physicalPhoneTest": false,
+    "ownerReview": "Roomy full-set layouts accepted November 4; future rides remain Coming Soon",
+    "evidence": [
+      "art/gardens-all-countries-2026-11-04/verification.json",
+      "art/gardens-all-countries-2026-11-04/gallery-verification.json",
+      "art/gardens-all-countries-2026-11-04/gallery-page-verification.json"
+    ]
+  }
 }
