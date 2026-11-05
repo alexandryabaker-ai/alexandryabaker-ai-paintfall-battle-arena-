@@ -63,7 +63,7 @@
     host.tabIndex = 0;
     host.addEventListener('keydown', event => { if (event.key.toLowerCase() === 'c') toggleCamera(); });
 
-    let world = null, animalMemories = null, discoveryBook = null;
+    let world = null, animalMemories = null, discoveryBook = null, coasterUI=null, parkClock=null;
     let latest = window.__paintfallLatest3DState || { players: [], id: null };
     let arenaRegion = latest.rules?.arenaRegion || 'country:Mexico';
     window.addEventListener('paintfall-3d-state', event => {
@@ -71,10 +71,20 @@
       if (!state) return;
       if (Array.isArray(state.players)) latest.players = state.players;
       if (state.id) latest.id = state.id;
+      if(state.parkClock)parkClock={ms:state.parkClock.elapsedMs,received:performance.now()};
       const own=latest.players.find(p=>p.id===(latest.id||window.paintfallLocalPlayerId||window.PAINTFALL_ROOM_PLAYER_ID));
       arenaRegion = own?.arenaRegion || state.rules?.arenaRegion || arenaRegion;
     });
     const regionalPlayers=()=>latest.players.filter(p=>!p.arenaRegion||p.arenaRegion===arenaRegion);
+    const parkElapsed=()=>parkClock?parkClock.ms+Math.max(0,performance.now()-parkClock.received):0;
+    function seatRiders(){
+      const parks=world.region.parks;if(!parks)return;
+      for(const player of regionalPlayers())if(player.coasterRide){const actor=world.players.actors.get(player.id),car=parks.trains[0].cars[Math.floor(player.coasterRide.seat/2)];if(!actor||!car)continue;
+        car.add(actor);const parts=actor.userData.parts,hip=(actor.userData.design.legRatio+.018)*actor.userData.standingHeight;
+        actor.position.set(0,.78-hip,globalThis.PaintfallTowerRide.ROWS[player.coasterRide.seat%2]);actor.rotation.set(0,Math.PI,0);actor.userData.coasterMounted=true;delete actor.userData.jumpStarted;
+        parts.body.position.y=actor.userData.baseBodyY;parts.body.rotation.set(0,0,0);parts.legL.rotation.set(1.15,0,0);parts.legR.rotation.set(1.15,0,0);parts.legL.userData.shin.rotation.x=parts.legR.userData.shin.rotation.x=-1.3;parts.armL.rotation.set(.35,0,.06);parts.armR.rotation.set(.35,0,-.06);car.updateWorldMatrix(true,true);
+      }
+    }
     function playerWorld() {
       const localId = latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID;
       const player = latest.players.find(item => item.id === localId) || latest.players.find(item => item.id);
@@ -88,24 +98,31 @@
       const rect = host.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) { requestAnimationFrame(render); return; }
       const localId = latest.id || window.paintfallLocalPlayerId || window.PAINTFALL_ROOM_PLAYER_ID;
+      // Detach passengers before replacing/disposal of a regional park scene.
+      for(const a of world.players.actors.values())if(a.userData.coasterMounted){world.scene.attach(a);a.rotation.x=a.rotation.z=0;a.userData.parts.body.rotation.set(0,0,0);delete a.userData.coasterMounted;}
       world.setRegion(arenaRegion);
+      world.region.parks?.syncClock(parkElapsed());
       world.players.update(regionalPlayers(), localId, cameraMode, performance.now());
+      seatRiders();coasterUI?.update(performance.now());
       const actor = world.players.actors.get(localId);
       const rideLift=actor?.userData.bullRide?actor.userData.bullRideLift||0:0;
-      const player = playerWorld(), targetY = actor ? actor.position.y + actor.userData.height * .55 + rideLift : 1.1;
+      const riding=!!actor?.userData.coasterMounted,actorPosition=riding?actor.getWorldPosition(actor.position.clone()):null;
+      const player = riding?{x:actorPosition.x,z:actorPosition.z}:playerWorld(), targetY = actor ? (actorPosition?.y??actor.position.y) + actor.userData.height * .55 + rideLift : 1.1;
       animalMemories?.update(player);
       discoveryBook?.update();
       let ex, ey, ez, cx, cy, cz;
       const cp = Math.cos(camPitch), sp = Math.sin(camPitch), sy = Math.sin(camYaw), cyaw = Math.cos(camYaw);
       if (cameraMode === 'first') {
-        ex = player.x; ey = actor ? actor.position.y + actor.userData.eyeHeight + rideLift : targetY + 1.15; ez = player.z;
+        ex = player.x; ey = actor ? (actorPosition?.y??actor.position.y) + actor.userData.eyeHeight + rideLift : targetY + 1.15; ez = player.z;
         cx = ex + sy * cp * 10; cy = ey + sp * 10; cz = ez - cyaw * cp * 10;
       } else {
         const orbitDistance = actor ? Math.max(4.5, actor.userData.renderHeight * 2.6) : 4.8;
         ex = player.x - sy * cp * orbitDistance; ey = targetY + .4 + sp * orbitDistance; ez = player.z + cyaw * cp * orbitDistance;
         cx = player.x; cy = targetY; cz = player.z;
+        if(riding){const q=actor.getWorldQuaternion(actor.quaternion.clone()),target=actorPosition.clone().add(actor.position.clone().set(0,actor.userData.height*.55,0).applyQuaternion(q)),offset=actor.position.clone().set(-Math.sin(camYaw+1.15)*cp*orbitDistance,.4+sp*orbitDistance,Math.cos(camYaw+1.15)*cp*orbitDistance).applyQuaternion(q).add(target);ex=offset.x;ey=offset.y;ez=offset.z;cx=target.x;cy=target.y;cz=target.z;}
       }
-      world.setCameraPose({ ex, ey, ez, cx, cy, cz, mode: cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
+      if(riding&&cameraMode==='first'){const q=actor.getWorldQuaternion(actor.quaternion.clone()),eye=actorPosition.clone().add(actor.position.clone().set(0,actor.userData.eyeHeight,0).applyQuaternion(q)),direction=actor.position.clone().set(sy*cp,sp,-cyaw*cp).applyQuaternion(q);ex=eye.x;ey=eye.y;ez=eye.z;cx=ex+direction.x*10;cy=ey+direction.y*10;cz=ez+direction.z*10;}
+      world.setCameraPose({ ex, ey, ez, cx, cy, cz, mode: riding?'review':cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
       world.render();
       const destination=window.PaintfallArenaCatalog?.[arenaRegion];
       badge.textContent='PAINTFALL • '+(destination?.name||'Regional')+' ARENA';
@@ -114,11 +131,12 @@
       requestAnimationFrame(render);
     }
 
-    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js')]).then(([module,book]) => {
+    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js'),import('./paintfall-coaster-ui.js')]).then(([module,book,coaster]) => {
       world = module.createWorld(host);
       const active=()=>game.classList.contains('started')&&!window.PAINTFALL_CONNECTION_LOST&&!window.PAINTFALL_ACCOUNT_LOCKED&&!window.PAINTFALL_WORLD_EXPLORING;
       animalMemories = module.createArenaAnimalMemories(module.THREE,{world,host,isActive:()=>active()&&!window.PAINTFALL_DISCOVERY_OPEN});
       discoveryBook=book.createWorldDiscoveryBook({host,isActive:active,getRegion:()=>arenaRegion});
+      coasterUI=coaster.createCoasterUI({host,isActive:active,getState:()=>({...latest,parkElapsedMs:parkElapsed()})});
       window.paintfallTryAnimalShot = () => animalMemories.tryPaintShot();
       window.PAINTFALL_3D_SCENE_HOST = host;
       host.__paintfallScene = world.scene;

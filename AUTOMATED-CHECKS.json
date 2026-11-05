@@ -379,5 +379,57 @@
     ],
     "physicalPhoneTest": false,
     "boardingEnabled": false
+  },
+  "towerBoarding": {
+    "revision": "towers-boardable-v10",
+    "checkedAt": "2026-11-05T19:01:53.473Z",
+    "passed": true,
+    "unitTests": [
+      {
+        "test": "tests/tower-boarding.cjs",
+        "passed": true
+      },
+      {
+        "test": "tests/tower-passenger-clearance.mjs",
+        "passed": true
+      },
+      {
+        "test": "tests/towers-coaster-motion.mjs",
+        "passed": true
+      },
+      {
+        "test": "tests/nevada-arena-parks.mjs",
+        "passed": true
+      },
+      {
+        "test": "tests/nevada-racing-identity.mjs",
+        "passed": true
+      },
+      {
+        "test": "tests/nova-kirin-handoff.cjs",
+        "passed": true
+      },
+      {
+        "test": "tests/kirin-pickup.cjs",
+        "passed": true
+      }
+    ],
+    "browserChecks": [
+      "board from the real platform and attach the existing character to its assigned car",
+      "third-person ride camera and optional first-person view",
+      "full tower loop and automatic safe platform exit without health or score change",
+      "phone-size touch boarding button, early return and walking afterward"
+    ],
+    "networkChecks": [
+      "two guests in distinct seats",
+      "shared room clock and ride state",
+      "move/jump/landing/ability cannot override coaster",
+      "disconnect frees passenger without ending the other ride",
+      "map travel cancels ride safely"
+    ],
+    "physicalPhoneTest": false,
+    "boardableRide": "towers",
+    "seats": 6,
+    "otherCoasterBoarding": false
   }
 }

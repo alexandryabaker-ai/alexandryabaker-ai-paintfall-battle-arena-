@@ -111,13 +111,13 @@
       const nextAck = authoritative.moveAck || 0;
       if (nextAck < ack) return player;
       ack = nextAck;
-      pending = authoritative.alive === false || authoritative.bullRide ? [] : pending.filter(input => input.seq > ack);
+      pending = authoritative.alive === false || authoritative.bullRide || authoritative.coasterRide ? [] : pending.filter(input => input.seq > ack);
       player = { ...authoritative };
       for (const input of pending) Object.assign(player, apply(player, input));
       return player;
     }
     function step(x, y, dt) {
-      if (!player || player.alive === false || player.bullRide || (!x && !y) || !(dt > 0)) return null;
+      if (!player || player.alive === false || player.bullRide || player.coasterRide || (!x && !y) || !(dt > 0)) return null;
       const input = { type: 'move', seq: ++seq, round, x, y, dt: Math.min(dt, MAX_DT) };
       if(player.dropRevision!==undefined)input.dropRevision=player.dropRevision;
       pending.push(input); player = { ...player, ...apply(player, input) };

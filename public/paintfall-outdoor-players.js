@@ -33,7 +33,7 @@ export function createOutdoorPlayers(THREE, scene, makeCharacter, companions={})
     actor.userData.disposed=true;
     if(actor.userData.novaCompanion){const companion=actor.userData.novaCompanion;delete actor.userData.novaCompanion;remove(companion);}
     if(actor.userData.splashEffect){const effect=actor.userData.splashEffect.node;delete actor.userData.splashEffect;remove(effect);}
-    scene.remove(actor);
+    actor.removeFromParent();
     const geometries = new Set(), materials = new Set();
     actor.traverse(part => {
       if (part.geometry) geometries.add(part.geometry);
@@ -70,6 +70,7 @@ export function createOutdoorPlayers(THREE, scene, makeCharacter, companions={})
           novaModel.attach(actor);
         }
       }
+      if(actor.userData.coasterMounted){scene.attach(actor);actor.rotation.x=actor.rotation.z=0;actor.userData.parts.body.rotation.set(0,0,0);delete actor.userData.coasterMounted;}
       const target = position(player), previous = actor.userData.lastPosition;
       const reset = !previous || actor.userData.round !== player.movementRound || actor.userData.region !== player.arenaRegion || actor.userData.dropRevision !== player.dropRevision || actor.userData.alive !== player.alive;
       actor.userData.dropRevision=player.dropRevision;

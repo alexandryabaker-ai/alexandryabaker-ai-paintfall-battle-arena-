@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-30T19:58:02.789Z",
-  "status": "Testing only: single left-tower ascent, rooftop crossing, single right-tower descent; passenger boarding remains closed",
+  "status": "Testing only: six-seat Towers boarding, shared server ride clock, automatic/early platform return; other coaster boarding and vehicle driving unfinished",
   "files": [
     {
       "path": "public/arena-character-check.html",
@@ -224,8 +224,8 @@
     },
     {
       "path": "public/paintfall-arena-catalog.js",
-      "bytes": 943817,
-      "sha256": "c89f7a86c0cd5f66f29d8e24a1ff35b2544bcb19e1f464b03f8040c5f72ed106"
+      "bytes": 943878,
+      "sha256": "f70ff7480f47c4cd7e998d7f5e9de1a0ced5e85cd5612a8deaec40b6339c6d47"
     },
     {
       "path": "public/paintfall-arena-color-trial.js",
@@ -484,8 +484,8 @@
     },
     {
       "path": "public/paintfall-contest-3d-runtime.js",
-      "bytes": 9294,
-      "sha256": "dba5a9136c996466b00fe01d0d5c7339973913789432f540fb31f98d2aa59a70"
+      "bytes": 12076,
+      "sha256": "41038d8e05e1fe95baae16070df99a039b617bfeb5775b38f64fbc028972f6f9"
     },
     {
       "path": "public/paintfall-contest-3d-world.js",
@@ -894,8 +894,8 @@
     },
     {
       "path": "public/paintfall-movement-sync.js",
-      "bytes": 7481,
-      "sha256": "6d456bab1b8a2da2fe781f97b3a4794e1e9d07963c69a7e9a5760dd62cf1127c"
+      "bytes": 7532,
+      "sha256": "23468d24971115b3231ebd1782e489e575b0b1266470e2944c7368b97080880f"
     },
     {
       "path": "public/paintfall-native-trees.js",
@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/paintfall-outdoor-players.js",
-      "bytes": 12789,
-      "sha256": "a78111f9e4f739e938c3790442466a103c3e73315b6aed81c80e592691d2d232"
+      "bytes": 12975,
+      "sha256": "f54fb35acfdf5db9e6e1b336482a3fc52ddefdefc64d81e4ae36e85d9589eff1"
     },
     {
       "path": "public/paintfall-pacific-animal-details.js",
@@ -1519,8 +1519,8 @@
     },
     {
       "path": "server.js",
-      "bytes": 18187,
-      "sha256": "2d0df5e3684628bec9eb486718ae5f2f8ee545bced09cf8eb07e421d89f87f8f"
+      "bytes": 18981,
+      "sha256": "6c145dc9e7b4b736ab3d3e78a8556875942b6e7023b7a7e0f7538f76a112a154"
     },
     {
       "path": "paintfall-accounts.cjs",
@@ -1569,8 +1569,8 @@
     },
     {
       "path": "public/paintfall-release.json",
-      "bytes": 927,
-      "sha256": "3be8191eaa1d338cbba9decb0b64ead1cb496111a28ce554861cf87e88c29253"
+      "bytes": 1043,
+      "sha256": "74ec1953b010d64d9585c316ec03101f0eb8018264c1a25d715f3801d0100567"
     },
     {
       "path": "docs/PAINTFALL-RECOVERY-KIRIN-BOTS-2026-10-30.md",
@@ -2979,8 +2979,8 @@
     },
     {
       "path": "public/paintfall-arena-nevada-parks.js",
-      "bytes": 10514,
-      "sha256": "a9f554450c7ac72e3111c7384f900af5206da9e3c39529440435f5d37d94b42b"
+      "bytes": 11276,
+      "sha256": "990016ac3642513c1d20510e0d58ed212e15203ea42a6242306a8f0a8c208538"
     },
     {
       "path": "tools/build-arena-catalog.mjs",
@@ -2989,8 +2989,8 @@
     },
     {
       "path": "tests/nevada-arena-parks.mjs",
-      "bytes": 3326,
-      "sha256": "771aac28cc1ee6226ebf532e8223a0843b752dddfec1382e1cf2112db9c2132a"
+      "bytes": 3334,
+      "sha256": "6422cfa8687ffbc56d36c14f77796377ccc61e23a7d4dd06036ce410e27843ed"
     },
     {
       "path": "tests/nevada-arena-parks-browser.cjs",
@@ -3009,8 +3009,8 @@
     },
     {
       "path": "public/paintfall-towers-coaster-track.js",
-      "bytes": 5525,
-      "sha256": "82b87a970be06f1daa566a9f385e0b6495dcffabaa71571653cc03f08e6992de"
+      "bytes": 4531,
+      "sha256": "82f47f91ed1151f4385fb00471a7141e2d3d0acddf1acedd723239bf8b047d96"
     },
     {
       "path": "tests/nova-kirin-handoff.cjs",
@@ -3029,8 +3029,8 @@
     },
     {
       "path": "tests/towers-coaster-motion.mjs",
-      "bytes": 3992,
-      "sha256": "faa9d84b84567fbb1986bb960e7485cca9f614c972750f04e021966239ffb76a"
+      "bytes": 3987,
+      "sha256": "5b19df0b31c35c87e67a8dc5c9378f58582e3e74f193775d33604f744ad9039a"
     },
     {
       "path": "tests/towers-coaster-browser.cjs",
@@ -3049,8 +3049,8 @@
     },
     {
       "path": "tests/nevada-racing-identity.mjs",
-      "bytes": 3806,
-      "sha256": "74ffcbad1184c1b559b34364132a4dff32838a397edfe088aab8eb7dc5007b8f"
+      "bytes": 3807,
+      "sha256": "1593484e3cc577b38c932f4bd0576af9fd80e7d15bdef6612b41a713ae1b317b"
     },
     {
       "path": "tests/nevada-racing-identity-browser.cjs",
@@ -3066,8 +3066,48 @@
       "path": "docs/PAINTFALL-TOWER-CROSSING-CORRECTION-2026-11-05.md",
       "bytes": 2253,
       "sha256": "9ab56df862c96818db66b0eb73e85faa58f26b26f481a8c4390efe1e385009c1"
+    },
+    {
+      "path": "paintfall-coaster-ride.cjs",
+      "bytes": 2260,
+      "sha256": "2819b72cbc27327266c78ad0ce84c0bf852616b0b4fd6a5b54cbb65917ec4ec6"
+    },
+    {
+      "path": "public/paintfall-tower-ride.js",
+      "bytes": 2690,
+      "sha256": "dc0270c68202545196513b6853c16f9917e87b8473dfa1838f1666daedbf413f"
+    },
+    {
+      "path": "public/paintfall-coaster-ui.js",
+      "bytes": 2657,
+      "sha256": "eecafed008f7230b73fdb99e478996c39f1db7589920f083c36eab4bd78a2d7c"
+    },
+    {
+      "path": "tests/tower-boarding.cjs",
+      "bytes": 2253,
+      "sha256": "ee859eacaca394decc35f2ccaebf733ecddc055eaf108c11999de600c36d7a46"
+    },
+    {
+      "path": "tests/tower-boarding-browser.cjs",
+      "bytes": 5984,
+      "sha256": "7d688c6aa9630e70eff67ff290e8c24b8519fcac709772fca36dc97242da3882"
+    },
+    {
+      "path": "tests/tower-boarding-network.cjs",
+      "bytes": 3675,
+      "sha256": "a04ef563764d98145cab87308308386eae3b74453c36523734e5b254afa6d62b"
+    },
+    {
+      "path": "tests/tower-passenger-clearance.mjs",
+      "bytes": 2049,
+      "sha256": "c2723825657d2981a8d258bf72bf2117e9b0faddbb92772c2506785d5b97536c"
+    },
+    {
+      "path": "docs/PAINTFALL-TOWERS-BOARDING-2026-11-05.md",
+      "bytes": 3794,
+      "sha256": "7e052b1c6aedc0ae3b18d01528ad5650ea04873273049e83211c1b9d88dc77aa"
     }
   ],
-  "revision": "tower-crossing-route-v9",
-  "updatedAt": "2026-11-05T17:35:34.731Z"
+  "revision": "towers-boardable-v10",
+  "updatedAt": "2026-11-05T19:01:53.463Z"
 }

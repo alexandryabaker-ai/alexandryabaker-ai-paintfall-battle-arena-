@@ -23,8 +23,11 @@
     "tilting-towers-with-facade-track",
     "three-original-nevada-racing-coach-identities",
     "paused-car-train-inspection",
-    "towers-up-one-across-down-other"
+    "towers-up-one-across-down-other",
+    "towers-coaster-six-seat-consensual-boarding",
+    "shared-room-coaster-clock",
+    "towers-safe-platform-return"
   ],
-  "revision": "tower-crossing-route-v9",
+  "revision": "towers-boardable-v10",
   "channel": "testing"
 }
