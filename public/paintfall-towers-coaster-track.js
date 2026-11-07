@@ -24,12 +24,12 @@ export function buildTiltingTowersTrack(T,parent){
  const ties=new T.InstancedMesh(new T.BoxGeometry(1.4,.12,.15),dark,96);ties.name='Moving tower-track ties';ties.frustumCulled=false;root.add(ties);
  const supportGeometry=new T.CylinderGeometry(.14,.14,1,8),supports=[];
  for(let i=0;i<18;i++){const mesh=new T.Mesh(supportGeometry,dark);mesh.name='Flexible tower-track support';mesh.castShadow=true;root.add(mesh);supports.push(mesh);}
- const up=new T.Vector3(0,1,0),dummy=new T.Object3D(),basis=new T.Matrix4(),p=new T.Vector3(),right=new T.Vector3(),normal=new T.Vector3(),radialNormal=new T.Vector3(),top=new T.Vector3();
+ const up=new T.Vector3(0,1,0),dummy=new T.Object3D(),basis=new T.Matrix4(),p=new T.Vector3(),right=new T.Vector3(),radialNormal=new T.Vector3(),top=new T.Vector3();
  let frames,elapsed=0;
  function update(dt,absoluteSeconds){
   elapsed=Number.isFinite(absoluteSeconds)?absoluteSeconds:elapsed+Math.min(.05,Math.max(0,Number(dt)||0));
-  for(const {pivot,side}of towers){pivot.rotation.z=Math.sin(elapsed*.3)*.08*side;pivot.updateMatrix();}
   route.update(elapsed);frames=route.frames;
+  for(let i=0;i<towers.length;i++){const {pivot}=towers[i];pivot.rotation.copy(route.towerRotations[i]);pivot.updateMatrix();}
   for(let i=0;i<=segments;i++){
    curve.getPointAt(i/segments,p);const n=frames.normals[i],b=frames.binormals[i];
    for(const {mesh,side}of rails){const pos=mesh.geometry.attributes.position,norm=mesh.geometry.attributes.normal;
@@ -40,7 +40,7 @@ export function buildTiltingTowersTrack(T,parent){
   for(let i=0;i<ties.count;i++){const u=i/ties.count,k=Math.round(u*segments);curve.getPointAt(u,dummy.position);basis.makeBasis(right.copy(frames.binormals[k]).negate(),frames.normals[k],frames.tangents[k]);dummy.quaternion.setFromRotationMatrix(basis);dummy.updateMatrix();ties.setMatrixAt(i,dummy.matrix);}ties.instanceMatrix.needsUpdate=true;
   for(let i=0;i<supports.length;i++){curve.getPointAt(i/supports.length,top);const support=supports[i];p.set(top.x,0,top.z);const length=p.distanceTo(top);support.position.copy(p).lerp(top,.5);support.scale.set(1,length,1);support.quaternion.setFromUnitVectors(up,top.clone().sub(p).normalize());}
  }
- function orientation(u,target){const k=Math.min(segments,Math.round(u*segments));basis.makeBasis(right.copy(frames.binormals[k]).negate(),normal.copy(frames.normals[k]),frames.tangents[k]);return target.setFromRotationMatrix(basis);}
+ function orientation(u,target){return route.orientation(u,target);}
  update(0);root.userData={movingTowers:true,trackFollowsTowers:true,route:'up-left-across-rooftops-down-right',boardingEnabled:true};
- return {group:root,towers,curve,anchors,rails,ties,update,orientation,seat:(ms,index)=>route.seat(ms,index),get elapsed(){return elapsed;}};
+ return {group:root,towers,curve,anchors,rails,ties,update,orientation,carPose:(ms,index)=>route.carPose(ms,index),seat:(ms,index)=>route.seat(ms,index),get elapsed(){return elapsed;},get motion(){return route.motion;}};
 }
