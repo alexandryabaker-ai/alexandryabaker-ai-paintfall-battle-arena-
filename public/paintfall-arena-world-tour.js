@@ -2,6 +2,7 @@ import {createWorld,THREE} from './paintfall-contest-3d-world.js';
 import {gardenReferences} from './paintfall-garden-references.js';
 import {composedGardenReferences} from './paintfall-garden-compositions.js';
 import {createTowerMagnetPreview} from './paintfall-tower-magnet-preview.js';
+import {createTowerCamera} from './paintfall-tower-camera.js';
 const $=id=>document.getElementById(id),host=$('view');
 const catalog=window.PaintfallArenaCatalog,all=Object.values(catalog).sort((a,b)=>a.name.localeCompare(b.name)||a.type.localeCompare(b.type));
 const viewIds=['overview','ground','overhead','garden','flowers','hub','racing','racers'];
@@ -10,11 +11,10 @@ const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 let colorRequested=new URL(location.href).searchParams.get('look')!=='original';
 $('tower-magnets').checked=new URL(location.href).searchParams.get('magnets')==='1';
 let ridingTower=false,magnetPreview=null;
-const rideEye=new THREE.Vector3(),rideTarget=new THREE.Vector3();
+const towerCamera=createTowerCamera(THREE);
 function stopTowerRide(){
  ridingTower=false;
  $('tower-ride').textContent='Ride Towers Coaster';
- world?.camera.up.set(0,1,0);
 }
 function removeMagnetPreview(){
  magnetPreview?.dispose();
@@ -96,22 +96,23 @@ host.addEventListener('wheel',e=>{e.preventDefault();distance=clamp(distance*Mat
 function render(now){
  if(turn&&!document.hidden)angle+=Math.min(.05,(now-previousTime)/1000)*.12;previousTime=now;
  if(world&&current&&!document.hidden){
+  world.updateParks();
   const spawn=current.spawns[0];let cx=center.x,cy=1,cz=center.z,ex=cx+Math.sin(angle)*distance,ez=cz+Math.cos(angle)*distance,ey=distance*.48;
   if(view==='overhead'){ey=distance*1.05;ex=cx+Math.sin(angle)*distance*.08;ez=cz+Math.cos(angle)*distance*.08;}
   if(view==='ground'){ex=spawn.x;ez=spawn.z;ey=1.6;cx=ex-Math.sin(angle)*18;cz=ez-Math.cos(angle)*18;cy=1.6;}
   if(view==='racers'&&world.region.parks){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
   const parks=world.region.parks;
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
+  let up;
   if(ridingTower){
    const seat=parks.riderPose(0);
-   rideEye.set(0,1.25,0).applyQuaternion(seat.quaternion).add(seat.position);
-   rideTarget.set(0,1.25,10).applyQuaternion(seat.quaternion).add(seat.position);
-   world.camera.up.set(0,1,0).applyQuaternion(seat.quaternion);
-   ({x:ex,y:ey,z:ez}=rideEye);
-   ({x:cx,y:cy,z:cz}=rideTarget);
+   const riderCamera=towerCamera({...seat,eyeHeight:1.25,mode:'first'});
+   up=riderCamera.up;
+   ({x:ex,y:ey,z:ez}=riderCamera.eye);
+   ({x:cx,y:cy,z:cz}=riderCamera.target);
   }
   if(magnetPreview)magnetPreview.update(parks.towerTrack.elapsed);
-  world.setCameraPose({ex,ey,ez,cx,cy,cz,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:320,mode:'review'});world.render();
+  world.setCameraPose({ex,ey,ez,cx,cy,cz,up,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:320,mode:'review'});world.render();
  }requestAnimationFrame(render);
 }
 try{world=createWorld(host);const initial=new URL(location.href).searchParams.get('place');current=catalog[initial]||catalog['country:Mexico'];filter();requestAnimationFrame(render);}catch(error){$('status').textContent='The 3D tour could not start. Try a browser with WebGL enabled.';console.error(error);}

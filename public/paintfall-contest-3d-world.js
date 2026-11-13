@@ -627,17 +627,24 @@ export function createWorld(host) {
   function setCameraPose(next) {
     Object.assign(pose, next);
     pose.ey = Math.max(pose.ey, .012 + .7);
-    pose.cy = Math.max(pose.cy, .012 + .1);
+    if(!next.up)pose.cy = Math.max(pose.cy, .012 + .1);
     if (next.mode === 'third') Object.assign(pose, constrainThirdPersonCamera(pose, regionalOutline, colliders));
+  }
+  let frameDelta;
+  function updateParks() {
+    frameDelta = Math.min(.1, regionClock.getDelta());
+    region?.parks?.update(frameDelta);
   }
   function render() {
     camera.fov = THREE.MathUtils.radToDeg(pose.fov);
     camera.aspect = pose.aspect; camera.near = pose.near; camera.far = pose.far;
     camera.position.set(pose.ex, pose.ey, pose.ez);
+    camera.up.set(pose.up?.x ?? 0, pose.up?.y ?? 1, pose.up?.z ?? 0);
     camera.lookAt(pose.cx, pose.cy, pose.cz); camera.updateProjectionMatrix(); camera.updateMatrixWorld();
-    region?.update(Math.min(.1,regionClock.getDelta()),new THREE.Vector3(pose.cx,.012,pose.cz));
+    region?.update(frameDelta ?? Math.min(.1,regionClock.getDelta()),new THREE.Vector3(pose.cx,.012,pose.cz),frameDelta!==undefined);
+    frameDelta=undefined;
     bullRides.update(performance.now());
     renderer.render(scene, camera);
   }
-  return { scene, camera, renderer, players, setRegion, setColorLook, setCameraPose, render, get region(){return region;}, dispose() { bullRides.dispose();colorLook.restore();disposeRegion(region);resizeObserver?.disconnect(); window.removeEventListener('resize', resize); renderer.dispose(); } };
+  return { scene, camera, renderer, players, setRegion, setColorLook, setCameraPose, updateParks, render, get region(){return region;}, dispose() { bullRides.dispose();colorLook.restore();disposeRegion(region);resizeObserver?.disconnect(); window.removeEventListener('resize', resize); renderer.dispose(); } };
 }

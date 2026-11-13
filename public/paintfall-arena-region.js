@@ -33,7 +33,7 @@ export function buildArenaRegion(T,scene,destination){
   const points=[[-bound,-bound],[bound,-bound],[bound,bound],[-bound,bound],[-bound,-bound]].map(([x,z])=>new T.Vector3(x,.04,z));
   const boundary=new T.Line(new T.BufferGeometry().setFromPoints(points),new T.LineBasicMaterial({color:0x265f67}));boundary.name='Arena movement boundary';group.add(boundary);
   scene.add(group);
-  const result={...assets,garden,parks,bound,group,explorer,destination,get interactionTime(){return assets.interactionTime;},update(dt,p){if(p)explorer.position.copy(p);assets.update(dt);garden?.update(dt);parks?.update(dt);applyArenaComfort(T,result,globalThis.window?.PAINTFALL_COMFORT_CHOICES||[]);}};
+  const result={...assets,garden,parks,bound,group,explorer,destination,get interactionTime(){return assets.interactionTime;},update(dt,p,parksUpdated=false){if(p)explorer.position.copy(p);assets.update(dt);garden?.update(dt);if(!parksUpdated)parks?.update(dt);applyArenaComfort(T,result,globalThis.window?.PAINTFALL_COMFORT_CHOICES||[]);}};
   return result;
  }catch(error){disposeRegion({group});throw error;}
 }

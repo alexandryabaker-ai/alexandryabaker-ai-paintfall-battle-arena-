@@ -102,6 +102,7 @@
       for(const a of world.players.actors.values())if(a.userData.coasterMounted){world.scene.attach(a);a.rotation.x=a.rotation.z=0;a.userData.parts.body.rotation.set(0,0,0);delete a.userData.coasterMounted;}
       world.setRegion(arenaRegion);
       world.region.parks?.syncClock(parkElapsed());
+      world.updateParks();
       world.players.update(regionalPlayers(), localId, cameraMode, performance.now());
       seatRiders();coasterUI?.update(performance.now());
       const actor = world.players.actors.get(localId);
@@ -110,7 +111,7 @@
       const player = riding?{x:actorPosition.x,z:actorPosition.z}:playerWorld(), targetY = actor ? (actorPosition?.y??actor.position.y) + actor.userData.height * .55 + rideLift : 1.1;
       animalMemories?.update(player);
       discoveryBook?.update();
-      let ex, ey, ez, cx, cy, cz;
+      let ex, ey, ez, cx, cy, cz, up;
       const cp = Math.cos(camPitch), sp = Math.sin(camPitch), sy = Math.sin(camYaw), cyaw = Math.cos(camYaw);
       if (cameraMode === 'first') {
         ex = player.x; ey = actor ? (actorPosition?.y??actor.position.y) + actor.userData.eyeHeight + rideLift : targetY + 1.15; ez = player.z;
@@ -119,10 +120,16 @@
         const orbitDistance = actor ? Math.max(4.5, actor.userData.renderHeight * 2.6) : 4.8;
         ex = player.x - sy * cp * orbitDistance; ey = targetY + .4 + sp * orbitDistance; ez = player.z + cyaw * cp * orbitDistance;
         cx = player.x; cy = targetY; cz = player.z;
-        if(riding){const q=actor.getWorldQuaternion(actor.quaternion.clone()),target=actorPosition.clone().add(actor.position.clone().set(0,actor.userData.height*.55,0).applyQuaternion(q)),offset=actor.position.clone().set(-Math.sin(camYaw+1.15)*cp*orbitDistance,.4+sp*orbitDistance,Math.cos(camYaw+1.15)*cp*orbitDistance).applyQuaternion(q).add(target);ex=offset.x;ey=offset.y;ez=offset.z;cx=target.x;cy=target.y;cz=target.z;}
       }
-      if(riding&&cameraMode==='first'){const q=actor.getWorldQuaternion(actor.quaternion.clone()),eye=actorPosition.clone().add(actor.position.clone().set(0,actor.userData.eyeHeight,0).applyQuaternion(q)),direction=actor.position.clone().set(sy*cp,sp,-cyaw*cp).applyQuaternion(q);ex=eye.x;ey=eye.y;ez=eye.z;cx=ex+direction.x*10;cy=ey+direction.y*10;cz=ez+direction.z*10;}
-      world.setCameraPose({ ex, ey, ez, cx, cy, cz, mode: riding?'review':cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
+      if(riding){
+        const riderCamera=towerCamera({position:actorPosition,quaternion:actor.parent.getWorldQuaternion(actor.quaternion.clone()),
+          height:actor.userData.height,eyeHeight:actor.userData.eyeHeight,renderHeight:actor.userData.renderHeight,
+          mode:cameraMode,yaw:camYaw,pitch:camPitch,towers:world.region.parks.towerTrack.towers});
+        ({x:ex,y:ey,z:ez}=riderCamera.eye);
+        ({x:cx,y:cy,z:cz}=riderCamera.target);
+        up=riderCamera.up;
+      }
+      world.setCameraPose({ ex, ey, ez, cx, cy, cz, up, mode: riding?'review':cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
       world.render();
       const destination=window.PaintfallArenaCatalog?.[arenaRegion];
       badge.textContent='PAINTFALL • '+(destination?.name||'Regional')+' ARENA';
@@ -131,7 +138,9 @@
       requestAnimationFrame(render);
     }
 
-    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js'),import('./paintfall-coaster-ui.js')]).then(([module,book,coaster]) => {
+    let towerCamera;
+    Promise.all([import('./paintfall-contest-3d-world.js'),import('./paintfall-world-discovery.js'),import('./paintfall-coaster-ui.js'),import('./paintfall-tower-camera.js')]).then(([module,book,coaster,camera]) => {
+      towerCamera=camera.createTowerCamera(module.THREE);
       world = module.createWorld(host);
       const active=()=>game.classList.contains('started')&&!window.PAINTFALL_CONNECTION_LOST&&!window.PAINTFALL_ACCOUNT_LOCKED&&!window.PAINTFALL_WORLD_EXPLORING;
       animalMemories = module.createArenaAnimalMemories(module.THREE,{world,host,isActive:()=>active()&&!window.PAINTFALL_DISCOVERY_OPEN});

@@ -4,7 +4,7 @@
  const DWELL_MS=10000,TRAVEL_MS=30000,CYCLE_MS=DWELL_MS+TRAVEL_MS,SEATS=6,ROWS=[.6,-.55],PLATFORM={x:-22,z:-94},EXIT={x:-25,z:-92};
  const anchors=[[-22,2.5,18],[-23,3,6],[-18,3,-10],...[[3,-7],[8,-4.2],[18,-4.2],[26,-4.2],[30,-3.5],[32,0]].map(([y,z])=>[0,y,z,0]),[0,33,-2],...[[32,0],[30,3.5],[26,4.2],[18,4.2],[8,4.2],[3,7]].map(([y,z])=>[0,y,z,1]),[13,3,15],[1,2.5,22],[-12,2.5,21]];
  function phase(ms){ms=Math.max(0,ms);const cycle=Math.floor(ms/CYCLE_MS),age=ms-cycle*CYCLE_MS;return {cycle,boarding:age<DWELL_MS-1000,waiting:age<DWELL_MS,remaining:Math.max(0,DWELL_MS-age),u:Math.max(0,(age-DWELL_MS)/TRAVEL_MS)};}
- const CAR_SPACING=3.2,ARC_DIVISIONS=240,FRAME_SEGMENTS=128;
+ const CAR_SPACING=4.4,ARC_DIVISIONS=240,FRAME_SEGMENTS=128;
  // Route landmarks are anchor indices / 19, not estimates of wall-clock time.
  // The lead car defines the sequence; trailing cars retain their own spacing.
  const TILT=Object.freeze({sideAmplitude:.08,pitchAmplitude:.04,sideFrequency:.3,

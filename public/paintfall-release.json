@@ -26,8 +26,10 @@
     "towers-up-one-across-down-other",
     "towers-coaster-six-seat-consensual-boarding",
     "shared-room-coaster-clock",
-    "towers-safe-platform-return"
+    "towers-safe-platform-return",
+    "tower-camera-occlusion-and-frame-sync",
+    "tower-car-body-clearance"
   ],
-  "revision": "towers-boardable-v10",
+  "revision": "tower-camera-clearance-v11",
   "channel": "testing"
 }
