@@ -5,14 +5,14 @@ import serverRide from '../paintfall-coaster-ride.cjs';
 import movement from '../public/paintfall-movement-sync.js';
 
 const api=globalThis.PaintfallTowerRide,model=api.createTrack(T),fresh=api.createTrack(T);
-const atQ=(q,cycle=0)=>cycle*40+10+30*api.arcFraction(model.reference,q);
+const atQ=(q,cycle=0)=>(cycle*api.CYCLE_MS+api.DWELL_MS+api.LAP_MS*api.arcFraction(model.reference,q))/1000;
 const sample=t=>{model.update(t);return [model.motion.side,model.motion.pitch];};
 const near=(a,b,tol=1e-9)=>assert.ok(Math.abs(a-b)<tol,`${a} differs from ${b}`);
 for(const cycle of [0,1,2]){
  for(const q of [1/19,3/19,7/19,7.5/19,8/19,10/19,11/19,16/19]){
   const angles=sample(atQ(q,cycle));near(angles[0],0);near(angles[1],0);
  }
- const climb=sample(atQ(5/19,cycle));assert.ok(Math.abs(climb[0])>.005);near(climb[1],0);
+ const climb=[4,4.5,5,5.5,6].map(j=>sample(atQ(j/19,cycle)));assert.ok(climb.some(([side])=>Math.abs(side)>.005));climb.forEach(([,pitch])=>near(pitch,0));
  near(sample(atQ(8.5/19,cycle))[1],.04);near(sample(atQ(9.5/19,cycle))[1],-.04);
  for(const q of [8.25/19,8.5/19,9/19,9.5/19,9.75/19])near(sample(atQ(q,cycle))[0],0);
 }

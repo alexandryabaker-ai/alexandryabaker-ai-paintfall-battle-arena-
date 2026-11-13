@@ -5,7 +5,7 @@ let maxTilt=0,minPitch=0,maxPitch=0,maxDeformation=0,nearFacade=0,downFacade=0;c
 assert.equal(track.group.userData.route,'up-left-across-rooftops-down-right');
 const leftAnchors=track.anchors.filter(a=>a.tower===0),rightAnchors=track.anchors.filter(a=>a.tower===1);assert.ok(leftAnchors.every((a,i)=>!i||a.point.y>leftAnchors[i-1].point.y),'left tower is a single climb');assert.ok(rightAnchors.every((a,i)=>!i||a.point.y<rightAnchors[i-1].point.y),'right tower is a single descent');
 const crossStart=track.anchors.indexOf(leftAnchors.at(-1)),crossEnd=track.anchors.indexOf(rightAnchors[0]);assert.ok(track.anchors.slice(crossStart,crossEnd+1).every(a=>a.point.y>=32),'crossing joins tower tops above the roofs');
-for(let frame=0;frame<1600;frame++){
+for(let frame=0;frame<2*globalThis.PaintfallTowerRide.CYCLE_MS/50;frame++){
  parks.update(.05);scene.updateMatrixWorld(true);maxTilt=Math.max(maxTilt,Math.abs(track.towers[0].pivot.rotation.z));
  assert.ok(Math.abs(track.towers[0].pivot.rotation.z+track.towers[1].pivot.rotation.z)<1e-9,'opposite tower tilts');
  minPitch=Math.min(minPitch,track.towers[0].pivot.rotation.x);maxPitch=Math.max(maxPitch,track.towers[0].pivot.rotation.x);

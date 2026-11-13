@@ -1,9 +1,9 @@
 // Shared route mathematics and timing. THREE is supplied by the existing world
 // (or its same vendored math module on the server); this creates no renderer.
 (function(root,factory){const api=factory();root.PaintfallTowerRide=api;if(typeof module==='object'&&module.exports)module.exports=api;})(globalThis,()=>{
- const DWELL_MS=10000,TRAVEL_MS=30000,CYCLE_MS=DWELL_MS+TRAVEL_MS,SEATS=6,ROWS=[.6,-.55],PLATFORM={x:-22,z:-94},EXIT={x:-25,z:-92};
+ const DWELL_MS=10000,LAP_MS=24000,LAPS=2,TRAVEL_MS=LAPS*LAP_MS,CYCLE_MS=DWELL_MS+TRAVEL_MS,SEATS=6,ROWS=[.6,-.55],PLATFORM={x:-22,z:-94},EXIT={x:-25,z:-92};
  const anchors=[[-22,2.5,18],[-23,3,6],[-18,3,-10],...[[3,-7],[8,-4.2],[18,-4.2],[26,-4.2],[30,-3.5],[32,0]].map(([y,z])=>[0,y,z,0]),[0,33,-2],...[[32,0],[30,3.5],[26,4.2],[18,4.2],[8,4.2],[3,7]].map(([y,z])=>[0,y,z,1]),[13,3,15],[1,2.5,22],[-12,2.5,21]];
- function phase(ms){ms=Math.max(0,ms);const cycle=Math.floor(ms/CYCLE_MS),age=ms-cycle*CYCLE_MS;return {cycle,boarding:age<DWELL_MS-1000,waiting:age<DWELL_MS,remaining:Math.max(0,DWELL_MS-age),u:Math.max(0,(age-DWELL_MS)/TRAVEL_MS)};}
+ function phase(ms){ms=Math.max(0,ms);const cycle=Math.floor(ms/CYCLE_MS),age=ms-cycle*CYCLE_MS;const travel=Math.max(0,age-DWELL_MS),lap=Math.floor(travel/LAP_MS);return {cycle,lap,boarding:age<DWELL_MS-1000,waiting:age<DWELL_MS,remaining:Math.max(0,DWELL_MS-age),u:(travel%LAP_MS)/LAP_MS};}
  const CAR_SPACING=4.4,ARC_DIVISIONS=240,FRAME_SEGMENTS=128;
  // Route landmarks are anchor indices / 19, not estimates of wall-clock time.
  // The lead car defines the sequence; trailing cars retain their own spacing.
@@ -42,5 +42,5 @@
   function seat(elapsedMs,index){const pose=carPose(elapsedMs,Math.floor(index/2)),position=pose.position.add(new T.Vector3(0,.12,ROWS[index%2]).applyQuaternion(pose.quaternion));position.z-=125;position.y+=.025;return {...pose,position};}
   update(0);return {curve,anchors:descriptors,reference,routeParameter,towerRotations,update,orientation,carPose,seat,get frames(){return frames;},get motion(){return motion;}};
  }
- return {DWELL_MS,TRAVEL_MS,CYCLE_MS,SEATS,ROWS,PLATFORM,EXIT,CAR_SPACING,ARC_DIVISIONS,FRAME_SEGMENTS,TILT,phase,smooth5,bump,tiltAt,arcFraction,createTrack};
+ return {DWELL_MS,LAP_MS,LAPS,TRAVEL_MS,CYCLE_MS,SEATS,ROWS,PLATFORM,EXIT,CAR_SPACING,ARC_DIVISIONS,FRAME_SEGMENTS,TILT,phase,smooth5,bump,tiltAt,arcFraction,createTrack};
 });

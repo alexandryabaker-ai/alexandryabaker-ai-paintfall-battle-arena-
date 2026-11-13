@@ -30,6 +30,6 @@
     "tower-camera-occlusion-and-frame-sync",
     "tower-car-body-clearance"
   ],
-  "revision": "tower-camera-clearance-v11",
+  "revision": "tower-two-fast-laps-v12",
   "channel": "testing"
 }

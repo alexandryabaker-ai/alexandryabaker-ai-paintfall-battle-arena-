@@ -68,7 +68,7 @@ const expectedRail = route.curve.getPoint(9/19).multiplyScalar(0.5);
 for (const [index, position] of [expectedTower, expectedCar, expectedRail].entries()) {
   near(new T.Vector3(...live.devices[index].positionMeters).distanceTo(position), 0);
 }
-for (const [seconds, expectedStart] of [[0,0], [10,10], [40,40]]) {
+for (const [seconds, expectedStart] of [0, globalThis.PaintfallTowerRide.DWELL_MS/1000, globalThis.PaintfallTowerRide.CYCLE_MS/1000].map(t=>[t,t])) {
   assert.equal(model.evaluate({seconds, currents, includeWrenches: false}).sampleIntervalSeconds[0], expectedStart);
 }
 

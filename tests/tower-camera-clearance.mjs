@@ -22,7 +22,7 @@ function separation(a,b) {
  }));
 }
 let minGap=Infinity;
-for(let ms=0;ms<=120000;ms+=50){
+for(let ms=0;ms<=3*route.CYCLE_MS;ms+=50){
  track.update(ms/1000);
  const bodies=[0,1,2].map(i=>body(track.carPose(ms,i)));
  for(let a=0;a<bodies.length;a++)for(let b=a+1;b<bodies.length;b++){
