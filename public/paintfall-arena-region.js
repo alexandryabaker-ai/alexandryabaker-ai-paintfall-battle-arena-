@@ -3,6 +3,7 @@ import {applyArenaComfort} from './paintfall-arena-comfort.js';
 import {buildArenaGarden} from './paintfall-arena-gardens.js';
 import {createArenaSurfaceMaterial} from './paintfall-arena-surface.js';
 import {buildNevadaArenaParks} from './paintfall-arena-nevada-parks.js';
+import {buildRegionalRideParks} from './paintfall-regional-ride-parks.js';
 
 export function disposeRegion(region){
  if(!region)return;
@@ -23,7 +24,7 @@ export function buildArenaRegion(T,scene,destination){
   const garden=buildArenaGarden(T,{group,destination,obstacles:assets.obstacles,waterBounds:assets.landmarks?.waterBounds,style:assets.style});
   // Wildlife route checks retain this array; share the added garden obstacles.
   if(garden)assets.obstacles.push(...garden.obstacles);
-  const parks=buildNevadaArenaParks(T,{group,destination});
+  const parks=buildNevadaArenaParks(T,{group,destination})??buildRegionalRideParks(T,{group,destination});
   if(parks)assets.obstacles.push(...parks.obstacles);
   const bound=parks?.bound||70;
   const palette={forest:0x82916a,desert:0xc6ac81,coast:0xc5c09b,ice:0xc9dde0,mountain:0x9ca18a,volcano:0x8c8a85,lake:0xa3af88,wetland:0x94a281,prairie:0xb9b982,river:0xa2af88,cave:0xaaa28b};

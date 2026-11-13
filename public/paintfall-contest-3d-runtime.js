@@ -78,7 +78,7 @@
     const regionalPlayers=()=>latest.players.filter(p=>!p.arenaRegion||p.arenaRegion===arenaRegion);
     const parkElapsed=()=>parkClock?parkClock.ms+Math.max(0,performance.now()-parkClock.received):0;
     function seatRiders(){
-      const parks=world.region.parks;if(!parks)return;
+      const parks=world.region.parks;if(!parks?.towerTrack)return;
       for(const player of regionalPlayers())if(player.coasterRide){const actor=world.players.actors.get(player.id),car=parks.trains[0].cars[Math.floor(player.coasterRide.seat/2)];if(!actor||!car)continue;
         car.add(actor);const parts=actor.userData.parts,hip=(actor.userData.design.legRatio+.018)*actor.userData.standingHeight;
         actor.position.set(0,.78-hip,globalThis.PaintfallTowerRide.ROWS[player.coasterRide.seat%2]);actor.rotation.set(0,Math.PI,0);actor.userData.coasterMounted=true;delete actor.userData.jumpStarted;

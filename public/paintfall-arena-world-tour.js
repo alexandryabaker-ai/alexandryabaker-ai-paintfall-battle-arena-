@@ -10,7 +10,7 @@ let world,current=null,filtered=all,view=viewIds.includes(new URL(location.href)
 const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 let colorRequested=new URL(location.href).searchParams.get('look')!=='original';
 $('tower-magnets').checked=new URL(location.href).searchParams.get('magnets')==='1';
-let ridingTower=false,magnetPreview=null;
+let ridingTower=false,magnetPreview=null,previewCar=null;
 const towerCamera=createTowerCamera(THREE);
 function stopTowerRide(){
  ridingTower=false;
@@ -21,7 +21,14 @@ function removeMagnetPreview(){
  magnetPreview=null;
 }
 function syncTowerPreview(){
- const hub=view==='hub'&&world?.region.parks?.sites.find(site=>site.id==='hub');
+ const parks=world?.region.parks;
+ const hub=view==='hub'&&parks?.towerTrack&&parks.sites.find(site=>site.id==='hub');
+ const rides=parks?.sites.find(site=>site.id===view)?.rides??[];
+ previewCar=null;
+ const picker=$('park-ride-select');
+ picker.replaceChildren(new Option('Choose a ride preview',''),...rides.map((ride,i)=>new Option(ride.name,String(i))));
+ picker.hidden=!rides.length;
+ picker.onchange=()=>{previewCar=picker.value===''?null:rides[Number(picker.value)].cars[0];if(previewCar)stopTowerRide();};
  $('tower-preview').hidden=!hub;
  if(!hub)stopTowerRide();
  const show=Boolean(hub&&$('tower-magnets').checked);
@@ -33,7 +40,9 @@ $('tower-magnets').onchange=syncTowerPreview;
 $('tower-ride').onclick=()=>{
  if(ridingTower){stopTowerRide();return;}
  const parks=world?.region.parks;
- if(!parks||view!=='hub')return;
+ if(!parks?.towerTrack||view!=='hub')return;
+ previewCar=null;
+ $('park-ride-select').value='';
  parks.syncClock(globalThis.PaintfallTowerRide.DWELL_MS);
  parks.update(0);
  ridingTower=true;
@@ -59,7 +68,7 @@ function choose(id){
  try{
   if(id!==current?.id){stopTowerRide();removeMagnetPreview();}
   world.setRegion(id);current=catalog[id];if((['garden','flowers'].includes(view)&&!world.region.garden)||(['hub','racing','racers'].includes(view)&&!world.region.parks))view='overview';fit();syncColors();syncTowerPreview();
-  $('garden').disabled=$('flowers').disabled=!world.region.garden;$('hub').disabled=$('racing').disabled=!world.region.parks;$('racers').hidden=$('race-car').hidden=!world.region.parks;for(const v of viewIds)$(v).setAttribute('aria-pressed',String(v===view));
+  $('garden').disabled=$('flowers').disabled=!world.region.garden;$('hub').disabled=$('racing').disabled=!world.region.parks;$('racers').hidden=$('race-car').hidden=!world.region.parks?.towerTrack;for(const v of viewIds)$(v).setAttribute('aria-pressed',String(v===view));
   $('place').value=id;$('place-title').textContent=current.name+' · '+kind(current);
   $('stats').textContent=(current.homes||0)+' homes · '+(current.animals||0)+' animals in the current arena catalog';
   $('garden-note').replaceChildren();if(world.region.garden){const note=$('garden-note');note.append(document.createTextNode(world.region.garden.theme+' · PAINTFALL paint flowers · 2 benches · Garden Park coming soon. '+(world.region.garden.identityStatus==='regional-design-pending'?'Local garden identity is still to be designed together.':'')));const inspiration={Vietnam:['https://vietnamtourism.vn/en/index.php/news/items/2334','Huế garden inspiration'],Laos:['https://www.pha-tad-ke.com/visit/the-gardens-2/','Lao botanical-garden inspiration'],Cambodia:['https://tourismcambodia.org/public/attractions/royal-garden-1551335490','Cambodian garden inspiration'],Thailand:['https://en.wikipedia.org/wiki/Cassia_fistula','Golden-shower plant reference'],Myanmar:['https://en.wikipedia.org/wiki/National_Kandawgyi_Botanical_Gardens','Upland botanical-garden reference'],Malaysia:['https://www.frim.gov.my/attractions/nature-activities/kepong-botanic-gardens/','Malaysian botanical-garden reference'],Indonesia:['https://kebunraya.id/r/bogor','Bogor botanical-garden reference'],Philippines:['https://en.wikipedia.org/wiki/Strongylodon_macrobotrys','Jade-vine plant reference']}[current.name]||((gardenReferences[current.name]||composedGardenReferences[current.name])?[(gardenReferences[current.name]||composedGardenReferences[current.name]).url,(gardenReferences[current.name]||composedGardenReferences[current.name]).title]:null);if(inspiration){const link=document.createElement('a');link.href=inspiration[0];link.textContent=' '+inspiration[1];link.target='_blank';link.rel='noopener';note.append(link);}}
@@ -100,10 +109,16 @@ function render(now){
   const spawn=current.spawns[0];let cx=center.x,cy=1,cz=center.z,ex=cx+Math.sin(angle)*distance,ez=cz+Math.cos(angle)*distance,ey=distance*.48;
   if(view==='overhead'){ey=distance*1.05;ex=cx+Math.sin(angle)*distance*.08;ez=cz+Math.cos(angle)*distance*.08;}
   if(view==='ground'){ex=spawn.x;ez=spawn.z;ey=1.6;cx=ex-Math.sin(angle)*18;cz=ez-Math.cos(angle)*18;cy=1.6;}
-  if(view==='racers'&&world.region.parks){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
+  if(view==='racers'&&world.region.parks?.towerTrack){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
   const parks=world.region.parks;
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
   let up;
+  if(previewCar){
+   const riderCamera=towerCamera({position:previewCar.getWorldPosition(new THREE.Vector3()),quaternion:previewCar.getWorldQuaternion(new THREE.Quaternion()),eyeHeight:1.6,mode:'first'});
+   up=riderCamera.up;
+   ({x:ex,y:ey,z:ez}=riderCamera.eye);
+   ({x:cx,y:cy,z:cz}=riderCamera.target);
+  }
   if(ridingTower){
    const seat=parks.riderPose(0);
    const riderCamera=towerCamera({...seat,eyeHeight:1.25,mode:'first'});

@@ -28,8 +28,10 @@
     "shared-room-coaster-clock",
     "towers-safe-platform-return",
     "tower-camera-occlusion-and-frame-sync",
-    "tower-car-body-clearance"
+    "tower-car-body-clearance",
+    "arizona-california-world-hub-and-racing-park-previews",
+    "nevada-skyfall-and-racing-ride-cameras"
   ],
-  "revision": "tower-two-fast-laps-v12",
+  "revision": "regional-ride-parks-v13",
   "channel": "testing"
 }

@@ -63,8 +63,8 @@ export function buildNevadaArenaParks(T,{group,destination}){
  towerTrain.cars.forEach((car,i)=>car.name='PAINTFALL Towers Coaster passenger car '+(i+1));
  sign(h,'PAINTFALL Towers Coaster','Boarding at the marked platform',-18,31,2,12);
  box(h,-22,.015,31,7,.025,5,m.purple,'Towers accessible boarding platform');sign(h,'TOWERS BOARDING','Board here • Return here after your loop',-22,2.7,31,11);hub.group.userData.boardingEnabled=true;hub.group.userData.boardableRide='towers';
- // Saved sky stations remain visibly under construction until a complete ride is ready.
- box(h,31,18,-5,7,36,7,m.dark,'SKYFALL departure tower');box(h,31,37,-5,11,1,10,m.blue,'SKYFALL rooftop station');sign(h,'SKYFALL PaintCoaster','Station under construction',31,41,-5,14);
+ // Reuse the saved local SKYFALL route for the ride preview.
+ box(h,31,18,-5,7,36,7,m.dark,'SKYFALL departure tower');box(h,31,37,-5,11,1,10,m.blue,'SKYFALL rooftop station');sign(h,'SKYFALL PaintCoaster','Local track preview',31,41,-5,14);
  cylinder(h,-29,1,13,5,2,m.purple,'Second sky station foundation');sign(h,'SKY STATION','Design in development',-29,5,13,10);
  cylinder(h,0,.35,33,3,.7,m.blue,'PAINTFALL Fountain of Art basin');block(hub,0,33,3.2,3.2);
  const jets=new T.Group();jets.name='Harmless Fountain of Art water arcs';h.add(jets);
@@ -78,6 +78,9 @@ export function buildNevadaArenaParks(T,{group,destination}){
   pts.push([5,3,8],[5,3,15],[0,3,21],[-7,3,22],[-7,3,20]);const points=pts.map(([x,y,z])=>[offset+x,y,z]);
   const ride=testTrain(r,rail(r,points,[0xef78ad,0xffce61,0x34aeda][lane],'Nevada racing track '+(lane+1)),[m.pink,m.gold,m.blue][lane],vehicles.specs[lane].label,11,()=>vehicles.createCoach(lane));ride.raceLane=lane;
  }
+ racing.rides=trains.slice(1,4);
+ const skyPoints=[[25,38,-5],[31,36,-11],[35,4,-18],[38,3,-2],[34,18,9],[24,44,14],[-12,70,38],[-48,54,19],[-49,8,-30],[-24,40,-44],[4,76,-36],[37,55,-26],[44,12,7],[24,7,26],[-19,4,17],[-26,24,-5]];
+ hub.rides=[testTrain(h,rail(h,skyPoints,0xef78ad,'SKYFALL preview rail'),m.pink,'SKYFALL PaintCoaster',18)];
  sign(r,'THREE CAR-TRAIN TRACKS','Separated test lanes',0,24,0,18);
  sign(r,'The Paint Ride....Against Time','Sky station coming soon',0,4,-24,16);
  // Named reserved spaces retain the distinct kart and monster-truck directions.
