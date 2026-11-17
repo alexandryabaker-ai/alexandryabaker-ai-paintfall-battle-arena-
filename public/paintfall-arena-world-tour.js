@@ -10,7 +10,7 @@ let world,current=null,filtered=all,view=viewIds.includes(new URL(location.href)
 const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 let colorRequested=new URL(location.href).searchParams.get('look')!=='original';
 $('tower-magnets').checked=new URL(location.href).searchParams.get('magnets')==='1';
-let ridingTower=false,magnetPreview=null,previewCar=null;
+let ridingTower=false,magnetPreview=null,previewCar=null,previewEyeHeight=1.6,previewFront=0,rideLabels=[];
 const towerCamera=createTowerCamera(THREE);
 function stopTowerRide(){
  ridingTower=false;
@@ -25,13 +25,28 @@ function syncTowerPreview(){
  const hub=view==='hub'&&parks?.towerTrack&&parks.sites.find(site=>site.id==='hub');
  const rides=parks?.sites.find(site=>site.id===view)?.rides??[];
  previewCar=null;
+ rideLabels=[];
+ for(const site of parks?.sites??[])site.group.traverse(object=>{if(object.isSprite)rideLabels.push(object);});
  const picker=$('park-ride-select');
  picker.replaceChildren(new Option('Choose a ride preview',''),...rides.map((ride,i)=>{
   const suffix=ride.key==='hub-burst-ground'?' — ground track':ride.key==='hub-burst-sky'?' — sky track':'';
   return new Option(ride.name+suffix,String(i));
  }));
  picker.hidden=!rides.length;
- picker.onchange=()=>{previewCar=picker.value===''?null:rides[Number(picker.value)].cars[0];if(previewCar)stopTowerRide();};
+ picker.onchange=()=>{
+  previewCar=picker.value===''?null:rides[Number(picker.value)].cars[0];
+  if(!previewCar)return;
+  stopTowerRide();
+  previewCar.updateWorldMatrix(true,true);
+  const inverse=previewCar.matrixWorld.clone().invert(),bounds=new THREE.Box3();
+  previewCar.traverse(object=>{
+   if(!object.isMesh)return;
+   object.geometry.computeBoundingBox();
+   bounds.union(object.geometry.boundingBox.clone().applyMatrix4(new THREE.Matrix4().multiplyMatrices(inverse,object.matrixWorld)));
+  });
+  previewEyeHeight=Math.max(1.6,bounds.max.y+.15);
+  previewFront=bounds.max.z+.15;
+ };
  $('tower-preview').hidden=!hub;
  if(!hub)stopTowerRide();
  const show=Boolean(hub&&$('tower-magnets').checked);
@@ -116,9 +131,11 @@ function render(now){
   const parks=world.region.parks;
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
   let up;
+  for(const label of rideLabels)label.visible=!(previewCar||ridingTower);
   if(previewCar){
    const scale=previewCar.getWorldScale(new THREE.Vector3()).y;
-   const riderCamera=towerCamera({position:previewCar.getWorldPosition(new THREE.Vector3()),quaternion:previewCar.getWorldQuaternion(new THREE.Quaternion()),eyeHeight:1.6*scale,mode:'first'});
+   const position=previewCar.localToWorld(new THREE.Vector3(0,0,previewFront));
+   const riderCamera=towerCamera({position,quaternion:previewCar.getWorldQuaternion(new THREE.Quaternion()),eyeHeight:previewEyeHeight*scale,mode:'first'});
    up=riderCamera.up;
    ({x:ex,y:ey,z:ez}=riderCamera.eye);
    ({x:cx,y:cy,z:cz}=riderCamera.target);
