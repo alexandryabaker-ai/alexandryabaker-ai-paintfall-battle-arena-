@@ -208,8 +208,13 @@ function createAccounts({databasePath=path.join(__dirname,'.paintfall-data','acc
    if(pathname==='/api/account/logout'){query.removeSession.run(s.hash);onRevoke(s.hash);res.setHeader('Set-Cookie',cookie(req,'',0));return reply(200,{ok:true});}
    if(pathname==='/api/account/animal'){
     if(data.accountId!==s.accountId)throw error(409,'Your player account changed. Please try the interaction again.');
-    const animal=animalCatalog[data.animalId];
-    if(!animal||!Object.hasOwn(regions,animal.region)||!animalMemory.actions.includes(data.action))throw error(400,'Choose an available animal interaction.');
+    // Only these two generated fantasy wildlife identities may use the new pet actions.
+    const fantasyId=typeof data.animalId==='string'&&data.animalId.match(/^((?:country|state):[^|]{1,80})\|(Ryujin family dragon|Wild unicorn)\|0$/);
+    const fantasy=fantasyId?{region:fantasyId[1],kind:fantasyId[2]}:null;
+    const animal=animalCatalog[data.animalId]||fantasy;
+    if(!animal||!Object.hasOwn(regions,animal.region)||!animalMemory.actions.includes(data.action)
+       ||(['offer-pet','pet'].includes(data.action)&&!fantasy))
+       throw error(400,'Choose an available animal interaction.');
     const account=publicAccount(s.accountId),p=account.profile;
     // Private narrative memories only: no score, health or unlock is awarded here.
     // Proximity and aimed paint contact are checked in the rendered client scene.

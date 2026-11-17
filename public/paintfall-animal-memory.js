@@ -1,5 +1,5 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.PaintfallAnimalMemory=api;})(globalThis,()=>{
- const actions=['talk','joke','paint-hit','apologize','space','prefer-walking'];
+ const actions=['talk','joke','paint-hit','apologize','space','prefer-walking','offer-pet','pet'];
  const isBull=kind=>/^(?:bull|banteng|gaur|water buffalo)(?:\b|$)/i.test(kind);
  // Written for PAINTFALL: no borrowed movie dialogue, lyrics or meme images.
  const jokes={
@@ -27,9 +27,21 @@
   if(action==='apologize'){m.apologies++;m.apologizedThrough=m.paintHits;}
   if(action==='space')m.spaceGiven++;
   if(action==='prefer-walking')m.prefersWalking=true;
+  if(action==='offer-pet'){
+   m.petOffers=(m.petOffers||0)+1;
+   const comfortable=m.meetings>=1&&m.paintHits<=(m.apologizedThrough||0)&&(m.petOffers%4!==0);
+   m.petOfferUntil=comfortable?time+15000:0;m.lastPetAccepted=comfortable;
+  }
+  if(action==='pet'){
+   m.lastPetAccepted=(m.petOfferUntil||0)>=time;
+   if(m.lastPetAccepted){m.pets=(m.pets||0)+1;m.petOfferUntil=0;}
+  }
+  m.bond=(m.meetings||0)+(m.spaceGiven||0)*2+(m.pets||0)*3;
   m.lastAction=action;m.lastSeenAt=time;return m;
  }
  function dialogue(kind,action,m,name='friend'){
+  if(action==='offer-pet')return m.lastPetAccepted?'I feel comfortable with you. You may pet me gently.':'Not right now, friend. Let us get to know each other first.';
+  if(action==='pet')return m.lastPetAccepted?'That was a nice gentle pet. Thank you for asking first!':'I did not agree to a pet right now. Please give me space.';
   if(action==='apologize')return 'Thanks for saying sorry. We can start fresh. Aim for the targets, okay?';
   if(action==='space')return 'Thanks for giving me room. See you around!';
   if(action==='prefer-walking')return 'Walking it is! I will remember: no ride invitations for you.';
