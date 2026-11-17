@@ -26,7 +26,10 @@ function syncTowerPreview(){
  const rides=parks?.sites.find(site=>site.id===view)?.rides??[];
  previewCar=null;
  const picker=$('park-ride-select');
- picker.replaceChildren(new Option('Choose a ride preview',''),...rides.map((ride,i)=>new Option(ride.name,String(i))));
+ picker.replaceChildren(new Option('Choose a ride preview',''),...rides.map((ride,i)=>{
+  const suffix=ride.key==='hub-burst-ground'?' — ground track':ride.key==='hub-burst-sky'?' — sky track':'';
+  return new Option(ride.name+suffix,String(i));
+ }));
  picker.hidden=!rides.length;
  picker.onchange=()=>{previewCar=picker.value===''?null:rides[Number(picker.value)].cars[0];if(previewCar)stopTowerRide();};
  $('tower-preview').hidden=!hub;
@@ -67,7 +70,7 @@ function choose(id){
  if(!world||!catalog[id])return;
  try{
   if(id!==current?.id){stopTowerRide();removeMagnetPreview();}
-  world.setRegion(id);current=catalog[id];if((['garden','flowers'].includes(view)&&!world.region.garden)||(['hub','racing','racers'].includes(view)&&!world.region.parks))view='overview';fit();syncColors();syncTowerPreview();
+  world.setRegion(id);current=catalog[id];if((['garden','flowers'].includes(view)&&!world.region.garden)||(['hub','racing','racers'].includes(view)&&!world.region.parks)||(view==='racers'&&!world.region.parks?.towerTrack))view='overview';fit();syncColors();syncTowerPreview();
   $('garden').disabled=$('flowers').disabled=!world.region.garden;$('hub').disabled=$('racing').disabled=!world.region.parks;$('racers').hidden=$('race-car').hidden=!world.region.parks?.towerTrack;for(const v of viewIds)$(v).setAttribute('aria-pressed',String(v===view));
   $('place').value=id;$('place-title').textContent=current.name+' · '+kind(current);
   $('stats').textContent=(current.homes||0)+' homes · '+(current.animals||0)+' animals in the current arena catalog';
@@ -114,7 +117,8 @@ function render(now){
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
   let up;
   if(previewCar){
-   const riderCamera=towerCamera({position:previewCar.getWorldPosition(new THREE.Vector3()),quaternion:previewCar.getWorldQuaternion(new THREE.Quaternion()),eyeHeight:1.6,mode:'first'});
+   const scale=previewCar.getWorldScale(new THREE.Vector3()).y;
+   const riderCamera=towerCamera({position:previewCar.getWorldPosition(new THREE.Vector3()),quaternion:previewCar.getWorldQuaternion(new THREE.Quaternion()),eyeHeight:1.6*scale,mode:'first'});
    up=riderCamera.up;
    ({x:ex,y:ey,z:ez}=riderCamera.eye);
    ({x:cx,y:cy,z:cz}=riderCamera.target);

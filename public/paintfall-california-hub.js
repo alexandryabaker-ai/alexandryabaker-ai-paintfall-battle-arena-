@@ -30,13 +30,16 @@ export function buildCaliforniaHub(T,{scene,sites,label=()=>{},rail,train}){
  const dome=ride('hub-demonym','the Demonym SkyWorld',78,61,[[0,3,29],[-25,12,14],[-22,31,-5],[-4,49,-19],[12,59,-7],[24,69,12],[8,87,28],[-24,80,24],[-32,27,34]],m.purple,'Painted dome ascent, a summit pause and a sweep into the sky. This is a timed camera-and-train study, not a finished travel route.');
  const rock=mesh(dome.parent,new T.SphereGeometry(24,24,16,0,Math.PI*2,0,Math.PI/2),m.stone,0,0,0,'Painted dome landform');rock.scale.set(.8,2,.8);box(dome.parent,0,24,2,1,48,39,m.pink,'Dome paint stripe');
  const round=ride('hub-roundabout','PaintRail Roundabout',0,89,[[0,3,0],[0,3,-16],[-25,6,-25],[-33,10,-7],[-21,4,15],[0,3,17],[25,8,21],[34,6,-3],[18,4,-22],[0,3,-16]],m.gold,'Stationary park coaster: stops for a rotating turntable study, then follows one workshop-and-hillside loop. Surprise route selection and physical track switching are not implemented.');
+ // The turntable approach doubles back tightly. Use one coach in this study
+ // so adjacent cars cannot fold into one another along the saved route.
+ round.cars.splice(1).forEach(car=>car.removeFromParent());
  const turntable=new T.Group();round.parent.add(turntable);cyl(turntable,0,1,0,8,1.5,m.dark,'Turntable base');box(turntable,0,2,0,2,.3,15,m.blue,'Rotating turntable track study');
  for(let i=0;i<5;i++){const a=Math.PI+i*Math.PI/4,x=Math.sin(a)*22,z=Math.cos(a)*22;box(round.parent,x,5,z,9,10,10,m.stone,'Roundhouse workshop bay');box(round.parent,x,10.5,z,10,1,11,m.dark,'Roundhouse roof');}
  const inspections=[wild,burst,tree,dome,round];
  const site={x:960,z:-170,group,title:'California • World Hub',description:'First layout of five approved concepts: underground gardens, a painted-spire hybrid, giant-tree and dome sky rides, and a separate roundhouse coaster. Geographic placement, switching and travel remain for review.',rides:inspections.map(r=>r.name+' — construction study')};sites['california-hub']=site;
- const summit=.43;let last=0,roundProgress=0;
- function pose(r){r.cars.forEach((car,i)=>{const u=(r.progress-i*.018+1)%1;car.position.copy(r.path.getPointAt(u));car.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),r.path.getTangentAt(u));});}
- function update(time){const dt=Math.max(0,Math.min(.1,time-last));last=time;const rideTime=time*5;wild.progress=rideTime/49%1;burst.progress=rideTime/55%1;burstSky.progress=rideTime/62%1;tree.progress=rideTime/71%1;const t=rideTime%70;dome.progress=t<28?t/28*summit:t<34?summit:summit+(t-34)/36*(1-summit);dome.phase=t<28?'Dome ascent':t<34?'Summit pause':'Sky sweep and preview return';const rt=rideTime%45,held=rt<6;round.phase=held?'Turntable stop study':'Local workshop circuit';if(!held)roundProgress=(roundProgress+dt*5/39)%1;round.progress=roundProgress;turntable.rotation.y=held?Math.sin(rt/6*Math.PI)*Math.PI/2:0;rides.forEach(pose);}
+ const summit=.43;
+ function pose(r){r.cars.forEach((car,i)=>{const spacing=Math.max(.018,4.4/r.path.getLength()),u=(r.progress-i*spacing+1)%1;car.position.copy(r.path.getPointAt(u));car.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),r.path.getTangentAt(u));});}
+ function update(time){const rideTime=time*5;wild.progress=rideTime/49%1;burst.progress=rideTime/55%1;burstSky.progress=rideTime/62%1;tree.progress=rideTime/71%1;const t=rideTime%70;dome.progress=t<28?t/28*summit:t<34?summit:summit+(t-34)/36*(1-summit);dome.phase=t<28?'Dome ascent':t<34?'Summit pause':'Sky sweep and preview return';const rt=rideTime%45,held=rt<6;round.phase=held?'Turntable stop study':'Local workshop circuit';round.progress=Math.max(0,rt-6)/39;turntable.rotation.y=held?Math.sin(rt/6*Math.PI)*Math.PI/2:0;rides.forEach(pose);}
  update(0);return{site,rides,inspections,sky:burstSky,additionalSky:[tree,dome],update,turntable,round,dome};
 }
 

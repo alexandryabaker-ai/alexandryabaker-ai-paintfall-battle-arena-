@@ -30,11 +30,13 @@ export function buildRegionalRideParks(T,{group,destination}) {
    obstacles.push({x:ox,z:oz,halfX:hx,halfZ:hz});
    helpers.box(group,ox,.6,oz,hx*2,1.2,hz*2,helpers.mats.purple);
   }
-  sitesList.push({id,title:park.site.title,group:model,entrance:{x,z:-61},rides:rides.filter(r=>r.cars.length>1)});
+  sitesList.push({id,title:park.site.title,group:model,entrance:{x,z:-61},rides:rides.filter(r=>r.cars.length>1||r.key==='hub-roundabout')});
  }
- let elapsed=0;
+ let elapsed=0,clock=null,inspection=false;
  function update(dt) {
-  elapsed+=Math.max(0,Math.min(.05,Number(dt)||0));
+  if(inspection)return;
+  elapsed=clock?clock.elapsed+Math.max(0,performance.now()-clock.received)/1000:
+   elapsed+Math.max(0,Math.min(.1,Number(dt)||0));
   if(!arizona){hub.update(elapsed);racing.update(elapsed);return;}
   for(const ride of motions) {
    const spacing=Math.min(.18,4.4/ride.path.getLength());
@@ -46,5 +48,7 @@ export function buildRegionalRideParks(T,{group,destination}) {
   }
  }
  update(0);
- return {sites:sitesList,obstacles,bound:230,update,syncClock(){},setInspectionMode(){}};
+ return {sites:sitesList,obstacles,bound:230,update,
+  syncClock(ms){clock={elapsed:Math.max(0,ms)/1000,received:performance.now()};},
+  setInspectionMode(enabled){inspection=!!enabled;}};
 }

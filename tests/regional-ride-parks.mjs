@@ -26,4 +26,26 @@ for(const [state,counts] of [['Arizona',[3,4]],['California',[6,4]]]){
  }
 }
 assert.equal(buildRegionalRideParks(T,{group:new T.Group(),destination:catalog['state:Utah']}),null);
+const realPerformance=globalThis.performance;
+let now=0;
+Object.defineProperty(globalThis,'performance',{configurable:true,value:{now:()=>now}});
+try{
+ const create=()=>buildRegionalRideParks(T,{group:new T.Group(),destination:catalog['state:California']});
+ const a=create(),b=create();
+ a.syncClock(20000);b.syncClock(20000);
+ a.update(0);
+ for(let frame=0;frame<100;frame++){now+=20;a.update(.02);}
+ b.update(0);
+ for(let site=0;site<2;site++)for(let ride=0;ride<a.sites[site].rides.length;ride++){
+  const first=a.sites[site].rides[ride].cars[0],second=b.sites[site].rides[ride].cars[0];
+  assert.ok(first.position.distanceTo(second.position)<1e-8,'same room time must produce the same car position after different frame histories');
+ }
+ const round=a.sites[0].rides.find(ride=>ride.key==='hub-roundabout');
+ const before=round.cars[0].position.clone();
+ a.setInspectionMode(true);now+=5000;a.update(.1);
+ assert.ok(round.cars[0].position.equals(before),'inspection freezes rides');
+ a.setInspectionMode(false);a.update(0);
+ b.update(0);
+ assert.ok(round.cars[0].position.distanceTo(b.sites[0].rides.find(ride=>ride.key==='hub-roundabout').cars[0].position)<1e-8,'resume returns to room time');
+}finally{Object.defineProperty(globalThis,'performance',{configurable:true,value:realPerformance});}
 console.log('PASS: both parks in Arizona and California, saved trains animate, shared plaza spawns and fences.');

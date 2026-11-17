@@ -30,8 +30,10 @@
     "tower-camera-occlusion-and-frame-sync",
     "tower-car-body-clearance",
     "arizona-california-world-hub-and-racing-park-previews",
-    "nevada-skyfall-and-racing-ride-cameras"
+    "nevada-skyfall-and-racing-ride-cameras",
+    "synchronized-california-ride-clock",
+    "california-train-clearance-and-preview-camera-fixes"
   ],
-  "revision": "regional-ride-parks-v13",
+  "revision": "nevada-california-bugfix-v14",
   "channel": "testing"
 }
