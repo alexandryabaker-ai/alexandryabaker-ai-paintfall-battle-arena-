@@ -25,7 +25,7 @@ for(const [state,counts] of [['Arizona',[3,4]],['California',[6,4]]]){
   }
  }
 }
-assert.equal(buildRegionalRideParks(T,{group:new T.Group(),destination:catalog['state:Utah']}),null);
+assert.equal(buildRegionalRideParks(T,{group:new T.Group(),destination:catalog['state:Florida']}),null);
 const realPerformance=globalThis.performance;
 let now=0;
 Object.defineProperty(globalThis,'performance',{configurable:true,value:{now:()=>now}});

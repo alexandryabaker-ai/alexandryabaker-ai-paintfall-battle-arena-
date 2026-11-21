@@ -32,8 +32,11 @@
     "arizona-california-world-hub-and-racing-park-previews",
     "nevada-skyfall-and-racing-ride-cameras",
     "synchronized-california-ride-clock",
-    "california-train-clearance-and-preview-camera-fixes"
+    "california-train-clearance-and-preview-camera-fixes",
+    "utah-world-hub-six-concept-previews",
+    "utah-five-approved-racing-pairings",
+    "colorado-world-hub-six-concept-previews"
   ],
-  "revision": "nevada-california-bugfix-v14",
+  "revision": "utah-colorado-parks-v15",
   "channel": "testing"
 }
