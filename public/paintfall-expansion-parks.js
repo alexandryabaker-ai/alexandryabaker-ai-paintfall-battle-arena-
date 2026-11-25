@@ -1,3 +1,4 @@
+import {buildNewMexicoHub} from './paintfall-new-mexico-hub.js';
 // First visual layouts from the saved Utah and Colorado creator directions.
 // Track shapes, colors and preview pacing are review proposals.
 const hubs={
@@ -27,6 +28,7 @@ const utahPairs=[
 ];
 
 export function buildExpansionParks(T,state,{scene,sites,mats,mesh,box,cylinder,label,rail,train}){
+ if(state==='New Mexico')return buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,rail,train});
  if(!hubs[state])return null;
  const rides=[],decorations=[],group=new T.Group();
  group.name=state.toLowerCase()+'-hub';scene.add(group);

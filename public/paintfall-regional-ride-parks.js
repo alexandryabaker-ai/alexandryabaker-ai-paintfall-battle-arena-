@@ -7,7 +7,7 @@ import {buildExpansionParks} from './paintfall-expansion-parks.js';
 
 export function buildRegionalRideParks(T,{group,destination}) {
  const arizona=destination.id==='state:Arizona';
- const expansionState=destination.id==='state:Utah'?'Utah':destination.id==='state:Colorado'?'Colorado':null;
+ const expansionState=['Utah','Colorado','New Mexico'].find(state=>destination.id==='state:'+state)||null;
  if(!arizona&&destination.id!=='state:California'&&!expansionState)return null;
  const motions=[],sites={},helpers=createParkBuildHelpers(T,motions);
  const options={scene:group,sites,...helpers};

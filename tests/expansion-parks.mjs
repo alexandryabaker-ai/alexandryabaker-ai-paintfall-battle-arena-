@@ -4,13 +4,24 @@ import catalog from '../public/paintfall-arena-catalog.js';
 import {buildRegionalRideParks} from '../public/paintfall-regional-ride-parks.js';
 globalThis.document={createElement:()=>({getContext:()=>({fillRect(){},fillText(){}})})};
 
-for(const [state,counts] of [['Utah',[6,5]],['Colorado',[6]]]){
- const scene=new T.Group(),destination=catalog['state:'+state];
+for(const [state,counts] of [['Utah',[6,5]],['Colorado',[6]],['New Mexico',[6]]]){
+ const scene=new T.Scene(),destination=catalog['state:'+state];
  const parks=buildRegionalRideParks(T,{group:scene,destination});
  assert.deepEqual(parks.sites.map(site=>site.rides.length),counts);
  assert.equal(destination.bound,parks.bound);
  const names=parks.sites[0].rides.map(ride=>ride.name);
  assert.equal(new Set(names).size,6);
+ if(state==='New Mexico'){
+  assert.deepEqual(names,['White Glow Paint Drift','CavernCanvas EchoRun','CalderaColor Coil','BalloonBloom SkyParade','SandiaSunset SkySweep','Starport PaintLaunch']);
+  assert.deepEqual(parks.sites[0].rides.map(r=>r.travelScope),['neighboring-state','neighboring-state','neighboring-state','country','country','country']);
+  assert.deepEqual(parks.sites[0].rides[2].sequence,['forested volcanic hills','glowing rock tunnel','brightening color veins during upward spiral','tunnel exit revealing drop','colorful meadow finale']);
+  assert.equal(parks.sites[0].rides[5].localNight,true);
+  assert.equal(scene.background,null,'night setting does not change the world background');
+  const sky=scene.getObjectByName('Starport ride-local night sky');
+  assert.equal(sky.material.side,T.BackSide);
+  // Ride sky must fit its own plot; other ride centers are 99 units apart.
+  assert.ok(sky.geometry.parameters.radius<49.5);
+ }
  if(state==='Utah'){
   assert.ok(names.includes('Starlight PaintFall')&&names.includes('Starlight PaintSky'));
   assert.deepEqual(parks.sites[1].rides.map(ride=>[ride.appearanceInspiration,ride.performanceInspiration]),[
@@ -34,4 +45,4 @@ for(const [state,counts] of [['Utah',[6,5]],['Colorado',[6]]]){
  scene.traverse(object=>assert.ok(object.matrixWorld.elements.every(Number.isFinite),object.name));
  assert.equal(parks.obstacles.length,parks.sites.length*4);
 }
-console.log('PASS: Utah and Colorado approved names, distinct paired Starlight rides, five Utah pairings, clear named entries, finite moving previews.');
+console.log('PASS: Utah, Colorado and New Mexico approved concepts, travel scopes, local night enclosure, clear entries and finite moving previews.');

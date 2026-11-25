@@ -35,8 +35,9 @@
     "california-train-clearance-and-preview-camera-fixes",
     "utah-world-hub-six-concept-previews",
     "utah-five-approved-racing-pairings",
-    "colorado-world-hub-six-concept-previews"
+    "colorado-world-hub-six-concept-previews",
+    "new-mexico-world-hub-six-concept-previews"
   ],
-  "revision": "utah-colorado-parks-v15",
+  "revision": "new-mexico-world-hub-v16",
   "channel": "testing"
 }

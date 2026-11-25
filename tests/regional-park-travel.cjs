@@ -32,7 +32,7 @@ const base=process.env.PAINTFALL_TEST_HTTP||'http://127.0.0.1:8194';
   send({type:'start'});
   await until(()=>state?.started);
   const own=()=>state.players.find(player=>player.id===joined.id);
-  for(const region of ['state:Nevada','state:California','state:Nevada']){
+  for(const region of ['state:Nevada','state:California','state:Utah','state:Colorado','state:New Mexico','state:Nevada']){
    const entry=catalog[region];
    for(const spawn of entry.spawns.map((point,index)=>({point,index})).filter(x=>/visitor plaza/.test(x.point.label||''))){
     send({type:'chooseDrop',region,spawn:spawn.index});
@@ -45,6 +45,6 @@ const base=process.env.PAINTFALL_TEST_HTTP||'http://127.0.0.1:8194';
     assert.equal(blocked,false,'plaza entry must be outside collision fences');
    }
   }
-  console.log('PASS: live room travel between both Nevada and California park plazas with authoritative positions and clear entries.');
+  console.log('PASS: live room travel between Nevada, California, Utah, Colorado and New Mexico park plazas with authoritative positions and clear entries.');
  }finally{socket.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});
