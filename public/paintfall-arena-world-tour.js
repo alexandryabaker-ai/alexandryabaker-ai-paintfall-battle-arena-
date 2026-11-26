@@ -3,6 +3,7 @@ import {gardenReferences} from './paintfall-garden-references.js';
 import {composedGardenReferences} from './paintfall-garden-compositions.js';
 import {createTowerMagnetPreview} from './paintfall-tower-magnet-preview.js';
 import {createTowerCamera} from './paintfall-tower-camera.js';
+import {fitReviewBounds,rideReviewBounds} from './paintfall-review-framing.js';
 const $=id=>document.getElementById(id),host=$('view');
 const catalog=window.PaintfallArenaCatalog,all=Object.values(catalog).sort((a,b)=>a.name.localeCompare(b.name)||a.type.localeCompare(b.type));
 const viewIds=['overview','ground','overhead','garden','flowers','hub','racing','racers'];
@@ -11,6 +12,19 @@ const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 let colorRequested=new URL(location.href).searchParams.get('look')!=='original';
 $('tower-magnets').checked=new URL(location.href).searchParams.get('magnets')==='1';
 let ridingTower=false,magnetPreview=null,previewCar=null,previewEyeHeight=1.6,previewFront=0,rideLabels=[];
+let selectedRide=null,rideView=new URL(location.href).searchParams.get('camera')==='top'?'top':'orbit',paused=false;
+let initialRide=new URL(location.href).searchParams.get('ride');
+function fitSelectedRide(){
+ if(!selectedRide)return;
+ const framing=fitReviewBounds(THREE,rideReviewBounds(THREE,selectedRide),host.clientWidth/host.clientHeight,rideView==='top');
+ center.copy(framing.center);distance=framing.distance;angle=.7;
+}
+function setRideView(){
+ previewCar=selectedRide&&rideView==='rider'?selectedRide.cars[0]:null;
+ if(selectedRide&&rideView!=='rider')fitSelectedRide();
+ $('ride-camera').value=rideView;
+ const url=new URL(location.href);url.searchParams.set('camera',rideView);history.replaceState(null,'',url);
+}
 const towerCamera=createTowerCamera(THREE);
 function stopTowerRide(){
  ridingTower=false;
@@ -24,7 +38,8 @@ function syncTowerPreview(){
  const parks=world?.region.parks;
  const hub=view==='hub'&&parks?.towerTrack&&parks.sites.find(site=>site.id==='hub');
  const rides=parks?.sites.find(site=>site.id===view)?.rides??[];
- previewCar=null;
+ previewCar=null;selectedRide=null;
+ $('ride-review').hidden=true;
  rideLabels=[];
  for(const site of parks?.sites??[])site.group.traverse(object=>{if(object.isSprite)rideLabels.push(object);});
  const picker=$('park-ride-select');
@@ -34,9 +49,12 @@ function syncTowerPreview(){
  }));
  picker.hidden=!rides.length;
  picker.onchange=()=>{
-  previewCar=picker.value===''?null:rides[Number(picker.value)].cars[0];
-  if(!previewCar)return;
+  selectedRide=picker.value===''?null:rides[Number(picker.value)];
+  previewCar=null;$('ride-review').hidden=!selectedRide;
+  const url=new URL(location.href);if(selectedRide)url.searchParams.set('ride',picker.value);else url.searchParams.delete('ride');history.replaceState(null,'',url);
+  if(!selectedRide){fit();return;}
   stopTowerRide();
+  previewCar=selectedRide.cars[0];
   previewCar.updateWorldMatrix(true,true);
   const inverse=previewCar.matrixWorld.clone().invert(),bounds=new THREE.Box3();
   previewCar.traverse(object=>{
@@ -46,7 +64,9 @@ function syncTowerPreview(){
   });
   previewEyeHeight=Math.max(1.6,bounds.max.y+.15);
   previewFront=bounds.max.z+.15;
+  setRideView();
  };
+ if(initialRide!==null&&rides[Number(initialRide)]){picker.value=initialRide;initialRide=null;picker.onchange();}
  $('tower-preview').hidden=!hub;
  if(!hub)stopTowerRide();
  const show=Boolean(hub&&$('tower-magnets').checked);
@@ -55,11 +75,15 @@ function syncTowerPreview(){
  if(!show)removeMagnetPreview();
 }
 $('tower-magnets').onchange=syncTowerPreview;
+$('ride-camera').onchange=()=>{rideView=$('ride-camera').value;stopTowerRide();setRideView();};
+$('ride-reset').onclick=()=>{if(selectedRide)fitSelectedRide();else fit();};
+$('ride-pause').onclick=()=>{paused=!paused;world.region.parks?.setInspectionMode(paused||view==='racers');$('ride-pause').textContent=paused?'Resume motion':'Pause motion';$('ride-pause').setAttribute('aria-pressed',String(paused));};
 $('tower-ride').onclick=()=>{
  if(ridingTower){stopTowerRide();return;}
  const parks=world?.region.parks;
  if(!parks?.towerTrack||view!=='hub')return;
  previewCar=null;
+ selectedRide=null;$('ride-review').hidden=true;
  $('park-ride-select').value='';
  parks.syncClock(globalThis.PaintfallTowerRide.DWELL_MS);
  parks.update(0);
@@ -74,12 +98,12 @@ function syncColors(){
 for(const [id,enabled]of [['look-original',false],['look-pop',true]])$(id).onclick=()=>{colorRequested=enabled;syncColors();const url=new URL(location.href);url.searchParams.set('look',enabled?'pop':'original');history.replaceState(null,'',url);};
 function kind(p){return p.type==='state'?'U.S. state':'Country / territory';}
 function fit(){
- world.region.parks?.setInspectionMode(view==='racers');
+ world.region.parks?.setInspectionMode(paused||view==='racers');
  if(view==='racers'&&world.region.parks){distance=6;angle=.7;return;}
  const bounds=new THREE.Box3(),park=world.region.parks?.sites.find(p=>p.id===view);if(park){park.group.updateWorldMatrix(true,true);bounds.expandByObject(park.group);}else if(['garden','flowers'].includes(view)&&world.region.garden){const focus=view==='flowers'?world.region.garden.paintFlowers.group:world.region.garden.group;focus.updateWorldMatrix(true,true);bounds.expandByObject(focus);}else for(const child of world.region.group.children)if(!['Level regional arena terrain','Arena movement boundary'].includes(child.name))bounds.expandByObject(child);
  if(bounds.isEmpty())center.set(0,1,0);else bounds.getCenter(center);
- center.y=1;const size=bounds.isEmpty()?new THREE.Vector3(40,10,40):bounds.getSize(new THREE.Vector3());
- distance=clamp(Math.max(size.x,size.z)*.95,view==='flowers'?7:view==='garden'?22:36,['overview','overhead'].includes(view)?600:180);angle=['garden','flowers'].includes(view)?Math.PI+.2:.7;
+ const framing=fitReviewBounds(THREE,bounds,host.clientWidth/host.clientHeight,view==='overhead');
+ center.copy(framing.center);distance=framing.distance;angle=['garden','flowers'].includes(view)?Math.PI+.2:.7;
 }
 function choose(id){
  if(!world||!catalog[id])return;
@@ -117,18 +141,19 @@ for(const id of ['country:Mexico','state:Arizona','country:Vietnam','country:Sen
 }
 const fingers=new Map();let pinch=0;
 host.addEventListener('pointerdown',e=>{fingers.set(e.pointerId,{x:e.clientX,y:e.clientY});host.setPointerCapture(e.pointerId);drag={x:e.clientX,y:e.clientY};if(fingers.size===2){const a=[...fingers.values()];pinch=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);}});
-host.addEventListener('pointermove',e=>{if(!fingers.has(e.pointerId))return;fingers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(fingers.size===2){const a=[...fingers.values()],next=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pinch>0&&next>0)distance=clamp(distance*pinch/next,8,125);pinch=next;}else if(drag){angle-=(e.clientX-drag.x)*.008;drag={x:e.clientX,y:e.clientY};}});
+host.addEventListener('pointermove',e=>{if(!fingers.has(e.pointerId))return;fingers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(fingers.size===2){const a=[...fingers.values()],next=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pinch>0&&next>0)distance=clamp(distance*pinch/next,3,1600);pinch=next;}else if(drag){angle-=(e.clientX-drag.x)*.008;drag={x:e.clientX,y:e.clientY};}});
 for(const event of ['pointerup','pointercancel','lostpointercapture'])host.addEventListener(event,e=>{fingers.delete(e.pointerId);drag=null;pinch=0;});
-host.addEventListener('wheel',e=>{e.preventDefault();distance=clamp(distance*Math.exp(e.deltaY*.001),8,125);},{passive:false});
+host.addEventListener('wheel',e=>{e.preventDefault();distance=clamp(distance*Math.exp(e.deltaY*.001),3,1600);},{passive:false});
 function render(now){
  if(turn&&!document.hidden)angle+=Math.min(.05,(now-previousTime)/1000)*.12;previousTime=now;
  if(world&&current&&!document.hidden){
   world.updateParks();
-  const spawn=current.spawns[0];let cx=center.x,cy=1,cz=center.z,ex=cx+Math.sin(angle)*distance,ez=cz+Math.cos(angle)*distance,ey=distance*.48;
-  if(view==='overhead'){ey=distance*1.05;ex=cx;ez=cz+.01;}
+  const spawn=current.spawns[0];let cx=center.x,cy=center.y,cz=center.z,ex=cx+Math.sin(angle)*distance,ez=cz+Math.cos(angle)*distance,ey=cy+distance*.48;
+  if(view==='overhead'||(selectedRide&&rideView==='top')){ey=cy+distance*1.05;ex=cx;ez=cz+.01;}
   if(view==='ground'){ex=spawn.x;ez=spawn.z;ey=1.6;cx=ex-Math.sin(angle)*18;cz=ez-Math.cos(angle)*18;cy=1.6;}
   if(view==='racers'&&world.region.parks?.towerTrack){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
   const parks=world.region.parks;
+  const backdrop=world.region.group.getObjectByName('Starport ride-local night sky');if(backdrop)backdrop.visible=!!(previewCar&&selectedRide?.localNight);
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
   let up;
   for(const label of rideLabels)label.visible=!(previewCar||ridingTower);
@@ -150,7 +175,7 @@ function render(now){
   if(magnetPreview)magnetPreview.update(parks.towerTrack.elapsed);
   world.scene.fog.near=['overview','overhead'].includes(view)?350:92;
   world.scene.fog.far=['overview','overhead'].includes(view)?1200:750;
-  world.setCameraPose({ex,ey,ez,cx,cy,cz,up,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:1200,mode:'review'});world.render();
+  world.setCameraPose({ex,ey,ez,cx,cy,cz,up,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:4000,mode:'review'});world.render();
  }requestAnimationFrame(render);
 }
 try{world=createWorld(host);const initial=new URL(location.href).searchParams.get('place');current=catalog[initial]||catalog['country:Mexico'];filter();requestAnimationFrame(render);}catch(error){$('status').textContent='The 3D tour could not start. Try a browser with WebGL enabled.';console.error(error);}
