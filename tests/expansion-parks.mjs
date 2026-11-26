@@ -30,6 +30,8 @@ for(const [state,counts] of [['Utah',[6,5]],['Colorado',[6]],['New Mexico',[6]]]
   ]);
  }
  for(const site of parks.sites){
+  assert.equal(site.group.position.x,site.id==='hub'?0:190,'center hub and east racing');
+  assert.equal(site.group.position.z,0);
   const spawn=destination.spawns.find(p=>p.x===site.entrance.x&&p.z===site.entrance.z);
   assert.ok(spawn,'named map entry');
   assert.ok(!destination.obstacles.some(o=>Math.abs(spawn.x-o.x)<o.halfX+.6&&Math.abs(spawn.z-o.z)<o.halfZ+.6),'entry clears fences');

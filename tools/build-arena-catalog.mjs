@@ -15,13 +15,14 @@ for(const destination of destinations){
   const blocked=(x,z)=>obstacles.some(o=>Math.abs(x-o.x)<o.halfX+.6&&Math.abs(z-o.z)<o.halfZ+.6);
   const spawns=[];
   for(let i=0;i<16000&&spawns.length<16;i++){
-   const a=i*2.4,r=Math.sqrt(i)*.45,x=Math.cos(a)*r,z=Math.sin(a)*r;
-   if(Math.abs(x)>60||Math.abs(z)>60||blocked(x,z)||spawns.some(p=>Math.hypot(p.x-x,p.z-z)<3))continue;
+   const a=i*2.4,r=Math.sqrt(i)*.45,x=Math.cos(a)*r,z=105+Math.sin(a)*r;
+   if(Math.abs(x)>60||Math.abs(z-105)>60||blocked(x,z)||spawns.some(p=>Math.hypot(p.x-x,p.z-z)<3))continue;
    spawns.push({x,z});
   }
   if(spawns.length!==16)throw Error('Not enough unobstructed spawns');
   if(region.parks)region.parks.sites.forEach((site,i)=>{const p=site.entrance;if(blocked(p.x,p.z))throw Error('Blocked park entrance '+site.id);spawns[14+i]={...p};});
-  regions[destination.id]={...destination,bound:region.bound,obstacles,spawns,homes:region.homes?.homes?.length||0,animals:region.wildlife?.animals?.length||0,...(region.parks?{parks:region.parks.sites.map(({id,title,entrance,status},i)=>({id,title,entrance,status,spawn:14+i,boardingEnabled:false}))}:{}),...(region.garden?{garden:{...region.garden.center,theme:region.garden.theme,status:region.garden.status,identityStatus:region.garden.identityStatus}}:{})};
+  if(region.garden){const p={x:region.garden.center.x,z:region.garden.center.z-12,label:'Garden Park visitor plaza'};if(blocked(p.x,p.z))throw Error('Blocked garden entry');spawns[13]=p;}
+  regions[destination.id]={...destination,bound:region.bound,parkLayout:region.parkLayout,obstacles,spawns,homes:region.homes?.homes?.length||0,animals:region.wildlife?.animals?.length||0,...(region.parks?{parks:region.parks.sites.map(({id,title,entrance,status,group},i)=>({id,title,entrance,status,spawn:14+i,boardingEnabled:!!group.userData.boardingEnabled}))}:{}),...(region.garden?{garden:{...region.garden.center,theme:region.garden.theme,status:region.garden.status,identityStatus:region.garden.identityStatus}}:{})};
   region.update(.016,new T.Vector3());
   disposeRegion(region);
   console.log('PASS '+destination.id+' • '+regions[destination.id].homes+' homes • '+regions[destination.id].animals+' animals');

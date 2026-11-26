@@ -4,6 +4,7 @@ import {buildArenaGarden} from './paintfall-arena-gardens.js';
 import {createArenaSurfaceMaterial} from './paintfall-arena-surface.js';
 import {buildNevadaArenaParks} from './paintfall-arena-nevada-parks.js';
 import {buildRegionalRideParks} from './paintfall-regional-ride-parks.js';
+import {PARK_LAYOUT,PARK_BOUND,NEIGHBORHOOD_OFFSET,buildParkReservations} from './paintfall-park-layout.js';
 
 export function disposeRegion(region){
  if(!region)return;
@@ -20,13 +21,18 @@ export function buildArenaRegion(T,scene,destination){
  const group=new T.Group();group.name=destination.name+' arena';
  const explorer={position:new T.Vector3()},ground=(x,z)=>Math.abs(x)<=80&&Math.abs(z)<=80?new T.Vector3(x,.012,z):null;
  try{
-  const assets=buildRegionalAssets(T,{land:group,...destination,ground,explorer});
-  const garden=buildArenaGarden(T,{group,destination,obstacles:assets.obstacles,waterBounds:assets.landmarks?.waterBounds,style:assets.style});
-  // Wildlife route checks retain this array; share the added garden obstacles.
-  if(garden)assets.obstacles.push(...garden.obstacles);
+  const neighborhood=new T.Group();neighborhood.name='Preserved regional neighborhood';
+  neighborhood.position.set(NEIGHBORHOOD_OFFSET.x,0,NEIGHBORHOOD_OFFSET.z);group.add(neighborhood);
+  const localExplorer={position:new T.Vector3()};
+  const assets=buildRegionalAssets(T,{land:neighborhood,...destination,ground,explorer:localExplorer});
+  // Keep wildlife's local collision coordinates intact; publish translated world collisions.
+  const obstacles=assets.obstacles.map(o=>({...o,x:o.x+NEIGHBORHOOD_OFFSET.x,z:o.z+NEIGHBORHOOD_OFFSET.z}));
+  const garden=buildArenaGarden(T,{group,destination,obstacles,style:assets.style});
+  if(garden)obstacles.push(...garden.obstacles);
   const parks=buildNevadaArenaParks(T,{group,destination})??buildRegionalRideParks(T,{group,destination});
-  if(parks)assets.obstacles.push(...parks.obstacles);
-  const bound=parks?.bound||70;
+  if(parks)obstacles.push(...parks.obstacles);
+  buildParkReservations(T,group,{parks,garden});
+  const bound=PARK_BOUND;
   const palette={forest:0x82916a,desert:0xc6ac81,coast:0xc5c09b,ice:0xc9dde0,mountain:0x9ca18a,volcano:0x8c8a85,lake:0xa3af88,wetland:0x94a281,prairie:0xb9b982,river:0xa2af88,cave:0xaaa28b};
   const surfaceKind=['desert','coast'].includes(assets.style)?'sand':['ice','volcano','cave'].includes(assets.style)?'stone':'grass';
   const surface=new T.Mesh(new T.PlaneGeometry((bound+10)*2,(bound+10)*2,32,32),createArenaSurfaceMaterial(T,palette[assets.style]||palette.forest,surfaceKind));
@@ -34,7 +40,7 @@ export function buildArenaRegion(T,scene,destination){
   const points=[[-bound,-bound],[bound,-bound],[bound,bound],[-bound,bound],[-bound,-bound]].map(([x,z])=>new T.Vector3(x,.04,z));
   const boundary=new T.Line(new T.BufferGeometry().setFromPoints(points),new T.LineBasicMaterial({color:0x265f67}));boundary.name='Arena movement boundary';group.add(boundary);
   scene.add(group);
-  const result={...assets,garden,parks,bound,group,explorer,destination,get interactionTime(){return assets.interactionTime;},update(dt,p,parksUpdated=false){if(p)explorer.position.copy(p);assets.update(dt);garden?.update(dt);if(!parksUpdated)parks?.update(dt);applyArenaComfort(T,result,globalThis.window?.PAINTFALL_COMFORT_CHOICES||[]);}};
+  const result={...assets,obstacles,garden,parks,bound,group,explorer,destination,parkLayout:PARK_LAYOUT,get interactionTime(){return assets.interactionTime;},update(dt,p,parksUpdated=false){if(p)explorer.position.copy(p);localExplorer.position.copy(explorer.position).sub(neighborhood.position);assets.update(dt);garden?.update(dt);if(!parksUpdated)parks?.update(dt);applyArenaComfort(T,result,globalThis.window?.PAINTFALL_COMFORT_CHOICES||[]);}};
   return result;
  }catch(error){disposeRegion({group});throw error;}
 }

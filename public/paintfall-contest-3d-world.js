@@ -582,6 +582,8 @@ export function createWorld(host) {
     colorLook.restore();
     bullRides.dispose();
     disposeRegion(region);region=next;regionId=id;
+    scene.fog.far=Math.max(230,next.bound*2.5);
+    regionalOutline.splice(0,regionalOutline.length,[-next.bound,-next.bound],[next.bound,-next.bound],[next.bound,next.bound],[-next.bound,next.bound]);
     setColorLook(colorLookEnabled);
     colliders.length=0;
     for(const o of destination.obstacles)colliders.push({type:'box',x:o.x,z:o.z,y:3,width:o.halfX*2,depth:o.halfZ*2,height:6});

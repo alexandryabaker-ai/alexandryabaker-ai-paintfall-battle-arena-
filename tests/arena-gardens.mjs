@@ -12,10 +12,19 @@ const scene=new T.Scene();let count=0,benchCount=0;
 for(const destination of destinations){
  const region=buildArenaRegion(T,scene,destination),garden=region.garden;
  assert.deepEqual(region.obstacles.map(({x,z,halfX,halfZ})=>({x,z,halfX,halfZ})),catalog[destination.id].obstacles,'live scene and server collision geometry match '+destination.id);
+ assert.deepEqual(region.parkLayout,catalog[destination.id].parkLayout,'shared compass layout');
+ assert.equal(region.bound,300);
+ const built=new Set(region.parks?.sites.map(site=>site.id)||[]);if(garden)built.add('garden');
+ for(const [id,slot]of Object.entries(region.parkLayout)){
+  const marker=region.group.children.find(child=>child.userData.parkType===id);
+  if(!built.has(id)){assert.ok(marker,id+' reserved');assert.equal(marker.userData.status,'reserved');assert.equal(marker.position.x,slot.x);assert.equal(marker.position.z,slot.z);}
+ }
+ for(const spawn of catalog[destination.id].spawns)assert.ok(!region.obstacles.some(o=>Math.abs(spawn.x-o.x)<o.halfX+.6&&Math.abs(spawn.z-o.z)<o.halfZ+.6),'all map entries clear '+destination.id);
  if(destination.type==='country'){
   assert.ok(garden,destination.id+' garden exists');assert.equal(garden.seats.length,2);assert.equal(garden.status,'coming-soon');
   assert.deepEqual(garden.paintFlowers.group.userData.releaseParts,['fruit','seedpod','flower stamens']);assert.equal(garden.paintFlowers.group.userData.harmless,true);
   assert.ok(Math.hypot(garden.center.x,garden.center.z)>30,'garden leaves central spawn area clear');
+  assert.deepEqual(garden.center,{x:0,z:160},'every Garden Park is south');
   const droplets=garden.paintFlowers.group.getObjectByName('Harmless animated paint-flower droplets'),before=Array.from(droplets.instanceMatrix.array);
   for(let i=0;i<95;i++)garden.update(.1);assert.notDeepEqual(Array.from(droplets.instanceMatrix.array),before,'paint droplets animate');
   for(const value of droplets.instanceMatrix.array)assert.ok(Number.isFinite(value),'finite animated transforms');

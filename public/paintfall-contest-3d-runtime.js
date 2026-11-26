@@ -129,7 +129,7 @@
         ({x:cx,y:cy,z:cz}=riderCamera.target);
         up=riderCamera.up;
       }
-      world.setCameraPose({ ex, ey, ez, cx, cy, cz, up, mode: riding?'review':cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 180 });
+      world.setCameraPose({ ex, ey, ez, cx, cy, cz, up, mode: riding?'review':cameraMode, fov: projectionFov, aspect: rect.width / rect.height, near: .1, far: 800 });
       world.render();
       const destination=window.PaintfallArenaCatalog?.[arenaRegion];
       badge.textContent='PAINTFALL • '+(destination?.name||'Regional')+' ARENA';

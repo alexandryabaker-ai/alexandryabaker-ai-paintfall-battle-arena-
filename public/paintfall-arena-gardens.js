@@ -1,5 +1,6 @@
 // Garden Park foundations: scenery and a reserved entrance, not an open ride.
 import {buildGardenPaintFlowers} from './paintfall-garden-paint-flowers.js';
+import {PARK_LAYOUT} from './paintfall-park-layout.js';
 import {buildVietnamGarden} from './paintfall-vietnam-garden.js';
 import {buildLaosGarden} from './paintfall-laos-garden.js';
 import {buildCambodiaGarden} from './paintfall-cambodia-garden.js';
@@ -27,10 +28,8 @@ function seedOf(id){let s=2166136261;for(const c of id)s=Math.imul(s^c.charCodeA
 function random(seed){let s=seed;return()=>((s=Math.imul(s,1664525)+1013904223)>>>0)/4294967296;}
 function chooseSite(destination,obstacles,water){
  const blocks=[...obstacles,...(water||[]).filter(b=>b.min&&b.max).map(b=>({x:(b.min.x+b.max.x)/2,z:(b.min.z+b.max.z)/2,halfX:(b.max.x-b.min.x)/2,halfZ:(b.max.z-b.min.z)/2}))];
- const rand=random(seedOf(destination.id)),candidates=[];
- for(let i=0;i<320;i++){const a=rand()*Math.PI*2,r=34+rand()*20;candidates.push({x:Math.sin(a)*r,z:Math.cos(a)*r});}
- for(let x=-56;x<=56;x+=8)for(let z=-56;z<=56;z+=8)if(Math.hypot(x,z)>30)candidates.push({x,z});
- const site=candidates.find(p=>Math.abs(p.x)<58&&Math.abs(p.z)<58&&!blocks.some(o=>Math.abs(o.x-p.x)<o.halfX+11&&Math.abs(o.z-p.z)<o.halfZ+12));
+ const site={x:PARK_LAYOUT.garden.x,z:PARK_LAYOUT.garden.z};
+ if(blocks.some(o=>Math.abs(o.x-site.x)<o.halfX+25&&Math.abs(o.z-site.z)<o.halfZ+25))throw Error('Garden Park south reservation obstructed in '+destination.id);
  if(!site)throw Error('No clear Garden Park site in '+destination.id);
  return site;
 }

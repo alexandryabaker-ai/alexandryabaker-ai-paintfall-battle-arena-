@@ -3,6 +3,7 @@
 // the plazas; the unoccupied test tracks remain behind visible barriers.
 import {buildTiltingTowersTrack} from './paintfall-towers-coaster-track.js';
 import {createNevadaRacingVehicles} from './paintfall-nevada-racing-vehicles.js';
+import {PARK_LAYOUT,PARK_BOUND} from './paintfall-park-layout.js';
 export function buildNevadaArenaParks(T,{group,destination}){
  if(destination.id!=='state:Nevada')return null;
  const root=new T.Group();root.name='Nevada World Hub and Racin’ Park';group.add(root);
@@ -57,7 +58,7 @@ export function buildNevadaArenaParks(T,{group,destination}){
   bench(s,-17,37);bench(s,17,37);sign(p,'PAINTFALL','Explore • Watch • Create together',-12,2.3,39,9);
   s.group.userData={parkSite:id,title,status:s.status,entrance:s.entrance,boardingEnabled:false,storySeats:[{x:-17,y:.64,z:37,facing:Math.PI},{x:17,y:.64,z:37,facing:Math.PI}]};return s;
  }
- const hub=site('hub','World Hub',0,-125,43,28),h=hub.group;
+ const hub=site('hub','World Hub',PARK_LAYOUT.hub.x,PARK_LAYOUT.hub.z,43,28),h=hub.group;
  const towerTrack=buildTiltingTowersTrack(T,h);
  const towerTrain=testTrain(h,towerTrack.curve,m.purple,'PAINTFALL Towers Coaster',8);towerTrain.orientation=towerTrack.orientation;
  towerTrain.cars.forEach((car,i)=>car.name='PAINTFALL Towers Coaster passenger car '+(i+1));
@@ -70,7 +71,7 @@ export function buildNevadaArenaParks(T,{group,destination}){
  const jets=new T.Group();jets.name='Harmless Fountain of Art water arcs';h.add(jets);
  for(let i=0;i<8;i++){const a=i*Math.PI/4,pts=[[Math.cos(a)*2.5,.6,33+Math.sin(a)*2.5],[Math.cos(a),4,33+Math.sin(a)],[0,.6,33]].map(p=>new T.Vector3(...p));mesh(jets,new T.TubeGeometry(new T.CatmullRomCurve3(pts),18,.055,5,false),m.water,'Fountain water arc');}
  sign(h,'WORLD MAP / TRAVEL','Use the map button to choose a place',-21,3.2,32,12);
- const racing=site('racing','Racin’ Park',-105,-140,40,25),r=racing.group,vehicles=createNevadaRacingVehicles(T);
+ const racing=site('racing','Racin’ Park',PARK_LAYOUT.racing.x,PARK_LAYOUT.racing.z,40,25),r=racing.group,vehicles=createNevadaRacingVehicles(T);
  for(let lane=0;lane<3;lane++){
   // Keep each Nevada lift/drop/loop study in its own non-overlapping bay.
   const offset=(lane-1)*23,pts=[[-7,3,14],[-7,3,8],[-7,4,2],[-7,10,-6],[-7,20,-13],[-3,22,-18],[4,18,-18],[7,5,-12],[2,3,-8],[2,3,-3]];
@@ -86,9 +87,9 @@ export function buildNevadaArenaParks(T,{group,destination}){
  // Named reserved spaces retain the distinct kart and monster-truck directions.
  sign(r,'Ready-Set-Paint-Race','Go-karts • Coming soon',-23,2.8,32,12);
  sign(r,'Paint Splatter Cars','Monster trucks • Coming soon',23,2.8,32,12);
- box(root,-52.5,.035,-82,105,.025,6,m.sand,'Open pedestrian connection between Nevada park plazas');
+ box(root,95,.035,55,190,.025,6,m.sand,'Open pedestrian connection between Nevada park plazas');
   let elapsed=0,inspection=false,clock=null;function update(dt){if(inspection)return;dt=Math.min(.05,Math.max(0,Number(dt)||0));elapsed=clock?clock.elapsed+(performance.now()-clock.received)/1000:elapsed+dt;towerTrack.update(dt,elapsed);for(const ride of trains){if(ride.raceLane!==undefined)ride.speed=11+4*Math.min(1,elapsed/20)+.9*Math.sin(elapsed*.55+ride.raceLane*Math.PI*2/3);ride.length=ride.curve.getLength();if(ride===towerTrain){for(let i=0;i<ride.cars.length;i++){const pose=towerTrack.carPose(elapsed*1000,i);ride.cars[i].position.copy(pose.position);ride.cars[i].quaternion.copy(pose.quaternion);if(i===0)ride.distance=pose.u*ride.length;}continue;}ride.distance=(ride.distance+dt*ride.speed)%ride.length;for(let i=0;i<ride.cars.length;i++){const t=((ride.distance-i*ride.spacing)%ride.length+ride.length)%ride.length/ride.length,car=ride.cars[i];car.position.copy(ride.curve.getPointAt(t));if(ride.orientation)ride.orientation(t,car.quaternion);else car.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),ride.curve.getTangentAt(t));}}jets.scale.y=.94+Math.sin(elapsed*1.3)*.06;}
  function setInspectionMode(enabled){if(inspection===!!enabled)return;if(enabled){for(const ride of trains)if(ride.raceLane!==undefined)ride.distance=0;update(0);}inspection=!!enabled;}
  update(0);root.userData={arenaParks:true,phase:'Nevada Towers boarding and racing track tests',boardingEnabled:true,boardableRide:'towers'};
- return {group:root,sites,obstacles,bound:180,trains,towerTrack,update,setInspectionMode,syncClock(ms){clock={elapsed:Math.max(0,ms)/1000,received:performance.now()};},riderPose(index){return towerTrack.seat(elapsed*1000,index);}};
+ return {group:root,sites,obstacles,bound:PARK_BOUND,trains,towerTrack,update,setInspectionMode,syncClock(ms){clock={elapsed:Math.max(0,ms)/1000,received:performance.now()};},riderPose(index){return towerTrack.seat(elapsed*1000,index);}};
 }

@@ -79,7 +79,7 @@ function fit(){
  const bounds=new THREE.Box3(),park=world.region.parks?.sites.find(p=>p.id===view);if(park){park.group.updateWorldMatrix(true,true);bounds.expandByObject(park.group);}else if(['garden','flowers'].includes(view)&&world.region.garden){const focus=view==='flowers'?world.region.garden.paintFlowers.group:world.region.garden.group;focus.updateWorldMatrix(true,true);bounds.expandByObject(focus);}else for(const child of world.region.group.children)if(!['Level regional arena terrain','Arena movement boundary'].includes(child.name))bounds.expandByObject(child);
  if(bounds.isEmpty())center.set(0,1,0);else bounds.getCenter(center);
  center.y=1;const size=bounds.isEmpty()?new THREE.Vector3(40,10,40):bounds.getSize(new THREE.Vector3());
- distance=clamp(Math.max(size.x,size.z)*.95,view==='flowers'?7:view==='garden'?22:36,world.region.parks?180:105);angle=['garden','flowers'].includes(view)?Math.PI+.2:.7;
+ distance=clamp(Math.max(size.x,size.z)*.95,view==='flowers'?7:view==='garden'?22:36,['overview','overhead'].includes(view)?600:180);angle=['garden','flowers'].includes(view)?Math.PI+.2:.7;
 }
 function choose(id){
  if(!world||!catalog[id])return;
@@ -125,7 +125,7 @@ function render(now){
  if(world&&current&&!document.hidden){
   world.updateParks();
   const spawn=current.spawns[0];let cx=center.x,cy=1,cz=center.z,ex=cx+Math.sin(angle)*distance,ez=cz+Math.cos(angle)*distance,ey=distance*.48;
-  if(view==='overhead'){ey=distance*1.05;ex=cx+Math.sin(angle)*distance*.08;ez=cz+Math.cos(angle)*distance*.08;}
+  if(view==='overhead'){ey=distance*1.05;ex=cx;ez=cz+.01;}
   if(view==='ground'){ex=spawn.x;ez=spawn.z;ey=1.6;cx=ex-Math.sin(angle)*18;cz=ez-Math.cos(angle)*18;cy=1.6;}
   if(view==='racers'&&world.region.parks?.towerTrack){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
   const parks=world.region.parks;
@@ -148,7 +148,9 @@ function render(now){
    ({x:cx,y:cy,z:cz}=riderCamera.target);
   }
   if(magnetPreview)magnetPreview.update(parks.towerTrack.elapsed);
-  world.setCameraPose({ex,ey,ez,cx,cy,cz,up,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:320,mode:'review'});world.render();
+  world.scene.fog.near=['overview','overhead'].includes(view)?350:92;
+  world.scene.fog.far=['overview','overhead'].includes(view)?1200:750;
+  world.setCameraPose({ex,ey,ez,cx,cy,cz,up,aspect:host.clientWidth/host.clientHeight,fov:Math.PI*.32,near:.1,far:1200,mode:'review'});world.render();
  }requestAnimationFrame(render);
 }
 try{world=createWorld(host);const initial=new URL(location.href).searchParams.get('place');current=catalog[initial]||catalog['country:Mexico'];filter();requestAnimationFrame(render);}catch(error){$('status').textContent='The 3D tour could not start. Try a browser with WebGL enabled.';console.error(error);}
