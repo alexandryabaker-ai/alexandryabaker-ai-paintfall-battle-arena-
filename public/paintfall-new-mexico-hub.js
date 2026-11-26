@@ -11,10 +11,15 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
  const glow=color=>new T.MeshBasicMaterial({color});
  const names=['White Glow Paint Drift','CavernCanvas EchoRun','CalderaColor Coil','BalloonBloom SkyParade','SandiaSunset SkySweep','Starport PaintLaunch'];
  const colors=[0x78d4d4,0xa591de,0xc88764,0xea91b6,0xefae77,0x7cb2ed];
+ // First review proposal for the approved sweeping turns and dune crests.
+ // This is only the outbound themed section, not a designed connection or return.
+ const whiteGlowPoints=[[-28,3,25],[-25,3,19],[-17,4,12],[-24,6,3],[-22,8,-8],
+  [-11,5,-17],[2,3,-12],[11,6,-2],[5,10,9],[15,6,18],[26,3,9],[28,3,-2]];
  const calderaPoints=[[-25,4,20],[-28,8,5],[-22,13,-12],[-10,16,-23],[5,13,-24],
   [17,16,-16],[22,20,-5],[18,24,5],[9,28,8],[1,31,1],[5,34,-9],[16,36,-12],
   [27,32,-1],[27,15,16],[17,4,24],[0,3,26],[-15,4,24]];
  function pointsFor(index){
+  if(index===0)return whiteGlowPoints;
   if(index===2)return calderaPoints;
   return Array.from({length:32},(_,i)=>{
    const a=i/32*Math.PI*2;
@@ -25,18 +30,26 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
  }
  for(let index=0;index<6;index++){
   const parent=new T.Group();parent.position.set((index%3-1)*99,0,index<3?-65:65);group.add(parent);
-  const path=rail(parent,pointsFor(index),paint(colors[index]),true,true);
+  const path=rail(parent,pointsFor(index),paint(colors[index]),index!==0,true);
   const ride=train(parent,path,paint(colors[index]),1);
   Object.assign(ride,{name:names[index],key:'new-mexico-'+index,previewOnly:true,
    travelScope:index<3?'neighboring-state':'country',period:28});
   rides.push(ride);label(parent,ride.name,0,60,0);
   const car=ride.cars[0];
   if(index===0){
-   for(let n=0;n<7;n++){
-    const dune=mesh(parent,new T.SphereGeometry(9,12,8),paint(0xf4eedb),Math.sin(n*2)*17,1,Math.cos(n*2)*16);
-    dune.scale.set(1,.35,.7);
-    const band=mesh(parent,new T.TorusGeometry(7,.25,6,30,Math.PI),glow([0x82e8de,0xf3a6d0,0xf1d582][n%3]),dune.position.x,3,dune.position.z);
-    band.rotation.x=-Math.PI/2;animations.push({kind:'band',object:band,phase:n});
+   Object.assign(ride,{travelScope:'central-world-hub-network',sectionOnly:true,returnRoute:null,connectionTarget:null,
+    previewNote:'Outbound themed-section study. Shared-track connection and individual return route still to design.',
+    replayPreview(){this.restartRequested=true;}});
+   const dunes=[[-34,20,7,.4],[-32,-18,8,.4],[-8,-28,9,.35],[-2,6,7,.35],[18,28,6,.4],[35,8,6,.4],[-22,-8,6,.8],[5,9,6,1.1]];
+   for(const [n,[x,z,r,height]]of dunes.entries()){
+    const dune=mesh(parent,new T.SphereGeometry(r,20,12),paint(0xf4eedb),x,0,z);
+    dune.name='White Glow dune '+n;dune.scale.set(1,height,.75);
+    const band=mesh(parent,new T.TorusGeometry(r*.85,.18,6,40,Math.PI),glow([0x82e8de,0xf3a6d0,0xf1d582][n%3]),x,1+r*height,z);
+    band.rotation.x=-Math.PI/2;band.material.transparent=true;
+    animations.push({kind:'band',object:band,phase:n,ride});
+   }
+   for(const [name,[x,y,z]]of [['White Glow departure',whiteGlowPoints[0]],['Themed section ends — connection pending',whiteGlowPoints.at(-1)]]){
+    const marker=box(parent,x,y-1,z,6,.3,5,mats.cream);marker.name=name;
    }
   }
   if(index===1){
@@ -106,7 +119,9 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
  }
  function update(time){
   for(const ride of rides){
-   const u=((time/ride.period)%1+1)%1;
+   if(ride.restartRequested){ride.previewStartedAt=time;ride.restartRequested=false;}
+   const u=ride.sectionOnly?Math.max(0,Math.min(1,(time-(ride.previewStartedAt??0))/ride.period)):((time/ride.period)%1+1)%1;
+   if(ride.sectionOnly)ride.previewProgress=u;
    ride.cars[0].position.copy(ride.path.getPointAt(u));
    ride.cars[0].quaternion.setFromUnitVectors(new T.Vector3(0,0,1),ride.path.getTangentAt(u));
   }
@@ -114,7 +129,11 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
    const {object,phase,kind}=animation;
    if(kind==='balloon')object.position.y=animation.base+Math.sin(time*.6+phase)*.6;
    else if(kind==='ripple')object.scale.setScalar(1+Math.sin(time+phase)*.08);
-   else if(kind==='band')object.material.color.setHSL((time*.04+phase/7)%1,.65,.72);
+   else if(kind==='band'){
+    object.material.color.setHSL((phase/7+time*.025)%1,.65,.72);
+    const car=animation.ride.cars[0];
+    object.material.opacity=.12+.88*Math.max(0,1-Math.hypot(car.position.x-object.position.x,car.position.z-object.position.z)/16);
+   }
    else object.material.color.setHSL(phase/7,.7,.45+.25*(.5+.5*Math.sin(time*1.5-phase*.7)));
   }
  }

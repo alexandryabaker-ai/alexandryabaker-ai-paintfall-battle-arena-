@@ -13,7 +13,7 @@ for(const [state,counts] of [['Utah',[6,5]],['Colorado',[6]],['New Mexico',[6]]]
  assert.equal(new Set(names).size,6);
  if(state==='New Mexico'){
   assert.deepEqual(names,['White Glow Paint Drift','CavernCanvas EchoRun','CalderaColor Coil','BalloonBloom SkyParade','SandiaSunset SkySweep','Starport PaintLaunch']);
-  assert.deepEqual(parks.sites[0].rides.map(r=>r.travelScope),['neighboring-state','neighboring-state','neighboring-state','country','country','country']);
+  assert.deepEqual(parks.sites[0].rides.map(r=>r.travelScope),['central-world-hub-network','neighboring-state','neighboring-state','country','country','country']);
   assert.deepEqual(parks.sites[0].rides[2].sequence,['forested volcanic hills','glowing rock tunnel','brightening color veins during upward spiral','tunnel exit revealing drop','colorful meadow finale']);
   assert.equal(parks.sites[0].rides[5].localNight,true);
   assert.equal(scene.background,null,'night setting does not change the world background');

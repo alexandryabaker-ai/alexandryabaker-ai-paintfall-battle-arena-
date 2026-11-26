@@ -52,7 +52,10 @@ function syncTowerPreview(){
   selectedRide=picker.value===''?null:rides[Number(picker.value)];
   previewCar=null;$('ride-review').hidden=!selectedRide;
   const url=new URL(location.href);if(selectedRide)url.searchParams.set('ride',picker.value);else url.searchParams.delete('ride');history.replaceState(null,'',url);
+  $('ride-replay').hidden=!selectedRide?.replayPreview;
+  $('ride-section-note').textContent=selectedRide?.previewNote||'';
   if(!selectedRide){fit();return;}
+  selectedRide.replayPreview?.();
   stopTowerRide();
   previewCar=selectedRide.cars[0];
   previewCar.updateWorldMatrix(true,true);
@@ -77,6 +80,7 @@ function syncTowerPreview(){
 $('tower-magnets').onchange=syncTowerPreview;
 $('ride-camera').onchange=()=>{rideView=$('ride-camera').value;stopTowerRide();setRideView();};
 $('ride-reset').onclick=()=>{if(selectedRide)fitSelectedRide();else fit();};
+$('ride-replay').onclick=()=>{selectedRide?.replayPreview?.();if(paused){paused=false;world.region.parks?.setInspectionMode(view==='racers');$('ride-pause').textContent='Pause motion';$('ride-pause').setAttribute('aria-pressed','false');}};
 $('ride-pause').onclick=()=>{paused=!paused;world.region.parks?.setInspectionMode(paused||view==='racers');$('ride-pause').textContent=paused?'Resume motion':'Pause motion';$('ride-pause').setAttribute('aria-pressed',String(paused));};
 $('tower-ride').onclick=()=>{
  if(ridingTower){stopTowerRide();return;}
