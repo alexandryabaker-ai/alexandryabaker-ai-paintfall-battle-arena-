@@ -2,6 +2,7 @@
 // and approved CalderaColor buildup (October 25, 2026).
 // Geometry, colors and 28-second preview pacing are construction proposals.
 // No boarding, destination travel, physical vehicle specifications or sound triggers.
+import {addWhiteGlowSwitch} from './paintfall-white-glow-switch.js';
 export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,rail,train}) {
  const group=new T.Group();group.name='new-mexico-hub';scene.add(group);
  box(group,0,-.5,0,310,1,280,mats.sand);
@@ -12,9 +13,10 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
  const names=['White Glow Paint Drift','CavernCanvas EchoRun','CalderaColor Coil','BalloonBloom SkyParade','SandiaSunset SkySweep','Starport PaintLaunch'];
  const colors=[0x78d4d4,0xa591de,0xc88764,0xea91b6,0xefae77,0x7cb2ed];
  // First review proposal for the approved sweeping turns and dune crests.
- // This is only the outbound themed section, not a designed connection or return.
+ // The winding themed section closes into one circuit before the shared-track switch.
  const whiteGlowPoints=[[-28,3,25],[-25,3,19],[-17,4,12],[-24,6,3],[-22,8,-8],
-  [-11,5,-17],[2,3,-12],[11,6,-2],[5,10,9],[15,6,18],[26,3,9],[28,3,-2]];
+  [-11,5,-17],[2,3,-12],[11,6,-2],[5,10,9],[15,6,18],[26,3,9],[28,3,-2],
+  [36,5,-13],[35,6,-28],[22,6,-36],[-2,6,-35],[-30,6,-28],[-40,6,-8],[-40,5,20],[-35,3,36],[-31,3,31]];
  const calderaPoints=[[-25,4,20],[-28,8,5],[-22,13,-12],[-10,16,-23],[5,13,-24],
   [17,16,-16],[22,20,-5],[18,24,5],[9,28,8],[1,31,1],[5,34,-9],[16,36,-12],
   [27,32,-1],[27,15,16],[17,4,24],[0,3,26],[-15,4,24]];
@@ -30,7 +32,7 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
  }
  for(let index=0;index<6;index++){
   const parent=new T.Group();parent.position.set((index%3-1)*99,0,index<3?-65:65);group.add(parent);
-  const path=rail(parent,pointsFor(index),paint(colors[index]),index!==0,true);
+  const path=rail(parent,pointsFor(index),paint(colors[index]),true,true);
   const ride=train(parent,path,paint(colors[index]),1);
   Object.assign(ride,{name:names[index],key:'new-mexico-'+index,previewOnly:true,
    travelScope:index<3?'neighboring-state':'country',period:28});
@@ -48,9 +50,10 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
     band.rotation.x=-Math.PI/2;band.material.transparent=true;
     animations.push({kind:'band',object:band,phase:n,ride});
    }
-   for(const [name,[x,y,z]]of [['White Glow departure',whiteGlowPoints[0]],['Themed section ends — connection pending',whiteGlowPoints.at(-1)]]){
+   for(const [name,[x,y,z]]of [['White Glow departure and switch',whiteGlowPoints[0]]]){
     const marker=box(parent,x,y-1,z,6,.3,5,mats.cream);marker.name=name;
    }
+   addWhiteGlowSwitch(T,ride,{rail,box,cylinder,mats});
   }
   if(index===1){
    // Bright, open-sided chamber: formations stay inside the rail's perimeter.
@@ -120,6 +123,7 @@ export function buildNewMexicoHub(T,{scene,sites,mats,mesh,box,cylinder,label,ra
  function update(time){
   for(const ride of rides){
    if(ride.restartRequested){ride.previewStartedAt=time;ride.restartRequested=false;}
+   if(ride.updatePreview){ride.updatePreview(time-(ride.previewStartedAt??0));continue;}
    const u=ride.sectionOnly?Math.max(0,Math.min(1,(time-(ride.previewStartedAt??0))/ride.period)):((time/ride.period)%1+1)%1;
    if(ride.sectionOnly)ride.previewProgress=u;
    ride.cars[0].position.copy(ride.path.getPointAt(u));

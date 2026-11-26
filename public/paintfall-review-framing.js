@@ -11,6 +11,6 @@ export function fitReviewBounds(T,bounds,aspect,overhead=false){
 export function rideReviewBounds(T,ride){
  const bounds=new T.Box3(),path=ride.path??ride.curve,parent=ride.cars[0].parent;
  parent.updateWorldMatrix(true,false);
- for(let i=0;i<=160;i++)bounds.expandByPoint(parent.localToWorld(path.getPointAt(i/160)));
+ for(const route of ride.reviewPaths??[path])for(let i=0;i<=160;i++)bounds.expandByPoint(parent.localToWorld(route.getPointAt(i/160)));
  return bounds.expandByScalar(2);
 }

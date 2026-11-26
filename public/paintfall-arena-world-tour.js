@@ -157,6 +157,7 @@ function render(now){
   if(view==='ground'){ex=spawn.x;ez=spawn.z;ey=1.6;cx=ex-Math.sin(angle)*18;cz=ez-Math.cos(angle)*18;cy=1.6;}
   if(view==='racers'&&world.region.parks?.towerTrack){const car=world.region.parks.trains[1+Number($('race-car').value||0)].cars[0],p=car.getWorldPosition(new THREE.Vector3()),q=car.getWorldQuaternion(new THREE.Quaternion()),target=new THREE.Vector3(0,.6,0).applyQuaternion(q).add(p),offset=new THREE.Vector3(Math.sin(angle)*distance,distance*.40,Math.cos(angle)*distance).applyQuaternion(q).add(target);cx=target.x;cy=target.y;cz=target.z;ex=offset.x;ey=offset.y;ez=offset.z;}
   const parks=world.region.parks;
+  if(selectedRide?.previewStatus)$('ride-section-note').textContent=selectedRide.previewNote+' '+selectedRide.previewStatus;
   const backdrop=world.region.group.getObjectByName('Starport ride-local night sky');if(backdrop)backdrop.visible=!!(previewCar&&selectedRide?.localNight);
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
   let up;
