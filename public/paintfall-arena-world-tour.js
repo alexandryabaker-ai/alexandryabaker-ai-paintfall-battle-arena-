@@ -156,7 +156,7 @@ function render(now){
   const backdrop=world.region.group.getObjectByName('Starport ride-local night sky');if(backdrop)backdrop.visible=!!(previewCar&&selectedRide?.localNight);
   if(ridingTower&&parks.towerTrack.elapsed*1000>=globalThis.PaintfallTowerRide.CYCLE_MS)stopTowerRide();
   let up;
-  for(const label of rideLabels)label.visible=!(previewCar||ridingTower);
+  for(const label of rideLabels)label.visible=!(selectedRide||ridingTower);
   if(previewCar){
    const scale=previewCar.getWorldScale(new THREE.Vector3()).y;
    const position=previewCar.localToWorld(new THREE.Vector3(0,0,previewFront));
